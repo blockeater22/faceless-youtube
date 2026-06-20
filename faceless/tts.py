@@ -29,6 +29,8 @@ def synth(text: str, out_wav: str | Path, voice: Voice) -> None:
     try:
         if backend == "espeak":
             _espeak(text, raw, voice)
+        elif backend == "festival":
+            _festival(text, raw, voice)
         elif backend == "piper":
             _piper(text, raw, voice)
         elif backend == "gtts":
@@ -58,9 +60,27 @@ def _espeak(text: str, out: Path, voice: Voice) -> None:
         raise RuntimeError("espeak-ng not installed (apt-get install espeak-ng)")
     subprocess.run(
         [exe, "-v", voice.voice, "-s", str(voice.rate), "-p", str(voice.pitch),
-         "-g", "6", "-w", str(out), text],
+         "-w", str(out), text],
         check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
     )
+
+
+def _festival(text: str, out: Path, voice: Voice) -> None:
+    """Festival TTS - the HTS voices are statistical-parametric (no diphone
+    seams), so they sound smoother/more fluent than espeak or MBROLA. Offline,
+    no key. Install: apt-get install festival festvox-us-slt-hts
+    voice.voice = festival voice name, e.g. 'cmu_us_slt_arctic_hts'."""
+    if not shutil.which("text2wave"):
+        raise RuntimeError("festival not installed (apt-get install festival festvox-us-slt-hts)")
+    vname = voice.voice or "cmu_us_slt_arctic_hts"
+    # reuse `rate` as a pace control: lower wpm -> longer Duration_Stretch (slower)
+    stretch = max(0.7, min(1.6, 165.0 / max(60, voice.rate)))
+    eval_expr = f"(begin (voice_{vname}) (Parameter.set 'Duration_Stretch {stretch:.3f}))"
+    proc = subprocess.run(["text2wave", "-o", str(out), "-eval", eval_expr],
+                          input=text.encode("utf-8"),
+                          stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    if proc.returncode != 0 or not out.exists() or out.stat().st_size < 256:
+        raise RuntimeError(f"festival synthesis failed for voice {vname!r}")
 
 
 def _piper(text: str, out: Path, voice: Voice) -> None:
@@ -122,9 +142,10 @@ def _finalize(raw: Path, out: Path, voice: Voice) -> None:
     """Add a trailing gap and (optionally) a 'warmth' chain so the offline
     voice sounds less brittle. Output is 44.1k stereo pcm."""
     if voice.polish:
-        chain = ("highpass=f=85,lowpass=f=7900,"
-                 "acompressor=threshold=-18dB:ratio=3:attack=8:release=180,"
-                 "aecho=0.85:0.88:26:0.12,"
+        # NB: no reverb/echo - it smears speech and reads as "buffering".
+        # Gentle EQ + slow-attack compression + loudness-normalise only.
+        chain = ("highpass=f=75,lowpass=f=7600,"
+                 "acompressor=threshold=-16dB:ratio=2.5:attack=20:release=260,"
                  "loudnorm=I=-16:TP=-1.5:LRA=11,"
                  f"apad=pad_dur={voice.gap}")
     else:

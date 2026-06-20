@@ -118,12 +118,13 @@ full rundown of open-source options (you don't need ElevenLabs). Defaults used b
 the sample:
 
 ```jsonc
-"voice": { "backend": "espeak", "voice": "mb-us2", "rate": 142, "pitch": 40, "polish": true }
+"voice": { "backend": "festival", "voice": "cmu_us_slt_arctic_hts", "rate": 150, "polish": true }
 ```
 
 | Backend | Quality | Cost | Notes |
 |---|---|---|---|
-| `espeak` + **MBROLA** (`mb-us2`) | decent | free, offline | **default**; diphone voice, no key |
+| `festival` HTS (`cmu_us_slt_arctic_hts`) | good, **smooth** | free, offline | **default**; statistical voice, no diphone seams, no key |
+| `espeak` + MBROLA (`mb-us2`) | decent | free, offline | choppier; `mb-us1` female / `mb-us2` male |
 | `piper` | **very good** | free, offline | best free option; set `piper_model` to a `.onnx` |
 | `elevenlabs` | best | paid key | set `ELEVENLABS_API_KEY`, `backend:"elevenlabs"` |
 | `gtts` | good | free (online) | needs network; blocked on some hosts |
@@ -178,9 +179,14 @@ faceless/
   render.py    the engine: scene -> frames -> mp4 (+ audio mux), per aspect
   cli.py       `python -m faceless build|poses`
 stories/       story JSON files
-docs/          SCRIPT.md (the sample's VO script) + VOICES.md (TTS guide)
+branding/      make_brand.py -> profile.png + banner.png (channel art)
+docs/          SCRIPT.md (VO script) · VOICES.md (TTS guide) · CHANNEL.md (brand kit)
 output/        rendered videos
 ```
+
+## Channel branding
+Run `python branding/make_brand.py` to (re)generate the profile picture and
+banner. Name, tagline, and description live in **[docs/CHANNEL.md](docs/CHANNEL.md)**.
 
 ## Roadmap ideas
 - word-level caption timing via forced alignment (whisper) for perfect karaoke sync

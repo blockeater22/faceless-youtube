@@ -13,8 +13,8 @@ this engine via the story's `voice` block.
    monetized videos). Great if you want a step up from Piper.
 3. **Coqui XTTS-v2** — best quality + voice cloning, but heavier (GPU preferred)
    and **non-commercial license** ⚠️ — avoid for a monetized channel.
-4. **espeak-ng + MBROLA** — the robotic-but-serviceable offline fallback this
-   repo uses by default when nothing else is installed (no downloads at all).
+4. **Festival HTS** — the smoothest *zero-download* offline option; what this
+   repo uses by default in-sandbox (espeak/MBROLA is the bare-minimum fallback).
 
 > These are **TTS models**, not chat LLMs. (You *can* separately use an
 > open-source LLM like Llama/Mistral to *write* scripts — but for turning text
@@ -87,31 +87,51 @@ The **XTTS-v2 weights are CPML (non-commercial)** — fine for testing, **not** 
 a monetized channel. Coqui also ships permissively-licensed VITS models
 (`tts_models/en/ljspeech/vits`) that are commercial-safe.
 
-## 4. espeak-ng + MBROLA  ·  the always-works fallback (this repo's default)
+## 4. Festival HTS  ·  this repo's offline default · no downloads from HF
 
-No model downloads, pure apt. Robotic but clear; the ffmpeg "warmth" chain in
-`tts.py` (`polish:true`) softens it noticeably.
+The **HTS** Festival voices are *statistical-parametric* — they don't splice
+recorded diphones, so they sound noticeably **smoother / more fluent** than
+espeak or MBROLA (no choppy "buffering" seams). Pure apt, no key, no HF.
 
+```bash
+sudo apt-get install -y festival festvox-us-slt-hts
+```
+```jsonc
+"voice": { "backend": "festival", "voice": "cmu_us_slt_arctic_hts", "rate": 150, "polish": true }
+```
+`rate` is reused as a pace control (lower = slower). `cmu_us_slt_arctic_hts` is a
+clear US-English female voice.
+
+## 5. espeak-ng + MBROLA  ·  the bare-minimum fallback
+
+No model downloads either, but choppier than Festival. The `polish` chain helps.
 ```bash
 sudo apt-get install -y espeak-ng mbrola mbrola-us1 mbrola-us2 mbrola-us3
 ```
 ```jsonc
 "voice": { "backend": "espeak", "voice": "mb-us2", "rate": 142, "pitch": 40, "polish": true }
 ```
-Voices: `mb-us1` (female), `mb-us2`/`mb-us3` (male). Plain espeak (no MBROLA) is
-`"voice": "en-us+m3"` — more robotic but needs nothing but espeak-ng.
+`mb-us1` female, `mb-us2`/`mb-us3` male. Plain espeak (no MBROLA) is `"en-us+m3"`.
 
 ---
 
-## Why this repo's sample uses MBROLA (not Piper)
+## Why this repo's sample uses Festival (not Piper)
 
 This project was built inside a sandbox whose network policy **blocks
 HuggingFace** (`x-deny-reason: host_not_allowed`) — and HF is where Piper,
 Kokoro, Coqui and friends host their weights. So the committed sample is voiced
-with the fully-offline MBROLA path that needs no downloads.
+with **Festival HTS**, the smoothest fully-offline option that needs no downloads.
 
-**On your own machine, switch to Piper** (section 1) for a clear quality jump —
+**On your own machine, switch to Piper** (section 1) for another quality jump —
 just change the `voice` block; nothing else needs to change.
+
+## Tuning for "fluent, not choppy"
+The biggest fixes if a voice sounds like it's buffering/stuttering:
+- **No reverb/echo** in post — it comb-filters speech. (This repo's `polish`
+  chain uses only EQ + gentle compression + loudness-normalise.)
+- **No big inter-word gaps** (we dropped espeak's `-g`).
+- Prefer a **statistical/neural** voice (Festival HTS, Piper, Kokoro) over
+  diphone concatenation (MBROLA) when you can.
 
 ## Production tip
 Whatever backend you pick, keep `polish:true`. It EQs, adds a touch of room, and

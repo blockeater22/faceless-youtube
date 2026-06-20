@@ -18,12 +18,11 @@
     "caption": { "size": 0.05, "color": "#ffffff" }
   },
   "voice": {
-    "backend": "espeak",
-    "voice": "mb-us2",
-    "rate": 142,
-    "pitch": 40,
+    "backend": "festival",
+    "voice": "cmu_us_slt_arctic_hts",
+    "rate": 150,
     "polish": true,
-    "gap": 0.32
+    "gap": 0.3
   },
   "scenes": [
     {

@@ -1,0 +1,10 @@
+# Core rendering + audio pipeline (installed into ./.venv)
+pillow>=10.0          # procedural frame drawing
+numpy>=1.24           # easing / film grain / math
+imageio-ffmpeg>=0.5   # bundled ffmpeg fallback (system ffmpeg used if present)
+
+# Text-to-speech is pluggable (see faceless/tts.py):
+#   - espeak-ng  : offline, install via apt (default in-sandbox)
+#   - gTTS       : online Google voice (pip install gTTS) - blocked on some networks
+#   - elevenlabs : final-channel quality (pip install elevenlabs + ELEVENLABS_API_KEY)
+gTTS>=2.5

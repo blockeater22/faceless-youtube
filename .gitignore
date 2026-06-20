@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+.cache/
+# intermediate render artifacts (final mp4s under output/ ARE committed as samples)
+output/**/_audio/
+output/**/_frames/
+output/**/*.wav
+output/_check/
+output/_pose_sheet.png
+output/*.log
+*.tmp

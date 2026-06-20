@@ -1,0 +1,255 @@
+{
+  "title": "What If Every Choice You Never Made Still Happened?",
+  "handle": "@yourchannel",
+  "meta": {
+    "concept": "many-worlds / parallel lives",
+    "hook": "What if every choice you never made still happened somewhere?",
+    "cta": "Which 'you' do you think made it?"
+  },
+  "style": {
+    "background": "#0e1320",
+    "ink": "#f2ede1",
+    "accent": "#ffb454",
+    "muted": "#6f7791",
+    "fps": 24,
+    "wobble": 1.7,
+    "grain": 0.05,
+    "vignette": 0.55,
+    "caption": { "size": 0.05, "color": "#ffffff" }
+  },
+  "voice": {
+    "backend": "espeak",
+    "voice": "mb-us2",
+    "rate": 142,
+    "pitch": 40,
+    "polish": true,
+    "gap": 0.32
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "narration": "What if every choice you never made... still happened somewhere?",
+      "min_dur": 3.2,
+      "actors": [
+        { "type": "figure", "id": "hero", "color": "ink", "face": "neutral",
+          "keys": [
+            { "t": 0.0, "pos": [0.5, 0.62], "pose": "stand", "scale": 0.30, "alpha": 0 },
+            { "t": 0.2, "pos": [0.5, 0.62], "pose": "stand", "scale": 0.30, "alpha": 1 },
+            { "t": 0.6, "pos": [0.5, 0.62], "pose": "think", "scale": 0.30, "alpha": 1 },
+            { "t": 1.0, "pos": [0.5, 0.62], "pose": "think", "scale": 0.30, "alpha": 1 }
+          ] }
+      ],
+      "props": [
+        { "type": "label", "id": "q", "text": "?", "color": "accent", "size": 0.16,
+          "keys": [
+            { "t": 0.45, "pos": [0.66, 0.34], "alpha": 0, "scale": 0.4 },
+            { "t": 0.7, "pos": [0.66, 0.31], "alpha": 1, "scale": 1.0, "ease": "pop" },
+            { "t": 1.0, "pos": [0.66, 0.31], "alpha": 1, "scale": 1.0 }
+          ] }
+      ]
+    },
+    {
+      "id": "fork",
+      "narration": "Every morning, you pick one path. Left... or right.",
+      "min_dur": 3.4,
+      "actors": [
+        { "type": "figure", "id": "hero", "color": "ink", "face": "neutral",
+          "keys": [
+            { "t": 0.0, "pos": [0.5, 0.66], "pose": "stand", "scale": 0.27, "alpha": 1 },
+            { "t": 0.5, "pos": [0.5, 0.66], "pose": "shrug", "scale": 0.27, "alpha": 1 },
+            { "t": 1.0, "pos": [0.5, 0.66], "pose": "shrug", "scale": 0.27, "alpha": 1 }
+          ] }
+      ],
+      "props": [
+        { "type": "arrow", "id": "al", "color": "accent",
+          "keys": [
+            { "t": 0.2, "p1": [0.46, 0.5], "p2": [0.46, 0.5], "alpha": 0 },
+            { "t": 0.3, "p1": [0.46, 0.5], "p2": [0.46, 0.5], "alpha": 1 },
+            { "t": 0.6, "p1": [0.46, 0.5], "p2": [0.26, 0.36], "alpha": 1, "ease": "ease_out" }
+          ] },
+        { "type": "arrow", "id": "ar", "color": "muted",
+          "keys": [
+            { "t": 0.45, "p1": [0.54, 0.5], "p2": [0.54, 0.5], "alpha": 0 },
+            { "t": 0.55, "p1": [0.54, 0.5], "p2": [0.54, 0.5], "alpha": 1 },
+            { "t": 0.85, "p1": [0.54, 0.5], "p2": [0.74, 0.36], "alpha": 1, "ease": "ease_out" }
+          ] }
+      ]
+    },
+    {
+      "id": "split",
+      "narration": "But the other you... the one who went the other way? They didn't disappear.",
+      "min_dur": 3.8,
+      "actors": [
+        { "type": "figure", "id": "hero", "color": "ink", "face": "neutral",
+          "keys": [
+            { "t": 0.0, "pos": [0.5, 0.64], "pose": "stand", "scale": 0.28, "alpha": 1 },
+            { "t": 0.45, "pos": [0.4, 0.64], "pose": "stand", "scale": 0.28, "alpha": 1 },
+            { "t": 1.0, "pos": [0.4, 0.64], "pose": "point_r", "scale": 0.28, "alpha": 1 }
+          ] },
+        { "type": "figure", "id": "ghost", "color": "muted", "face": "neutral",
+          "keys": [
+            { "t": 0.0, "pos": [0.5, 0.64], "pose": "stand", "scale": 0.28, "alpha": 0 },
+            { "t": 0.45, "pos": [0.5, 0.64], "pose": "stand", "scale": 0.28, "alpha": 0.2 },
+            { "t": 0.8, "pos": [0.62, 0.64], "pose": "stand", "scale": 0.28, "alpha": 0.85 },
+            { "t": 1.0, "pos": [0.62, 0.64], "pose": "stand", "scale": 0.28, "alpha": 0.85 }
+          ] }
+      ]
+    },
+    {
+      "id": "otherlife",
+      "narration": "They kept walking. Building a whole life out of your what-ifs.",
+      "min_dur": 3.8,
+      "actors": [
+        { "type": "figure", "id": "ghost", "color": "ink", "face": "happy",
+          "keys": [
+            { "t": 0.0, "pos": [0.34, 0.66], "pose": "walk_a", "scale": 0.26, "alpha": 1 },
+            { "t": 0.25, "pos": [0.42, 0.66], "pose": "walk_b", "scale": 0.26, "alpha": 1 },
+            { "t": 0.5, "pos": [0.5, 0.66], "pose": "walk_a", "scale": 0.26, "alpha": 1 },
+            { "t": 0.75, "pos": [0.58, 0.66], "pose": "walk_b", "scale": 0.26, "alpha": 1 },
+            { "t": 1.0, "pos": [0.6, 0.66], "pose": "stand", "scale": 0.26, "alpha": 1 }
+          ] }
+      ],
+      "props": [
+        { "type": "circle", "id": "sun", "color": "accent", "r": 0.06,
+          "keys": [
+            { "t": 0.1, "pos": [0.8, 0.3], "alpha": 0, "scale": 1.0 },
+            { "t": 0.4, "pos": [0.8, 0.24], "alpha": 1, "scale": 1.0, "ease": "ease_out" },
+            { "t": 1.0, "pos": [0.8, 0.24], "alpha": 1, "scale": 1.0 }
+          ] },
+        { "type": "path", "id": "house", "color": "muted",
+          "anchor": [0.78, 0.6], "unit": 0.34,
+          "points": [[-0.5,0.45],[-0.5,-0.1],[-0.66,-0.1],[0,-0.62],[0.66,-0.1],[0.5,-0.1],[0.5,0.45],[-0.5,0.45]],
+          "keys": [
+            { "t": 0.35, "alpha": 0, "scale": 1.0 },
+            { "t": 0.65, "alpha": 0.9, "scale": 1.0, "ease": "ease_out" },
+            { "t": 1.0, "alpha": 0.9, "scale": 1.0 }
+          ] }
+      ]
+    },
+    {
+      "id": "yes",
+      "narration": "Somewhere, you finally said yes to the thing that scared you most.",
+      "min_dur": 3.6,
+      "actors": [
+        { "type": "figure", "id": "hero", "color": "ink", "face": "happy",
+          "keys": [
+            { "t": 0.0, "pos": [0.5, 0.66], "pose": "stand", "scale": 0.30, "alpha": 1 },
+            { "t": 0.4, "pos": [0.5, 0.62], "pose": "celebrate", "scale": 0.30, "alpha": 1, "ease": "pop" },
+            { "t": 1.0, "pos": [0.5, 0.62], "pose": "celebrate", "scale": 0.30, "alpha": 1 }
+          ] }
+      ],
+      "props": [
+        { "type": "label", "id": "s1", "text": "!", "color": "accent", "size": 0.07, "front": true,
+          "keys": [
+            { "t": 0.4, "pos": [0.32, 0.36], "alpha": 0, "scale": 0.4 },
+            { "t": 0.55, "pos": [0.3, 0.34], "alpha": 1, "scale": 1.0, "ease": "pop" },
+            { "t": 1.0, "pos": [0.3, 0.34], "alpha": 1, "scale": 1.0 }
+          ] },
+        { "type": "label", "id": "s2", "text": "!", "color": "accent", "size": 0.07, "front": true,
+          "keys": [
+            { "t": 0.5, "pos": [0.7, 0.38], "alpha": 0, "scale": 0.4 },
+            { "t": 0.65, "pos": [0.72, 0.36], "alpha": 1, "scale": 1.0, "ease": "pop" },
+            { "t": 1.0, "pos": [0.72, 0.36], "alpha": 1, "scale": 1.0 }
+          ] }
+      ]
+    },
+    {
+      "id": "stayleft",
+      "narration": "Somewhere, you stayed. And somewhere, you left.",
+      "min_dur": 3.4,
+      "actors": [
+        { "type": "figure", "id": "stay", "color": "muted", "face": "sad",
+          "keys": [
+            { "t": 0.0, "pos": [0.32, 0.66], "pose": "stand", "scale": 0.26, "alpha": 1 },
+            { "t": 1.0, "pos": [0.32, 0.66], "pose": "stand", "scale": 0.26, "alpha": 1 }
+          ] },
+        { "type": "figure", "id": "leave", "color": "ink", "face": "neutral",
+          "keys": [
+            { "t": 0.0, "pos": [0.55, 0.66], "pose": "stand", "scale": 0.26, "alpha": 1 },
+            { "t": 0.3, "pos": [0.6, 0.66], "pose": "walk_a", "scale": 0.26, "alpha": 1 },
+            { "t": 0.6, "pos": [0.72, 0.66], "pose": "walk_b", "scale": 0.26, "alpha": 1 },
+            { "t": 0.95, "pos": [0.86, 0.66], "pose": "walk_a", "scale": 0.26, "alpha": 0.9 },
+            { "t": 1.0, "pos": [0.9, 0.66], "pose": "walk_a", "scale": 0.26, "alpha": 0 }
+          ] }
+      ]
+    },
+    {
+      "id": "many",
+      "narration": "Thousands of you. Living every single life you almost chose.",
+      "min_dur": 4.0,
+      "actors": [
+        { "type": "figure", "id": "m1", "color": "ink", "face": "dots",
+          "keys": [ { "t": 0.0, "pos": [0.16, 0.5], "pose": "stand", "scale": 0.14, "alpha": 0 },
+                    { "t": 0.25, "pos": [0.16, 0.5], "pose": "wave", "scale": 0.14, "alpha": 1 },
+                    { "t": 1.0, "pos": [0.16, 0.5], "pose": "wave", "scale": 0.14, "alpha": 1 } ] },
+        { "type": "figure", "id": "m2", "color": "muted", "face": "dots",
+          "keys": [ { "t": 0.1, "pos": [0.34, 0.42], "pose": "stand", "scale": 0.13, "alpha": 0 },
+                    { "t": 0.35, "pos": [0.34, 0.42], "pose": "celebrate", "scale": 0.13, "alpha": 1 },
+                    { "t": 1.0, "pos": [0.34, 0.42], "pose": "celebrate", "scale": 0.13, "alpha": 1 } ] },
+        { "type": "figure", "id": "m3", "color": "ink", "face": "dots",
+          "keys": [ { "t": 0.2, "pos": [0.5, 0.56], "pose": "stand", "scale": 0.15, "alpha": 0 },
+                    { "t": 0.45, "pos": [0.5, 0.56], "pose": "point_up", "scale": 0.15, "alpha": 1 },
+                    { "t": 1.0, "pos": [0.5, 0.56], "pose": "point_up", "scale": 0.15, "alpha": 1 } ] },
+        { "type": "figure", "id": "m4", "color": "muted", "face": "dots",
+          "keys": [ { "t": 0.3, "pos": [0.66, 0.42], "pose": "stand", "scale": 0.13, "alpha": 0 },
+                    { "t": 0.55, "pos": [0.66, 0.42], "pose": "shrug", "scale": 0.13, "alpha": 1 },
+                    { "t": 1.0, "pos": [0.66, 0.42], "pose": "shrug", "scale": 0.13, "alpha": 1 } ] },
+        { "type": "figure", "id": "m5", "color": "ink", "face": "dots",
+          "keys": [ { "t": 0.4, "pos": [0.84, 0.5], "pose": "stand", "scale": 0.14, "alpha": 0 },
+                    { "t": 0.65, "pos": [0.84, 0.5], "pose": "wave", "scale": 0.14, "alpha": 1 },
+                    { "t": 1.0, "pos": [0.84, 0.5], "pose": "wave", "scale": 0.14, "alpha": 1 } ] }
+      ]
+    },
+    {
+      "id": "resolve",
+      "narration": "So tonight, when you wonder what if... remember: somewhere, you already are.",
+      "min_dur": 4.6,
+      "actors": [
+        { "type": "figure", "id": "hero", "color": "ink", "face": "neutral",
+          "keys": [
+            { "t": 0.0, "pos": [0.5, 0.68], "pose": "stand", "scale": 0.3, "alpha": 1 },
+            { "t": 0.5, "pos": [0.5, 0.68], "pose": "look_up", "scale": 0.3, "alpha": 1 },
+            { "t": 1.0, "pos": [0.5, 0.68], "pose": "look_up", "scale": 0.3, "alpha": 1 }
+          ] }
+      ],
+      "props": [
+        { "type": "label", "id": "st1", "text": "*", "color": "accent", "size": 0.05,
+          "keys": [ { "t": 0.3, "pos": [0.26, 0.24], "alpha": 0, "scale": 0.5 },
+                    { "t": 0.55, "pos": [0.26, 0.24], "alpha": 1, "scale": 1.0, "ease": "pop" },
+                    { "t": 1.0, "pos": [0.26, 0.24], "alpha": 1, "scale": 1.0 } ] },
+        { "type": "label", "id": "st2", "text": "*", "color": "ink", "size": 0.04,
+          "keys": [ { "t": 0.4, "pos": [0.46, 0.18], "alpha": 0, "scale": 0.5 },
+                    { "t": 0.6, "pos": [0.46, 0.18], "alpha": 1, "scale": 1.0, "ease": "pop" },
+                    { "t": 1.0, "pos": [0.46, 0.18], "alpha": 1, "scale": 1.0 } ] },
+        { "type": "label", "id": "st3", "text": "*", "color": "accent", "size": 0.05,
+          "keys": [ { "t": 0.5, "pos": [0.68, 0.22], "alpha": 0, "scale": 0.5 },
+                    { "t": 0.7, "pos": [0.68, 0.22], "alpha": 1, "scale": 1.0, "ease": "pop" },
+                    { "t": 1.0, "pos": [0.68, 0.22], "alpha": 1, "scale": 1.0 } ] },
+        { "type": "label", "id": "st4", "text": "*", "color": "ink", "size": 0.04,
+          "keys": [ { "t": 0.6, "pos": [0.78, 0.3], "alpha": 0, "scale": 0.5 },
+                    { "t": 0.78, "pos": [0.78, 0.3], "alpha": 1, "scale": 1.0, "ease": "pop" },
+                    { "t": 1.0, "pos": [0.78, 0.3], "alpha": 1, "scale": 1.0 } ] }
+      ]
+    },
+    {
+      "id": "cta",
+      "narration": "Which you do you think made it? Follow, and decide for yourself.",
+      "min_dur": 3.4,
+      "actors": [
+        { "type": "figure", "id": "hero", "color": "ink", "face": "happy",
+          "keys": [
+            { "t": 0.0, "pos": [0.5, 0.66], "pose": "stand", "scale": 0.3, "alpha": 1 },
+            { "t": 0.4, "pos": [0.5, 0.66], "pose": "wave", "scale": 0.3, "alpha": 1 },
+            { "t": 0.7, "pos": [0.5, 0.66], "pose": "wave", "scale": 0.3, "alpha": 1 },
+            { "t": 1.0, "pos": [0.5, 0.66], "pose": "wave", "scale": 0.3, "alpha": 1 }
+          ] }
+      ],
+      "props": [
+        { "type": "label", "id": "heart", "text": "+", "color": "accent", "size": 0.08,
+          "keys": [ { "t": 0.45, "pos": [0.68, 0.4], "alpha": 0, "scale": 0.4 },
+                    { "t": 0.65, "pos": [0.68, 0.37], "alpha": 1, "scale": 1.0, "ease": "pop" },
+                    { "t": 1.0, "pos": [0.68, 0.34], "alpha": 0.8, "scale": 1.0 } ] }
+      ]
+    }
+  ]
+}

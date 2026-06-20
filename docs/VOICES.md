@@ -22,34 +22,38 @@ this engine via the story's `voice` block.
 
 ---
 
-## 1. Piper  ·  free · offline · no key · ★ recommended
+## 1. Piper  ·  free · offline · no key · ★ the project default
 
 [`rhasspy/piper`](https://github.com/OHF-Voice/piper1-gpl) — fast neural TTS that
-runs on CPU.
+runs on CPU. **This is what gives you a bold, natural narrator** instead of the
+soft/robotic offline fallbacks.
+
+**The project is already wired for it.** One command on your own machine:
 
 ```bash
-pip install piper-tts
-# download a voice (this pulls weights from HuggingFace):
-python -m piper.download_voices en_US-lessac-medium
-#   -> en_US-lessac-medium.onnx  +  en_US-lessac-medium.onnx.json
+bash scripts/setup_piper.sh          # installs piper-tts + grabs en_US-ryan-high
+python -m faceless build stories/what_if_unmade_choices.json   # uses Piper now
 ```
 
-Then in your story:
+The sample story's `voice` block already points at it:
 
 ```jsonc
 "voice": {
   "backend": "piper",
-  "piper_model": "voices/en_US-lessac-medium.onnx",
-  "piper_length": 1.05,        // >1 = slower / more deliberate
+  "piper_model": "voices/en_US-ryan-high.onnx",
+  "piper_length": 1.0,        // >1 = slower / more deliberate
   "polish": true
 }
 ```
 
-Good story-narrator voices: `en_US-lessac-medium`, `en_US-ryan-high`,
-`en_GB-alan-medium`, `en_US-amy-medium`. Browse + listen:
-<https://rhasspy.github.io/piper-samples/>.
+**Bold narrator voices** (re-run `setup_piper.sh <name>` to fetch another):
+- `en_US-ryan-high` — warm, confident American male *(default)*
+- `en_GB-alan-medium` — deep, calm British male
+- `en_US-joe-medium` — deep American male
+- `en_GB-northern_english_male-medium` — distinctive deep British
 
-The backend is already implemented in `faceless/tts.py` (`_piper`).
+Browse + listen first: <https://rhasspy.github.io/piper-samples/>.
+Swap voices per render with `--voice piper --piper-model voices/<name>.onnx`.
 
 ## 2. Kokoro-82M  ·  free · offline · Apache-2.0
 
@@ -115,15 +119,19 @@ sudo apt-get install -y espeak-ng mbrola mbrola-us1 mbrola-us2 mbrola-us3
 
 ---
 
-## Why this repo's sample uses Festival (not Piper)
+## Default = Piper, with an automatic offline fallback
 
-This project was built inside a sandbox whose network policy **blocks
-HuggingFace** (`x-deny-reason: host_not_allowed`) — and HF is where Piper,
-Kokoro, Coqui and friends host their weights. So the committed sample is voiced
-with **Festival HTS**, the smoothest fully-offline option that needs no downloads.
+The story is configured for **Piper** (`en_US-ryan-high`). When Piper or its
+voice model isn't reachable — like the sandbox this repo was built in, whose
+network policy **blocks HuggingFace** (`x-deny-reason: host_not_allowed`) — the
+engine **falls back automatically**: `piper → festival → espeak`. So:
 
-**On your own machine, switch to Piper** (section 1) for another quality jump —
-just change the `voice` block; nothing else needs to change.
+- **Your machine** (after `scripts/setup_piper.sh`): renders with the bold Piper voice.
+- **This sandbox / no model**: silently falls back to Festival HTS, so the
+  committed sample still renders (just with the softer voice).
+
+That fallback lives in `faceless/tts.py` (`_fallback_voice`) — a missing neural
+model never breaks a render.
 
 ## Tuning for "fluent, not choppy"
 The biggest fixes if a voice sounds like it's buffering/stuttering:

@@ -40,15 +40,27 @@ def synth(text: str, out_wav: str | Path, voice: Voice) -> None:
         else:
             raise ValueError(f"unknown tts backend: {voice.backend}")
     except Exception as exc:
-        # never let a missing online voice kill a render - fall back to espeak
-        if backend != "espeak" and shutil.which("espeak-ng"):
-            print(f"  [tts] {backend} failed ({exc}); falling back to espeak-ng")
-            _espeak(text, raw, voice)
-        else:
+        # never let a missing neural model kill a render: degrade gracefully
+        # (piper/elevenlabs -> festival -> espeak) keeping the requested polish.
+        fb = _fallback_voice(voice, exclude={backend})
+        if fb is None:
             raise
+        print(f"  [tts] '{backend}' unavailable ({exc}); falling back to '{fb.backend}'")
+        (_festival if fb.backend == "festival" else _espeak)(text, raw, fb)
 
     _finalize(raw, out_wav, voice)
     raw.unlink(missing_ok=True)
+
+
+def _fallback_voice(voice: Voice, exclude: set[str]) -> Voice | None:
+    """Pick the best still-available offline backend, skipping ones already tried."""
+    if "festival" not in exclude and shutil.which("text2wave"):
+        return Voice(backend="festival", voice="cmu_us_slt_arctic_hts",
+                     rate=voice.rate, polish=voice.polish, gap=voice.gap)
+    if "espeak" not in exclude and (shutil.which("espeak-ng") or shutil.which("espeak")):
+        return Voice(backend="espeak", voice="mb-us2", rate=voice.rate,
+                     pitch=voice.pitch, polish=voice.polish, gap=voice.gap)
+    return None
 
 
 # --------------------------------------------------------------------------- #

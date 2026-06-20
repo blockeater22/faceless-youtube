@@ -21,7 +21,9 @@ def _build(args) -> int:
         if bad:
             print(f"unknown format(s): {bad}; choose from {list(RESOLUTIONS)}")
             return 2
-    outputs = build(args.story, formats=fmts, outroot=args.out)
+    voice = {"backend": args.voice, "piper_model": args.piper_model,
+             "voice": args.voice_id, "rate": args.rate}
+    outputs = build(args.story, formats=fmts, outroot=args.out, voice_overrides=voice)
     print("\nFinished:")
     for p in outputs:
         print(f"  {p}  ({p.stat().st_size/1e6:.1f} MB)")
@@ -65,6 +67,10 @@ def main(argv=None) -> int:
     b.add_argument("story", help="path to a story .json")
     b.add_argument("--formats", help="comma list: 9:16,16:9,1:1 (default both 9:16 & 16:9)")
     b.add_argument("--out", default="output", help="output root dir")
+    b.add_argument("--voice", help="override TTS backend: piper|festival|espeak|elevenlabs|gtts|none")
+    b.add_argument("--piper-model", dest="piper_model", help="path to a piper .onnx voice")
+    b.add_argument("--voice-id", dest="voice_id", help="espeak/festival voice id (e.g. mb-us2)")
+    b.add_argument("--rate", type=int, help="speech rate override")
     b.set_defaults(fn=_build)
 
     s = sub.add_parser("poses", help="render a pose cheatsheet")

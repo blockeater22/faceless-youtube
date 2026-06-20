@@ -117,17 +117,29 @@ The `voice` block is **pluggable** — see **[docs/VOICES.md](docs/VOICES.md)** 
 full rundown of open-source options (you don't need ElevenLabs). Defaults used by
 the sample:
 
+The sample is **pre-configured for Piper** (a bold neural narrator) and falls
+back to Festival automatically where Piper/HuggingFace aren't reachable (like
+this sandbox). One-time setup on your own machine:
+
+```bash
+bash scripts/setup_piper.sh        # installs piper + grabs en_US-ryan-high
+python -m faceless build stories/what_if_unmade_choices.json   # now uses Piper
+```
+
 ```jsonc
-"voice": { "backend": "festival", "voice": "cmu_us_slt_arctic_hts", "rate": 150, "polish": true }
+"voice": { "backend": "piper", "piper_model": "voices/en_US-ryan-high.onnx", "rate": 150, "polish": true }
 ```
 
 | Backend | Quality | Cost | Notes |
 |---|---|---|---|
-| `festival` HTS (`cmu_us_slt_arctic_hts`) | good, **smooth** | free, offline | **default**; statistical voice, no diphone seams, no key |
-| `espeak` + MBROLA (`mb-us2`) | decent | free, offline | choppier; `mb-us1` female / `mb-us2` male |
-| `piper` | **very good** | free, offline | best free option; set `piper_model` to a `.onnx` |
-| `elevenlabs` | best | paid key | set `ELEVENLABS_API_KEY`, `backend:"elevenlabs"` |
+| `piper` (`en_US-ryan-high`) | **bold, natural** | free, offline | **default**; neural; `setup_piper.sh`. Try `en_GB-alan-medium`, `en_US-joe-medium` |
+| `festival` HTS (`cmu_us_slt_arctic_hts`) | smooth but soft | free, offline | automatic in-sandbox fallback; no key |
+| `espeak` + MBROLA (`mb-us2`) | robotic | free, offline | last-resort fallback |
+| `elevenlabs` | best | paid key | set `ELEVENLABS_API_KEY`, `backend:"elevenlabs"` (voices: Adam, Daniel, George) |
 | `gtts` | good | free (online) | needs network; blocked on some hosts |
+
+Override per render without editing JSON:
+`python -m faceless build <story> --voice piper --piper-model voices/en_US-ryan-high.onnx`
 
 `polish:true` runs an ffmpeg "warmth" chain (EQ + light room + loudness-normalise
 to ~-16 LUFS) so even the offline voice sits well in a video.

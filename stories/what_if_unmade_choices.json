@@ -22,7 +22,9 @@
     "logo_opacity": 0.72
   },
   "voice": {
-    "backend": "festival",
+    "backend": "piper",
+    "piper_model": "voices/en_US-ryan-high.onnx",
+    "piper_length": 1.0,
     "voice": "cmu_us_slt_arctic_hts",
     "rate": 150,
     "polish": true,

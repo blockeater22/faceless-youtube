@@ -360,8 +360,11 @@ def render(script: Script, outdir: str | Path, formats: list[str], audio: Path) 
 
 
 def build(story_path: str | Path, formats: list[str] | None = None,
-          outroot: str | Path = "output") -> list[Path]:
+          outroot: str | Path = "output", voice_overrides: dict | None = None) -> list[Path]:
     script = load_script(story_path)
+    for k, v in (voice_overrides or {}).items():
+        if v is not None:
+            setattr(script.voice, k, v)
     formats = formats or ["9:16", "16:9"]
     name = Path(story_path).stem
     workdir = Path(outroot) / name

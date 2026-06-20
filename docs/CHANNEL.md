@@ -50,14 +50,22 @@ crowd. Re-run `make_brand.py` after changing `NAME`/`TAGLINE`.
 > **Tiny ink figures. Huge questions.**
 >
 > Inklings turns the thoughts that keep you up at night into short, hand-drawn
-> stories — parallel lives, what-ifs, and the quietly mind-bending, one stick
-> figure at a time.
+> stories — the what-ifs, the roads not taken, and the quietly mind-bending ideas
+> hiding in everyday life. No faces, no filler. Just one stick figure, one big
+> question, and 60 seconds that stay with you long after the video ends.
 >
-> New stories every week. Stay for the one that changes how you see your own.
+> New stories every week. Some will make you think. Some will hit a little too
+> close to home. Stay for the one that changes how you see your own life.
 >
-> 👉 Which “you” do you think made it? Tell us in the comments.
+> ▶ Subscribe and start wondering.
+> 💬 Which “you” do you think made it? Tell me in the comments.
 >
-> 📩 Business: your-email@example.com
+> 📩 Business & collabs: your-email@example.com
+
+**Short version** (for the blurb under your name / tight spaces):
+
+> Hand-drawn stick-figure stories about what-ifs, parallel lives, and the quietly
+> mind-bending. One little figure, one big question. New stories weekly.
 
 ## Per-video description template
 

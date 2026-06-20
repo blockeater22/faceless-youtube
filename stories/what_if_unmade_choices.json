@@ -1,6 +1,6 @@
 {
   "title": "What If Every Choice You Never Made Still Happened?",
-  "handle": "@yourchannel",
+  "handle": "@inklings",
   "meta": {
     "concept": "many-worlds / parallel lives",
     "hook": "What if every choice you never made still happened somewhere?",
@@ -15,7 +15,11 @@
     "wobble": 1.7,
     "grain": 0.05,
     "vignette": 0.55,
-    "caption": { "size": 0.05, "color": "#ffffff" }
+    "caption": { "size": 0.05, "color": "#ffffff" },
+    "logo": "branding/watermark.png",
+    "logo_pos": "tl",
+    "logo_scale": 0.1,
+    "logo_opacity": 0.72
   },
   "voice": {
     "backend": "festival",

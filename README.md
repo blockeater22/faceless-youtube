@@ -184,9 +184,12 @@ docs/          SCRIPT.md (VO script) · VOICES.md (TTS guide) · CHANNEL.md (bra
 output/        rendered videos
 ```
 
-## Channel branding
-Run `python branding/make_brand.py` to (re)generate the profile picture and
-banner. Name, tagline, and description live in **[docs/CHANNEL.md](docs/CHANNEL.md)**.
+## Channel branding & launch
+Run `python branding/make_brand.py` to (re)generate the profile picture, banner,
+and subscribe watermark. Name, tagline, and description live in
+**[docs/CHANNEL.md](docs/CHANNEL.md)**; playlists, the first 14 video titles, a
+2/day schedule, pinned comment, and the community intro post live in
+**[docs/LAUNCH.md](docs/LAUNCH.md)**.
 
 ## Roadmap ideas
 - word-level caption timing via forced alignment (whisper) for perfect karaoke sync

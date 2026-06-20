@@ -32,6 +32,10 @@ class Style:
     grain: float = 0.05           # film-grain strength 0..1
     vignette: float = 0.55        # corner darkening 0..1
     caption: dict = field(default_factory=dict)
+    logo: str = ""                # path to a corner watermark png (e.g. branding/watermark.png)
+    logo_pos: str = "tl"          # corner: tl | tr | bl | br
+    logo_scale: float = 0.10      # fraction of short edge
+    logo_opacity: float = 0.72
 
     def color(self, value) -> tuple[int, int, int]:
         """Resolve a colour: keyword, '#rrggbb', or [r,g,b]."""

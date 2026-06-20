@@ -223,17 +223,37 @@ def _draw_caption(frame, text, reveal, size, mindim, style):
     frame.alpha_composite(layer)
 
 
-def _draw_watermark(frame, handle, size, mindim, style):
-    if not handle:
-        return
+@lru_cache(maxsize=8)
+def _load_logo(path: str, px: int) -> Image.Image:
+    return Image.open(path).convert("RGBA").resize((px, px), Image.LANCZOS)
+
+
+def _draw_watermark(frame, script, size, mindim, style):
     w, h = size
-    fs = int(0.026 * mindim)
-    font = _font(fs)
-    layer = Image.new("RGBA", size, (0, 0, 0, 0))
-    d = ImageDraw.Draw(layer)
-    d.text((w / 2, 0.055 * h), handle, font=font,
-           fill=style.color("muted") + (170,), anchor="mm")
-    frame.alpha_composite(layer)
+    logo = style.logo
+    if logo and Path(logo).exists():
+        # corner badge (+ handle text) burned into the frame
+        px = int(style.logo_scale * mindim)
+        im = _load_logo(logo, px)
+        if style.logo_opacity < 1:
+            im = im.copy()
+            im.putalpha(im.getchannel("A").point(lambda v: int(v * style.logo_opacity)))
+        m = int(0.035 * mindim)
+        x = m if "l" in style.logo_pos else w - px - m
+        y = m if "t" in style.logo_pos else h - px - m
+        frame.alpha_composite(im, (x, y))
+        if script.handle and "l" in style.logo_pos:
+            fs = max(10, int(px * 0.30))
+            d = ImageDraw.Draw(frame)
+            d.text((x + px + int(px * 0.14), y + px / 2), script.handle, font=_font(fs),
+                   anchor="lm", fill=style.color("muted") + (int(235 * style.logo_opacity),),
+                   stroke_width=max(1, fs // 12), stroke_fill=(0, 0, 0, 150))
+        return
+    if script.handle:  # fallback: centered text handle at top
+        fs = int(0.026 * mindim)
+        d = ImageDraw.Draw(frame)
+        d.text((w / 2, 0.055 * h), script.handle, font=_font(fs),
+               fill=style.color("muted") + (170,), anchor="mm")
 
 
 def render_frame(script: Script, scene: Scene, local_t: float, size, mindim, frame_idx) -> Image.Image:
@@ -255,7 +275,7 @@ def render_frame(script: Script, scene: Scene, local_t: float, size, mindim, fra
     reveal = min(1.0, local_t / (scene.duration * 0.82)) if scene.duration else 1.0
     _draw_caption(frame, scene.caption if scene.caption is not None else scene.narration,
                   reveal, size, mindim, style)
-    _draw_watermark(frame, script.handle, size, mindim, style)
+    _draw_watermark(frame, script, size, mindim, style)
 
     out = frame.convert("RGB")
     if style.grain > 0:

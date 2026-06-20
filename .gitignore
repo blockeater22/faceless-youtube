@@ -13,3 +13,4 @@ output/*.log
 branding/_wm/
 output/*.mp3
 output/_voices/
+output/[0-9]*_*/

@@ -93,14 +93,22 @@ Pin this on video #1 (it invites replies, which the algorithm rewards):
 
 ## 5) The Sunday batch workflow
 
-1. **Write** — copy `stories/what_if_unmade_choices.json` 14× (or edit the
-   narration + scenes); use the premises above as seeds. ~1 idea = 8–9 scenes.
-2. **Render** — `for f in stories/week/*.json; do python -m faceless build "$f"; done`
-   (renders 9:16 + 16:9 for each; ~2 min each on CPU).
+All 14 scripts for week 1 already exist: `stories/what_if_unmade_choices.json`
+(video #1) plus `stories/02_*.json … 14_*.json`, each ~14 scenes / 1–2 minutes.
+
+1. **Write** — edit the narration beats in `scripts/generate_stories.py` and run
+   `python scripts/generate_stories.py` to (re)emit the JSONs. Each beat is just
+   `(template, "narration", params)` — the templates handle the visuals.
+2. **Render** (Piper on your machine, see docs/VOICES.md):
+   ```bash
+   bash scripts/setup_piper.sh                       # once
+   for f in stories/*.json; do python -m faceless build "$f"; done
+   ```
+   Renders 9:16 + 16:9 for each (~2 min each on CPU).
 3. **Schedule** — upload all 14, set Visibility → **Schedule**, 2/day (one AM,
    one PM) across the week, each added to its playlist with the title +
    description template from `docs/CHANNEL.md`.
 4. **Repeat** every Sunday. The backlog means you never miss a day.
 
-> Want me to generate the 13 remaining story JSONs from these premises so the
-> renders are one command away? Just say so.
+> Length: scripts target 1–2 min via a calmer narration pace + deliberate scene
+> holds (`MIN_DUR`, `gap`, `rate`/`piper_length` in `generate_stories.py`).

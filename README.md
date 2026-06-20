@@ -190,7 +190,8 @@ faceless/
   media.py     ffmpeg discovery + audio helpers
   render.py    the engine: scene -> frames -> mp4 (+ audio mux), per aspect
   cli.py       `python -m faceless build|poses`
-stories/       story JSON files
+stories/       story JSON files (the launch batch: what_if_* + 02_*..14_*)
+scripts/       generate_stories.py (batch authoring) · setup_piper.sh (neural voice)
 branding/      make_brand.py -> profile.png + banner.png (channel art)
 docs/          SCRIPT.md (VO script) · VOICES.md (TTS guide) · CHANNEL.md (brand kit)
 output/        rendered videos

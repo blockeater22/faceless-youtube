@@ -114,11 +114,13 @@ def _draw_prop(frame, prop, t, size, mindim, style, seed, actors):
     keys = prop.get("keys", [{"t": 0}])
     s = anim.sample_keys(keys, t, {"pos": "vec", "scale": "num", "alpha": "num",
                                    "p1": "vec", "p2": "vec"})
-    alpha = s.get("alpha", 1.0)
+    alpha = s.get("alpha")
+    alpha = 1.0 if alpha is None else alpha
     if alpha <= 0.01:
         return
     w, h = size
-    scale = s.get("scale", 1.0)
+    scale = s.get("scale")
+    scale = 1.0 if scale is None else scale
     color = style.color(prop.get("color", "ink"))
     ptype = prop.get("type", "label")
 

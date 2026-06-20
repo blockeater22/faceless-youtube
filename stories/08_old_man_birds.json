@@ -1,0 +1,2671 @@
+{
+  "title": "The Old Man Fed the Birds Every Morning",
+  "handle": "@inklings",
+  "meta": {
+    "playlist": "The Twist"
+  },
+  "style": {
+    "background": "#0e1320",
+    "ink": "#f2ede1",
+    "accent": "#ffb454",
+    "muted": "#6f7791",
+    "fps": 24,
+    "wobble": 1.7,
+    "grain": 0.05,
+    "vignette": 0.55,
+    "caption": {
+      "size": 0.05,
+      "color": "#ffffff"
+    },
+    "logo": "branding/watermark.png",
+    "logo_pos": "tl",
+    "logo_scale": 0.1,
+    "logo_opacity": 0.72
+  },
+  "voice": {
+    "backend": "piper",
+    "piper_model": "voices/en_US-ryan-high.onnx",
+    "piper_length": 1.1,
+    "voice": "cmu_us_slt_arctic_hts",
+    "rate": 135,
+    "polish": true,
+    "gap": 0.5
+  },
+  "scenes": [
+    {
+      "id": "00_hook",
+      "narration": "Every morning, an old man sat on the same bench and fed the birds.",
+      "min_dur": 4.8,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "label",
+          "id": "q",
+          "text": "?",
+          "color": "accent",
+          "size": 0.16,
+          "keys": [
+            {
+              "t": 0.35,
+              "pos": [
+                0.66,
+                0.31
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.66,
+                0.29
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.66,
+                0.29
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        }
+      ]
+    },
+    {
+      "id": "01_bench",
+      "narration": "Rain or shine. Always the same crumbs. Always the same seat.",
+      "min_dur": 4.8,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "a",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.42,
+                0.61
+              ],
+              "pose": "stand",
+              "scale": 0.23,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.42,
+                0.61
+              ],
+              "pose": "stand",
+              "scale": 0.23,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.42,
+                0.61
+              ],
+              "pose": "stand",
+              "scale": 0.23,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "line",
+          "id": "seat",
+          "color": "muted",
+          "front": false,
+          "keys": [
+            {
+              "t": 0.1,
+              "alpha": 0,
+              "p1": [
+                0.32,
+                0.61
+              ],
+              "p2": [
+                0.68,
+                0.61
+              ]
+            },
+            {
+              "t": 0.35,
+              "alpha": 0.9,
+              "ease": "ease_out",
+              "p1": [
+                0.32,
+                0.61
+              ],
+              "p2": [
+                0.68,
+                0.61
+              ]
+            },
+            {
+              "t": 1,
+              "alpha": 0.9,
+              "p1": [
+                0.32,
+                0.61
+              ],
+              "p2": [
+                0.68,
+                0.61
+              ]
+            }
+          ]
+        },
+        {
+          "type": "line",
+          "id": "legL",
+          "color": "muted",
+          "front": false,
+          "keys": [
+            {
+              "t": 0.1,
+              "alpha": 0,
+              "p1": [
+                0.38,
+                0.61
+              ],
+              "p2": [
+                0.38,
+                0.76
+              ]
+            },
+            {
+              "t": 0.35,
+              "alpha": 0.9,
+              "ease": "ease_out",
+              "p1": [
+                0.38,
+                0.61
+              ],
+              "p2": [
+                0.38,
+                0.76
+              ]
+            },
+            {
+              "t": 1,
+              "alpha": 0.9,
+              "p1": [
+                0.38,
+                0.61
+              ],
+              "p2": [
+                0.38,
+                0.76
+              ]
+            }
+          ]
+        },
+        {
+          "type": "line",
+          "id": "legR",
+          "color": "muted",
+          "front": false,
+          "keys": [
+            {
+              "t": 0.1,
+              "alpha": 0,
+              "p1": [
+                0.62,
+                0.61
+              ],
+              "p2": [
+                0.62,
+                0.76
+              ]
+            },
+            {
+              "t": 0.35,
+              "alpha": 0.9,
+              "ease": "ease_out",
+              "p1": [
+                0.62,
+                0.61
+              ],
+              "p2": [
+                0.62,
+                0.76
+              ]
+            },
+            {
+              "t": 1,
+              "alpha": 0.9,
+              "p1": [
+                0.62,
+                0.61
+              ],
+              "p2": [
+                0.62,
+                0.76
+              ]
+            }
+          ]
+        },
+        {
+          "type": "path",
+          "id": "bird0",
+          "points": [
+            [
+              -1,
+              0.6
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0.6
+            ]
+          ],
+          "color": "ink",
+          "anchor": [
+            0.28,
+            0.34
+          ],
+          "unit": 0.045,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.2,
+              "alpha": 0
+            },
+            {
+              "t": 0.45,
+              "alpha": 0.9,
+              "ease": "ease_out"
+            },
+            {
+              "t": 1,
+              "alpha": 0.9
+            }
+          ]
+        },
+        {
+          "type": "path",
+          "id": "bird1",
+          "points": [
+            [
+              -1,
+              0.6
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0.6
+            ]
+          ],
+          "color": "ink",
+          "anchor": [
+            0.4,
+            0.28
+          ],
+          "unit": 0.045,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.32,
+              "alpha": 0
+            },
+            {
+              "t": 0.57,
+              "alpha": 0.9,
+              "ease": "ease_out"
+            },
+            {
+              "t": 1,
+              "alpha": 0.9
+            }
+          ]
+        },
+        {
+          "type": "path",
+          "id": "bird2",
+          "points": [
+            [
+              -1,
+              0.6
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0.6
+            ]
+          ],
+          "color": "ink",
+          "anchor": [
+            0.72,
+            0.31
+          ],
+          "unit": 0.045,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.44,
+              "alpha": 0
+            },
+            {
+              "t": 0.69,
+              "alpha": 0.9,
+              "ease": "ease_out"
+            },
+            {
+              "t": 1,
+              "alpha": 0.9
+            }
+          ]
+        },
+        {
+          "type": "path",
+          "id": "bird3",
+          "points": [
+            [
+              -1,
+              0.6
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0.6
+            ]
+          ],
+          "color": "ink",
+          "anchor": [
+            0.82,
+            0.38
+          ],
+          "unit": 0.045,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.56,
+              "alpha": 0
+            },
+            {
+              "t": 0.81,
+              "alpha": 0.9,
+              "ease": "ease_out"
+            },
+            {
+              "t": 1,
+              "alpha": 0.9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "02_solo",
+      "narration": "The whole neighborhood assumed he was just lonely.",
+      "min_dur": 4.8,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "03_bench",
+      "narration": "Children laughed, joggers passed. He only smiled and scattered the bread.",
+      "min_dur": 4.8,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "a",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.42,
+                0.61
+              ],
+              "pose": "stand",
+              "scale": 0.23,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.42,
+                0.61
+              ],
+              "pose": "stand",
+              "scale": 0.23,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.42,
+                0.61
+              ],
+              "pose": "stand",
+              "scale": 0.23,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "line",
+          "id": "seat",
+          "color": "muted",
+          "front": false,
+          "keys": [
+            {
+              "t": 0.1,
+              "alpha": 0,
+              "p1": [
+                0.32,
+                0.61
+              ],
+              "p2": [
+                0.68,
+                0.61
+              ]
+            },
+            {
+              "t": 0.35,
+              "alpha": 0.9,
+              "ease": "ease_out",
+              "p1": [
+                0.32,
+                0.61
+              ],
+              "p2": [
+                0.68,
+                0.61
+              ]
+            },
+            {
+              "t": 1,
+              "alpha": 0.9,
+              "p1": [
+                0.32,
+                0.61
+              ],
+              "p2": [
+                0.68,
+                0.61
+              ]
+            }
+          ]
+        },
+        {
+          "type": "line",
+          "id": "legL",
+          "color": "muted",
+          "front": false,
+          "keys": [
+            {
+              "t": 0.1,
+              "alpha": 0,
+              "p1": [
+                0.38,
+                0.61
+              ],
+              "p2": [
+                0.38,
+                0.76
+              ]
+            },
+            {
+              "t": 0.35,
+              "alpha": 0.9,
+              "ease": "ease_out",
+              "p1": [
+                0.38,
+                0.61
+              ],
+              "p2": [
+                0.38,
+                0.76
+              ]
+            },
+            {
+              "t": 1,
+              "alpha": 0.9,
+              "p1": [
+                0.38,
+                0.61
+              ],
+              "p2": [
+                0.38,
+                0.76
+              ]
+            }
+          ]
+        },
+        {
+          "type": "line",
+          "id": "legR",
+          "color": "muted",
+          "front": false,
+          "keys": [
+            {
+              "t": 0.1,
+              "alpha": 0,
+              "p1": [
+                0.62,
+                0.61
+              ],
+              "p2": [
+                0.62,
+                0.76
+              ]
+            },
+            {
+              "t": 0.35,
+              "alpha": 0.9,
+              "ease": "ease_out",
+              "p1": [
+                0.62,
+                0.61
+              ],
+              "p2": [
+                0.62,
+                0.76
+              ]
+            },
+            {
+              "t": 1,
+              "alpha": 0.9,
+              "p1": [
+                0.62,
+                0.61
+              ],
+              "p2": [
+                0.62,
+                0.76
+              ]
+            }
+          ]
+        },
+        {
+          "type": "path",
+          "id": "bird0",
+          "points": [
+            [
+              -1,
+              0.6
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0.6
+            ]
+          ],
+          "color": "ink",
+          "anchor": [
+            0.28,
+            0.34
+          ],
+          "unit": 0.045,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.2,
+              "alpha": 0
+            },
+            {
+              "t": 0.45,
+              "alpha": 0.9,
+              "ease": "ease_out"
+            },
+            {
+              "t": 1,
+              "alpha": 0.9
+            }
+          ]
+        },
+        {
+          "type": "path",
+          "id": "bird1",
+          "points": [
+            [
+              -1,
+              0.6
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0.6
+            ]
+          ],
+          "color": "ink",
+          "anchor": [
+            0.4,
+            0.28
+          ],
+          "unit": 0.045,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.32,
+              "alpha": 0
+            },
+            {
+              "t": 0.57,
+              "alpha": 0.9,
+              "ease": "ease_out"
+            },
+            {
+              "t": 1,
+              "alpha": 0.9
+            }
+          ]
+        },
+        {
+          "type": "path",
+          "id": "bird2",
+          "points": [
+            [
+              -1,
+              0.6
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0.6
+            ]
+          ],
+          "color": "ink",
+          "anchor": [
+            0.72,
+            0.31
+          ],
+          "unit": 0.045,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.44,
+              "alpha": 0
+            },
+            {
+              "t": 0.69,
+              "alpha": 0.9,
+              "ease": "ease_out"
+            },
+            {
+              "t": 1,
+              "alpha": 0.9
+            }
+          ]
+        },
+        {
+          "type": "path",
+          "id": "bird3",
+          "points": [
+            [
+              -1,
+              0.6
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0.6
+            ]
+          ],
+          "color": "ink",
+          "anchor": [
+            0.82,
+            0.38
+          ],
+          "unit": 0.045,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.56,
+              "alpha": 0
+            },
+            {
+              "t": 0.81,
+              "alpha": 0.9,
+              "ease": "ease_out"
+            },
+            {
+              "t": 1,
+              "alpha": 0.9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "04_two",
+      "narration": "One day, a young woman asked why he never missed a single morning.",
+      "min_dur": 4.8,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "a",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.27,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.27,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.27,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "b",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.27,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.27,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.27,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "05_bench",
+      "narration": "He gently patted the empty half of the bench.",
+      "min_dur": 4.8,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "a",
+          "color": "ink",
+          "face": "sad",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.42,
+                0.61
+              ],
+              "pose": "stand",
+              "scale": 0.23,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.42,
+                0.61
+              ],
+              "pose": "stand",
+              "scale": 0.23,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.42,
+                0.61
+              ],
+              "pose": "stand",
+              "scale": 0.23,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "line",
+          "id": "seat",
+          "color": "muted",
+          "front": false,
+          "keys": [
+            {
+              "t": 0.1,
+              "alpha": 0,
+              "p1": [
+                0.32,
+                0.61
+              ],
+              "p2": [
+                0.68,
+                0.61
+              ]
+            },
+            {
+              "t": 0.35,
+              "alpha": 0.9,
+              "ease": "ease_out",
+              "p1": [
+                0.32,
+                0.61
+              ],
+              "p2": [
+                0.68,
+                0.61
+              ]
+            },
+            {
+              "t": 1,
+              "alpha": 0.9,
+              "p1": [
+                0.32,
+                0.61
+              ],
+              "p2": [
+                0.68,
+                0.61
+              ]
+            }
+          ]
+        },
+        {
+          "type": "line",
+          "id": "legL",
+          "color": "muted",
+          "front": false,
+          "keys": [
+            {
+              "t": 0.1,
+              "alpha": 0,
+              "p1": [
+                0.38,
+                0.61
+              ],
+              "p2": [
+                0.38,
+                0.76
+              ]
+            },
+            {
+              "t": 0.35,
+              "alpha": 0.9,
+              "ease": "ease_out",
+              "p1": [
+                0.38,
+                0.61
+              ],
+              "p2": [
+                0.38,
+                0.76
+              ]
+            },
+            {
+              "t": 1,
+              "alpha": 0.9,
+              "p1": [
+                0.38,
+                0.61
+              ],
+              "p2": [
+                0.38,
+                0.76
+              ]
+            }
+          ]
+        },
+        {
+          "type": "line",
+          "id": "legR",
+          "color": "muted",
+          "front": false,
+          "keys": [
+            {
+              "t": 0.1,
+              "alpha": 0,
+              "p1": [
+                0.62,
+                0.61
+              ],
+              "p2": [
+                0.62,
+                0.76
+              ]
+            },
+            {
+              "t": 0.35,
+              "alpha": 0.9,
+              "ease": "ease_out",
+              "p1": [
+                0.62,
+                0.61
+              ],
+              "p2": [
+                0.62,
+                0.76
+              ]
+            },
+            {
+              "t": 1,
+              "alpha": 0.9,
+              "p1": [
+                0.62,
+                0.61
+              ],
+              "p2": [
+                0.62,
+                0.76
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "06_solo",
+      "narration": "My wife fed them here for forty years, he said.",
+      "min_dur": 4.8,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "sad",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "07_bench",
+      "narration": "She knew every one of them. Named them. They came to her like old friends.",
+      "min_dur": 4.8,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "a",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.42,
+                0.61
+              ],
+              "pose": "stand",
+              "scale": 0.23,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.42,
+                0.61
+              ],
+              "pose": "stand",
+              "scale": 0.23,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.42,
+                0.61
+              ],
+              "pose": "stand",
+              "scale": 0.23,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "line",
+          "id": "seat",
+          "color": "muted",
+          "front": false,
+          "keys": [
+            {
+              "t": 0.1,
+              "alpha": 0,
+              "p1": [
+                0.32,
+                0.61
+              ],
+              "p2": [
+                0.68,
+                0.61
+              ]
+            },
+            {
+              "t": 0.35,
+              "alpha": 0.9,
+              "ease": "ease_out",
+              "p1": [
+                0.32,
+                0.61
+              ],
+              "p2": [
+                0.68,
+                0.61
+              ]
+            },
+            {
+              "t": 1,
+              "alpha": 0.9,
+              "p1": [
+                0.32,
+                0.61
+              ],
+              "p2": [
+                0.68,
+                0.61
+              ]
+            }
+          ]
+        },
+        {
+          "type": "line",
+          "id": "legL",
+          "color": "muted",
+          "front": false,
+          "keys": [
+            {
+              "t": 0.1,
+              "alpha": 0,
+              "p1": [
+                0.38,
+                0.61
+              ],
+              "p2": [
+                0.38,
+                0.76
+              ]
+            },
+            {
+              "t": 0.35,
+              "alpha": 0.9,
+              "ease": "ease_out",
+              "p1": [
+                0.38,
+                0.61
+              ],
+              "p2": [
+                0.38,
+                0.76
+              ]
+            },
+            {
+              "t": 1,
+              "alpha": 0.9,
+              "p1": [
+                0.38,
+                0.61
+              ],
+              "p2": [
+                0.38,
+                0.76
+              ]
+            }
+          ]
+        },
+        {
+          "type": "line",
+          "id": "legR",
+          "color": "muted",
+          "front": false,
+          "keys": [
+            {
+              "t": 0.1,
+              "alpha": 0,
+              "p1": [
+                0.62,
+                0.61
+              ],
+              "p2": [
+                0.62,
+                0.76
+              ]
+            },
+            {
+              "t": 0.35,
+              "alpha": 0.9,
+              "ease": "ease_out",
+              "p1": [
+                0.62,
+                0.61
+              ],
+              "p2": [
+                0.62,
+                0.76
+              ]
+            },
+            {
+              "t": 1,
+              "alpha": 0.9,
+              "p1": [
+                0.62,
+                0.61
+              ],
+              "p2": [
+                0.62,
+                0.76
+              ]
+            }
+          ]
+        },
+        {
+          "type": "path",
+          "id": "bird0",
+          "points": [
+            [
+              -1,
+              0.6
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0.6
+            ]
+          ],
+          "color": "ink",
+          "anchor": [
+            0.28,
+            0.34
+          ],
+          "unit": 0.045,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.2,
+              "alpha": 0
+            },
+            {
+              "t": 0.45,
+              "alpha": 0.9,
+              "ease": "ease_out"
+            },
+            {
+              "t": 1,
+              "alpha": 0.9
+            }
+          ]
+        },
+        {
+          "type": "path",
+          "id": "bird1",
+          "points": [
+            [
+              -1,
+              0.6
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0.6
+            ]
+          ],
+          "color": "ink",
+          "anchor": [
+            0.4,
+            0.28
+          ],
+          "unit": 0.045,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.32,
+              "alpha": 0
+            },
+            {
+              "t": 0.57,
+              "alpha": 0.9,
+              "ease": "ease_out"
+            },
+            {
+              "t": 1,
+              "alpha": 0.9
+            }
+          ]
+        },
+        {
+          "type": "path",
+          "id": "bird2",
+          "points": [
+            [
+              -1,
+              0.6
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0.6
+            ]
+          ],
+          "color": "ink",
+          "anchor": [
+            0.72,
+            0.31
+          ],
+          "unit": 0.045,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.44,
+              "alpha": 0
+            },
+            {
+              "t": 0.69,
+              "alpha": 0.9,
+              "ease": "ease_out"
+            },
+            {
+              "t": 1,
+              "alpha": 0.9
+            }
+          ]
+        },
+        {
+          "type": "path",
+          "id": "bird3",
+          "points": [
+            [
+              -1,
+              0.6
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0.6
+            ]
+          ],
+          "color": "ink",
+          "anchor": [
+            0.82,
+            0.38
+          ],
+          "unit": 0.045,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.56,
+              "alpha": 0
+            },
+            {
+              "t": 0.81,
+              "alpha": 0.9,
+              "ease": "ease_out"
+            },
+            {
+              "t": 1,
+              "alpha": 0.9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "08_solo",
+      "narration": "When she passed, the birds still came. Looking for her.",
+      "min_dur": 4.8,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "sad",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "09_bench",
+      "narration": "So I come. So they're not waiting for someone who'll never return.",
+      "min_dur": 4.8,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "a",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.42,
+                0.61
+              ],
+              "pose": "stand",
+              "scale": 0.23,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.42,
+                0.61
+              ],
+              "pose": "stand",
+              "scale": 0.23,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.42,
+                0.61
+              ],
+              "pose": "stand",
+              "scale": 0.23,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "line",
+          "id": "seat",
+          "color": "muted",
+          "front": false,
+          "keys": [
+            {
+              "t": 0.1,
+              "alpha": 0,
+              "p1": [
+                0.32,
+                0.61
+              ],
+              "p2": [
+                0.68,
+                0.61
+              ]
+            },
+            {
+              "t": 0.35,
+              "alpha": 0.9,
+              "ease": "ease_out",
+              "p1": [
+                0.32,
+                0.61
+              ],
+              "p2": [
+                0.68,
+                0.61
+              ]
+            },
+            {
+              "t": 1,
+              "alpha": 0.9,
+              "p1": [
+                0.32,
+                0.61
+              ],
+              "p2": [
+                0.68,
+                0.61
+              ]
+            }
+          ]
+        },
+        {
+          "type": "line",
+          "id": "legL",
+          "color": "muted",
+          "front": false,
+          "keys": [
+            {
+              "t": 0.1,
+              "alpha": 0,
+              "p1": [
+                0.38,
+                0.61
+              ],
+              "p2": [
+                0.38,
+                0.76
+              ]
+            },
+            {
+              "t": 0.35,
+              "alpha": 0.9,
+              "ease": "ease_out",
+              "p1": [
+                0.38,
+                0.61
+              ],
+              "p2": [
+                0.38,
+                0.76
+              ]
+            },
+            {
+              "t": 1,
+              "alpha": 0.9,
+              "p1": [
+                0.38,
+                0.61
+              ],
+              "p2": [
+                0.38,
+                0.76
+              ]
+            }
+          ]
+        },
+        {
+          "type": "line",
+          "id": "legR",
+          "color": "muted",
+          "front": false,
+          "keys": [
+            {
+              "t": 0.1,
+              "alpha": 0,
+              "p1": [
+                0.62,
+                0.61
+              ],
+              "p2": [
+                0.62,
+                0.76
+              ]
+            },
+            {
+              "t": 0.35,
+              "alpha": 0.9,
+              "ease": "ease_out",
+              "p1": [
+                0.62,
+                0.61
+              ],
+              "p2": [
+                0.62,
+                0.76
+              ]
+            },
+            {
+              "t": 1,
+              "alpha": 0.9,
+              "p1": [
+                0.62,
+                0.61
+              ],
+              "p2": [
+                0.62,
+                0.76
+              ]
+            }
+          ]
+        },
+        {
+          "type": "path",
+          "id": "bird0",
+          "points": [
+            [
+              -1,
+              0.6
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0.6
+            ]
+          ],
+          "color": "ink",
+          "anchor": [
+            0.28,
+            0.34
+          ],
+          "unit": 0.045,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.2,
+              "alpha": 0
+            },
+            {
+              "t": 0.45,
+              "alpha": 0.9,
+              "ease": "ease_out"
+            },
+            {
+              "t": 1,
+              "alpha": 0.9
+            }
+          ]
+        },
+        {
+          "type": "path",
+          "id": "bird1",
+          "points": [
+            [
+              -1,
+              0.6
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0.6
+            ]
+          ],
+          "color": "ink",
+          "anchor": [
+            0.4,
+            0.28
+          ],
+          "unit": 0.045,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.32,
+              "alpha": 0
+            },
+            {
+              "t": 0.57,
+              "alpha": 0.9,
+              "ease": "ease_out"
+            },
+            {
+              "t": 1,
+              "alpha": 0.9
+            }
+          ]
+        },
+        {
+          "type": "path",
+          "id": "bird2",
+          "points": [
+            [
+              -1,
+              0.6
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0.6
+            ]
+          ],
+          "color": "ink",
+          "anchor": [
+            0.72,
+            0.31
+          ],
+          "unit": 0.045,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.44,
+              "alpha": 0
+            },
+            {
+              "t": 0.69,
+              "alpha": 0.9,
+              "ease": "ease_out"
+            },
+            {
+              "t": 1,
+              "alpha": 0.9
+            }
+          ]
+        },
+        {
+          "type": "path",
+          "id": "bird3",
+          "points": [
+            [
+              -1,
+              0.6
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0.6
+            ]
+          ],
+          "color": "ink",
+          "anchor": [
+            0.82,
+            0.38
+          ],
+          "unit": 0.045,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.56,
+              "alpha": 0
+            },
+            {
+              "t": 0.81,
+              "alpha": 0.9,
+              "ease": "ease_out"
+            },
+            {
+              "t": 1,
+              "alpha": 0.9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "10_bench",
+      "narration": "The woman sat with him in silence. The birds gathered around them both.",
+      "min_dur": 4.8,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "a",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.41,
+                0.61
+              ],
+              "pose": "stand",
+              "scale": 0.23,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.41,
+                0.61
+              ],
+              "pose": "stand",
+              "scale": 0.23,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.41,
+                0.61
+              ],
+              "pose": "stand",
+              "scale": 0.23,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "b",
+          "color": "muted",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.59,
+                0.61
+              ],
+              "pose": "stand",
+              "scale": 0.23,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.59,
+                0.61
+              ],
+              "pose": "stand",
+              "scale": 0.23,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.59,
+                0.61
+              ],
+              "pose": "stand",
+              "scale": 0.23,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "line",
+          "id": "seat",
+          "color": "muted",
+          "front": false,
+          "keys": [
+            {
+              "t": 0.1,
+              "alpha": 0,
+              "p1": [
+                0.32,
+                0.61
+              ],
+              "p2": [
+                0.68,
+                0.61
+              ]
+            },
+            {
+              "t": 0.35,
+              "alpha": 0.9,
+              "ease": "ease_out",
+              "p1": [
+                0.32,
+                0.61
+              ],
+              "p2": [
+                0.68,
+                0.61
+              ]
+            },
+            {
+              "t": 1,
+              "alpha": 0.9,
+              "p1": [
+                0.32,
+                0.61
+              ],
+              "p2": [
+                0.68,
+                0.61
+              ]
+            }
+          ]
+        },
+        {
+          "type": "line",
+          "id": "legL",
+          "color": "muted",
+          "front": false,
+          "keys": [
+            {
+              "t": 0.1,
+              "alpha": 0,
+              "p1": [
+                0.38,
+                0.61
+              ],
+              "p2": [
+                0.38,
+                0.76
+              ]
+            },
+            {
+              "t": 0.35,
+              "alpha": 0.9,
+              "ease": "ease_out",
+              "p1": [
+                0.38,
+                0.61
+              ],
+              "p2": [
+                0.38,
+                0.76
+              ]
+            },
+            {
+              "t": 1,
+              "alpha": 0.9,
+              "p1": [
+                0.38,
+                0.61
+              ],
+              "p2": [
+                0.38,
+                0.76
+              ]
+            }
+          ]
+        },
+        {
+          "type": "line",
+          "id": "legR",
+          "color": "muted",
+          "front": false,
+          "keys": [
+            {
+              "t": 0.1,
+              "alpha": 0,
+              "p1": [
+                0.62,
+                0.61
+              ],
+              "p2": [
+                0.62,
+                0.76
+              ]
+            },
+            {
+              "t": 0.35,
+              "alpha": 0.9,
+              "ease": "ease_out",
+              "p1": [
+                0.62,
+                0.61
+              ],
+              "p2": [
+                0.62,
+                0.76
+              ]
+            },
+            {
+              "t": 1,
+              "alpha": 0.9,
+              "p1": [
+                0.62,
+                0.61
+              ],
+              "p2": [
+                0.62,
+                0.76
+              ]
+            }
+          ]
+        },
+        {
+          "type": "path",
+          "id": "bird0",
+          "points": [
+            [
+              -1,
+              0.6
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0.6
+            ]
+          ],
+          "color": "ink",
+          "anchor": [
+            0.28,
+            0.34
+          ],
+          "unit": 0.045,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.2,
+              "alpha": 0
+            },
+            {
+              "t": 0.45,
+              "alpha": 0.9,
+              "ease": "ease_out"
+            },
+            {
+              "t": 1,
+              "alpha": 0.9
+            }
+          ]
+        },
+        {
+          "type": "path",
+          "id": "bird1",
+          "points": [
+            [
+              -1,
+              0.6
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0.6
+            ]
+          ],
+          "color": "ink",
+          "anchor": [
+            0.4,
+            0.28
+          ],
+          "unit": 0.045,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.32,
+              "alpha": 0
+            },
+            {
+              "t": 0.57,
+              "alpha": 0.9,
+              "ease": "ease_out"
+            },
+            {
+              "t": 1,
+              "alpha": 0.9
+            }
+          ]
+        },
+        {
+          "type": "path",
+          "id": "bird2",
+          "points": [
+            [
+              -1,
+              0.6
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0.6
+            ]
+          ],
+          "color": "ink",
+          "anchor": [
+            0.72,
+            0.31
+          ],
+          "unit": 0.045,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.44,
+              "alpha": 0
+            },
+            {
+              "t": 0.69,
+              "alpha": 0.9,
+              "ease": "ease_out"
+            },
+            {
+              "t": 1,
+              "alpha": 0.9
+            }
+          ]
+        },
+        {
+          "type": "path",
+          "id": "bird3",
+          "points": [
+            [
+              -1,
+              0.6
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0.6
+            ]
+          ],
+          "color": "ink",
+          "anchor": [
+            0.82,
+            0.38
+          ],
+          "unit": 0.045,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.56,
+              "alpha": 0
+            },
+            {
+              "t": 0.81,
+              "alpha": 0.9,
+              "ease": "ease_out"
+            },
+            {
+              "t": 1,
+              "alpha": 0.9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "11_solo",
+      "narration": "He wasn't feeding birds. He was keeping a promise.",
+      "min_dur": 4.8,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "12_stars",
+      "narration": "Some love doesn't end. It just changes who it takes care of.",
+      "min_dur": 4.8,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.67
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.67
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 0.56,
+              "pos": [
+                0.5,
+                0.67
+              ],
+              "pose": "look_up",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.67
+              ],
+              "pose": "look_up",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "label",
+          "id": "s0",
+          "text": "*",
+          "color": "ink",
+          "size": 0.045,
+          "keys": [
+            {
+              "t": 0.3,
+              "pos": [
+                0.26,
+                0.24
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.5,
+              "pos": [
+                0.26,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.26,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "s1",
+          "text": "*",
+          "color": "accent",
+          "size": 0.055,
+          "keys": [
+            {
+              "t": 0.38,
+              "pos": [
+                0.44,
+                0.18
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.58,
+              "pos": [
+                0.44,
+                0.16
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.44,
+                0.16
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "s2",
+          "text": "*",
+          "color": "ink",
+          "size": 0.045,
+          "keys": [
+            {
+              "t": 0.46,
+              "pos": [
+                0.6,
+                0.22
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.66,
+              "pos": [
+                0.6,
+                0.2
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.6,
+                0.2
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "s3",
+          "text": "*",
+          "color": "accent",
+          "size": 0.055,
+          "keys": [
+            {
+              "t": 0.54,
+              "pos": [
+                0.76,
+                0.28
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.74,
+              "pos": [
+                0.76,
+                0.26
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.76,
+                0.26
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "s4",
+          "text": "*",
+          "color": "ink",
+          "size": 0.045,
+          "keys": [
+            {
+              "t": 0.62,
+              "pos": [
+                0.36,
+                0.32
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.82,
+              "pos": [
+                0.36,
+                0.3
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.36,
+                0.3
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        }
+      ]
+    },
+    {
+      "id": "13_cta",
+      "narration": "Who do you show up for, even when no one is watching? Tell me below.",
+      "min_dur": 4.8,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 0.56,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "label",
+          "id": "m",
+          "text": "+",
+          "color": "accent",
+          "size": 0.08,
+          "keys": [
+            {
+              "t": 0.45,
+              "pos": [
+                0.68,
+                0.38
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.65,
+              "pos": [
+                0.68,
+                0.36
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.68,
+                0.36
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        }
+      ]
+    }
+  ]
+}

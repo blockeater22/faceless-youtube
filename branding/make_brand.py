@@ -9,7 +9,7 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFilter
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from faceless.draw import Sketcher                # noqa: E402
@@ -77,6 +77,72 @@ def banner() -> None:
     print("wrote", OUT / "banner.png")
 
 
+def _mark(n: int, ring: bool, q: bool, pose: str) -> Image.Image:
+    """A bold, transparent logo mark (figure [+ring] [+?]) for watermarks."""
+    layer = Image.new("RGBA", (n, n), (0, 0, 0, 0))
+    sk = Sketcher((n, n), INK, int(n * 0.026), 2.6, 9)
+    if ring:
+        sk.circle((n / 2, n / 2), n * 0.43, color=ACCENT, width=int(n * 0.022), amp=2.6)
+    draw_figure(sk, (n * 0.5, n * 0.60), n * 0.42, get_pose(pose), color=INK, face="neutral")
+    sk.composite_onto(layer)
+    if q:
+        d = ImageDraw.Draw(layer)
+        d.text((n * 0.67, n * 0.30), "?", font=_font(int(n * 0.21)),
+               fill=ACCENT + (255,), anchor="mm")
+    return layer
+
+
+def _glow(mark: Image.Image, radius: int = 8) -> Image.Image:
+    """Composite a soft dark halo behind a mark so it reads on any background."""
+    n = mark.size[0]
+    halo = Image.new("RGBA", (n, n), (6, 8, 14, 0))
+    halo.putalpha(mark.getchannel("A").filter(ImageFilter.GaussianBlur(radius)))
+    out = Image.new("RGBA", (n, n), (0, 0, 0, 0))
+    out = Image.alpha_composite(out, halo)
+    out = Image.alpha_composite(out, halo)   # double the halo for contrast
+    return Image.alpha_composite(out, mark)
+
+
+def watermark() -> None:
+    """YouTube branding/subscribe watermark - transparent PNG, square."""
+    n = 800
+    # badge (figure + accent ring): most legible at tiny corner size, matches pfp
+    final = _glow(_mark(n, ring=True, q=False, pose="think"))
+    final.save(OUT / "watermark.png")
+    print("wrote", OUT / "watermark.png")
+
+
+def watermark_candidates() -> None:
+    n = 800
+    wm = OUT / "_wm"
+    wm.mkdir(exist_ok=True)
+    opts = {
+        "plain": dict(ring=False, q=False, pose="think"),
+        "q": dict(ring=False, q=True, pose="think"),
+        "badge": dict(ring=True, q=False, pose="think"),
+        "badge_q": dict(ring=True, q=True, pose="think"),
+        "wave": dict(ring=False, q=False, pose="wave"),
+    }
+    # contact sheet on a checkerboard so transparency is visible
+    cell = 300
+    sheet = Image.new("RGB", (cell * len(opts), cell + 30), (40, 40, 46))
+    dd = ImageDraw.Draw(sheet)
+    for i, (name, kw) in enumerate(opts.items()):
+        m = _glow(_mark(n, **kw)).resize((cell, cell))
+        # checkerboard backdrop
+        for yy in range(0, cell, 30):
+            for xx in range(0, cell, 30):
+                if (xx // 30 + yy // 30) % 2:
+                    dd.rectangle([i * cell + xx, yy, i * cell + xx + 30, yy + 30], fill=(60, 60, 68))
+        sheet.paste(m, (i * cell, 0), m)
+        _glow(_mark(n, **kw)).save(wm / f"{name}.png")
+        dd.text((i * cell + cell // 2, cell + 14), name, font=_font(22), anchor="mm", fill=(255, 255, 255))
+    sheet.save(wm / "_contact_sheet.png")
+    print("wrote", wm / "_contact_sheet.png")
+
+
 if __name__ == "__main__":
     profile()
     banner()
+    watermark()
+    watermark_candidates()

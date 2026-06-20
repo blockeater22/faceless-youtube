@@ -43,6 +43,19 @@ crowd. Re-run `make_brand.py` after changing `NAME`/`TAGLINE`.
 > Upload both in **YouTube Studio → Customisation → Branding**. Recommended
 > banner safe area is the central 1546×423 — the text is already inside it.
 
+## Video watermark — `branding/watermark.png` (800×800, transparent)
+The clickable **subscribe watermark** shown in the corner of every video. It's
+the figure-in-ring "badge" (a simplified profile pic) with a soft dark halo so it
+reads on any footage — light or dark.
+
+- **Where:** YouTube Studio → Customisation → **Branding → Video watermark**.
+- **Specs (met):** transparent PNG, 1:1 square, ≥150×150, <1 MB.
+- **Display time:** choose *Entire video* so it's always available to tap.
+
+> This is separate from the small `@handle` text currently burned into the top of
+> each rendered video (set via the story's `handle` field). Want the badge burned
+> into the corner of the videos themselves instead? That's a quick engine tweak.
+
 ---
 
 ## Channel description (About section)

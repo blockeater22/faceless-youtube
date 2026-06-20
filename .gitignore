@@ -10,3 +10,5 @@ output/_check/
 output/_pose_sheet.png
 output/*.log
 *.tmp
+branding/_wm/
+output/*.mp3

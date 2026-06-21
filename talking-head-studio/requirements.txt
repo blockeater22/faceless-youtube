@@ -1,0 +1,11 @@
+# --- lightweight, run anywhere ---
+numpy
+Pillow
+anthropic
+
+# --- heavy, GPU-recommended (see docs/SETUP.md) ---
+# TTS (Coqui XTTS v2) — voice cloning + synthesis
+TTS
+
+# --- testing ---
+pytest

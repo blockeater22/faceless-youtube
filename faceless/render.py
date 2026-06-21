@@ -10,7 +10,7 @@ from pathlib import Path
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
-from . import anim, media, tts
+from . import anim, icons, media, tts
 from .draw import Sketcher
 from .figures import draw_figure, get_pose
 from .model import RESOLUTIONS, Scene, Script, load_script
@@ -161,6 +161,14 @@ def _draw_prop(frame, prop, t, size, mindim, style, seed, actors):
         head = 0.035 * mindim
         for da in (math.radians(150), math.radians(-150)):
             sk.line(p2, (p2[0] + head * math.cos(ang + da), p2[1] + head * math.sin(ang + da)), color=color)
+    elif ptype == "icon":
+        layer = Image.new("RGBA", size, (0, 0, 0, 0))
+        d = ImageDraw.Draw(layer)
+        r = prop.get("r", 0.12) * mindim * scale
+        cx, cy = XY(pos)
+        icons.draw_icon(d, prop.get("name", "star"), cx, cy, r, color + (int(255 * alpha),))
+        frame.alpha_composite(layer)
+        return
     elif ptype == "path":
         raw = prop.get("points", [])
         anchor = prop.get("anchor")
@@ -223,6 +231,73 @@ def _draw_caption(frame, text, reveal, size, mindim, style):
                    stroke_width=stroke, stroke_fill=(0, 0, 0, 235))
             x += font.getlength(word + " ")
             idx += 1
+    frame.alpha_composite(layer)
+
+
+def _chunk_phrase(text: str, max_chars: int = 16) -> list[list[str]]:
+    """Group words into short on-screen phrases (kinetic-typography pacing)."""
+    words = text.split()
+    chunks, cur, cur_len = [], [], 0
+    for word in words:
+        wl = len(word) + 1
+        if cur and cur_len + wl > max_chars:
+            chunks.append(cur)
+            cur, cur_len = [], 0
+        cur.append(word)
+        cur_len += wl
+    if cur:
+        chunks.append(cur)
+    return chunks or [[]]
+
+
+def _draw_kinetic_caption(frame, text, local_t, duration, size, mindim, style):
+    """Big colourful, phrase-by-phrase centre-screen text (white-bg explainer
+    style) - one short phrase pops in at a time instead of a scrolling line."""
+    if not text or not duration:
+        return
+    w, h = size
+    cfg = style.caption or {}
+    chunks = _chunk_phrase(text, cfg.get("max_chars", 16))
+    n = len(chunks)
+    prog = anim.clamp(local_t / duration)
+    idx = min(n - 1, int(prog * n))
+    phase = anim.clamp(prog * n - idx)
+
+    pop_in, fade_out = 0.22, 0.85
+    if phase < pop_in:
+        e = anim.ease_out_back(phase / pop_in)
+        alpha = anim.clamp(phase / pop_in * 1.3)
+        scale = 0.55 + 0.45 * e
+    elif phase > fade_out:
+        alpha = anim.clamp((1.0 - phase) / (1.0 - fade_out))
+        scale = 1.0
+    else:
+        alpha, scale = 1.0, 1.0
+
+    words = chunks[idx]
+    if not words or alpha <= 0.01:
+        return
+
+    fs = max(8, int(cfg.get("size", 0.10) * mindim * scale))
+    font = _font(fs)
+    palette = [style.color(c) for c in (style.palette or [style.accent])]
+    gap = font.getlength(" ")
+    upper = [word.upper() for word in words]
+    widths = [font.getlength(word) for word in upper]
+    total_w = sum(widths) + gap * (len(words) - 1)
+    x = w / 2 - total_w / 2
+    y = h * cfg.get("y", 0.46)
+
+    layer = Image.new("RGBA", size, (0, 0, 0, 0))
+    d = ImageDraw.Draw(layer)
+    base_idx = sum(len(c) for c in chunks[:idx])
+    shadow_off = max(1, fs // 28)
+    for i, wu in enumerate(upper):
+        col = palette[(base_idx + i) % len(palette)]
+        d.text((x + shadow_off, y + shadow_off * 1.4), wu, font=font, anchor="lm",
+                fill=(0, 0, 0, int(35 * alpha)))
+        d.text((x, y), wu, font=font, anchor="lm", fill=col + (int(255 * alpha),))
+        x += widths[i] + gap
     frame.alpha_composite(layer)
 
 
@@ -318,9 +393,12 @@ def render_frame(script: Script, scene: Scene, local_t: float, size, mindim, fra
     abs_t = frame_idx / max(1, style.fps)
     in_hook = bool(script.hook) and abs_t < script.hook_dur
     if not in_hook:   # hook card replaces the caption while it's up
-        reveal = min(1.0, local_t / (scene.duration * 0.82)) if scene.duration else 1.0
-        _draw_caption(frame, scene.caption if scene.caption is not None else scene.narration,
-                      reveal, size, mindim, style)
+        cap_text = scene.caption if scene.caption is not None else scene.narration
+        if (style.caption or {}).get("mode") == "kinetic":
+            _draw_kinetic_caption(frame, cap_text, local_t, scene.duration, size, mindim, style)
+        else:
+            reveal = min(1.0, local_t / (scene.duration * 0.82)) if scene.duration else 1.0
+            _draw_caption(frame, cap_text, reveal, size, mindim, style)
     _draw_watermark(frame, script, size, mindim, style)
     if in_hook:
         _draw_hook(frame, script.hook, abs_t, script.hook_dur, size, mindim, style)

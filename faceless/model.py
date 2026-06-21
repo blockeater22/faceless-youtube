@@ -36,6 +36,9 @@ class Style:
     logo_pos: str = "tl"          # corner: tl | tr | bl | br
     logo_scale: float = 0.10      # fraction of short edge
     logo_opacity: float = 0.72
+    palette: list = field(default_factory=lambda: [
+        "#ff5d5d", "#1f9bff", "#ffb454", "#23b26d", "#a463f2",
+    ])  # word colours for caption.mode == "kinetic"
 
     def color(self, value) -> tuple[int, int, int]:
         """Resolve a colour: keyword, '#rrggbb', or [r,g,b]."""

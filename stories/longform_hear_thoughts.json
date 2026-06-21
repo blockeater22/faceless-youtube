@@ -1,0 +1,3142 @@
+{
+  "title": "What If You Could Hear What People Really Think of You?",
+  "handle": "@Inklings1",
+  "hook": "What do they really think?",
+  "hook_dur": 2.0,
+  "meta": {
+    "playlist": "What If\u2026",
+    "format": "long-form",
+    "topic": "what people really think of you"
+  },
+  "style": {
+    "background": "#0e1320",
+    "ink": "#f2ede1",
+    "accent": "#ffb454",
+    "muted": "#6f7791",
+    "fps": 24,
+    "wobble": 1.7,
+    "grain": 0.05,
+    "vignette": 0.55,
+    "caption": {
+      "size": 0.05,
+      "color": "#ffffff"
+    },
+    "logo": "branding/watermark.png",
+    "logo_pos": "tl",
+    "logo_scale": 0.1,
+    "logo_opacity": 0.72
+  },
+  "voice": {
+    "backend": "piper",
+    "piper_model": "voices/en_US-ryan-high.onnx",
+    "piper_length": 1.1,
+    "voice": "cmu_us_slt_arctic_hts",
+    "rate": 135,
+    "polish": true,
+    "gap": 0.5
+  },
+  "scenes": [
+    {
+      "id": "00_hook",
+      "narration": "What if, for one day, you could hear exactly what everyone really thinks of you?",
+      "min_dur": 5.4,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "label",
+          "id": "q",
+          "text": "?",
+          "color": "accent",
+          "size": 0.16,
+          "keys": [
+            {
+              "t": 0.35,
+              "pos": [
+                0.66,
+                0.31
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.66,
+                0.29
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.66,
+                0.29
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        }
+      ]
+    },
+    {
+      "id": "01_solo",
+      "narration": "Every private thought. The ones they would never, ever say to your face.",
+      "min_dur": 5.4,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "02_solo",
+      "narration": "Be honest. A part of you has always wanted to know. And a part of you is terrified to.",
+      "min_dur": 5.4,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "03_solo",
+      "narration": "Because somewhere deep down, you have always quietly assumed the worst.",
+      "min_dur": 5.4,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "sad",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "04_walk",
+      "narration": "So you step out into the world, and you brace yourself for the noise.",
+      "min_dur": 5.4,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "sad",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.32,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.12,
+              "pos": [
+                0.32,
+                0.62
+              ],
+              "pose": "walk_a",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 0.276,
+              "pos": [
+                0.388,
+                0.62
+              ],
+              "pose": "walk_a",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 0.432,
+              "pos": [
+                0.456,
+                0.62
+              ],
+              "pose": "walk_b",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 0.588,
+              "pos": [
+                0.524,
+                0.62
+              ],
+              "pose": "walk_a",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 0.744,
+              "pos": [
+                0.5920000000000001,
+                0.62
+              ],
+              "pose": "walk_b",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.66,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "05_crowd",
+      "narration": "And the thoughts come flooding in. A hundred quiet voices, all at once.",
+      "min_dur": 5.4,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "m0",
+          "color": "ink",
+          "face": "dots",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.15,
+                0.5
+              ],
+              "pose": "wave",
+              "scale": 0.13,
+              "alpha": 0
+            },
+            {
+              "t": 0.05,
+              "pos": [
+                0.15,
+                0.5
+              ],
+              "pose": "stand",
+              "scale": 0.13,
+              "alpha": 0
+            },
+            {
+              "t": 0.17,
+              "pos": [
+                0.15,
+                0.5
+              ],
+              "pose": "wave",
+              "scale": 0.13,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.15,
+                0.5
+              ],
+              "pose": "wave",
+              "scale": 0.13,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "m1",
+          "color": "muted",
+          "face": "dots",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.33,
+                0.42
+              ],
+              "pose": "celebrate",
+              "scale": 0.13,
+              "alpha": 0
+            },
+            {
+              "t": 0.12,
+              "pos": [
+                0.33,
+                0.42
+              ],
+              "pose": "stand",
+              "scale": 0.13,
+              "alpha": 0
+            },
+            {
+              "t": 0.24,
+              "pos": [
+                0.33,
+                0.42
+              ],
+              "pose": "celebrate",
+              "scale": 0.13,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.33,
+                0.42
+              ],
+              "pose": "celebrate",
+              "scale": 0.13,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "m2",
+          "color": "ink",
+          "face": "dots",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.56
+              ],
+              "pose": "point_up",
+              "scale": 0.13,
+              "alpha": 0
+            },
+            {
+              "t": 0.19,
+              "pos": [
+                0.5,
+                0.56
+              ],
+              "pose": "stand",
+              "scale": 0.13,
+              "alpha": 0
+            },
+            {
+              "t": 0.31,
+              "pos": [
+                0.5,
+                0.56
+              ],
+              "pose": "point_up",
+              "scale": 0.13,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.56
+              ],
+              "pose": "point_up",
+              "scale": 0.13,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "m3",
+          "color": "muted",
+          "face": "dots",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.67,
+                0.42
+              ],
+              "pose": "shrug",
+              "scale": 0.13,
+              "alpha": 0
+            },
+            {
+              "t": 0.26,
+              "pos": [
+                0.67,
+                0.42
+              ],
+              "pose": "stand",
+              "scale": 0.13,
+              "alpha": 0
+            },
+            {
+              "t": 0.38,
+              "pos": [
+                0.67,
+                0.42
+              ],
+              "pose": "shrug",
+              "scale": 0.13,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.67,
+                0.42
+              ],
+              "pose": "shrug",
+              "scale": 0.13,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "m4",
+          "color": "ink",
+          "face": "dots",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.85,
+                0.5
+              ],
+              "pose": "wave",
+              "scale": 0.13,
+              "alpha": 0
+            },
+            {
+              "t": 0.33,
+              "pos": [
+                0.85,
+                0.5
+              ],
+              "pose": "stand",
+              "scale": 0.13,
+              "alpha": 0
+            },
+            {
+              "t": 0.45,
+              "pos": [
+                0.85,
+                0.5
+              ],
+              "pose": "wave",
+              "scale": 0.13,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.85,
+                0.5
+              ],
+              "pose": "wave",
+              "scale": 0.13,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "m5",
+          "color": "muted",
+          "face": "dots",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.36
+              ],
+              "pose": "stand",
+              "scale": 0.13,
+              "alpha": 0
+            },
+            {
+              "t": 0.4,
+              "pos": [
+                0.5,
+                0.36
+              ],
+              "pose": "stand",
+              "scale": 0.13,
+              "alpha": 0
+            },
+            {
+              "t": 0.52,
+              "pos": [
+                0.5,
+                0.36
+              ],
+              "pose": "stand",
+              "scale": 0.13,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.36
+              ],
+              "pose": "stand",
+              "scale": 0.13,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "06_point",
+      "narration": "You flinch, waiting for the judgment you are so certain is coming.",
+      "min_dur": 5.4,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "sad",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 0.56,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "point_r",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "point_r",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "07_two",
+      "narration": "The coworker you're sure resents you is quietly wishing he had your calm.",
+      "min_dur": 5.4,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "a",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.27,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.27,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.27,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "b",
+          "color": "muted",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.27,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.27,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.27,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "08_solo",
+      "narration": "Wait. That isn't what you expected at all. Not even close.",
+      "min_dur": 5.4,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "surprised",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "09_two",
+      "narration": "The friend you snapped at last week forgot it by lunch. She's just glad you called.",
+      "min_dur": 5.4,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "a",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.27,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.27,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.27,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "b",
+          "color": "muted",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.27,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.27,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.27,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "10_solo",
+      "narration": "That clumsy thing you said in the meeting, the one you still replay at three a.m.?",
+      "min_dur": 5.4,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "11_crowd",
+      "narration": "No one is thinking about it. No one else even remembers that it happened.",
+      "min_dur": 5.4,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "m0",
+          "color": "ink",
+          "face": "dots",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.15,
+                0.5
+              ],
+              "pose": "wave",
+              "scale": 0.13,
+              "alpha": 0
+            },
+            {
+              "t": 0.05,
+              "pos": [
+                0.15,
+                0.5
+              ],
+              "pose": "stand",
+              "scale": 0.13,
+              "alpha": 0
+            },
+            {
+              "t": 0.17,
+              "pos": [
+                0.15,
+                0.5
+              ],
+              "pose": "wave",
+              "scale": 0.13,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.15,
+                0.5
+              ],
+              "pose": "wave",
+              "scale": 0.13,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "m1",
+          "color": "muted",
+          "face": "dots",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.33,
+                0.42
+              ],
+              "pose": "celebrate",
+              "scale": 0.13,
+              "alpha": 0
+            },
+            {
+              "t": 0.12,
+              "pos": [
+                0.33,
+                0.42
+              ],
+              "pose": "stand",
+              "scale": 0.13,
+              "alpha": 0
+            },
+            {
+              "t": 0.24,
+              "pos": [
+                0.33,
+                0.42
+              ],
+              "pose": "celebrate",
+              "scale": 0.13,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.33,
+                0.42
+              ],
+              "pose": "celebrate",
+              "scale": 0.13,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "m2",
+          "color": "ink",
+          "face": "dots",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.56
+              ],
+              "pose": "point_up",
+              "scale": 0.13,
+              "alpha": 0
+            },
+            {
+              "t": 0.19,
+              "pos": [
+                0.5,
+                0.56
+              ],
+              "pose": "stand",
+              "scale": 0.13,
+              "alpha": 0
+            },
+            {
+              "t": 0.31,
+              "pos": [
+                0.5,
+                0.56
+              ],
+              "pose": "point_up",
+              "scale": 0.13,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.56
+              ],
+              "pose": "point_up",
+              "scale": 0.13,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "m3",
+          "color": "muted",
+          "face": "dots",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.67,
+                0.42
+              ],
+              "pose": "shrug",
+              "scale": 0.13,
+              "alpha": 0
+            },
+            {
+              "t": 0.26,
+              "pos": [
+                0.67,
+                0.42
+              ],
+              "pose": "stand",
+              "scale": 0.13,
+              "alpha": 0
+            },
+            {
+              "t": 0.38,
+              "pos": [
+                0.67,
+                0.42
+              ],
+              "pose": "shrug",
+              "scale": 0.13,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.67,
+                0.42
+              ],
+              "pose": "shrug",
+              "scale": 0.13,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "m4",
+          "color": "ink",
+          "face": "dots",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.85,
+                0.5
+              ],
+              "pose": "wave",
+              "scale": 0.13,
+              "alpha": 0
+            },
+            {
+              "t": 0.33,
+              "pos": [
+                0.85,
+                0.5
+              ],
+              "pose": "stand",
+              "scale": 0.13,
+              "alpha": 0
+            },
+            {
+              "t": 0.45,
+              "pos": [
+                0.85,
+                0.5
+              ],
+              "pose": "wave",
+              "scale": 0.13,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.85,
+                0.5
+              ],
+              "pose": "wave",
+              "scale": 0.13,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "m5",
+          "color": "muted",
+          "face": "dots",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.36
+              ],
+              "pose": "stand",
+              "scale": 0.13,
+              "alpha": 0
+            },
+            {
+              "t": 0.4,
+              "pos": [
+                0.5,
+                0.36
+              ],
+              "pose": "stand",
+              "scale": 0.13,
+              "alpha": 0
+            },
+            {
+              "t": 0.52,
+              "pos": [
+                0.5,
+                0.36
+              ],
+              "pose": "stand",
+              "scale": 0.13,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.36
+              ],
+              "pose": "stand",
+              "scale": 0.13,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "12_label_above",
+      "narration": "People think about you far, far less than you fear that they do.",
+      "min_dur": 5.4,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "label",
+          "id": "num",
+          "text": "you?",
+          "color": "accent",
+          "size": 0.08,
+          "keys": [
+            {
+              "t": 0.25,
+              "pos": [
+                0.5,
+                0.36
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.45,
+              "pos": [
+                0.5,
+                0.33999999999999997
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.33999999999999997
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true,
+          "follow": "hero",
+          "offset": [
+            0,
+            -0.26
+          ]
+        }
+      ]
+    },
+    {
+      "id": "13_solo",
+      "narration": "Everyone is the nervous main character of their own private show.",
+      "min_dur": 5.4,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "14_solo",
+      "narration": "That harsh, crowded audience you've been performing for your entire life...",
+      "min_dur": 5.4,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "sad",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "15_celebrate",
+      "narration": "was never really watching. And something you've carried for years gets lighter.",
+      "min_dur": 5.4,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.66
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 0.4,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "celebrate",
+              "scale": 0.3,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "celebrate",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "label",
+          "id": "e1",
+          "text": "!",
+          "color": "accent",
+          "size": 0.07,
+          "keys": [
+            {
+              "t": 0.4,
+              "pos": [
+                0.31,
+                0.36
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.31,
+                0.33999999999999997
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.31,
+                0.33999999999999997
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "e2",
+          "text": "!",
+          "color": "accent",
+          "size": 0.07,
+          "keys": [
+            {
+              "t": 0.5,
+              "pos": [
+                0.7,
+                0.38
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.7,
+              "pos": [
+                0.7,
+                0.36
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.7,
+                0.36
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        }
+      ]
+    },
+    {
+      "id": "16_solo",
+      "narration": "Then the volume shifts, and the quieter voices start to come through.",
+      "min_dur": 5.4,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "look_up",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "look_up",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "look_up",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "17_two",
+      "narration": "Your mother, across the city, thinking of you mid-sentence, for no reason at all.",
+      "min_dur": 5.4,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "a",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.27,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.27,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.27,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "b",
+          "color": "muted",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.27,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.27,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.27,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "18_label_above",
+      "narration": "An old friend, miles away. I hope they know I still think about them.",
+      "min_dur": 5.4,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "label",
+          "id": "num",
+          "text": "\u2665",
+          "color": "accent",
+          "size": 0.09,
+          "keys": [
+            {
+              "t": 0.25,
+              "pos": [
+                0.5,
+                0.36
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.45,
+              "pos": [
+                0.5,
+                0.33999999999999997
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.33999999999999997
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true,
+          "follow": "hero",
+          "offset": [
+            0,
+            -0.26
+          ]
+        }
+      ]
+    },
+    {
+      "id": "19_solo",
+      "narration": "The people who love you think of you more, and far more gently, than you let yourself believe.",
+      "min_dur": 5.4,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "20_two",
+      "narration": "A stranger you helped once, years ago, who has never forgotten your face.",
+      "min_dur": 5.4,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "a",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.27,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.27,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.27,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "b",
+          "color": "muted",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.27,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.27,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.27,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "21_solo",
+      "narration": "You spent so long bracing for the hate. You never once planned for this.",
+      "min_dur": 5.4,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "22_solo",
+      "narration": "And then come the thoughts that ache.",
+      "min_dur": 5.4,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "sad",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "23_two",
+      "narration": "Someone who needed you to ask if they were okay. And you never even noticed.",
+      "min_dur": 5.4,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "a",
+          "color": "ink",
+          "face": "sad",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.27,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.27,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.27,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "b",
+          "color": "muted",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.27,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.27,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.27,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "24_solo",
+      "narration": "A quiet I miss you, from someone you slowly let drift away.",
+      "min_dur": 5.4,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "sad",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "25_stars",
+      "narration": "And the silence where certain voices used to be. The ones you can't hear anymore.",
+      "min_dur": 5.4,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.67
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.67
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 0.56,
+              "pos": [
+                0.5,
+                0.67
+              ],
+              "pose": "look_up",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.67
+              ],
+              "pose": "look_up",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "label",
+          "id": "s0",
+          "text": "*",
+          "color": "ink",
+          "size": 0.045,
+          "keys": [
+            {
+              "t": 0.3,
+              "pos": [
+                0.26,
+                0.24
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.5,
+              "pos": [
+                0.26,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.26,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "s1",
+          "text": "*",
+          "color": "accent",
+          "size": 0.055,
+          "keys": [
+            {
+              "t": 0.38,
+              "pos": [
+                0.44,
+                0.18
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.58,
+              "pos": [
+                0.44,
+                0.16
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.44,
+                0.16
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "s2",
+          "text": "*",
+          "color": "ink",
+          "size": 0.045,
+          "keys": [
+            {
+              "t": 0.46,
+              "pos": [
+                0.6,
+                0.22
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.66,
+              "pos": [
+                0.6,
+                0.2
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.6,
+                0.2
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "s3",
+          "text": "*",
+          "color": "accent",
+          "size": 0.055,
+          "keys": [
+            {
+              "t": 0.54,
+              "pos": [
+                0.76,
+                0.28
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.74,
+              "pos": [
+                0.76,
+                0.26
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.76,
+                0.26
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "s4",
+          "text": "*",
+          "color": "ink",
+          "size": 0.045,
+          "keys": [
+            {
+              "t": 0.62,
+              "pos": [
+                0.36,
+                0.32
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.82,
+              "pos": [
+                0.36,
+                0.3
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.36,
+                0.3
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        }
+      ]
+    },
+    {
+      "id": "26_solo",
+      "narration": "You would give anything for just one more of their thoughts.",
+      "min_dur": 5.4,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "sad",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "look_up",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "look_up",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "look_up",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "27_solo",
+      "narration": "But the loudest voice of all isn't a stranger's. It isn't even theirs.",
+      "min_dur": 5.4,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "28_split",
+      "narration": "It's the one that has been narrating your every flaw from the inside.",
+      "min_dur": 5.4,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.28,
+              "alpha": 1
+            },
+            {
+              "t": 0.45,
+              "pos": [
+                0.4,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.28,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.4,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.28,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "ghost",
+          "color": "muted",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.28,
+              "alpha": 0
+            },
+            {
+              "t": 0.45,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.28,
+              "alpha": 0.2
+            },
+            {
+              "t": 0.8,
+              "pos": [
+                0.62,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.28,
+              "alpha": 0.85
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.62,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.28,
+              "alpha": 0.85
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "29_solo",
+      "narration": "The cruelest critic you will ever meet has been wearing your face the whole time.",
+      "min_dur": 5.4,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "sad",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "30_solo",
+      "narration": "Then the sun goes down, the voices fade, and the day is finally over.",
+      "min_dur": 5.4,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "31_solo",
+      "narration": "You can't really hear their thoughts. You never could. But maybe you don't need to.",
+      "min_dur": 5.4,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "32_two",
+      "narration": "Maybe you just stop assuming the worst, ask how they really are, and say the kind thing out loud.",
+      "min_dur": 5.4,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "a",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.27,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.27,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.27,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "b",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.27,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.27,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.27,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "33_stars",
+      "narration": "Because everyone around you is guessing too. Bracing themselves, exactly like you were.",
+      "min_dur": 5.4,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.67
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.67
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 0.56,
+              "pos": [
+                0.5,
+                0.67
+              ],
+              "pose": "look_up",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.67
+              ],
+              "pose": "look_up",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "label",
+          "id": "s0",
+          "text": "*",
+          "color": "ink",
+          "size": 0.045,
+          "keys": [
+            {
+              "t": 0.3,
+              "pos": [
+                0.26,
+                0.24
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.5,
+              "pos": [
+                0.26,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.26,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "s1",
+          "text": "*",
+          "color": "accent",
+          "size": 0.055,
+          "keys": [
+            {
+              "t": 0.38,
+              "pos": [
+                0.44,
+                0.18
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.58,
+              "pos": [
+                0.44,
+                0.16
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.44,
+                0.16
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "s2",
+          "text": "*",
+          "color": "ink",
+          "size": 0.045,
+          "keys": [
+            {
+              "t": 0.46,
+              "pos": [
+                0.6,
+                0.22
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.66,
+              "pos": [
+                0.6,
+                0.2
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.6,
+                0.2
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "s3",
+          "text": "*",
+          "color": "accent",
+          "size": 0.055,
+          "keys": [
+            {
+              "t": 0.54,
+              "pos": [
+                0.76,
+                0.28
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.74,
+              "pos": [
+                0.76,
+                0.26
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.76,
+                0.26
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "s4",
+          "text": "*",
+          "color": "ink",
+          "size": 0.045,
+          "keys": [
+            {
+              "t": 0.62,
+              "pos": [
+                0.36,
+                0.32
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.82,
+              "pos": [
+                0.36,
+                0.3
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.36,
+                0.3
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        }
+      ]
+    },
+    {
+      "id": "34_cta",
+      "narration": "So whose thought would you most want to hear? Tell me below, and I'll see you in the next one.",
+      "min_dur": 5.4,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 0.56,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "label",
+          "id": "m",
+          "text": "+",
+          "color": "accent",
+          "size": 0.08,
+          "keys": [
+            {
+              "t": 0.45,
+              "pos": [
+                0.68,
+                0.38
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.65,
+              "pos": [
+                0.68,
+                0.36
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.68,
+                0.36
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        }
+      ]
+    }
+  ]
+}

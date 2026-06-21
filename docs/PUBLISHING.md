@@ -322,6 +322,52 @@ matters less — but post **evening (7–9 PM)** or a weekend for the initial pu
 
 ---
 
+## Long-form #3 — "What If You Could Hear What People Really Think of You?"
+
+`stories/longform_hear_thoughts.json` · 16:9 · ~3–4 min · Playlist: **What If…**
+> A viral-leaning "What If…" narrative with a reassuring psychological turn
+> (spotlight effect → the people who quietly love you → the harshest voice is your own).
+
+**Title** (A/B):
+- `What If You Could Hear What People Really Think of You?`
+- `If You Could Hear What People Really Think of You…`
+- `What If You Heard Everyone's Thoughts About You for One Day?`
+
+**Description:**
+```
+What if, for one day, you could hear exactly what everyone really thinks of you? You might be bracing for the wrong thing.
+
+A short story about the spotlight effect, the people who quietly love you, and the one voice in the room that was never on your side.
+
+💬 Whose thought would you most want to hear?
+🔔 Subscribe for hand-drawn stories about the mind and the quietly mind-bending.
+
+#whatif #overthinking #psychology #mindfulness #inklings
+```
+
+**Hashtags above title:** `#whatif #psychology #overthinking`
+
+**Tags:**
+```
+what if, what people think of you, what people really think of you, spotlight effect,
+overthinking, social anxiety, fear of judgment, what others think of you,
+stop caring what people think, self worth, the inner critic, negative self talk,
+psychology, mindfulness, deep thoughts, philosophy, perspective on life,
+stick figure animation, video essay, Inklings
+```
+
+**Thumbnail:** `branding/thumbnail_hear_thoughts.png` (figure looking up + mixed thought-bubbles
+♥ / ? / ! + "WHAT THEY REALLY THINK"). Regenerate with `python branding/make_thumbnail_hear_thoughts.py`.
+
+**Pinned comment:**
+> You've been performing for an audience that was lost in its own head the whole time. 🎭
+> Whose thought would you most want to hear? I read every reply.
+
+**Best time:** emotional/narrative → post **evening (7–9 PM)** or a weekend; the "what if" +
+"what people think of me" angle also pulls steady search/suggested traffic over time.
+
+---
+
 ## Reminders
 - Put the per-video **comment-CTA as a pinned comment** too (see `docs/LAUNCH.md`).
 - Add each upload to its **playlist** during publishing (not after).

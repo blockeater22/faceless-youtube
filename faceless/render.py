@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import math
 import subprocess
+import tempfile
 from functools import lru_cache
 from pathlib import Path
 
@@ -379,7 +380,7 @@ def render(script: Script, outdir: str | Path, formats: list[str], audio: Path) 
         out_path = outdir / f"{outdir.name}_{slug}.mp4"
         print(f"\n  rendering {fmt} ({size[0]}x{size[1]}) -> {out_path.name}  [{n_frames} frames]")
 
-        cmd = [media.ffmpeg_exe(), "-y",
+        cmd = [media.ffmpeg_exe(), "-y", "-nostats", "-loglevel", "error",
                "-f", "rawvideo", "-pix_fmt", "rgb24",
                "-s", f"{size[0]}x{size[1]}", "-r", str(fps), "-i", "-",
                "-i", str(audio),
@@ -387,7 +388,12 @@ def render(script: Script, outdir: str | Path, formats: list[str], audio: Path) 
                "-c:v", "libx264", "-preset", "veryfast", "-crf", "21",
                "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "160k",
                "-movflags", "+faststart", "-shortest", str(out_path)]
-        proc = subprocess.Popen(cmd, stdin=subprocess.PIPE, stderr=subprocess.PIPE)
+        # ffmpeg stderr -> a real temp file, NOT a pipe. If we used a pipe and
+        # only drained it after the frame loop, ffmpeg's stderr could fill the
+        # 64KB OS buffer mid-encode, block, stop reading frames, and deadlock the
+        # writer (this happened on long videos). A file never blocks.
+        errf = tempfile.TemporaryFile()
+        proc = subprocess.Popen(cmd, stdin=subprocess.PIPE, stderr=errf)
         try:
             for f in range(n_frames):
                 si, local_t = scene_at(script, f / fps)
@@ -398,8 +404,11 @@ def render(script: Script, outdir: str | Path, formats: list[str], audio: Path) 
             proc.stdin.close()
         except BrokenPipeError:
             pass
-        err = proc.stderr.read().decode("utf-8", "ignore")
-        if proc.wait() != 0:
+        rc = proc.wait()
+        errf.seek(0)
+        err = errf.read().decode("utf-8", "ignore")
+        errf.close()
+        if rc != 0:
             raise RuntimeError("ffmpeg encode failed:\n" + err[-1800:])
         results.append(out_path)
         print(f"    done -> {out_path}")

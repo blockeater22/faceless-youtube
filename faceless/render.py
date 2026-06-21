@@ -441,8 +441,10 @@ def build_audio(script: Script, workdir: Path) -> Path:
         media.pad_to(raw, clip, scene.duration)
         padded.append(clip)
         print(f"  scene {i:02d} '{scene.id}': {scene.duration:.2f}s  \"{scene.narration[:48]}\"")
+    concatenated = adir / "concat.wav"
+    media.concat(padded, concatenated)
     master = adir / "master.wav"
-    media.concat(padded, master)
+    media.loudnorm(concatenated, master)
     return master
 
 

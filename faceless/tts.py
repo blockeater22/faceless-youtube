@@ -155,10 +155,11 @@ def _finalize(raw: Path, out: Path, voice: Voice) -> None:
     voice sounds less brittle. Output is 44.1k stereo pcm."""
     if voice.polish:
         # NB: no reverb/echo - it smears speech and reads as "buffering".
-        # Gentle EQ + slow-attack compression + loudness-normalise only.
+        # loudnorm is deliberately NOT applied per-clip: on short (~3s) TTS
+        # lines its gain-ramp pumps audibly, which also reads as "buffering" -
+        # it's applied once on the full concatenated track in build_audio().
         chain = ("highpass=f=75,lowpass=f=7600,"
                  "acompressor=threshold=-16dB:ratio=2.5:attack=20:release=260,"
-                 "loudnorm=I=-16:TP=-1.5:LRA=11,"
                  f"apad=pad_dur={voice.gap}")
     else:
         chain = f"apad=pad_dur={voice.gap}"

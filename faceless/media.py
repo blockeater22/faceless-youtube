@@ -80,3 +80,12 @@ def concat(parts: list[str | Path], dst: str | Path) -> None:
     run([ffmpeg_exe(), "-y", "-f", "concat", "-safe", "0",
          "-i", str(listfile), "-c", "copy", str(dst)])
     listfile.unlink(missing_ok=True)
+
+
+def loudnorm(src: str | Path, dst: str | Path, sr: int = 44100) -> None:
+    """Loudness-normalise a full track in one pass (apply once on the
+    concatenated narration, not per-clip - on short clips loudnorm's gain
+    ramp pumps audibly)."""
+    run([ffmpeg_exe(), "-y", "-i", str(src),
+         "-af", "loudnorm=I=-16:TP=-1.5:LRA=11",
+         "-ar", str(sr), "-ac", "2", "-c:a", "pcm_s16le", str(dst)])

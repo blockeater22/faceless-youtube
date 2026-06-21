@@ -14,8 +14,7 @@ rebrand.
   short, brandable, and **broad enough to tell any story** (not boxed into one
   genre).
 - **Tagline:** *little drawings · big what-ifs*
-- **Handle (pick one that's free):** `@inklings.tv` · `@theinklings` ·
-  `@inklingstories` · `@inklingsdoodle`
+- **Handle:** **`@Inklings1`** (the channel's username).
   ⚠️ I can't check handle/name availability from here — search YouTube and grab
   the closest free handle. The *display name* "Inklings" can repeat across
   channels; only the @handle must be unique.

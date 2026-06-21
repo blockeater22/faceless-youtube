@@ -239,7 +239,7 @@ def make_story(slug, title, playlist, beats):
         actors, props = TEMPLATES[tmpl](params or {})
         scenes.append({"id": f"{i:02d}_{tmpl}", "narration": text, "min_dur": MIN_DUR,
                        "actors": actors, "props": props})
-    story = {"title": title, "handle": "@inklings", "meta": {"playlist": playlist},
+    story = {"title": title, "handle": "@Inklings1", "meta": {"playlist": playlist},
              "style": BASE_STYLE, "voice": BASE_VOICE, "scenes": scenes}
     (OUT / f"{slug}.json").write_text(json.dumps(story, indent=2))
     return slug, len(scenes)

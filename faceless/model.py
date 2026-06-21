@@ -83,7 +83,7 @@ class Script:
     style: Style
     voice: Voice
     scenes: list[Scene]
-    handle: str = ""               # e.g. "@yourchannel" watermark
+    handle: str = ""               # e.g. "@Inklings1" watermark
     meta: dict = field(default_factory=dict)
 
 

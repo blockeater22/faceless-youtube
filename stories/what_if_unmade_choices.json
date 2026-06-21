@@ -1,6 +1,8 @@
 {
   "title": "What If Every Choice You Never Made Still Happened?",
   "handle": "@Inklings1",
+  "hook": "What if another YOU exists?",
+  "hook_dur": 1.8,
   "meta": {
     "concept": "many-worlds / parallel lives",
     "hook": "What if every choice you never made still happened somewhere?",
@@ -39,8 +41,8 @@
         { "type": "figure", "id": "hero", "color": "ink", "face": "neutral",
           "keys": [
             { "t": 0.0, "pos": [0.5, 0.62], "pose": "stand", "scale": 0.30, "alpha": 0 },
-            { "t": 0.2, "pos": [0.5, 0.62], "pose": "stand", "scale": 0.30, "alpha": 1 },
-            { "t": 0.6, "pos": [0.5, 0.62], "pose": "think", "scale": 0.30, "alpha": 1 },
+            { "t": 0.06, "pos": [0.5, 0.62], "pose": "stand", "scale": 0.30, "alpha": 1 },
+            { "t": 0.5, "pos": [0.5, 0.62], "pose": "think", "scale": 0.30, "alpha": 1 },
             { "t": 1.0, "pos": [0.5, 0.62], "pose": "think", "scale": 0.30, "alpha": 1 }
           ] }
       ],

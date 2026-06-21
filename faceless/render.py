@@ -258,6 +258,46 @@ def _draw_watermark(frame, script, size, mindim, style):
                fill=style.color("muted") + (170,), anchor="mm")
 
 
+def _draw_hook(frame, text, abs_t, dur, size, mindim, style):
+    """Big punch-in hook text for the opening seconds - the Shorts retention lever."""
+    if not text or abs_t >= dur:
+        return
+    w, h = size
+    fade = 0.30
+    if abs_t < 0.12:                       # snap in (slight overshoot)
+        p = abs_t / 0.12
+        alpha, scale = min(1.0, p * 1.6), 1.14 - 0.14 * p
+    elif abs_t > dur - fade:               # quick fade out
+        alpha, scale = max(0.0, (dur - abs_t) / fade), 1.0
+    else:
+        alpha, scale = 1.0, 1.0
+
+    fs = max(14, int(0.088 * mindim * scale))
+    font = _font(fs)
+    max_w = w * 0.84
+    lines, cur = [], []
+    for word in text.upper().split():
+        if font.getlength(" ".join(cur + [word])) > max_w and cur:
+            lines.append(" ".join(cur)); cur = [word]
+        else:
+            cur.append(word)
+    if cur:
+        lines.append(" ".join(cur))
+
+    line_h = int(fs * 1.16)
+    cy = int(h * 0.33)
+    y = cy - line_h * len(lines) // 2
+    layer = Image.new("RGBA", size, (0, 0, 0, 0))
+    d = ImageDraw.Draw(layer)
+    a = int(255 * alpha)
+    stroke = max(3, fs // 8)
+    for ln in lines:
+        d.text((w / 2, y), ln, font=font, anchor="ma", fill=(255, 255, 255, a),
+               stroke_width=stroke, stroke_fill=(0, 0, 0, int(235 * alpha)))
+        y += line_h
+    frame.alpha_composite(layer)
+
+
 def render_frame(script: Script, scene: Scene, local_t: float, size, mindim, frame_idx) -> Image.Image:
     style = script.style
     bg = style.color(scene.bg) if scene.bg else style.color(style.background)
@@ -274,10 +314,15 @@ def render_frame(script: Script, scene: Scene, local_t: float, size, mindim, fra
         if prop.get("front"):
             _draw_prop(frame, prop, prog, size, mindim, style, seed, scene.actors)
 
-    reveal = min(1.0, local_t / (scene.duration * 0.82)) if scene.duration else 1.0
-    _draw_caption(frame, scene.caption if scene.caption is not None else scene.narration,
-                  reveal, size, mindim, style)
+    abs_t = frame_idx / max(1, style.fps)
+    in_hook = bool(script.hook) and abs_t < script.hook_dur
+    if not in_hook:   # hook card replaces the caption while it's up
+        reveal = min(1.0, local_t / (scene.duration * 0.82)) if scene.duration else 1.0
+        _draw_caption(frame, scene.caption if scene.caption is not None else scene.narration,
+                      reveal, size, mindim, style)
     _draw_watermark(frame, script, size, mindim, style)
+    if in_hook:
+        _draw_hook(frame, script.hook, abs_t, script.hook_dur, size, mindim, style)
 
     out = frame.convert("RGB")
     if style.grain > 0:

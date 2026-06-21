@@ -84,6 +84,8 @@ class Script:
     voice: Voice
     scenes: list[Scene]
     handle: str = ""               # e.g. "@Inklings1" watermark
+    hook: str = ""                 # big on-screen text shown for the first ~1.7s
+    hook_dur: float = 1.7
     meta: dict = field(default_factory=dict)
 
 
@@ -98,5 +100,7 @@ def load_script(path: str | Path) -> Script:
         voice=voice,
         scenes=scenes,
         handle=data.get("handle", ""),
+        hook=data.get("hook", ""),
+        hook_dur=data.get("hook_dur", 1.7),
         meta=data.get("meta", {}),
     )

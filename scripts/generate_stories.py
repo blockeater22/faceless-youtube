@@ -25,6 +25,24 @@ BASE_VOICE = {
     "voice": "cmu_us_slt_arctic_hts", "rate": 135, "polish": True, "gap": 0.5,
 }
 MIN_DUR = 4.8   # per-scene floor -> deliberate holds; keeps videos in the 1-2 min range
+HOOK_DUR = 1.8  # seconds of big on-screen hook text at the very start
+
+# Short, punchy first-second hooks (the Shorts retention lever). Keep ~3-6 words.
+HOOKS = {
+    "02_sonder": "Everyone you pass is real",
+    "03_days_left": "What if you saw the number?",
+    "04_stranger_wave": "He waved at her every day",
+    "05_never_gave_up": "There's a YOU who didn't quit",
+    "06_last_time": "You won't know it's the last",
+    "07_lies_cost_days": "What if lies cost you days?",
+    "08_old_man_birds": "He never missed a morning",
+    "09_younger_self": "Your younger self is watching",
+    "10_afraid_dark": "You're not afraid of the dark",
+    "11_you_who_won": "Meet the YOU who won",
+    "12_empty_seat": "Why was the seat always empty?",
+    "13_stayed_home": "There's a YOU who stayed",
+    "14_unlived_futures": "Every life you didn't live",
+}
 
 GROUND = 0.62          # default hip height
 SCALE = 0.30
@@ -49,7 +67,7 @@ def figure(fid, keys, color="ink", face="neutral"):
 def fkeys(pos, poses, scale=SCALE):
     """Fade in, then move through a list of poses across the scene."""
     poses = poses if isinstance(poses, list) else [poses]
-    keys = [K(0, pos, poses[0], scale, 0), K(0.16, pos, poses[0], scale, 1)]
+    keys = [K(0, pos, poses[0], scale, 0), K(0.07, pos, poses[0], scale, 1)]  # fast pop-in
     for i, ps in enumerate(poses[1:], 1):
         keys.append(K(min(0.97, 0.16 + 0.8 * i / len(poses)), pos, ps, scale, 1))
     keys.append(K(1, pos, poses[-1], scale, 1))
@@ -239,7 +257,9 @@ def make_story(slug, title, playlist, beats):
         actors, props = TEMPLATES[tmpl](params or {})
         scenes.append({"id": f"{i:02d}_{tmpl}", "narration": text, "min_dur": MIN_DUR,
                        "actors": actors, "props": props})
-    story = {"title": title, "handle": "@Inklings1", "meta": {"playlist": playlist},
+    story = {"title": title, "handle": "@Inklings1",
+             "hook": HOOKS.get(slug, title), "hook_dur": HOOK_DUR,
+             "meta": {"playlist": playlist},
              "style": BASE_STYLE, "voice": BASE_VOICE, "scenes": scenes}
     (OUT / f"{slug}.json").write_text(json.dumps(story, indent=2))
     return slug, len(scenes)

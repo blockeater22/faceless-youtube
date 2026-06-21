@@ -1,0 +1,2325 @@
+{
+  "title": "How to Stop Overthinking (5 Tricks That Actually Work)",
+  "handle": "@Inklings1",
+  "hook": "Can't stop overthinking?",
+  "hook_dur": 1.8,
+  "meta": {
+    "playlist": "3 AM Thoughts",
+    "format": "long-form",
+    "topic": "how to stop overthinking"
+  },
+  "style": {
+    "background": "#0e1320",
+    "ink": "#f2ede1",
+    "accent": "#ffb454",
+    "muted": "#6f7791",
+    "fps": 24,
+    "wobble": 1.7,
+    "grain": 0.05,
+    "vignette": 0.55,
+    "caption": {
+      "size": 0.05,
+      "color": "#ffffff"
+    },
+    "logo": "branding/watermark.png",
+    "logo_pos": "tl",
+    "logo_scale": 0.1,
+    "logo_opacity": 0.72
+  },
+  "voice": {
+    "backend": "piper",
+    "piper_model": "voices/en_US-ryan-high.onnx",
+    "piper_length": 1.1,
+    "voice": "cmu_us_slt_arctic_hts",
+    "rate": 135,
+    "polish": true,
+    "gap": 0.5
+  },
+  "scenes": [
+    {
+      "id": "00_hook",
+      "narration": "It's late, and your brain is replaying that one moment for the fiftieth time.",
+      "min_dur": 5.5,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "sad",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "label",
+          "id": "q",
+          "text": "?",
+          "color": "accent",
+          "size": 0.16,
+          "keys": [
+            {
+              "t": 0.35,
+              "pos": [
+                0.66,
+                0.31
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.66,
+                0.29
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.66,
+                0.29
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        }
+      ]
+    },
+    {
+      "id": "01_solo",
+      "narration": "Overthinking feels productive. Like if you just think hard enough, you'll finally solve it.",
+      "min_dur": 5.5,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "02_solo",
+      "narration": "But you're not solving anything. You're spinning. Same thought, new lap.",
+      "min_dur": 5.5,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "sad",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "03_solo",
+      "narration": "Here are five ways to actually break the loop, backed by psychology, not motivation fluff.",
+      "min_dur": 5.5,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 0.56,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "point_up",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "point_up",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "04_chapter",
+      "narration": "One. Catch it in the act.",
+      "min_dur": 3.4,
+      "actors": [],
+      "props": [
+        {
+          "type": "label",
+          "id": "cnum",
+          "text": "1",
+          "color": "accent",
+          "size": 0.2,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.5,
+                0.37
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.2,
+              "pos": [
+                0.5,
+                0.35
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.35
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "ctitle",
+          "text": "NAME THE SPIRAL",
+          "color": "ink",
+          "size": 0.072,
+          "keys": [
+            {
+              "t": 0.12,
+              "pos": [
+                0.5,
+                0.56
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.32,
+              "pos": [
+                0.5,
+                0.54
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.54
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        }
+      ]
+    },
+    {
+      "id": "05_solo",
+      "narration": "Your brain can't spiral and observe itself at the same time.",
+      "min_dur": 5.5,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "06_solo",
+      "narration": "So the moment you notice it, just say: I'm overthinking again.",
+      "min_dur": 5.5,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "07_solo",
+      "narration": "Don't judge yourself for it. Label it like a weather report. Ah, overthinking.",
+      "min_dur": 5.5,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "08_solo",
+      "narration": "That tiny act hands control from your panicked brain back to your calm one.",
+      "min_dur": 5.5,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 0.56,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "point_up",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "point_up",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "09_chapter",
+      "narration": "Two. The ten-ten-ten rule.",
+      "min_dur": 3.4,
+      "actors": [],
+      "props": [
+        {
+          "type": "label",
+          "id": "cnum",
+          "text": "2",
+          "color": "accent",
+          "size": 0.2,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.5,
+                0.37
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.2,
+              "pos": [
+                0.5,
+                0.35
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.35
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "ctitle",
+          "text": "ZOOM OUT",
+          "color": "ink",
+          "size": 0.072,
+          "keys": [
+            {
+              "t": 0.12,
+              "pos": [
+                0.5,
+                0.56
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.32,
+              "pos": [
+                0.5,
+                0.54
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.54
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        }
+      ]
+    },
+    {
+      "id": "10_solo",
+      "narration": "Ask yourself: will this matter in ten days? Ten months? Ten years?",
+      "min_dur": 5.5,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "11_label_above",
+      "narration": "Almost everything we agonize over fails the ten-month test.",
+      "min_dur": 5.5,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "label",
+          "id": "num",
+          "text": "10?",
+          "color": "accent",
+          "size": 0.07,
+          "keys": [
+            {
+              "t": 0.25,
+              "pos": [
+                0.5,
+                0.36
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.45,
+              "pos": [
+                0.5,
+                0.33999999999999997
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.33999999999999997
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true,
+          "follow": "hero",
+          "offset": [
+            0,
+            -0.26
+          ]
+        }
+      ]
+    },
+    {
+      "id": "12_solo",
+      "narration": "Overthinking shrinks your whole world down to one moment. This zooms the camera back out.",
+      "min_dur": 5.5,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "look_up",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "look_up",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "look_up",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "13_solo",
+      "narration": "And if it truly does matter, good. That's your signal to act, not to spiral.",
+      "min_dur": 5.5,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "point_up",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "point_up",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "point_up",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "14_chapter",
+      "narration": "Three. Move to break the loop.",
+      "min_dur": 3.4,
+      "actors": [],
+      "props": [
+        {
+          "type": "label",
+          "id": "cnum",
+          "text": "3",
+          "color": "accent",
+          "size": 0.2,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.5,
+                0.37
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.2,
+              "pos": [
+                0.5,
+                0.35
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.35
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "ctitle",
+          "text": "TAKE ONE STEP",
+          "color": "ink",
+          "size": 0.072,
+          "keys": [
+            {
+              "t": 0.12,
+              "pos": [
+                0.5,
+                0.56
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.32,
+              "pos": [
+                0.5,
+                0.54
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.54
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        }
+      ]
+    },
+    {
+      "id": "15_solo",
+      "narration": "Overthinking lives in your head. The fastest way out is through your body.",
+      "min_dur": 5.5,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "16_walk",
+      "narration": "Stand up. Walk. Do one tiny piece of the thing you're avoiding.",
+      "min_dur": 5.5,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.3,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.12,
+              "pos": [
+                0.3,
+                0.62
+              ],
+              "pose": "walk_a",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 0.276,
+              "pos": [
+                0.38,
+                0.62
+              ],
+              "pose": "walk_a",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 0.432,
+              "pos": [
+                0.45999999999999996,
+                0.62
+              ],
+              "pose": "walk_b",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 0.588,
+              "pos": [
+                0.54,
+                0.62
+              ],
+              "pose": "walk_a",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 0.744,
+              "pos": [
+                0.6199999999999999,
+                0.62
+              ],
+              "pose": "walk_b",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.7,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "17_solo",
+      "narration": "Wash one dish. Write one sentence. It tells your brain: we're moving now.",
+      "min_dur": 5.5,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "reach",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "reach",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "reach",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "18_solo",
+      "narration": "Anxiety is just energy with nowhere to go. Action finally gives it somewhere.",
+      "min_dur": 5.5,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "19_chapter",
+      "narration": "Four. You are not your thoughts.",
+      "min_dur": 3.4,
+      "actors": [],
+      "props": [
+        {
+          "type": "label",
+          "id": "cnum",
+          "text": "4",
+          "color": "accent",
+          "size": 0.2,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.5,
+                0.37
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.2,
+              "pos": [
+                0.5,
+                0.35
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.35
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "ctitle",
+          "text": "WATCH THE CLOUDS",
+          "color": "ink",
+          "size": 0.072,
+          "keys": [
+            {
+              "t": 0.12,
+              "pos": [
+                0.5,
+                0.56
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.32,
+              "pos": [
+                0.5,
+                0.54
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.54
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        }
+      ]
+    },
+    {
+      "id": "20_split",
+      "narration": "A thought is not a fact. It's just a thought, passing through.",
+      "min_dur": 5.5,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.28,
+              "alpha": 1
+            },
+            {
+              "t": 0.45,
+              "pos": [
+                0.4,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.28,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.4,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.28,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "ghost",
+          "color": "muted",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.28,
+              "alpha": 0
+            },
+            {
+              "t": 0.45,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.28,
+              "alpha": 0.2
+            },
+            {
+              "t": 0.8,
+              "pos": [
+                0.62,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.28,
+              "alpha": 0.85
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.62,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.28,
+              "alpha": 0.85
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "21_solo",
+      "narration": "Picture each worry as a cloud drifting across the sky. You are the sky, not the cloud.",
+      "min_dur": 5.5,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "look_up",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "look_up",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "look_up",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "22_solo",
+      "narration": "Thoughts feel urgent, and they feel true. They are very often neither.",
+      "min_dur": 5.5,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "sad",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "23_solo",
+      "narration": "You don't have to grab every single one. Just let it drift past.",
+      "min_dur": 5.5,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "24_chapter",
+      "narration": "Five. Set a decision deadline.",
+      "min_dur": 3.4,
+      "actors": [],
+      "props": [
+        {
+          "type": "label",
+          "id": "cnum",
+          "text": "5",
+          "color": "accent",
+          "size": 0.2,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.5,
+                0.37
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.2,
+              "pos": [
+                0.5,
+                0.35
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.35
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "ctitle",
+          "text": "DECIDE, THEN GO",
+          "color": "ink",
+          "size": 0.072,
+          "keys": [
+            {
+              "t": 0.12,
+              "pos": [
+                0.5,
+                0.56
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.32,
+              "pos": [
+                0.5,
+                0.54
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.54
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        }
+      ]
+    },
+    {
+      "id": "25_solo",
+      "narration": "Most overthinking is really just the fear of choosing wrong.",
+      "min_dur": 5.5,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "sad",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "26_two",
+      "narration": "So give the decision a timer. Five minutes. Then commit, and move.",
+      "min_dur": 5.5,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "a",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.27,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.27,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.27,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "b",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.27,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.27,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.27,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "27_solo",
+      "narration": "You can almost always adjust later. You can't adjust a choice you never made.",
+      "min_dur": 5.5,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "28_celebrate",
+      "narration": "A good decision today beats a perfect one that never comes.",
+      "min_dur": 5.5,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.66
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 0.4,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "celebrate",
+              "scale": 0.3,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "celebrate",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "label",
+          "id": "e1",
+          "text": "!",
+          "color": "accent",
+          "size": 0.07,
+          "keys": [
+            {
+              "t": 0.4,
+              "pos": [
+                0.31,
+                0.36
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.31,
+                0.33999999999999997
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.31,
+                0.33999999999999997
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "e2",
+          "text": "!",
+          "color": "accent",
+          "size": 0.07,
+          "keys": [
+            {
+              "t": 0.5,
+              "pos": [
+                0.7,
+                0.38
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.7,
+              "pos": [
+                0.7,
+                0.36
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.7,
+                0.36
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        }
+      ]
+    },
+    {
+      "id": "29_solo",
+      "narration": "You can't stop thoughts from showing up. That was never the goal.",
+      "min_dur": 5.5,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "30_solo",
+      "narration": "The goal is to stop feeding them. Notice. Zoom out. Move. Let go. Decide.",
+      "min_dur": 5.5,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 0.56,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "point_up",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "point_up",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "31_stars",
+      "narration": "Your mind is a tool. And tonight, you're the one holding it.",
+      "min_dur": 5.5,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.67
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.67
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 0.56,
+              "pos": [
+                0.5,
+                0.67
+              ],
+              "pose": "look_up",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.67
+              ],
+              "pose": "look_up",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "label",
+          "id": "s0",
+          "text": "*",
+          "color": "ink",
+          "size": 0.045,
+          "keys": [
+            {
+              "t": 0.3,
+              "pos": [
+                0.26,
+                0.24
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.5,
+              "pos": [
+                0.26,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.26,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "s1",
+          "text": "*",
+          "color": "accent",
+          "size": 0.055,
+          "keys": [
+            {
+              "t": 0.38,
+              "pos": [
+                0.44,
+                0.18
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.58,
+              "pos": [
+                0.44,
+                0.16
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.44,
+                0.16
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "s2",
+          "text": "*",
+          "color": "ink",
+          "size": 0.045,
+          "keys": [
+            {
+              "t": 0.46,
+              "pos": [
+                0.6,
+                0.22
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.66,
+              "pos": [
+                0.6,
+                0.2
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.6,
+                0.2
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "s3",
+          "text": "*",
+          "color": "accent",
+          "size": 0.055,
+          "keys": [
+            {
+              "t": 0.54,
+              "pos": [
+                0.76,
+                0.28
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.74,
+              "pos": [
+                0.76,
+                0.26
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.76,
+                0.26
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "s4",
+          "text": "*",
+          "color": "ink",
+          "size": 0.045,
+          "keys": [
+            {
+              "t": 0.62,
+              "pos": [
+                0.36,
+                0.32
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.82,
+              "pos": [
+                0.36,
+                0.3
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.36,
+                0.3
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        }
+      ]
+    },
+    {
+      "id": "32_cta",
+      "narration": "Which trick are you trying first? Tell me below, and subscribe for more.",
+      "min_dur": 5.5,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 0.56,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.3,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.3,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "label",
+          "id": "m",
+          "text": "+",
+          "color": "accent",
+          "size": 0.08,
+          "keys": [
+            {
+              "t": 0.45,
+              "pos": [
+                0.68,
+                0.38
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.65,
+              "pos": [
+                0.68,
+                0.36
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.68,
+                0.36
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        }
+      ]
+    }
+  ]
+}

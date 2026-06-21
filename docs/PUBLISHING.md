@@ -270,6 +270,58 @@ your viewers are actually free to sit and watch.
 
 ---
 
+## Long-form #2 — "How to Stop Overthinking" (SEO / search-driven)
+
+`stories/longform_stop_overthinking.json` · 16:9 · ~2:56 · Playlist: **3 AM Thoughts**
+> Chosen as a high-search evergreen query (great for tags + suggested/search traffic).
+
+**Title** (A/B):
+- `How to Stop Overthinking (5 Tricks That Actually Work)`
+- `How to Stop Overthinking Everything`
+- `How to Stop Overthinking at Night`
+
+**Description:**
+```
+How to stop overthinking — 5 simple, psychology-backed tricks to quiet your mind and break the loop tonight.
+
+If your brain replays the same worry on a loop, you're not broken — you're stuck in a thinking habit. These five shifts help you step out of it.
+
+⏱ Chapters
+0:00 Why we overthink
+0:23 1. Name the spiral
+0:49 2. The 10-10-10 rule
+1:15 3. Take one step
+1:41 4. You are not your thoughts
+2:07 5. Decide, then go
+
+💬 Which trick are you trying first? Tell me in the comments.
+🔔 Subscribe for hand-drawn videos on the mind, calm, and the quietly mind-bending.
+
+#overthinking #anxiety #selfimprovement #mindfulness #inklings
+```
+
+**Hashtags above title:** `#overthinking #anxiety #selfimprovement`
+
+**Tags:**
+```
+how to stop overthinking, stop overthinking, overthinking, how to stop overthinking and anxiety,
+stop overthinking everything, how to stop overthinking at night, how to stop thinking too much,
+calm your mind, how to control your mind, quiet your mind, anxiety relief, intrusive thoughts,
+stop worrying, overthinking relationships, self improvement, mental health, mindfulness, psychology, Inklings
+```
+
+**Thumbnail:** `branding/thumbnail_stop_overthinking.png` (figure + tangled-thought storm +
+"STOP OVERTHINKING"). Regenerate with `python branding/make_thumbnail_overthinking.py`.
+
+**Pinned comment:**
+> Your mind is a tool — tonight, you're the one holding it. 🧠 Which of the 5 tricks are
+> you trying first? I read every reply.
+
+**Best time:** searchable how-to content gets steady search/suggested traffic, so timing
+matters less — but post **evening (7–9 PM)** or a weekend for the initial push.
+
+---
+
 ## Reminders
 - Put the per-video **comment-CTA as a pinned comment** too (see `docs/LAUNCH.md`).
 - Add each upload to its **playlist** during publishing (not after).

@@ -10,7 +10,7 @@ from pathlib import Path
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
-from . import anim, icons, media, tts
+from . import anim, icons, media, scenery, tts
 from .draw import Sketcher
 from .figures import draw_figure, get_pose
 from .model import RESOLUTIONS, Scene, Script, load_script
@@ -167,6 +167,18 @@ def _draw_prop(frame, prop, t, size, mindim, style, seed, actors):
         r = prop.get("r", 0.12) * mindim * scale
         cx, cy = XY(pos)
         icons.draw_icon(d, prop.get("name", "star"), cx, cy, r, color + (int(255 * alpha),))
+        frame.alpha_composite(layer)
+        return
+    elif ptype == "object":
+        layer = Image.new("RGBA", size, (0, 0, 0, 0))
+        d = ImageDraw.Draw(layer)
+        sz = prop.get("size", 0.34) * mindim * scale
+        cx, cy = XY(pos)
+        tint = style.color(prop["color"]) if "color" in prop else None
+        scenery.draw_object(d, prop.get("name", "armchair"), cx, cy, sz, tint)
+        if alpha < 1.0:
+            a = layer.getchannel("A").point(lambda v: int(v * alpha))
+            layer.putalpha(a)
         frame.alpha_composite(layer)
         return
     elif ptype == "path":

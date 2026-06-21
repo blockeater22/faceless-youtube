@@ -212,6 +212,64 @@ For one breath, you feel every life you almost lived — the loves, the dreams, 
    #grief #kindness #selfgrowth #animation #stickfigure`
 - Don't keyword-stuff (>15 tags can get a video filtered). Five focused tags beat twenty random ones.
 
+## Long-form #1 — "7 Thoughts That Will Quietly Change How You See Your Life"
+
+`stories/longform_seven_thoughts.json` · 16:9 · ~7:18 · Playlist: **3 AM Thoughts**
+
+**Title** (pick one — A/B test):
+- `7 Thoughts That Will Quietly Change How You See Your Life`
+- `7 Ideas That Will Mess With Your Head (and Make You Feel Less Alone)`
+- `Watch This When Life Feels Empty — 7 Thoughts That Change Everything`
+
+**Description** (paste; the timestamps auto-create YouTube chapters):
+```
+You are not separate from the universe — you ARE the universe, briefly awake. 🌌
+
+Seven quiet thoughts that change how you see strangers, time, the people you love, and your own short life. Watch it slowly. Stay till the end.
+
+⏱ Chapters
+0:00 Intro — you're sleepwalking through a miracle
+0:34 1. Sonder — everyone you pass is real
+1:34 2. The Last Time
+2:24 3. The Other You
+3:10 4. Four Thousand Weeks
+4:02 5. You Are Stardust
+4:53 6. The Dark
+5:49 7. Every Unlived Life
+
+💬 Which thought hit you the hardest? Tell me in the comments — I read every one.
+🔔 Subscribe for hand-drawn stories about the quietly mind-bending. New ones often.
+
+🎙 Hand-drawn and narrated by Inklings.
+
+#deepthoughts #philosophy #sonder #mindfulness #inklings
+```
+
+**Hashtags (above the title):** `#deepthoughts #philosophy #sonder`
+
+**Tags** (Studio → Show more → Tags — comma-separated):
+```
+deep thoughts, philosophy, sonder, existential, mindfulness, what if, parallel universe,
+four thousand weeks, you are stardust, perspective on life, life advice, motivational video,
+stick figure animation, video essay, thoughts before bed, psychology, meaning of life,
+overthinking, calm, Inklings
+```
+
+**Thumbnail (16:9):** a single stick figure looking up at a few amber stars, with bold
+white text **"7 THOUGHTS THAT CHANGE EVERYTHING"** (and the amber **?**). Keep text to
+~4 words so it's readable on mobile.
+
+**Pinned comment:**
+> Seven thoughts. Everyone is real, nothing is ordinary, and you're stardust that briefly
+> woke up. 🌌 Which one stayed with you? I read every reply.
+
+**Best time to post (long-form ≠ Shorts):** long-form needs people with 7 free minutes, so
+post for the **evening wind-down or a weekend** — ~**7–9 PM** audience-local (Fri–Sun is
+ideal for a reflective piece). Unlike Shorts, the first few hours matter more, so post when
+your viewers are actually free to sit and watch.
+
+---
+
 ## Reminders
 - Put the per-video **comment-CTA as a pinned comment** too (see `docs/LAUNCH.md`).
 - Add each upload to its **playlist** during publishing (not after).

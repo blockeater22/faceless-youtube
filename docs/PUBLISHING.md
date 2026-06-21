@@ -255,9 +255,9 @@ stick figure animation, video essay, thoughts before bed, psychology, meaning of
 overthinking, calm, Inklings
 ```
 
-**Thumbnail (16:9):** a single stick figure looking up at a few amber stars, with bold
-white text **"7 THOUGHTS THAT CHANGE EVERYTHING"** (and the amber **?**). Keep text to
-~4 words so it's readable on mobile.
+**Thumbnail (16:9):** ready at `branding/thumbnail_seven_thoughts.png` (1280x720) —
+giant amber **7** + "THOUGHTS THAT CHANGE EVERYTHING" + a figure gazing at the stars.
+Regenerate / tweak text via `python branding/make_thumbnail.py`.
 
 **Pinned comment:**
 > Seven thoughts. Everyone is real, nothing is ordinary, and you're stardust that briefly

@@ -1,8 +1,10 @@
 """Pluggable text-to-speech.
 
 Each backend turns one line of narration into a wav file. The default
-(``espeak``) is fully offline; ``elevenlabs`` is wired for final-channel quality
-once you set ``ELEVENLABS_API_KEY``. Swap backends in the story's ``voice`` block.
+(``espeak``) is fully offline; ``kokoro`` and ``piper`` are free offline
+neural voices (better quality, need local model files); ``elevenlabs`` is
+wired for final-channel quality once you set ``ELEVENLABS_API_KEY``. Swap
+backends in the story's ``voice`` block.
 """
 from __future__ import annotations
 
@@ -10,6 +12,7 @@ import os
 import shutil
 import subprocess
 import wave
+from functools import lru_cache
 from pathlib import Path
 
 from .media import ffmpeg_exe, run
@@ -33,6 +36,8 @@ def synth(text: str, out_wav: str | Path, voice: Voice) -> None:
             _festival(text, raw, voice)
         elif backend == "piper":
             _piper(text, raw, voice)
+        elif backend == "kokoro":
+            _kokoro(text, raw, voice)
         elif backend == "gtts":
             _gtts(text, raw, voice)
         elif backend == "elevenlabs":
@@ -119,6 +124,31 @@ def _piper(text: str, out: Path, voice: Voice) -> None:
             pv.synthesize_wav(text, wf, length_scale=voice.piper_length)
         except (TypeError, AttributeError):
             pv.synthesize(text, wf)  # older piper-tts API
+
+
+@lru_cache(maxsize=2)
+def _kokoro_engine(model: str, voices: str):
+    from kokoro_onnx import Kokoro  # type: ignore
+    if not Path(model).exists() or not Path(voices).exists():
+        raise RuntimeError(
+            f"kokoro model files not found ({model!r}, {voices!r}). Download "
+            "kokoro-v1.0.onnx and voices-v1.0.bin from "
+            "https://github.com/thewh1teagle/kokoro-onnx/releases/tag/model-files-v1.0"
+        )
+    return Kokoro(model, voices)
+
+
+def _kokoro(text: str, out: Path, voice: Voice) -> None:
+    """Kokoro-82M neural TTS - free, offline, no API key, good free quality.
+    voice.voice = a Kokoro voice id, e.g. "am_liam" (American male, Liam)."""
+    try:
+        import soundfile as sf  # type: ignore
+    except ImportError as exc:
+        raise RuntimeError("soundfile not installed: `pip install soundfile`") from exc
+    engine = _kokoro_engine(voice.kokoro_model, voice.kokoro_voices)
+    vname = voice.voice if voice.voice in engine.get_voices() else "am_liam"
+    samples, sr = engine.create(text, voice=vname, speed=voice.kokoro_speed, lang="en-us")
+    sf.write(str(out), samples, sr)
 
 
 def _gtts(text: str, out: Path, voice: Voice) -> None:

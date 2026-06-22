@@ -53,7 +53,7 @@ class Style:
 
 @dataclass
 class Voice:
-    # backend: espeak (incl. mbrola "mb-*" voices) | piper | gtts | elevenlabs | none
+    # backend: espeak (incl. mbrola "mb-*" voices) | kokoro | piper | gtts | elevenlabs | none
     backend: str = "espeak"
     voice: str = "en-us+m3"        # espeak voice id, or mbrola e.g. "mb-us2"
     rate: int = 156                # espeak words-per-minute
@@ -63,6 +63,9 @@ class Voice:
     eleven_voice: str = "Rachel"   # ElevenLabs voice name/id
     piper_model: str = ""          # path to a local piper .onnx voice (+ .json sibling)
     piper_length: float = 1.0      # piper length_scale (>1 = slower)
+    kokoro_model: str = ".models/kokoro/kokoro-v1.0.onnx"   # Kokoro-82M onnx weights
+    kokoro_voices: str = ".models/kokoro/voices-v1.0.bin"   # Kokoro voice pack
+    kokoro_speed: float = 1.0      # Kokoro speech-rate multiplier
     gap: float = 0.28              # trailing silence after each line (s)
 
 

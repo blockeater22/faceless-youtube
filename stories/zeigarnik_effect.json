@@ -24,9 +24,8 @@
     }
   },
   "voice": {
-    "backend": "espeak",
-    "voice": "en-us+f3",
-    "rate": 158,
+    "backend": "kokoro",
+    "voice": "am_liam",
     "polish": true,
     "gap": 0.3
   },

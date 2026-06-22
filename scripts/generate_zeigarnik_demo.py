@@ -34,7 +34,7 @@ STYLE = {
     "vignette": 0.0,
     "caption": {"mode": "kinetic", "size": 0.1, "y": 0.46, "max_chars": 16},
 }
-VOICE = {"backend": "espeak", "voice": "en-us+f3", "rate": 158, "polish": True, "gap": 0.3}
+VOICE = {"backend": "kokoro", "voice": "am_liam", "polish": True, "gap": 0.3}
 
 
 def K(t, pos=None, scale=None, alpha=None, ease=None):

@@ -2,6 +2,7 @@
 __pycache__/
 *.pyc
 .cache/
+.models/   # downloaded TTS model weights (see scripts/download_kokoro.sh)
 # intermediate render artifacts (final mp4s under output/ ARE committed as samples)
 output/**/_audio/
 output/**/_frames/

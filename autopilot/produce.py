@@ -47,6 +47,14 @@ def _embiggen(actors, f):
     return actors
 
 
+def _icon_prop(name):
+    """A scene-relevant object that pops in beside the figure (illustrates the line)."""
+    return {"type": "icon", "name": name, "color": "accent", "size": 0.12, "front": True,
+            "keys": [{"t": 0.18, "pos": [0.72, 0.32], "alpha": 0, "scale": 0.4},
+                     {"t": 0.4, "pos": [0.72, 0.30], "alpha": 1, "scale": 1.0, "ease": "pop"},
+                     {"t": 1, "pos": [0.72, 0.30], "alpha": 1, "scale": 1.0}]}
+
+
 def _beats_to_scenes(beats, embiggen):
     tmpl = dict(TEMPLATES)
     tmpl["chapter"] = _chapter
@@ -57,12 +65,18 @@ def _beats_to_scenes(beats, embiggen):
         if b.get("pose"):
             params["pose"] = b["pose"]
             params["poses"] = [b["pose"]]
+        # generic + two-figure params so interactions actually render distinct poses
         for k_src, k_dst in (("face", "face"), ("dir", "dir"), ("text", "text"),
-                             ("num", "num"), ("ctitle", "title")):
+                             ("num", "num"), ("ctitle", "title"),
+                             ("poseA", "poseA"), ("poseB", "poseB"),
+                             ("faceA", "faceA"), ("faceB", "faceB"),
+                             ("colorA", "colorA"), ("colorB", "colorB")):
             if b.get(k_src):
                 params[k_dst] = b[k_src]
         actors, props = tmpl.get(t, tmpl["solo"])(params)
         _embiggen(actors, embiggen)
+        if b.get("icon"):
+            props = list(props) + [_icon_prop(b["icon"])]
         scenes.append({"id": f"{i:02d}_{t}", "narration": b["narration"],
                        "min_dur": 3.4 if t == "chapter" else 5.6,
                        "actors": actors, "props": props})

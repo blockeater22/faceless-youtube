@@ -204,6 +204,10 @@ def _draw_prop(frame, prop, t, size, mindim, style, seed, actors):
             pts = [XY(p) for p in raw]  # frame-relative (ok for full-width lines)
         if len(pts) >= 2:
             sk.stroke(pts, color=color)
+    elif ptype == "icon":
+        from .icons import draw_icon
+        draw_icon(sk, prop.get("name", "star"), XY(pos),
+                  prop.get("size", 0.12) * mindim * scale, color=color)
     sk.composite_onto(frame, alpha)
 
 

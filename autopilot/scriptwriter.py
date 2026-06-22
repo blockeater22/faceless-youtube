@@ -40,6 +40,12 @@ SCHEMA = {
                     "num": {"type": "string"},
                     "ctitle": {"type": "string"},
                     "dir": {"type": "string"},
+                    "icon": {"type": "string"},
+                    "poseA": {"type": "string"},
+                    "poseB": {"type": "string"},
+                    "faceA": {"type": "string"},
+                    "faceB": {"type": "string"},
+                    "colorB": {"type": "string"},
                 },
                 "required": ["template", "narration"],
                 "additionalProperties": False,
@@ -88,7 +94,18 @@ match the emotion of the line. For `point` you may set `dir` to "l" or "r".
 Rules: start with exactly one `hook` beat and end with exactly one `cta` beat. Keep \
 narration tight and specific; avoid clichés and filler. Do not number sentences except \
 inside chapter cards. Make it feel like one flowing piece with a real beginning, middle, \
-and a turn near the end."""
+and a turn near the end.
+
+ILLUSTRATE every line — never just narrate over a standing figure:
+- For anything between people (someone hurt, grateful, ignored, comforted) use template \
+"two" with poseA/poseB + faceA/faceB and set colorB to "muted" for the other person \
+(hurt friend: poseB "stand", faceB "sad"; grateful: poseB "wave", faceB "happy").
+- When a line is about an object, feeling, or concept, set `icon` to ONE of: heart, speech, \
+thought, cloud, rain, door, phone, sun, moon, star, clock, gift, spiral, bulb, eye \
+(heart=love/warmth, spiral=overthinking, door=a choice, phone=connection, bulb=a realization, \
+rain=sadness, star=wonder, clock=time, gift=giving, eye=noticing/being seen).
+- Always give the figure a pose + face that matches the emotion. A neutral figure with no \
+icon and no second person should be rare."""
 
 
 def _user_prompt(topic: dict, trends: list | None = None) -> str:
@@ -220,7 +237,8 @@ def _sanitize(script: dict) -> dict:
         if t not in ALLOWED_TEMPLATES:
             t = "solo"
         clean = {"template": t, "narration": b["narration"].strip()}
-        for k in ("pose", "face", "text", "num", "ctitle", "dir"):
+        for k in ("pose", "face", "text", "num", "ctitle", "dir",
+                  "icon", "poseA", "poseB", "faceA", "faceB", "colorB"):
             if b.get(k):
                 clean[k] = b[k]
         beats.append(clean)

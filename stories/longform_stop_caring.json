@@ -1,0 +1,4283 @@
+{
+  "title": "How to Stop Caring What People Think",
+  "handle": "@Inklings1",
+  "hook": "Stop caring what they think.",
+  "hook_dur": 2.0,
+  "meta": {
+    "playlist": "3 AM Thoughts",
+    "format": "long-form",
+    "topic": "how to stop caring what people think"
+  },
+  "style": {
+    "background": "#0e1320",
+    "ink": "#f2ede1",
+    "accent": "#ffb454",
+    "muted": "#6f7791",
+    "fps": 24,
+    "wobble": 1.7,
+    "grain": 0.05,
+    "vignette": 0.55,
+    "caption": {
+      "size": 0.05,
+      "color": "#ffffff"
+    },
+    "logo": "branding/watermark.png",
+    "logo_pos": "tl",
+    "logo_scale": 0.1,
+    "logo_opacity": 0.72
+  },
+  "voice": {
+    "backend": "piper",
+    "piper_model": "voices/en_US-ryan-high.onnx",
+    "piper_length": 1.1,
+    "voice": "cmu_us_slt_arctic_hts",
+    "rate": 135,
+    "polish": true,
+    "gap": 0.5
+  },
+  "scenes": [
+    {
+      "id": "00_hook",
+      "narration": "It's two a.m., and you're replaying it again. That thing you said. The way they looked at you.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "sad",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "label",
+          "id": "q",
+          "text": "?",
+          "color": "accent",
+          "size": 0.16,
+          "keys": [
+            {
+              "t": 0.35,
+              "pos": [
+                0.66,
+                0.31
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.66,
+                0.29
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.66,
+                0.29
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        }
+      ]
+    },
+    {
+      "id": "01_solo",
+      "narration": "You've been living your whole life inside a courtroom that doesn't even exist.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "sad",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "02_solo",
+      "narration": "An invisible jury, judging your every move. You built it. Which means you can take it apart.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "03_solo",
+      "narration": "So here is how to actually stop caring what people think. Real psychology, not feel-good lines.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 0.56,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "point_up",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "point_up",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "04_solo",
+      "narration": "One quick warning. You can't switch this off completely. And you really shouldn't want to.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "05_solo",
+      "narration": "The goal isn't to feel nothing. It's to stop letting other people's opinions run your life.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "06_chapter",
+      "narration": "One. It's wiring, not weakness.",
+      "min_dur": 3.4,
+      "actors": [],
+      "props": [
+        {
+          "type": "label",
+          "id": "cnum",
+          "text": "1",
+          "color": "accent",
+          "size": 0.2,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.5,
+                0.37
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.2,
+              "pos": [
+                0.5,
+                0.35
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.35
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "ctitle",
+          "text": "IT'S ANCIENT WIRING",
+          "color": "ink",
+          "size": 0.072,
+          "keys": [
+            {
+              "t": 0.12,
+              "pos": [
+                0.5,
+                0.56
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.32,
+              "pos": [
+                0.5,
+                0.54
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.54
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        }
+      ]
+    },
+    {
+      "id": "07_crowd",
+      "narration": "For two hundred thousand years, you lived or died by the group.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "m0",
+          "color": "ink",
+          "face": "dots",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.15,
+                0.5
+              ],
+              "pose": "wave",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.05,
+              "pos": [
+                0.15,
+                0.5
+              ],
+              "pose": "stand",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.17,
+              "pos": [
+                0.15,
+                0.5
+              ],
+              "pose": "wave",
+              "scale": 0.1846,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.15,
+                0.5
+              ],
+              "pose": "wave",
+              "scale": 0.1846,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "m1",
+          "color": "muted",
+          "face": "dots",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.33,
+                0.42
+              ],
+              "pose": "celebrate",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.12,
+              "pos": [
+                0.33,
+                0.42
+              ],
+              "pose": "stand",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.24,
+              "pos": [
+                0.33,
+                0.42
+              ],
+              "pose": "celebrate",
+              "scale": 0.1846,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.33,
+                0.42
+              ],
+              "pose": "celebrate",
+              "scale": 0.1846,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "m2",
+          "color": "ink",
+          "face": "dots",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.56
+              ],
+              "pose": "point_up",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.19,
+              "pos": [
+                0.5,
+                0.56
+              ],
+              "pose": "stand",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.31,
+              "pos": [
+                0.5,
+                0.56
+              ],
+              "pose": "point_up",
+              "scale": 0.1846,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.56
+              ],
+              "pose": "point_up",
+              "scale": 0.1846,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "m3",
+          "color": "muted",
+          "face": "dots",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.67,
+                0.42
+              ],
+              "pose": "shrug",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.26,
+              "pos": [
+                0.67,
+                0.42
+              ],
+              "pose": "stand",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.38,
+              "pos": [
+                0.67,
+                0.42
+              ],
+              "pose": "shrug",
+              "scale": 0.1846,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.67,
+                0.42
+              ],
+              "pose": "shrug",
+              "scale": 0.1846,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "m4",
+          "color": "ink",
+          "face": "dots",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.85,
+                0.5
+              ],
+              "pose": "wave",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.33,
+              "pos": [
+                0.85,
+                0.5
+              ],
+              "pose": "stand",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.45,
+              "pos": [
+                0.85,
+                0.5
+              ],
+              "pose": "wave",
+              "scale": 0.1846,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.85,
+                0.5
+              ],
+              "pose": "wave",
+              "scale": 0.1846,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "m5",
+          "color": "muted",
+          "face": "dots",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.36
+              ],
+              "pose": "stand",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.4,
+              "pos": [
+                0.5,
+                0.36
+              ],
+              "pose": "stand",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.52,
+              "pos": [
+                0.5,
+                0.36
+              ],
+              "pose": "stand",
+              "scale": 0.1846,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.36
+              ],
+              "pose": "stand",
+              "scale": 0.1846,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "08_solo",
+      "narration": "Back then, being cast out of the tribe wasn't embarrassing. It was a death sentence.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "sad",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "09_solo",
+      "narration": "So your brain learned to treat disapproval as if it were mortal danger.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "10_two",
+      "narration": "That is why one cold look from a stranger can quietly ruin your whole afternoon.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "a",
+          "color": "ink",
+          "face": "sad",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "b",
+          "color": "muted",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "11_solo",
+      "narration": "It's a hundred-thousand-year-old alarm, going off in a world that will not actually exile you.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "12_solo",
+      "narration": "So stop being ashamed that you care. Your brain is just doing its oldest job.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "13_chapter",
+      "narration": "Two. Nobody is really watching.",
+      "min_dur": 3.4,
+      "actors": [],
+      "props": [
+        {
+          "type": "label",
+          "id": "cnum",
+          "text": "2",
+          "color": "accent",
+          "size": 0.2,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.5,
+                0.37
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.2,
+              "pos": [
+                0.5,
+                0.35
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.35
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "ctitle",
+          "text": "THE SPOTLIGHT IS OFF",
+          "color": "ink",
+          "size": 0.072,
+          "keys": [
+            {
+              "t": 0.12,
+              "pos": [
+                0.5,
+                0.56
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.32,
+              "pos": [
+                0.5,
+                0.54
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.54
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        }
+      ]
+    },
+    {
+      "id": "14_solo",
+      "narration": "You walk into a room, certain that everyone is studying you.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "sad",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "15_crowd",
+      "narration": "They're not. Every person in that room is starring in their own anxious movie.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "m0",
+          "color": "ink",
+          "face": "dots",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.15,
+                0.5
+              ],
+              "pose": "wave",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.05,
+              "pos": [
+                0.15,
+                0.5
+              ],
+              "pose": "stand",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.17,
+              "pos": [
+                0.15,
+                0.5
+              ],
+              "pose": "wave",
+              "scale": 0.1846,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.15,
+                0.5
+              ],
+              "pose": "wave",
+              "scale": 0.1846,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "m1",
+          "color": "muted",
+          "face": "dots",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.33,
+                0.42
+              ],
+              "pose": "celebrate",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.12,
+              "pos": [
+                0.33,
+                0.42
+              ],
+              "pose": "stand",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.24,
+              "pos": [
+                0.33,
+                0.42
+              ],
+              "pose": "celebrate",
+              "scale": 0.1846,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.33,
+                0.42
+              ],
+              "pose": "celebrate",
+              "scale": 0.1846,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "m2",
+          "color": "ink",
+          "face": "dots",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.56
+              ],
+              "pose": "point_up",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.19,
+              "pos": [
+                0.5,
+                0.56
+              ],
+              "pose": "stand",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.31,
+              "pos": [
+                0.5,
+                0.56
+              ],
+              "pose": "point_up",
+              "scale": 0.1846,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.56
+              ],
+              "pose": "point_up",
+              "scale": 0.1846,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "m3",
+          "color": "muted",
+          "face": "dots",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.67,
+                0.42
+              ],
+              "pose": "shrug",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.26,
+              "pos": [
+                0.67,
+                0.42
+              ],
+              "pose": "stand",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.38,
+              "pos": [
+                0.67,
+                0.42
+              ],
+              "pose": "shrug",
+              "scale": 0.1846,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.67,
+                0.42
+              ],
+              "pose": "shrug",
+              "scale": 0.1846,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "m4",
+          "color": "ink",
+          "face": "dots",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.85,
+                0.5
+              ],
+              "pose": "wave",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.33,
+              "pos": [
+                0.85,
+                0.5
+              ],
+              "pose": "stand",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.45,
+              "pos": [
+                0.85,
+                0.5
+              ],
+              "pose": "wave",
+              "scale": 0.1846,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.85,
+                0.5
+              ],
+              "pose": "wave",
+              "scale": 0.1846,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "m5",
+          "color": "muted",
+          "face": "dots",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.36
+              ],
+              "pose": "stand",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.4,
+              "pos": [
+                0.5,
+                0.36
+              ],
+              "pose": "stand",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.52,
+              "pos": [
+                0.5,
+                0.36
+              ],
+              "pose": "stand",
+              "scale": 0.1846,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.36
+              ],
+              "pose": "stand",
+              "scale": 0.1846,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "16_solo",
+      "narration": "Worried about their hair, their words, their own imaginary jury.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "17_label_above",
+      "narration": "Psychologists call it the spotlight effect. We wildly overestimate how much we're noticed.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "label",
+          "id": "num",
+          "text": "you?",
+          "color": "accent",
+          "size": 0.08,
+          "keys": [
+            {
+              "t": 0.25,
+              "pos": [
+                0.5,
+                0.36
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.45,
+              "pos": [
+                0.5,
+                0.33999999999999997
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.33999999999999997
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true,
+          "follow": "hero",
+          "offset": [
+            0,
+            -0.26
+          ]
+        }
+      ]
+    },
+    {
+      "id": "18_solo",
+      "narration": "That thing you cringe about for years? Most people forgot it by dinner.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "19_solo",
+      "narration": "You're the main character in your story, and a background extra in everyone else's. That's freedom.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "20_chapter",
+      "narration": "Three. Not every opinion gets a vote.",
+      "min_dur": 3.4,
+      "actors": [],
+      "props": [
+        {
+          "type": "label",
+          "id": "cnum",
+          "text": "3",
+          "color": "accent",
+          "size": 0.2,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.5,
+                0.37
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.2,
+              "pos": [
+                0.5,
+                0.35
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.35
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "ctitle",
+          "text": "GIVE FEWER VOTES",
+          "color": "ink",
+          "size": 0.072,
+          "keys": [
+            {
+              "t": 0.12,
+              "pos": [
+                0.5,
+                0.56
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.32,
+              "pos": [
+                0.5,
+                0.54
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.54
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        }
+      ]
+    },
+    {
+      "id": "21_solo",
+      "narration": "Right now, you are handing out votes on your life to total strangers.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "22_two",
+      "narration": "The commenter. The relative who never chased anything. The person you'll never see again.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "a",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "shrug",
+              "scale": 0.3834,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "shrug",
+              "scale": 0.3834,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "shrug",
+              "scale": 0.3834,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "b",
+          "color": "muted",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "shrug",
+              "scale": 0.3834,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "shrug",
+              "scale": 0.3834,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "shrug",
+              "scale": 0.3834,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "23_solo",
+      "narration": "So draw a small circle. Inside it, the few people who truly love you and want you to grow.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "24_two",
+      "narration": "Their honest feedback is gold. Protect it. Actually listen to it.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "a",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "b",
+          "color": "muted",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.3834,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.3834,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.3834,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "25_solo",
+      "narration": "Everyone outside that circle is just weather. You don't rebuild your house for every passing cloud.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "26_solo",
+      "narration": "Would you really take directions from someone going nowhere you'd ever want to be?",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "27_chapter",
+      "narration": "Four. You can't win everyone.",
+      "min_dur": 3.4,
+      "actors": [],
+      "props": [
+        {
+          "type": "label",
+          "id": "cnum",
+          "text": "4",
+          "color": "accent",
+          "size": 0.2,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.5,
+                0.37
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.2,
+              "pos": [
+                0.5,
+                0.35
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.35
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "ctitle",
+          "text": "THE PEACH RULE",
+          "color": "ink",
+          "size": 0.072,
+          "keys": [
+            {
+              "t": 0.12,
+              "pos": [
+                0.5,
+                0.56
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.32,
+              "pos": [
+                0.5,
+                0.54
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.54
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        }
+      ]
+    },
+    {
+      "id": "28_solo",
+      "narration": "You could be the ripest, juiciest peach in the entire world.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "29_two",
+      "narration": "And someone out there still just doesn't like peaches. That was never about you.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "a",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "b",
+          "color": "muted",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "shrug",
+              "scale": 0.3834,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "shrug",
+              "scale": 0.3834,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "shrug",
+              "scale": 0.3834,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "30_label_above",
+      "narration": "Some will like you, some won't, and most won't think about you at all.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "label",
+          "id": "num",
+          "text": "30%",
+          "color": "accent",
+          "size": 0.07,
+          "keys": [
+            {
+              "t": 0.25,
+              "pos": [
+                0.5,
+                0.36
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.45,
+              "pos": [
+                0.5,
+                0.33999999999999997
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.33999999999999997
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true,
+          "follow": "hero",
+          "offset": [
+            0,
+            -0.26
+          ]
+        }
+      ]
+    },
+    {
+      "id": "31_solo",
+      "narration": "Here's the trap. Shrinking yourself doesn't change those numbers. It just makes you smaller.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "sad",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "32_solo",
+      "narration": "So you may as well be fully yourself, and get disliked for who you actually are.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "celebrate",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "celebrate",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "celebrate",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "33_two",
+      "narration": "Because being real is exactly what filters the world down to your actual people.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "a",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.3834,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.3834,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.3834,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "b",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.3834,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.3834,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.3834,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "34_chapter",
+      "narration": "Five. Survive it on purpose.",
+      "min_dur": 3.4,
+      "actors": [],
+      "props": [
+        {
+          "type": "label",
+          "id": "cnum",
+          "text": "5",
+          "color": "accent",
+          "size": 0.2,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.5,
+                0.37
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.2,
+              "pos": [
+                0.5,
+                0.35
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.35
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "ctitle",
+          "text": "COLLECT THE EVIDENCE",
+          "color": "ink",
+          "size": 0.072,
+          "keys": [
+            {
+              "t": 0.12,
+              "pos": [
+                0.5,
+                0.56
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.32,
+              "pos": [
+                0.5,
+                0.54
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.54
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        }
+      ]
+    },
+    {
+      "id": "35_solo",
+      "narration": "Caring less isn't a single thought. It's a skill you build with evidence.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "36_solo",
+      "narration": "And you gather that evidence by doing small things that risk looking a little silly.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "37_two",
+      "narration": "Ask the question everyone's afraid to ask. Raise your hand. Wear the bold thing.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "a",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "point_up",
+              "scale": 0.3834,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "point_up",
+              "scale": 0.3834,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "point_up",
+              "scale": 0.3834,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "b",
+          "color": "muted",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "38_walk",
+      "narration": "Send the message. Speak up in the meeting. Let yourself be a visible beginner.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.3,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.12,
+              "pos": [
+                0.3,
+                0.62
+              ],
+              "pose": "walk_a",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 0.276,
+              "pos": [
+                0.38,
+                0.62
+              ],
+              "pose": "walk_a",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 0.432,
+              "pos": [
+                0.45999999999999996,
+                0.62
+              ],
+              "pose": "walk_b",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 0.588,
+              "pos": [
+                0.54,
+                0.62
+              ],
+              "pose": "walk_a",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 0.744,
+              "pos": [
+                0.6199999999999999,
+                0.62
+              ],
+              "pose": "walk_b",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.7,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "39_celebrate",
+      "narration": "Each time, you feel the cringe, and then you notice something. You survived it.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.66
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 0.4,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "celebrate",
+              "scale": 0.426,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "celebrate",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "label",
+          "id": "e1",
+          "text": "!",
+          "color": "accent",
+          "size": 0.07,
+          "keys": [
+            {
+              "t": 0.4,
+              "pos": [
+                0.31,
+                0.36
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.31,
+                0.33999999999999997
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.31,
+                0.33999999999999997
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "e2",
+          "text": "!",
+          "color": "accent",
+          "size": 0.07,
+          "keys": [
+            {
+              "t": 0.5,
+              "pos": [
+                0.7,
+                0.38
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.7,
+              "pos": [
+                0.7,
+                0.36
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.7,
+                0.36
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        }
+      ]
+    },
+    {
+      "id": "40_solo",
+      "narration": "Do that enough, and the fear goes quiet, because you've proven the threat was never real.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "41_chapter",
+      "narration": "Six. You'll be forgotten. It's freeing.",
+      "min_dur": 3.4,
+      "actors": [],
+      "props": [
+        {
+          "type": "label",
+          "id": "cnum",
+          "text": "6",
+          "color": "accent",
+          "size": 0.2,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.5,
+                0.37
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.2,
+              "pos": [
+                0.5,
+                0.35
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.35
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "ctitle",
+          "text": "ZOOM ALL THE WAY OUT",
+          "color": "ink",
+          "size": 0.072,
+          "keys": [
+            {
+              "t": 0.12,
+              "pos": [
+                0.5,
+                0.56
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.32,
+              "pos": [
+                0.5,
+                0.54
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.54
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        }
+      ]
+    },
+    {
+      "id": "42_solo",
+      "narration": "Here's the one that truly sets you free. One day, all of this is forgotten.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "43_crowd",
+      "narration": "In a hundred years, almost no one alive will even know your name.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "m0",
+          "color": "ink",
+          "face": "dots",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.15,
+                0.5
+              ],
+              "pose": "wave",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.05,
+              "pos": [
+                0.15,
+                0.5
+              ],
+              "pose": "stand",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.17,
+              "pos": [
+                0.15,
+                0.5
+              ],
+              "pose": "wave",
+              "scale": 0.1846,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.15,
+                0.5
+              ],
+              "pose": "wave",
+              "scale": 0.1846,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "m1",
+          "color": "muted",
+          "face": "dots",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.33,
+                0.42
+              ],
+              "pose": "celebrate",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.12,
+              "pos": [
+                0.33,
+                0.42
+              ],
+              "pose": "stand",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.24,
+              "pos": [
+                0.33,
+                0.42
+              ],
+              "pose": "celebrate",
+              "scale": 0.1846,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.33,
+                0.42
+              ],
+              "pose": "celebrate",
+              "scale": 0.1846,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "m2",
+          "color": "ink",
+          "face": "dots",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.56
+              ],
+              "pose": "point_up",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.19,
+              "pos": [
+                0.5,
+                0.56
+              ],
+              "pose": "stand",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.31,
+              "pos": [
+                0.5,
+                0.56
+              ],
+              "pose": "point_up",
+              "scale": 0.1846,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.56
+              ],
+              "pose": "point_up",
+              "scale": 0.1846,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "m3",
+          "color": "muted",
+          "face": "dots",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.67,
+                0.42
+              ],
+              "pose": "shrug",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.26,
+              "pos": [
+                0.67,
+                0.42
+              ],
+              "pose": "stand",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.38,
+              "pos": [
+                0.67,
+                0.42
+              ],
+              "pose": "shrug",
+              "scale": 0.1846,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.67,
+                0.42
+              ],
+              "pose": "shrug",
+              "scale": 0.1846,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "m4",
+          "color": "ink",
+          "face": "dots",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.85,
+                0.5
+              ],
+              "pose": "wave",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.33,
+              "pos": [
+                0.85,
+                0.5
+              ],
+              "pose": "stand",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.45,
+              "pos": [
+                0.85,
+                0.5
+              ],
+              "pose": "wave",
+              "scale": 0.1846,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.85,
+                0.5
+              ],
+              "pose": "wave",
+              "scale": 0.1846,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "m5",
+          "color": "muted",
+          "face": "dots",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.36
+              ],
+              "pose": "stand",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.4,
+              "pos": [
+                0.5,
+                0.36
+              ],
+              "pose": "stand",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.52,
+              "pos": [
+                0.5,
+                0.36
+              ],
+              "pose": "stand",
+              "scale": 0.1846,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.36
+              ],
+              "pose": "stand",
+              "scale": 0.1846,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "44_solo",
+      "narration": "Every person whose opinion you fear will be gone. And so will their opinions.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "45_solo",
+      "narration": "I know that sounds bleak. It's the opposite. It is permission.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "46_stars",
+      "narration": "The audience you're so afraid of is temporary. The universe is not keeping a highlight reel of your flaws.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.67
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.67
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 0.56,
+              "pos": [
+                0.5,
+                0.67
+              ],
+              "pose": "look_up",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.67
+              ],
+              "pose": "look_up",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "label",
+          "id": "s0",
+          "text": "*",
+          "color": "ink",
+          "size": 0.045,
+          "keys": [
+            {
+              "t": 0.3,
+              "pos": [
+                0.26,
+                0.24
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.5,
+              "pos": [
+                0.26,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.26,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "s1",
+          "text": "*",
+          "color": "accent",
+          "size": 0.055,
+          "keys": [
+            {
+              "t": 0.38,
+              "pos": [
+                0.44,
+                0.18
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.58,
+              "pos": [
+                0.44,
+                0.16
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.44,
+                0.16
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "s2",
+          "text": "*",
+          "color": "ink",
+          "size": 0.045,
+          "keys": [
+            {
+              "t": 0.46,
+              "pos": [
+                0.6,
+                0.22
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.66,
+              "pos": [
+                0.6,
+                0.2
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.6,
+                0.2
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "s3",
+          "text": "*",
+          "color": "accent",
+          "size": 0.055,
+          "keys": [
+            {
+              "t": 0.54,
+              "pos": [
+                0.76,
+                0.28
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.74,
+              "pos": [
+                0.76,
+                0.26
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.76,
+                0.26
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "s4",
+          "text": "*",
+          "color": "ink",
+          "size": 0.045,
+          "keys": [
+            {
+              "t": 0.62,
+              "pos": [
+                0.36,
+                0.32
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.82,
+              "pos": [
+                0.36,
+                0.3
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.36,
+                0.3
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        }
+      ]
+    },
+    {
+      "id": "47_solo",
+      "narration": "So spend your one short life on the people who matter, not the crowd that won't remember.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "look_up",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "look_up",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "look_up",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "48_solo",
+      "narration": "You won't stop caring overnight. That was never the goal.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "49_solo",
+      "narration": "You'll just slowly stop handing your power to people who never earned it.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "50_two",
+      "narration": "Keep the small circle of voices that love you. Let all the rest fade into background noise.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "a",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "b",
+          "color": "muted",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.3834,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.3834,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.3834,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "51_solo",
+      "narration": "Because the only opinion you are stuck living inside, every second, is your own.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "52_solo",
+      "narration": "So make that one kind. Start there, and the whole world gets a little quieter.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "53_cta",
+      "narration": "Tell me below. Whose opinion are you finally ready to stop carrying? Then set it down.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 0.56,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "label",
+          "id": "m",
+          "text": "+",
+          "color": "accent",
+          "size": 0.08,
+          "keys": [
+            {
+              "t": 0.45,
+              "pos": [
+                0.68,
+                0.38
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.65,
+              "pos": [
+                0.68,
+                0.36
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.68,
+                0.36
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        }
+      ]
+    }
+  ]
+}

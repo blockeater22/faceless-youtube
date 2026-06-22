@@ -1,0 +1,4080 @@
+{
+  "title": "What If You Met the Person You Could Have Been?",
+  "handle": "@Inklings1",
+  "hook": "Meet who you could've been.",
+  "hook_dur": 2.0,
+  "meta": {
+    "playlist": "The Other You",
+    "format": "long-form",
+    "topic": "the person you could have been"
+  },
+  "style": {
+    "background": "#0e1320",
+    "ink": "#f2ede1",
+    "accent": "#ffb454",
+    "muted": "#6f7791",
+    "fps": 24,
+    "wobble": 1.7,
+    "grain": 0.05,
+    "vignette": 0.55,
+    "caption": {
+      "size": 0.05,
+      "color": "#ffffff"
+    },
+    "logo": "branding/watermark.png",
+    "logo_pos": "tl",
+    "logo_scale": 0.1,
+    "logo_opacity": 0.72
+  },
+  "voice": {
+    "backend": "piper",
+    "piper_model": "voices/en_US-ryan-high.onnx",
+    "piper_length": 1.1,
+    "voice": "cmu_us_slt_arctic_hts",
+    "rate": 135,
+    "polish": true,
+    "gap": 0.5
+  },
+  "scenes": [
+    {
+      "id": "00_hook",
+      "narration": "What if you met the person you could have been?",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "label",
+          "id": "q",
+          "text": "?",
+          "color": "accent",
+          "size": 0.16,
+          "keys": [
+            {
+              "t": 0.35,
+              "pos": [
+                0.66,
+                0.31
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.66,
+                0.29
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.66,
+                0.29
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        }
+      ]
+    },
+    {
+      "id": "01_solo",
+      "narration": "Not a stranger. You. Same face, same start, but every chance you talked yourself out of, taken.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "02_solo",
+      "narration": "You would know him in an instant.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "03_solo",
+      "narration": "And honestly, it would break your heart a little.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "sad",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "04_walk",
+      "narration": "So picture this. One completely ordinary night, there is a knock at your door.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.34,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.12,
+              "pos": [
+                0.34,
+                0.62
+              ],
+              "pose": "walk_a",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 0.276,
+              "pos": [
+                0.396,
+                0.62
+              ],
+              "pose": "walk_a",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 0.432,
+              "pos": [
+                0.452,
+                0.62
+              ],
+              "pose": "walk_b",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 0.588,
+              "pos": [
+                0.508,
+                0.62
+              ],
+              "pose": "walk_a",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 0.744,
+              "pos": [
+                0.5640000000000001,
+                0.62
+              ],
+              "pose": "walk_b",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.62,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "05_split",
+      "narration": "You open it. And you are standing face to face with yourself.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3976,
+              "alpha": 1
+            },
+            {
+              "t": 0.45,
+              "pos": [
+                0.4,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3976,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.4,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3976,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "ghost",
+          "color": "muted",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3976,
+              "alpha": 0
+            },
+            {
+              "t": 0.45,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3976,
+              "alpha": 0.2
+            },
+            {
+              "t": 0.8,
+              "pos": [
+                0.62,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3976,
+              "alpha": 0.85
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.62,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3976,
+              "alpha": 0.85
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "06_compare",
+      "narration": "But he looks lighter. Like he sleeps well. Like he isn't carrying the weight you carry.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "a",
+          "color": "muted",
+          "face": "sad",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.34,
+                0.65
+              ],
+              "pose": "stand",
+              "scale": 0.3124,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.34,
+                0.65
+              ],
+              "pose": "stand",
+              "scale": 0.3124,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.34,
+                0.65
+              ],
+              "pose": "stand",
+              "scale": 0.3124,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "b",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.66,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.4402,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.66,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.4402,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.66,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.4402,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "07_two",
+      "narration": "Hey, he says, in your own voice. I'm the version that didn't wait.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "a",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "b",
+          "color": "muted",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.3834,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.3834,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.3834,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "08_solo",
+      "narration": "He doesn't gloat. He just steps inside, like he has been here before.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "09_solo",
+      "narration": "And he offers to show you the life you almost lived.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "reach",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "reach",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "reach",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "10_walk",
+      "narration": "So you follow yourself, down a long hallway of every choice you ever postponed.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.3,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.12,
+              "pos": [
+                0.3,
+                0.62
+              ],
+              "pose": "walk_a",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 0.276,
+              "pos": [
+                0.38,
+                0.62
+              ],
+              "pose": "walk_a",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 0.432,
+              "pos": [
+                0.45999999999999996,
+                0.62
+              ],
+              "pose": "walk_b",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 0.588,
+              "pos": [
+                0.54,
+                0.62
+              ],
+              "pose": "walk_a",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 0.744,
+              "pos": [
+                0.6199999999999999,
+                0.62
+              ],
+              "pose": "walk_b",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.7,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "11_label_above",
+      "narration": "He sent the message you left sitting in your drafts for three whole years.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "label",
+          "id": "num",
+          "text": "SENT",
+          "color": "accent",
+          "size": 0.06,
+          "keys": [
+            {
+              "t": 0.25,
+              "pos": [
+                0.5,
+                0.36
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.45,
+              "pos": [
+                0.5,
+                0.33999999999999997
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.33999999999999997
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true,
+          "follow": "hero",
+          "offset": [
+            0,
+            -0.26
+          ]
+        }
+      ]
+    },
+    {
+      "id": "12_solo",
+      "narration": "He started the thing before he felt ready. You are still waiting to feel ready.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "13_two",
+      "narration": "He let people watch him be a beginner. So he actually got to become something.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "a",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "shrug",
+              "scale": 0.3834,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "shrug",
+              "scale": 0.3834,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "shrug",
+              "scale": 0.3834,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "b",
+          "color": "muted",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "celebrate",
+              "scale": 0.3834,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "celebrate",
+              "scale": 0.3834,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "celebrate",
+              "scale": 0.3834,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "14_solo",
+      "narration": "On the hard mornings, he kept the promise to himself. That was the entire secret.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "15_solo",
+      "narration": "Not talent. Not luck. Just a refusal to quietly break his own word.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "16_celebrate",
+      "narration": "And those tiny kept promises stacked up into a life that actually feels like his.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.66
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 0.4,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "celebrate",
+              "scale": 0.426,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "celebrate",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "label",
+          "id": "e1",
+          "text": "!",
+          "color": "accent",
+          "size": 0.07,
+          "keys": [
+            {
+              "t": 0.4,
+              "pos": [
+                0.31,
+                0.36
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.31,
+                0.33999999999999997
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.31,
+                0.33999999999999997
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "e2",
+          "text": "!",
+          "color": "accent",
+          "size": 0.07,
+          "keys": [
+            {
+              "t": 0.5,
+              "pos": [
+                0.7,
+                0.38
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.7,
+              "pos": [
+                0.7,
+                0.36
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.7,
+                0.36
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        }
+      ]
+    },
+    {
+      "id": "17_compare",
+      "narration": "You walk through his days. It isn't glamorous. It's just, lived. On purpose.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "a",
+          "color": "muted",
+          "face": "surprised",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.34,
+                0.65
+              ],
+              "pose": "stand",
+              "scale": 0.3124,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.34,
+                0.65
+              ],
+              "pose": "stand",
+              "scale": 0.3124,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.34,
+                0.65
+              ],
+              "pose": "stand",
+              "scale": 0.3124,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "b",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.66,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.4402,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.66,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.4402,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.66,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.4402,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "18_two",
+      "narration": "His body is strong, because he moved on the days he most wanted to quit.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "a",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "b",
+          "color": "muted",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "celebrate",
+              "scale": 0.3834,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "celebrate",
+              "scale": 0.3834,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "celebrate",
+              "scale": 0.3834,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "19_two",
+      "narration": "His work is good, because he was willing to be bad at it first, in public.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "a",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.3834,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.3834,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.3834,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "b",
+          "color": "muted",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "point_up",
+              "scale": 0.3834,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "point_up",
+              "scale": 0.3834,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "point_up",
+              "scale": 0.3834,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "20_two",
+      "narration": "His friendships run deep, because he said the honest, terrifying thing out loud.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "a",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "b",
+          "color": "muted",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.3834,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.3834,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.3834,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "21_solo",
+      "narration": "He isn't richer in money. He's richer in time he simply refused to waste.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "22_compare",
+      "narration": "And everything he has, you can see the exact door he walked through to get it.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "a",
+          "color": "muted",
+          "face": "surprised",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.34,
+                0.65
+              ],
+              "pose": "stand",
+              "scale": 0.3124,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.34,
+                0.65
+              ],
+              "pose": "stand",
+              "scale": 0.3124,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.34,
+                0.65
+              ],
+              "pose": "stand",
+              "scale": 0.3124,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "b",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.66,
+                0.62
+              ],
+              "pose": "reach",
+              "scale": 0.4402,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.66,
+                0.62
+              ],
+              "pose": "reach",
+              "scale": 0.4402,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.66,
+                0.62
+              ],
+              "pose": "reach",
+              "scale": 0.4402,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "23_solo",
+      "narration": "Because you stood in front of those same doors. You remember every single one.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "24_solo",
+      "narration": "You just told yourself, not yet. Maybe tomorrow. Maybe once it feels safe.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "sad",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "25_two",
+      "narration": "You wait for him to look down on you. He never does.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "a",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "b",
+          "color": "muted",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "26_solo",
+      "narration": "He is not smarter than you. Not braver. Not born any luckier.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "27_split",
+      "narration": "He just flinched a little less, a thousand quiet times, at a thousand small forks.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3976,
+              "alpha": 1
+            },
+            {
+              "t": 0.45,
+              "pos": [
+                0.4,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3976,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.4,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3976,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "ghost",
+          "color": "muted",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3976,
+              "alpha": 0
+            },
+            {
+              "t": 0.45,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3976,
+              "alpha": 0.2
+            },
+            {
+              "t": 0.8,
+              "pos": [
+                0.62,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3976,
+              "alpha": 0.85
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.62,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3976,
+              "alpha": 0.85
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "28_solo",
+      "narration": "That is the whole distance between you and him. A pile of tiny moments.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "29_solo",
+      "narration": "Each one so small it felt like it couldn't matter. Together, they built a different person.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "30_solo",
+      "narration": "Then he tells you the thing you weren't ready to hear.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "31_label_above",
+      "narration": "I'm not actually real yet, he says.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "label",
+          "id": "num",
+          "text": "?",
+          "color": "accent",
+          "size": 0.13,
+          "keys": [
+            {
+              "t": 0.25,
+              "pos": [
+                0.5,
+                0.36
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.45,
+              "pos": [
+                0.5,
+                0.33999999999999997
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.33999999999999997
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true,
+          "follow": "hero",
+          "offset": [
+            0,
+            -0.26
+          ]
+        }
+      ]
+    },
+    {
+      "id": "32_solo",
+      "narration": "I am just the sum of the choices you haven't made.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "33_split",
+      "narration": "Every day you wait, I drift a little further out of reach.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3976,
+              "alpha": 1
+            },
+            {
+              "t": 0.45,
+              "pos": [
+                0.4,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3976,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.4,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3976,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "ghost",
+          "color": "muted",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3976,
+              "alpha": 0
+            },
+            {
+              "t": 0.45,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3976,
+              "alpha": 0.2
+            },
+            {
+              "t": 0.8,
+              "pos": [
+                0.62,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3976,
+              "alpha": 0.85
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.62,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3976,
+              "alpha": 0.85
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "34_solo",
+      "narration": "But every time you choose forward, even badly, I take one step closer to you.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "reach",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "reach",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "reach",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "35_stars",
+      "narration": "He isn't a ghost haunting your past. He is a direction, waiting in your future.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.67
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.67
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 0.56,
+              "pos": [
+                0.5,
+                0.67
+              ],
+              "pose": "look_up",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.67
+              ],
+              "pose": "look_up",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "label",
+          "id": "s0",
+          "text": "*",
+          "color": "ink",
+          "size": 0.045,
+          "keys": [
+            {
+              "t": 0.3,
+              "pos": [
+                0.26,
+                0.24
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.5,
+              "pos": [
+                0.26,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.26,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "s1",
+          "text": "*",
+          "color": "accent",
+          "size": 0.055,
+          "keys": [
+            {
+              "t": 0.38,
+              "pos": [
+                0.44,
+                0.18
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.58,
+              "pos": [
+                0.44,
+                0.16
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.44,
+                0.16
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "s2",
+          "text": "*",
+          "color": "ink",
+          "size": 0.045,
+          "keys": [
+            {
+              "t": 0.46,
+              "pos": [
+                0.6,
+                0.22
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.66,
+              "pos": [
+                0.6,
+                0.2
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.6,
+                0.2
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "s3",
+          "text": "*",
+          "color": "accent",
+          "size": 0.055,
+          "keys": [
+            {
+              "t": 0.54,
+              "pos": [
+                0.76,
+                0.28
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.74,
+              "pos": [
+                0.76,
+                0.26
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.76,
+                0.26
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "s4",
+          "text": "*",
+          "color": "ink",
+          "size": 0.045,
+          "keys": [
+            {
+              "t": 0.62,
+              "pos": [
+                0.36,
+                0.32
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.82,
+              "pos": [
+                0.36,
+                0.3
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.36,
+                0.3
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        }
+      ]
+    },
+    {
+      "id": "36_split",
+      "narration": "And then he says, quietly, there's a third one of us, you know.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3976,
+              "alpha": 1
+            },
+            {
+              "t": 0.45,
+              "pos": [
+                0.4,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3976,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.4,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3976,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "ghost",
+          "color": "muted",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3976,
+              "alpha": 0
+            },
+            {
+              "t": 0.45,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3976,
+              "alpha": 0.2
+            },
+            {
+              "t": 0.8,
+              "pos": [
+                0.62,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3976,
+              "alpha": 0.85
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.62,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3976,
+              "alpha": 0.85
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "37_compare",
+      "narration": "The version who stopped completely. Who stayed exactly here, and called it being safe.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "a",
+          "color": "muted",
+          "face": "sad",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.34,
+                0.65
+              ],
+              "pose": "stand",
+              "scale": 0.3124,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.34,
+                0.65
+              ],
+              "pose": "stand",
+              "scale": 0.3124,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.34,
+                0.65
+              ],
+              "pose": "stand",
+              "scale": 0.3124,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "b",
+          "color": "ink",
+          "face": "sad",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.66,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.4402,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.66,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.4402,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.66,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.4402,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "38_solo",
+      "narration": "He isn't lazy. He's just frightened, and he's gotten very good at hiding it.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "sad",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "39_two",
+      "narration": "Every single morning, you wake up standing between the two of them.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "a",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "b",
+          "color": "muted",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "40_solo",
+      "narration": "And you decide, with one small choice, which one you take a step toward.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "41_solo",
+      "narration": "So how do you actually close the gap? Not in one heroic leap.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "42_solo",
+      "narration": "You don't become him in a day. You become him in a single decision.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "43_label_above",
+      "narration": "Pick the one thing he would do today. Only one.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "label",
+          "id": "num",
+          "text": "1",
+          "color": "accent",
+          "size": 0.16,
+          "keys": [
+            {
+              "t": 0.25,
+              "pos": [
+                0.5,
+                0.36
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.45,
+              "pos": [
+                0.5,
+                0.33999999999999997
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.33999999999999997
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true,
+          "follow": "hero",
+          "offset": [
+            0,
+            -0.26
+          ]
+        }
+      ]
+    },
+    {
+      "id": "44_solo",
+      "narration": "Do it badly. Do it scared. Do it anyway.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "point_up",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "point_up",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "point_up",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "45_walk",
+      "narration": "Not the whole staircase. You only ever have to see the very next step.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.3,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.12,
+              "pos": [
+                0.3,
+                0.62
+              ],
+              "pose": "walk_a",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 0.276,
+              "pos": [
+                0.376,
+                0.62
+              ],
+              "pose": "walk_a",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 0.432,
+              "pos": [
+                0.452,
+                0.62
+              ],
+              "pose": "walk_b",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 0.588,
+              "pos": [
+                0.528,
+                0.62
+              ],
+              "pose": "walk_a",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 0.744,
+              "pos": [
+                0.6040000000000001,
+                0.62
+              ],
+              "pose": "walk_b",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.68,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "46_solo",
+      "narration": "And stop waiting for motivation. It never leads. It follows you, after you begin.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "47_celebrate",
+      "narration": "Do the brave small thing first, and the feeling you wanted shows up right behind it.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.66
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 0.4,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "celebrate",
+              "scale": 0.426,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "celebrate",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "label",
+          "id": "e1",
+          "text": "!",
+          "color": "accent",
+          "size": 0.07,
+          "keys": [
+            {
+              "t": 0.4,
+              "pos": [
+                0.31,
+                0.36
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.31,
+                0.33999999999999997
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.31,
+                0.33999999999999997
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "e2",
+          "text": "!",
+          "color": "accent",
+          "size": 0.07,
+          "keys": [
+            {
+              "t": 0.5,
+              "pos": [
+                0.7,
+                0.38
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.7,
+              "pos": [
+                0.7,
+                0.36
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.7,
+                0.36
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        }
+      ]
+    },
+    {
+      "id": "48_solo",
+      "narration": "You will never meet the person you could have been in a doorway.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "49_stars",
+      "narration": "You meet him in your calendar. In the boring Tuesday. In the choice nobody claps for.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.67
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.67
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 0.56,
+              "pos": [
+                0.5,
+                0.67
+              ],
+              "pose": "look_up",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.67
+              ],
+              "pose": "look_up",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "label",
+          "id": "s0",
+          "text": "*",
+          "color": "ink",
+          "size": 0.045,
+          "keys": [
+            {
+              "t": 0.3,
+              "pos": [
+                0.26,
+                0.24
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.5,
+              "pos": [
+                0.26,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.26,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "s1",
+          "text": "*",
+          "color": "accent",
+          "size": 0.055,
+          "keys": [
+            {
+              "t": 0.38,
+              "pos": [
+                0.44,
+                0.18
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.58,
+              "pos": [
+                0.44,
+                0.16
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.44,
+                0.16
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "s2",
+          "text": "*",
+          "color": "ink",
+          "size": 0.045,
+          "keys": [
+            {
+              "t": 0.46,
+              "pos": [
+                0.6,
+                0.22
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.66,
+              "pos": [
+                0.6,
+                0.2
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.6,
+                0.2
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "s3",
+          "text": "*",
+          "color": "accent",
+          "size": 0.055,
+          "keys": [
+            {
+              "t": 0.54,
+              "pos": [
+                0.76,
+                0.28
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.74,
+              "pos": [
+                0.76,
+                0.26
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.76,
+                0.26
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "s4",
+          "text": "*",
+          "color": "ink",
+          "size": 0.045,
+          "keys": [
+            {
+              "t": 0.62,
+              "pos": [
+                0.36,
+                0.32
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.82,
+              "pos": [
+                0.36,
+                0.3
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.36,
+                0.3
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        }
+      ]
+    },
+    {
+      "id": "50_two",
+      "narration": "He is always standing exactly one brave decision away from where you are now.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "a",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "b",
+          "color": "muted",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.3834,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.3834,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.3834,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "51_solo",
+      "narration": "And the beautiful part? You still have time to become him.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "look_up",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "look_up",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "look_up",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "52_solo",
+      "narration": "Not someday. Not once it's perfect. With the very next thing you choose to do.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "53_cta",
+      "narration": "So tell me below. What is the one choice the other you would make today? Then go make it.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 0.56,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "label",
+          "id": "m",
+          "text": "+",
+          "color": "accent",
+          "size": 0.08,
+          "keys": [
+            {
+              "t": 0.45,
+              "pos": [
+                0.68,
+                0.38
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.65,
+              "pos": [
+                0.68,
+                0.36
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.68,
+                0.36
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        }
+      ]
+    }
+  ]
+}

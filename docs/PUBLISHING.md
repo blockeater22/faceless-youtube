@@ -368,6 +368,96 @@ stick figure animation, video essay, Inklings
 
 ---
 
+## Long-form #4 — "What If You Met the Person You Could Have Been?"
+
+`stories/longform_other_you.json` · 16:9 · ~5–6 min · Playlist: **The Other You**
+> Bigger on-screen figures (+42%). Built for a split-screen comparison thumbnail.
+
+**Title** (A/B):
+- `What If You Met the Person You Could Have Been?`
+- `You vs The Person You Could Have Been`
+- `Meet the Version of You That Didn't Wait`
+
+**Description:**
+```
+What if you met the person you could have been — the version of you that took every chance you talked yourself out of?
+
+A short film about the other you: what he did differently, the tiny choices that quietly built him, and how to start closing the gap tonight.
+
+💬 What's the one choice "the other you" would make today?
+🔔 Subscribe for hand-drawn stories about the mind and the choices that shape us.
+
+#theotheryou #motivation #selfimprovement #whatif #inklings
+```
+
+**Hashtags above title:** `#motivation #selfimprovement #whatif`
+
+**Tags:**
+```
+the person you could have been, the other you, what if, who you could have been,
+your potential, self improvement, motivation, discipline, stop procrastinating,
+change your life, parallel self, the version of you, take action, do it anyway,
+life advice, stick figure animation, video essay, deep thoughts, philosophy, Inklings
+```
+
+**Thumbnail:** `branding/thumbnail_other_you.png` — split-screen: dim **YOU NOW** vs bright **YOU?**,
+red circle + red arrow on the aspirational version. Regenerate with `python branding/make_thumbnail_other_you.py`.
+
+**Pinned comment:**
+> The other you isn't a ghost — he's a direction, standing one brave choice away. 🚪
+> What's the one thing he'd do today? I read every reply.
+
+**Best time:** motivational → **morning (7–9 AM)** or **evening (7–9 PM)**; weekend mornings also work.
+
+---
+
+## Long-form #5 — "How to Stop Caring What People Think" (SEO / search-driven)
+
+`stories/longform_stop_caring.json` · 16:9 · ~6 min · Playlist: **3 AM Thoughts**
+> Bigger on-screen figures (+42%). Chaptered (6 shifts) for retention + SEO.
+
+**Title** (A/B):
+- `How to Stop Caring What People Think`
+- `How to Stop Caring What People Think of You`
+- `How to Stop Caring What Others Think (6 Mindset Shifts)`
+
+**Description** (the timestamps auto-create YouTube chapters):
+```
+How to stop caring what people think — 6 psychology-backed mindset shifts to quiet the invisible jury and take your life back.
+
+You can't switch the fear off completely (it's ancient wiring) — but you can stop letting other people's opinions run your life. Here's how.
+
+⏱ Chapters
+<!-- CHAPTERS -->
+
+💬 Whose opinion are you finally ready to stop carrying?
+🔔 Subscribe for hand-drawn videos on the mind, calm, and the quietly mind-bending.
+
+#stopcaring #confidence #selfimprovement #psychology #inklings
+```
+
+**Hashtags above title:** `#selfimprovement #confidence #psychology`
+
+**Tags:**
+```
+how to stop caring what people think, stop caring what people think, how to not care what people think,
+stop caring what others think, fear of judgment, social anxiety, how to be confident, spotlight effect,
+self confidence, how to stop being insecure, overthinking, people pleasing, how to stop people pleasing,
+self worth, mindset, psychology, self improvement, stick figure animation, video essay, Inklings
+```
+
+**Thumbnail:** `branding/thumbnail_stop_caring.png` — big well-lit face (~30% of frame) +
+red circle + bold **STOP CARING**. Regenerate with `python branding/make_thumbnail_stop_caring.py`.
+
+**Pinned comment:**
+> The only opinion you're stuck living inside 24/7 is your own — so make that one kind. 🧠
+> Whose opinion are you ready to set down? I read every reply.
+
+**Best time:** searchable how-to → **evening (7–9 PM)** or a weekend; pulls steady search/suggested
+traffic over time. *(Chapter timings are from the preview render — re-confirm after your Piper re-render.)*
+
+---
+
 ## Reminders
 - Put the per-video **comment-CTA as a pinned comment** too (see `docs/LAUNCH.md`).
 - Add each upload to its **playlist** during publishing (not after).

@@ -33,6 +33,8 @@ def synth(text: str, out_wav: str | Path, voice: Voice) -> None:
             _festival(text, raw, voice)
         elif backend == "piper":
             _piper(text, raw, voice)
+        elif backend == "kokoro":
+            _kokoro(text, raw, voice)
         elif backend == "gtts":
             _gtts(text, raw, voice)
         elif backend == "elevenlabs":
@@ -119,6 +121,42 @@ def _piper(text: str, out: Path, voice: Voice) -> None:
             pv.synthesize_wav(text, wf, length_scale=voice.piper_length)
         except (TypeError, AttributeError):
             pv.synthesize(text, wf)  # older piper-tts API
+
+
+_KOKORO: dict = {}  # cache loaded models across scenes (loading is the slow part)
+
+
+def _kokoro(text: str, out: Path, voice: Voice) -> None:
+    """Kokoro-82M neural TTS via onnxruntime — #1 on the TTS Arena, offline, no key.
+
+    Best free quality for calm long-form narration. Setup:
+        pip install kokoro-onnx   (+ run scripts/setup_kokoro.sh to fetch the model)
+    """
+    try:
+        from kokoro_onnx import Kokoro  # type: ignore
+    except ImportError as exc:
+        raise RuntimeError("kokoro-onnx not installed: `pip install kokoro-onnx`") from exc
+    model, voices = voice.kokoro_model, voice.kokoro_voices
+    if not (model and Path(model).exists() and voices and Path(voices).exists()):
+        raise RuntimeError(
+            f"kokoro model files missing ({model!r}, {voices!r}); run scripts/setup_kokoro.sh")
+    k = _KOKORO.get((model, voices))
+    if k is None:
+        k = _KOKORO[(model, voices)] = Kokoro(model, voices)
+    samples, sr = k.create(text, voice=voice.kokoro_voice or "af_heart",
+                           speed=voice.kokoro_speed or 1.0, lang=voice.kokoro_lang or "en-us")
+    _write_wav(out, samples, sr)
+
+
+def _write_wav(out: Path, samples, sr: int) -> None:
+    """Write a float32 [-1,1] numpy array to a 16-bit mono wav (no soundfile dep)."""
+    import numpy as np
+    a = np.clip(np.asarray(samples, dtype=np.float32), -1.0, 1.0)
+    with wave.open(str(out), "wb") as w:
+        w.setnchannels(1)
+        w.setsampwidth(2)
+        w.setframerate(int(sr))
+        w.writeframes((a * 32767.0).astype("<i2").tobytes())
 
 
 def _gtts(text: str, out: Path, voice: Voice) -> None:

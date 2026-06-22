@@ -4,5 +4,5 @@ google-api-python-client>=2.120
 google-auth>=2.29
 google-auth-oauthlib>=1.2
 google-auth-httplib2>=0.2
-anthropic>=0.69        # script generation (optional — only needed if SCRIPT_BACKEND=claude)
-piper-tts>=1.2         # neural TTS for the real channel voice
+anthropic>=0.69        # script generation (optional — only the API backend needs it)
+kokoro-onnx>=0.4       # Kokoro-82M neural TTS — the channel voice (#1 on the TTS Arena)

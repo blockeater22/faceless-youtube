@@ -99,6 +99,10 @@ def produce(topic, script, config, slug=None, outroot="output"):
     slug = slug or f"auto_{_slugify(script['title'])}"
     scenes = _beats_to_scenes(script["beats"], config.get("embiggen", 1.42))
     voice = dict(BASE_VOICE)
+    if config.get("kokoro_voice"):
+        voice["kokoro_voice"] = config["kokoro_voice"]
+    if config.get("kokoro_speed"):
+        voice["kokoro_speed"] = config["kokoro_speed"]
     if config.get("piper_model"):
         voice["piper_model"] = config["piper_model"]
     story = {"title": script["title"], "handle": config.get("handle", "@Inklings1"),

@@ -67,6 +67,11 @@ class Voice:
     eleven_voice: str = "Rachel"   # ElevenLabs voice name/id
     piper_model: str = ""          # path to a local piper .onnx voice (+ .json sibling)
     piper_length: float = 1.0      # piper length_scale (>1 = slower)
+    kokoro_voice: str = "af_heart" # kokoro-onnx voice (af_heart, bm_george, am_michael, ...)
+    kokoro_model: str = "voices/kokoro-v1.0.onnx"
+    kokoro_voices: str = "voices/voices-v1.0.bin"
+    kokoro_lang: str = "en-us"
+    kokoro_speed: float = 1.0      # 1.0 = normal; <1 slower, calmer
     gap: float = 0.28              # trailing silence after each line (s)
 
 

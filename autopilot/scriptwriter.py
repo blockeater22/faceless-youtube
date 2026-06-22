@@ -59,7 +59,9 @@ directions inside the narration.
 You output a single JSON object: {title, hook, beats}.
 - title: one clickable line (curiosity or emotion), ideally under 60 characters.
 - hook: a 3-6 word on-screen teaser (it will be shown in capitals at the very start).
-- beats: an ordered list of 46-56 beats. Each beat is ONE or TWO spoken sentences \
+- beats: an ordered list of beats — YOU pick the length that best fits the topic and what's \
+trending: a tight, punchy piece (~26-38 beats, ~3-5 min) for high-curiosity hooks, or a fuller \
+piece (~46-58 beats, ~6-8 min) for rich, emotional, or how-to topics. Each beat is ONE or TWO spoken sentences \
 (the `narration`) plus a `template` that controls the visuals.
 
 Templates (use a varied rhythm; most beats are "solo"):
@@ -89,7 +91,7 @@ inside chapter cards. Make it feel like one flowing piece with a real beginning,
 and a turn near the end."""
 
 
-def _user_prompt(topic: dict) -> str:
+def _user_prompt(topic: dict, trends: list | None = None) -> str:
     kind = topic["kind"]
     extra = ""
     if kind == "howto":
@@ -107,19 +109,26 @@ def _user_prompt(topic: dict) -> str:
                  "No chapter cards.")
     else:
         extra = "\nThis is a reflective piece. No chapter cards — flowing narrative."
+    trend_block = ""
+    if trends:
+        joined = "\n".join(f"- {t}" for t in trends[:12])
+        trend_block = ("\n\nWhat's getting views in this niche right now — use ONLY as "
+                       "inspiration for angle, curiosity, and title energy; do NOT copy a "
+                       f"title and do NOT drift off-brand:\n{joined}")
     return (f"Write the script.\nTopic / brief: {topic['brief']}\n"
-            f"Playlist: {topic['playlist']}\nTarget length: 5-7 minutes (46-56 beats)."
-            f"{extra}\nReturn ONLY the JSON object.")
+            f"Playlist: {topic['playlist']}.{extra}{trend_block}\n"
+            "Choose the ideal length yourself (see the system instructions). "
+            "Return ONLY the JSON object.")
 
 
-def _via_claude(topic: dict, model: str) -> dict:
+def _via_claude(topic: dict, model: str, trends: list | None = None) -> dict:
     import anthropic  # lazy import
     client = anthropic.Anthropic()  # reads ANTHROPIC_API_KEY
     resp = client.messages.create(
         model=model,
         max_tokens=16000,
         system=SYSTEM,
-        messages=[{"role": "user", "content": _user_prompt(topic)}],
+        messages=[{"role": "user", "content": _user_prompt(topic, trends)}],
         output_config={"format": {"type": "json_schema", "schema": SCHEMA}},
     )
     text = next((b.text for b in resp.content if b.type == "text"), "")
@@ -149,7 +158,7 @@ def _extract_json(text: str) -> str:
     raise ValueError("unbalanced JSON in Claude Code output")
 
 
-def _via_claude_code(topic: dict) -> dict:
+def _via_claude_code(topic: dict, trends: list | None = None) -> dict:
     """Generate the script by running the Claude Code CLI headless, billed to a
     Claude Pro/Max subscription (CLAUDE_CODE_OAUTH_TOKEN). No metered API."""
     import shutil
@@ -157,7 +166,7 @@ def _via_claude_code(topic: dict) -> dict:
     exe = shutil.which("claude")
     if not exe:
         raise RuntimeError("claude CLI not found (npm install -g @anthropic-ai/claude-code)")
-    prompt = (SYSTEM + "\n\n" + _user_prompt(topic) +
+    prompt = (SYSTEM + "\n\n" + _user_prompt(topic, trends) +
               "\n\nOutput ONLY the raw JSON object described above — no markdown "
               "fences, no commentary, no tool use.")
     proc = subprocess.run([exe, "-p", prompt], capture_output=True, text=True, timeout=900)
@@ -228,7 +237,8 @@ def _sanitize(script: dict) -> dict:
             "beats": beats}
 
 
-def write_script(topic: dict, backend: str = "auto", model: str = "claude-opus-4-8") -> dict:
+def write_script(topic: dict, backend: str = "auto", model: str = "claude-opus-4-8",
+                 trends: list | None = None) -> dict:
     """Return {title, hook, beats}. Tries backends in order, ending at offline."""
     import shutil
     has_cc = bool(os.environ.get("CLAUDE_CODE_OAUTH_TOKEN")) and bool(shutil.which("claude"))
@@ -247,9 +257,9 @@ def write_script(topic: dict, backend: str = "auto", model: str = "claude-opus-4
     for b in order:
         try:
             if b == "cc":
-                return _sanitize(_via_claude_code(topic))
+                return _sanitize(_via_claude_code(topic, trends))
             if b == "api":
-                return _sanitize(_via_claude(topic, model))
+                return _sanitize(_via_claude(topic, model, trends))
             return _sanitize(_offline(topic))
         except Exception as exc:  # noqa: BLE001
             last_exc = exc

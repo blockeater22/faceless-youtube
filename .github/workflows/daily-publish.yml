@@ -48,18 +48,14 @@ jobs:
       - name: Install Claude Code CLI (writes scripts on your Pro subscription)
         run: npm install -g @anthropic-ai/claude-code
 
-      - name: Cache Piper voice
+      - name: Cache Kokoro model
         uses: actions/cache@v4
         with:
           path: voices
-          key: piper-en_US-ryan-high-v1
+          key: kokoro-v1.0
 
-      - name: Download Piper voice if missing
-        run: |
-          mkdir -p voices
-          if [ ! -f voices/en_US-ryan-high.onnx ]; then
-            ( cd voices && python -m piper.download_voices en_US-ryan-high )
-          fi
+      - name: Set up Kokoro voice (downloads model if not cached)
+        run: bash scripts/setup_kokoro.sh
 
       - name: Run autopilot
         env:

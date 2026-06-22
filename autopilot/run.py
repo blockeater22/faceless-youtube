@@ -21,7 +21,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 from autopilot import produce as _produce  # noqa: E402
-from autopilot import scriptwriter, topics  # noqa: E402
+from autopilot import scriptwriter, topics, trends as _trends  # noqa: E402
 
 CONFIG_PATH = Path(__file__).resolve().parent / "config.json"
 STATE_PATH = Path(__file__).resolve().parent / "state.json"
@@ -85,11 +85,20 @@ def main(argv=None):
                               seed=today + len(state["used_briefs"]))
     print(f"Autopilot: {count} video(s) | backend={backend} | publish={publish_mode}")
 
+    trend_titles = []
+    try:
+        trend_titles = _trends.trending_titles()
+        if trend_titles:
+            print(f"  pulled {len(trend_titles)} trending niche titles for inspiration")
+    except Exception as exc:  # noqa: BLE001
+        print(f"  [trends] skipped ({exc})")
+
     results, failures = [], 0
     for i, topic in enumerate(picks):
         print(f"\n=== [{i+1}/{count}] {topic['kind']}: {topic['brief']} ===")
         try:
-            script = scriptwriter.write_script(topic, backend=backend, model=cfg.get("model"))
+            script = scriptwriter.write_script(topic, backend=backend, model=cfg.get("model"),
+                                               trends=trend_titles)
             slug = f"auto_{dt.datetime.now(dt.timezone.utc):%Y%m%d}_{topic['kind']}_{i}"
             art = _produce.produce(topic, script, cfg, slug=slug, outroot=args.outroot)
             print(f"  rendered {art['video'].name}  ({art['video'].stat().st_size/1e6:.1f} MB)")

@@ -107,6 +107,12 @@ request. They appear in your Studio and you publish them manually.
 | `model` | Claude model id |
 | `rotation` | order of topic kinds: `whatif`, `howto`, `otheryou`, `reflection` |
 | `category_id` | YouTube category (`22` = People & Blogs) |
+| `kokoro_voice` | Kokoro TTS voice: `af_heart` (warm female), `bm_george` (British male), `am_michael` (calm male), `af_bella` |
+
+**Trending topics:** the daily run pulls recent high-view titles in the niche
+(`autopilot/trends.py`, via the YouTube API) and feeds them to the scriptwriter as
+*inspiration* — it picks an on-brand angle and **decides the video length itself**
+(tight ~3-5 min for punchy hooks, fuller ~6-8 min for rich/how-to topics).
 
 Env vars override per-run in CI: `VIDEOS_PER_DAY`, `PUBLISH_MODE`, `SCRIPT_BACKEND`, `MODEL`.
 
@@ -117,7 +123,7 @@ expand. `autopilot/state.json` tracks used briefs so videos don't repeat.
 ## Run locally
 ```bash
 pip install -r requirements.txt -r autopilot/requirements.txt
-bash scripts/setup_piper.sh                 # or let it fall back to Festival
+bash scripts/setup_kokoro.sh                # Kokoro-82M voice (falls back to Festival if absent)
 python -m autopilot.run --count 1 --no-upload      # produce only, inspect output/
 python -m autopilot.run --count 1 --publish private # produce + upload as private
 ```

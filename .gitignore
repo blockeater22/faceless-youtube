@@ -15,3 +15,14 @@ output/*.mp3
 output/_voices/
 output/[0-9]*_*/
 output/longform_*/
+output/auto_*/
+
+# autopilot: secrets + regenerable artifacts (state.json IS committed for no-repeat tracking)
+voices/
+*.onnx
+*.onnx.json
+client_secret*.json
+token.json
+autopilot/__pycache__/
+stories/auto_*.json
+branding/thumb_auto_*.png

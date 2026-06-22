@@ -1,0 +1,73 @@
+name: Daily publish
+
+# Your serverless "always-on backend": GitHub runs this on a schedule, in the
+# cloud, with no server for you to maintain. Times are UTC; GitHub may delay
+# scheduled runs under load, so we run with lead time before the publish slots.
+on:
+  schedule:
+    - cron: "0 6,18 * * *"   # ~06:00 and 18:00 UTC daily
+  workflow_dispatch:          # run manually from the Actions tab
+    inputs:
+      count:
+        description: "How many videos to make this run"
+        default: "2"
+      publish_mode:
+        description: "schedule | public | private"
+        default: "schedule"
+
+permissions:
+  contents: write   # to commit state.json back
+
+concurrency:
+  group: daily-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install system deps (ffmpeg + festival fallback voice)
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg festival festvox-us-slt-hts
+
+      - name: Install Python deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt -r autopilot/requirements.txt
+
+      - name: Cache Piper voice
+        uses: actions/cache@v4
+        with:
+          path: voices
+          key: piper-en_US-ryan-high-v1
+
+      - name: Download Piper voice if missing
+        run: |
+          mkdir -p voices
+          if [ ! -f voices/en_US-ryan-high.onnx ]; then
+            ( cd voices && python -m piper.download_voices en_US-ryan-high )
+          fi
+
+      - name: Run autopilot
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+          VIDEOS_PER_DAY: ${{ github.event.inputs.count || '2' }}
+          PUBLISH_MODE: ${{ github.event.inputs.publish_mode || 'schedule' }}
+        run: python -m autopilot.run
+
+      - name: Commit state (no-repeat tracking)
+        run: |
+          git config user.name "inklings-autopilot"
+          git config user.email "autopilot@users.noreply.github.com"
+          git add autopilot/state.json
+          git diff --cached --quiet || git commit -m "autopilot: update state [skip ci]"
+          git push || true

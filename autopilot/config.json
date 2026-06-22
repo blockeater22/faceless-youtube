@@ -1,0 +1,22 @@
+{
+  "videos_per_day": 2,
+
+  "script_backend": "auto",
+  "model": "claude-opus-4-8",
+
+  "publish_mode": "schedule",
+  "publish_slots_utc": ["13:00", "01:00"],
+  "category_id": "22",
+
+  "formats": ["16:9"],
+  "embiggen": 1.42,
+  "handle": "@Inklings1",
+
+  "piper_model": "voices/en_US-ryan-high.onnx",
+
+  "rotation": ["whatif", "howto", "otheryou", "reflection"],
+
+  "tag_suffix": ["Inklings", "stick figure animation", "deep thoughts", "philosophy"],
+
+  "_comment": "publish_mode: schedule | public | private. schedule -> upload private + publishAt the next slot (goes public automatically once your YouTube API project passes audit; until then API uploads stay private). publish_slots_utc 13:00 ~ 8AM ET, 01:00 ~ 8PM ET."
+}

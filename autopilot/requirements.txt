@@ -1,0 +1,8 @@
+# Autopilot dependencies — installed in CI (GitHub Actions) and for local runs.
+# The video engine deps (pillow, numpy, imageio-ffmpeg) come from ../requirements.txt
+google-api-python-client>=2.120
+google-auth>=2.29
+google-auth-oauthlib>=1.2
+google-auth-httplib2>=0.2
+anthropic>=0.69        # script generation (optional — only needed if SCRIPT_BACKEND=claude)
+piper-tts>=1.2         # neural TTS for the real channel voice

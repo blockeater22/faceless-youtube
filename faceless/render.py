@@ -8,9 +8,9 @@ from functools import lru_cache
 from pathlib import Path
 
 import numpy as np
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
-from . import anim, media, tts
+from . import anim, media, motion, tts
 from .draw import Sketcher
 from .figures import draw_figure, get_pose
 from .model import RESOLUTIONS, Scene, Script, load_script
@@ -83,23 +83,54 @@ def _face_at(keys: list[dict], t: float, default: str) -> str:
 # --------------------------------------------------------------------------- #
 # Drawing one frame
 # --------------------------------------------------------------------------- #
-def _draw_actor(frame: Image.Image, actor: dict, t: float, size, mindim, style, seed):
+def _entry_frac(keys: list[dict]) -> float:
+    """Scene-fraction at which the actor first becomes visible (alpha > ~0)."""
+    for k in sorted(keys, key=lambda k: k["t"]):
+        a = k.get("alpha", 1.0)
+        if a is None or a > 0.05:
+            return k["t"]
+    return keys[0]["t"]
+
+
+def _shadow(frame: Image.Image, px: float, py: float, unit: float, style, alpha: float):
+    """Soft contact shadow under the feet so the figure is grounded, not floating."""
+    fy = py + 0.40 * unit
+    rx, ry = 0.24 * unit, 0.05 * unit
+    layer = Image.new("RGBA", frame.size, (0, 0, 0, 0))
+    a = int(170 * style.shadow * max(0.0, min(1.0, alpha)))
+    ImageDraw.Draw(layer).ellipse([px - rx, fy - ry, px + rx, fy + ry], fill=(0, 0, 0, a))
+    frame.alpha_composite(layer.filter(ImageFilter.GaussianBlur(max(2, int(0.02 * unit)))))
+
+
+def _draw_actor(frame: Image.Image, actor: dict, prog: float, size, mindim, style,
+                seed, duration: float, abs_t: float):
     keys = actor.get("keys", [])
     if not keys:
         return
-    s = anim.sample_keys(keys, t, {"pos": "vec", "scale": "num", "alpha": "num"})
+    s = anim.sample_keys(keys, prog, {"pos": "vec", "scale": "num", "alpha": "num"})
     alpha = s.get("alpha", 1.0)
+    alpha = 1.0 if alpha is None else alpha
     if alpha <= 0.01:
         return
-    pose = _sample_pose(keys, t)
-    face = _face_at(keys, t, actor.get("face", "dots"))
+    pose = _sample_pose(keys, prog)
+    face = _face_at(keys, prog, actor.get("face", "dots"))
     w, h = size
     px, py = s["pos"][0] * w, s["pos"][1] * h
     unit = s.get("scale", 0.3) * mindim
-    sk = Sketcher(size, style.color(actor.get("color", "ink")),
-                  style.ink_width * mindim, style.wobble * (mindim / 1080), seed)
-    draw_figure(sk, (px, py), unit, pose,
-                color=style.color(actor.get("color", "ink")), face=face)
+    col = style.color(actor.get("color", "ink"))
+
+    draw_frac = 1.0
+    if style.draw_in and duration:
+        win = max(1e-6, style.draw_in_dur / duration)
+        draw_frac = anim.clamp((prog - _entry_frac(keys)) / win)
+
+    if style.shadow > 0 and draw_frac > 0.2:
+        _shadow(frame, px, py, unit, style, alpha * draw_frac)
+
+    sk = Sketcher(size, col, style.ink_width * mindim, style.wobble * (mindim / 1080), seed)
+    draw_figure(sk, (px, py), unit, pose, color=col, face=face,
+                t=abs_t, phase=motion.phase_for(actor.get("id", "")),
+                life=style.life, draw=draw_frac)
     sk.composite_onto(frame, alpha)
 
 
@@ -306,16 +337,21 @@ def render_frame(script: Script, scene: Scene, local_t: float, size, mindim, fra
     seed = frame_idx // max(1, style.boil_every)
     prog = local_t / scene.duration if scene.duration else 1.0
 
+    abs_t = frame_idx / max(1, style.fps)
     for prop in scene.props:
         if not prop.get("front"):
             _draw_prop(frame, prop, prog, size, mindim, style, seed, scene.actors)
     for actor in scene.actors:
-        _draw_actor(frame, actor, prog, size, mindim, style, seed)
+        _draw_actor(frame, actor, prog, size, mindim, style, seed, scene.duration, abs_t)
     for prop in scene.props:
         if prop.get("front"):
             _draw_prop(frame, prop, prog, size, mindim, style, seed, scene.actors)
 
-    abs_t = frame_idx / max(1, style.fps)
+    # camera move on the 'world'; the UI (captions/watermark/hook) is drawn after,
+    # so it stays fixed and crisp while the drawing slowly zooms/drifts.
+    if style.cam > 0:
+        frame = motion.camera(frame, prog, motion.scene_seed(scene.id), style.cam)
+
     in_hook = bool(script.hook) and abs_t < script.hook_dur
     if not in_hook:   # hook card replaces the caption while it's up
         reveal = min(1.0, local_t / (scene.duration * 0.82)) if scene.duration else 1.0
@@ -415,6 +451,18 @@ def render(script: Script, outdir: str | Path, formats: list[str], audio: Path) 
     return results
 
 
+def _mix_music(vo: Path, music: str, out: Path, gain_db: float) -> Path:
+    """Loop + lower a music track and side-chain duck it under the voice, then mix."""
+    filt = (f"[1:a]volume={gain_db}dB[m];"
+            f"[m][0:a]sidechaincompress=threshold=0.05:ratio=8:attack=20:release=350[mc];"
+            f"[0:a][mc]amix=inputs=2:duration=first:dropout_transition=0[a]")
+    media.run([media.ffmpeg_exe(), "-y", "-i", str(vo),
+               "-stream_loop", "-1", "-i", str(music),
+               "-filter_complex", filt, "-map", "[a]",
+               "-ar", "44100", "-ac", "2", "-c:a", "pcm_s16le", str(out)])
+    return Path(out)
+
+
 def build(story_path: str | Path, formats: list[str] | None = None,
           outroot: str | Path = "output", voice_overrides: dict | None = None) -> list[Path]:
     script = load_script(story_path)
@@ -428,4 +476,12 @@ def build(story_path: str | Path, formats: list[str] | None = None,
     print(f"Story: {script.title!r}  ({len(script.scenes)} scenes) -> {formats}")
     print("Synthesizing narration:")
     audio = build_audio(script, workdir)
+    music = script.style.music
+    if music and Path(music).exists():
+        try:
+            audio = _mix_music(audio, music, workdir / "_audio" / "master_mix.wav",
+                               script.style.music_gain)
+            print(f"  mixed music bed under VO: {music}")
+        except Exception as exc:  # noqa: BLE001
+            print(f"  [music] mix failed ({exc}); using voice only")
     return render(script, workdir, formats, audio)

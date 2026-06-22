@@ -16,6 +16,30 @@ from PIL import Image, ImageDraw
 Point = tuple[float, float]
 
 
+def _truncate(pts: Sequence[Point], frac: float) -> list[Point]:
+    """Return the first ``frac`` (0..1) of a polyline, measured by arc length —
+    so a stroke can be 'drawn on' a little more each frame."""
+    pts = list(pts)
+    frac = max(0.0, min(1.0, frac))
+    if frac >= 1.0 or len(pts) < 2:
+        return pts
+    seglens = [math.hypot(pts[i + 1][0] - pts[i][0], pts[i + 1][1] - pts[i][1])
+               for i in range(len(pts) - 1)]
+    target = (sum(seglens) or 1e-6) * frac
+    out: list[Point] = [pts[0]]
+    acc = 0.0
+    for i, length in enumerate(seglens):
+        if acc + length < target:
+            out.append(pts[i + 1])
+            acc += length
+        else:
+            r = (target - acc) / (length or 1e-6)
+            out.append((pts[i][0] + (pts[i + 1][0] - pts[i][0]) * r,
+                        pts[i][1] + (pts[i + 1][1] - pts[i][1]) * r))
+            break
+    return out
+
+
 class Sketcher:
     def __init__(
         self,
@@ -64,13 +88,19 @@ class Sketcher:
         return out
 
     # -- public primitives ---------------------------------------------- #
-    def stroke(self, pts: Sequence[Point], color=None, width: float | None = None, amp: float | None = None) -> None:
+    def stroke(self, pts: Sequence[Point], color=None, width: float | None = None,
+               amp: float | None = None, draw: float = 1.0) -> None:
         rng = self._rng()
         w = self.width if width is None else max(1, int(round(width)))
         wob = self._wobbly(pts, rng, amp)
+        if draw < 1.0:
+            wob = _truncate(wob, draw)
+        if len(wob) < 2:
+            return
         self.draw.line(wob, fill=color or self.ink, width=w, joint="curve")
-        # round the caps so segments meet cleanly
-        for p in (wob[0], wob[-1]):
+        # round the caps so segments meet cleanly; leave the moving tip uncapped
+        caps = [wob[0]] + ([wob[-1]] if draw >= 1.0 else [])
+        for p in caps:
             r = w / 2.0
             self.draw.ellipse([p[0] - r, p[1] - r, p[0] + r, p[1] + r], fill=color or self.ink)
 
@@ -78,7 +108,7 @@ class Sketcher:
         self.stroke([p0, p1], color=color, width=width)
 
     def circle(self, center: Point, r: float, color=None, width: float | None = None,
-               fill=None, segments: int = 26, amp: float | None = None) -> None:
+               fill=None, segments: int = 26, amp: float | None = None, draw: float = 1.0) -> None:
         cx, cy = center
         start = self._rng().uniform(0, math.tau)  # vary the seam each boil
         pts = [
@@ -86,9 +116,9 @@ class Sketcher:
              cy + r * math.sin(start + i / segments * math.tau))
             for i in range(segments + 1)
         ]
-        if fill is not None:
+        if fill is not None and draw >= 1.0:
             self.draw.polygon(pts, fill=fill)
-        self.stroke(pts, color=color, width=width, amp=amp)
+        self.stroke(pts, color=color, width=width, amp=amp, draw=draw)
 
     def arc(self, center: Point, r: float, a0: float, a1: float, color=None,
             width: float | None = None, segments: int = 16, amp: float | None = None) -> None:

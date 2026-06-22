@@ -53,12 +53,30 @@ def _polar(origin: Point, length: float, angle_deg: float) -> Point:
 
 
 def draw_figure(sk: Sketcher, hip: Point, unit: float, pose: dict,
-                color=None, face: str = "dots", lw: float | None = None) -> None:
-    """Draw a stick figure. ``hip`` is the pixel anchor, ``unit`` the pixel U."""
+                color=None, face: str = "dots", lw: float | None = None,
+                t: float = 0.0, phase: float = 0.0, life: float = 0.0,
+                draw: float = 1.0) -> None:
+    """Draw a stick figure. ``hip`` is the pixel anchor, ``unit`` the pixel U.
+
+    ``life`` (>0) adds continuous breathing / sway / blink so the figure is
+    never frozen. ``draw`` (<1) sketches strokes on by arc length for a
+    hand-drawn 'being drawn' reveal; the face lands once the body is mostly in.
+    """
     lean = pose.get("lean", 0)
     head = pose.get("head", 0)
-    la, ra = pose.get("la", [18, 16]), pose.get("ra", [-18, -16])
+    la, ra = list(pose.get("la", [18, 16])), list(pose.get("ra", [-18, -16]))
     ll, rl = pose.get("ll", [10, 8]), pose.get("rl", [-10, -8])
+
+    blink = False
+    if life > 0:
+        from .motion import breath, is_blink, sway
+        b, s = breath(t, phase), sway(t, phase)
+        hip = (hip[0] + s * 0.010 * unit * life, hip[1] + b * 0.006 * unit * life)
+        lean += s * 1.6 * life
+        head += b * 1.3 * life
+        la[0] += b * 1.8 * life
+        ra[0] -= b * 1.8 * life
+        blink = is_blink(t, phase)
 
     torso_ang = 180 - lean
     shoulder = _polar(hip, TORSO * unit, torso_ang)
@@ -69,28 +87,29 @@ def draw_figure(sk: Sketcher, hip: Point, unit: float, pose: dict,
     for ang in (ll, rl):
         knee = _polar(hip, THIGH * unit, ang[0])
         foot = _polar(knee, SHIN * unit, ang[1])
-        sk.stroke([hip, knee, foot], color=color, width=lw)
+        sk.stroke([hip, knee, foot], color=color, width=lw, draw=draw)
 
-    sk.stroke([hip, shoulder], color=color, width=lw)
+    sk.stroke([hip, shoulder], color=color, width=lw, draw=draw)
 
     for ang in (la, ra):
         elbow = _polar(shoulder, UPPER_ARM * unit, ang[0])
         hand = _polar(elbow, FOREARM * unit, ang[1])
-        sk.stroke([shoulder, elbow, hand], color=color, width=lw)
+        sk.stroke([shoulder, elbow, hand], color=color, width=lw, draw=draw)
 
-    sk.circle(head_c, hr, color=color, width=lw, amp=sk.wobble * 0.5)
-    _draw_face(sk, head_c, hr, face, color)
+    sk.circle(head_c, hr, color=color, width=lw, amp=sk.wobble * 0.5, draw=draw)
+    if draw >= 0.82:
+        _draw_face(sk, head_c, hr, face, color, blink=blink)
 
 
-def _draw_face(sk: Sketcher, c: Point, r: float, face: str, color) -> None:
+def _draw_face(sk: Sketcher, c: Point, r: float, face: str, color, blink: bool = False) -> None:
     if face in (None, "none"):
         return
     ex, ey = 0.36 * r, 0.12 * r
     eye_r = max(1.0, 0.10 * r)
-    if face != "shut":
+    if not (blink or face == "shut"):
         sk.dot((c[0] - ex, c[1] - ey), eye_r, color=color)
         sk.dot((c[0] + ex, c[1] - ey), eye_r, color=color)
-    else:  # closed/peaceful eyes
+    else:  # closed/peaceful eyes (or mid-blink)
         sk.line((c[0] - ex * 1.4, c[1] - ey), (c[0] - ex * 0.3, c[1] - ey), color=color, width=sk.width * 0.7)
         sk.line((c[0] + ex * 0.3, c[1] - ey), (c[0] + ex * 1.4, c[1] - ey), color=color, width=sk.width * 0.7)
 

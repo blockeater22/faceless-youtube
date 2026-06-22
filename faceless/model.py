@@ -31,6 +31,13 @@ class Style:
     fps: int = 24
     grain: float = 0.05           # film-grain strength 0..1
     vignette: float = 0.55        # corner darkening 0..1
+    life: float = 1.0             # idle motion (breath/sway/blink); 0 = off
+    cam: float = 0.05             # Ken Burns zoom amplitude per scene; 0 = locked off
+    draw_in: bool = True          # sketch figures on (strokes appear) as they enter
+    draw_in_dur: float = 0.45     # seconds of the draw-on reveal
+    shadow: float = 0.16          # contact-shadow opacity 0..1; 0 = off
+    music: str = ""               # path to a bg music track, mixed (ducked) under the VO
+    music_gain: float = -19.0     # music level in dB relative to the voice
     caption: dict = field(default_factory=dict)
     logo: str = ""                # path to a corner watermark png (e.g. branding/watermark.png)
     logo_pos: str = "tl"          # corner: tl | tr | bl | br

@@ -428,7 +428,13 @@ How to stop caring what people think — 6 psychology-backed mindset shifts to q
 You can't switch the fear off completely (it's ancient wiring) — but you can stop letting other people's opinions run your life. Here's how.
 
 ⏱ Chapters
-<!-- CHAPTERS -->
+0:00 Why we can't stop caring
+0:37 It's ancient wiring (survival)
+1:15 The spotlight is off — nobody's watching
+1:54 Give fewer votes
+2:34 The peach rule — you can't win everyone
+3:13 Collect the evidence
+3:50 Zoom all the way out
 
 💬 Whose opinion are you finally ready to stop carrying?
 🔔 Subscribe for hand-drawn videos on the mind, calm, and the quietly mind-bending.

@@ -112,15 +112,19 @@ def make_thumbnail(hook: str, kind: str, out_path: str | Path) -> Path:
         _headline(d, hook, w * 0.5, h * 0.34, w * 0.47, big=120)
 
     elif kind == "stars":
+        unit = h * 0.74
+        hx, hy = w * 0.30, h * 0.92
+        cx, cy, hr = hx, hy - 0.50 * unit, 0.13 * unit   # head center + radius
+        _glow(img, cx, cy, hr * 2.0)
         sk = Sketcher((w, h), INK, 8, 2.6, 7)
         d0 = ImageDraw.Draw(img)
-        for (sx, sy, s) in [(0.62, 0.18, 40), (0.74, 0.26, 30), (0.84, 0.16, 34),
-                            (0.68, 0.36, 26), (0.9, 0.34, 30)]:
+        for (sx, sy, s) in [(0.60, 0.16, 40), (0.74, 0.24, 30), (0.86, 0.15, 34),
+                            (0.66, 0.34, 26), (0.92, 0.31, 30)]:
             d0.text((sx * w, sy * h), "*", font=_font(s), anchor="mm", fill=ACCENT + (255,))
-        draw_figure(sk, (w * 0.30, h * 0.9), h * 0.74, get_pose("look_up"), color=INK, face="neutral")
+        draw_figure(sk, (hx, hy), unit, get_pose("look_up"), color=INK, face="neutral")
         sk.composite_onto(img)
         d = ImageDraw.Draw(img)
-        _ring(d, int(w * 0.30), int(h * 0.40), int(w * 0.1), int(h * 0.16))
+        _ring(d, int(cx), int(cy), int(hr * 1.32), int(hr * 1.32))
         _headline(d, hook, w * 0.46, h * 0.30, w * 0.5, big=104)
 
     else:  # bubbles (what-if default)

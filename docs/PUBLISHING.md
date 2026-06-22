@@ -464,6 +464,49 @@ traffic over time. *(Chapter timings are from the preview render — re-confirm 
 
 ---
 
+## Long-form #6 — "What If You Could Feel Everything You Made Others Feel?"
+
+`stories/auto_feel_others.json` · 16:9 · ~5 min · Playlist: **What If…**
+> First video on the upgraded engine (idle motion + draw-on reveal + camera) and the
+> Kokoro voice. The empathy mirror: you feel the hurts you left *and* the warmth.
+
+**Title** (A/B):
+- `What If You Could Feel Everything You Made Others Feel?`
+- `If You Could Feel Everything You Made Others Feel…`
+- `What If Every Feeling You Caused Came Back to You?`
+
+**Description:**
+```
+What if, for one day, you could feel everything you ever made another person feel — every kindness, and every careless moment — landing back on you?
+
+A short film about the marks we leave on people we'll never see again, and the quiet secret the day reveals: the feeling you give is the one you get to live inside.
+
+💬 Who's one person you'll be a little gentler with tomorrow?
+🔔 Subscribe for hand-drawn videos about the mind, calm, and the quietly mind-bending.
+
+#whatif #deepthoughts #psychology #kindness #inklings
+```
+
+**Hashtags above title:** `#whatif #deepthoughts #psychology`
+
+**Tags** (curated):
+```
+what if, what if you could feel what others feel, empathy, kindness, deep thoughts,
+the marks we leave, be kind, psychology of kindness, emotional video, perspective on life,
+self improvement, mindfulness, philosophy, sonder, what you leave behind,
+stick figure animation, video essay, Inklings
+```
+
+**Thumbnail:** `branding/thumb_auto_feel_others.png` — figure gazing up + red ring + **YOU'D FEEL ALL OF IT**.
+
+**Pinned comment:**
+> The feeling you hand to others is the one you get to live inside. 🤍
+> Who will you be a little gentler with tomorrow? I read every reply.
+
+**Best time:** emotional/narrative → **evening 7–9 PM** or a weekend.
+
+---
+
 ## Reminders
 - Put the per-video **comment-CTA as a pinned comment** too (see `docs/LAUNCH.md`).
 - Add each upload to its **playlist** during publishing (not after).

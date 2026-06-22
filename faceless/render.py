@@ -10,7 +10,7 @@ from pathlib import Path
 import numpy as np
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
-from . import anim, media, motion, tts
+from . import anim, media, motion, scenery, tts
 from .draw import Sketcher
 from .figures import draw_figure, get_pose
 from .model import RESOLUTIONS, Scene, Script, load_script
@@ -338,6 +338,8 @@ def render_frame(script: Script, scene: Scene, local_t: float, size, mindim, fra
     prog = local_t / scene.duration if scene.duration else 1.0
 
     abs_t = frame_idx / max(1, style.fps)
+    if getattr(style, "scenery", True) and not scene.bg:
+        scenery.draw_backdrop(frame, abs_t, motion.scene_seed(scene.id))
     for prop in scene.props:
         if not prop.get("front"):
             _draw_prop(frame, prop, prog, size, mindim, style, seed, scene.actors)

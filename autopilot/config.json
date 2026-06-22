@@ -4,7 +4,7 @@
   "script_backend": "auto",
   "model": "claude-opus-4-8",
 
-  "publish_mode": "schedule",
+  "publish_mode": "private",
   "publish_slots_utc": ["13:00", "01:00"],
   "category_id": "22",
 
@@ -18,5 +18,5 @@
 
   "tag_suffix": ["Inklings", "stick figure animation", "deep thoughts", "philosophy"],
 
-  "_comment": "publish_mode: schedule | public | private. schedule -> upload private + publishAt the next slot (goes public automatically once your YouTube API project passes audit; until then API uploads stay private). publish_slots_utc 13:00 ~ 8AM ET, 01:00 ~ 8PM ET."
+  "_comment": "publish_mode: private | schedule | public. private (default) -> daily run uploads as Private; YOU schedule/publish manually in YouTube Studio (this also sidesteps the API audit, since manual publishing in Studio always works). schedule -> private + publishAt the next slot (auto-goes-public only after your API project passes audit). publish_slots_utc 13:00 ~ 8AM ET, 01:00 ~ 8PM ET."
 }

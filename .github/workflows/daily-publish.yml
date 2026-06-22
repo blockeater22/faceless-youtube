@@ -41,6 +41,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt -r autopilot/requirements.txt
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Claude Code CLI (writes scripts on your Pro subscription)
+        run: npm install -g @anthropic-ai/claude-code
+
       - name: Cache Piper voice
         uses: actions/cache@v4
         with:
@@ -56,6 +63,7 @@ jobs:
 
       - name: Run autopilot
         env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}

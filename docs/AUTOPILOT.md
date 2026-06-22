@@ -37,11 +37,21 @@ GitHub Actions cron (06:00 / 18:00 UTC)
    ```
    A browser opens; approve. It prints `YT_REFRESH_TOKEN` (plus the id/secret).
 
-### 2. (Recommended) Claude API key — for script quality
-The "auto-generated daily" topics are written by Claude when a key is present;
-without it, a lower-quality **offline templated** writer runs. Get a key at
-[platform.claude.com](https://platform.claude.com/) → `ANTHROPIC_API_KEY`.
-Quality is the main lever on views, so this is strongly recommended.
+### 2. Claude for the scripts — use your Pro subscription (no API charges)
+Each day's script is written by **Claude Code** running headless in the workflow,
+billed to your **Claude Pro/Max subscription** — not the metered API. Generate a
+subscription token once on your own machine:
+```bash
+npm install -g @anthropic-ai/claude-code
+claude setup-token          # opens a browser; sign in with your Pro account
+```
+It prints a `CLAUDE_CODE_OAUTH_TOKEN` (starts with `sk-ant-oat...`). Store that as
+a secret (next step).
+
+> Pro has rolling usage limits; two short scripts a day is light and normally fits
+> fine, but it shares your Pro budget with your other Claude usage. **Alternative:**
+> set `ANTHROPIC_API_KEY` instead (pay-per-token API). With neither, a lower-quality
+> offline templated writer runs — fine for a private review queue, not for auto-public.
 
 ### 3. Add the secrets to GitHub
 Repo → **Settings → Secrets and variables → Actions → New repository secret**:
@@ -51,7 +61,8 @@ Repo → **Settings → Secrets and variables → Actions → New repository sec
 | `YT_CLIENT_ID` | ✅ | from step 1 |
 | `YT_CLIENT_SECRET` | ✅ | from step 1 |
 | `YT_REFRESH_TOKEN` | ✅ | from step 1 |
-| `ANTHROPIC_API_KEY` | recommended | script quality |
+| `CLAUDE_CODE_OAUTH_TOKEN` | recommended | script quality, billed to your Pro plan (`claude setup-token`) |
+| `ANTHROPIC_API_KEY` | optional | alternative to the token above (pay-per-token API) |
 
 ### 4. Turn it on
 The workflow (`.github/workflows/daily-publish.yml`) runs automatically on cron.
@@ -77,8 +88,10 @@ request. They appear in your Studio and you publish them manually.
 ## Quota & cost
 - **YouTube quota:** an upload ≈ 1,600 units; 2/day ≈ 3,200 of the default
   10,000/day. Comfortable.
-- **Claude:** a script is a few cents on `claude-opus-4-8`. To cut cost, set
-  `"model": "claude-sonnet-4-6"` in `autopilot/config.json`.
+- **Claude (scripts):** with the Pro/Max subscription token there's **no per-video
+  charge** — it draws on your existing plan (light usage). Only the optional
+  `ANTHROPIC_API_KEY` fallback is pay-per-token (a few cents/script; `model` in
+  `autopilot/config.json` applies to that API path only).
 - **GitHub Actions:** free for public repos; private repos get 2,000 min/month.
   Each run is ~15–30 min.
 

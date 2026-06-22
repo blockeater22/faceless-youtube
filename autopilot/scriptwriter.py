@@ -1,11 +1,14 @@
 """Turn a topic brief into a full video script (title + hook + beats).
 
-Two backends:
-  - "claude": Anthropic API writes a fresh, high-quality script each run
-             (recommended; needs ANTHROPIC_API_KEY).
-  - "offline": a templated fallback so the pipeline still runs with no API key
-             (lower quality — fine for a private review queue, not for auto-public).
-"auto" uses claude when a key + the SDK are available, else offline.
+Three backends:
+  - "claude_code": run the Claude Code CLI headless, authenticated by a Claude
+        Pro/Max **subscription** token (CLAUDE_CODE_OAUTH_TOKEN from
+        `claude setup-token`). No metered API charges. Recommended.
+  - "claude": the Anthropic **API** (needs ANTHROPIC_API_KEY — pay per token).
+  - "offline": a templated fallback so the pipeline still runs with no Claude at
+        all (lower quality — fine for a private review queue, not auto-public).
+"auto" prefers claude_code (if the CLI + token are present), then the API key,
+then offline.
 """
 from __future__ import annotations
 
@@ -123,8 +126,48 @@ def _via_claude(topic: dict, model: str) -> dict:
     return json.loads(text)
 
 
+def _extract_json(text: str) -> str:
+    """Pull the first balanced {...} object out of CLI output (tolerates fences/prose)."""
+    t = text.strip()
+    if t.startswith("```"):
+        parts = t.split("```")
+        if len(parts) >= 2:
+            t = parts[1]
+            if t.lstrip().lower().startswith("json"):
+                t = t.lstrip()[4:]
+    start = t.find("{")
+    if start == -1:
+        raise ValueError("no JSON object in Claude Code output")
+    depth = 0
+    for i in range(start, len(t)):
+        if t[i] == "{":
+            depth += 1
+        elif t[i] == "}":
+            depth -= 1
+            if depth == 0:
+                return t[start:i + 1]
+    raise ValueError("unbalanced JSON in Claude Code output")
+
+
+def _via_claude_code(topic: dict) -> dict:
+    """Generate the script by running the Claude Code CLI headless, billed to a
+    Claude Pro/Max subscription (CLAUDE_CODE_OAUTH_TOKEN). No metered API."""
+    import shutil
+    import subprocess
+    exe = shutil.which("claude")
+    if not exe:
+        raise RuntimeError("claude CLI not found (npm install -g @anthropic-ai/claude-code)")
+    prompt = (SYSTEM + "\n\n" + _user_prompt(topic) +
+              "\n\nOutput ONLY the raw JSON object described above — no markdown "
+              "fences, no commentary, no tool use.")
+    proc = subprocess.run([exe, "-p", prompt], capture_output=True, text=True, timeout=900)
+    if proc.returncode != 0:
+        raise RuntimeError(f"claude CLI exited {proc.returncode}: {proc.stderr.strip()[-400:]}")
+    return json.loads(_extract_json(proc.stdout))
+
+
 # --------------------------------------------------------------------------- #
-# Offline fallback — coherent but generic; recommend the Claude backend.
+# Offline fallback — coherent but generic; recommend a Claude backend.
 # --------------------------------------------------------------------------- #
 def _offline(topic: dict) -> dict:
     brief = topic["brief"].rstrip("?.")
@@ -186,14 +229,29 @@ def _sanitize(script: dict) -> dict:
 
 
 def write_script(topic: dict, backend: str = "auto", model: str = "claude-opus-4-8") -> dict:
-    """Return {title, hook, beats}. Tries Claude, falls back to offline."""
-    use_claude = backend == "claude" or (
-        backend == "auto" and os.environ.get("ANTHROPIC_API_KEY"))
-    if use_claude:
+    """Return {title, hook, beats}. Tries backends in order, ending at offline."""
+    import shutil
+    has_cc = bool(os.environ.get("CLAUDE_CODE_OAUTH_TOKEN")) and bool(shutil.which("claude"))
+    has_api = bool(os.environ.get("ANTHROPIC_API_KEY"))
+
+    if backend == "claude_code":
+        order = ["cc"]
+    elif backend == "claude":
+        order = ["api"]
+    elif backend == "offline":
+        order = ["offline"]
+    else:  # auto
+        order = ([("cc")] if has_cc else []) + (["api"] if has_api else []) + ["offline"]
+
+    last_exc = None
+    for b in order:
         try:
-            return _sanitize(_via_claude(topic, model))
+            if b == "cc":
+                return _sanitize(_via_claude_code(topic))
+            if b == "api":
+                return _sanitize(_via_claude(topic, model))
+            return _sanitize(_offline(topic))
         except Exception as exc:  # noqa: BLE001
-            if backend == "claude":
-                raise
-            print(f"  [scriptwriter] claude unavailable ({exc}); using offline fallback")
-    return _sanitize(_offline(topic))
+            last_exc = exc
+            print(f"  [scriptwriter] backend '{b}' failed ({exc}); trying next")
+    raise last_exc  # only reached if an explicit non-offline backend failed

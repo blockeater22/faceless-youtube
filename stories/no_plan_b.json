@@ -1,0 +1,392 @@
+{
+  "title": "No Plan B - Bet On Yourself",
+  "handle": "@Inklings1",
+  "style": {
+    "background": "#0e1320",
+    "ink": "#f2ede1",
+    "accent": "#ff5d5d",
+    "muted": "#6f7791",
+    "palette": [
+      "#ff5d5d",
+      "#ffb454",
+      "#f2ede1",
+      "#23b26d",
+      "#a463f2"
+    ],
+    "fps": 30,
+    "grain": 0.05,
+    "vignette": 0.55,
+    "caption": {
+      "mode": "kinetic",
+      "size": 0.1,
+      "y": 0.46,
+      "max_chars": 16
+    }
+  },
+  "voice": {
+    "backend": "kokoro",
+    "voice": "am_liam",
+    "polish": true,
+    "gap": 0.28
+  },
+  "scenes": [
+    {
+      "id": "01_hook",
+      "narration": "You don't have a Plan B. Good.",
+      "min_dur": 3.2,
+      "props": [
+        {
+          "type": "icon",
+          "id": "warning",
+          "name": "warning",
+          "color": "#ff5d5d",
+          "r": 0.16,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "02_reframe",
+      "narration": "That's not reckless. That's the only way anything real gets built.",
+      "min_dur": 3.8,
+      "props": [
+        {
+          "type": "icon",
+          "id": "brain",
+          "name": "brain",
+          "color": "#ffb454",
+          "r": 0.16,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "03_truth",
+      "narration": "A backup plan is just a pre-approved excuse to quit early.",
+      "min_dur": 3.8,
+      "props": [
+        {
+          "type": "icon",
+          "id": "arrow_down",
+          "name": "arrow_down",
+          "color": "#a463f2",
+          "r": 0.16,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "04_burn",
+      "narration": "Burn the exit. Leave yourself one door, and walk through it.",
+      "min_dur": 4.0,
+      "props": [
+        {
+          "type": "object",
+          "id": "table",
+          "name": "table",
+          "size": 0.44,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.5,
+                0.28
+              ],
+              "scale": 0.7,
+              "alpha": 0
+            },
+            {
+              "t": 0.18,
+              "pos": [
+                0.5,
+                0.28
+              ],
+              "scale": 1.05,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.28
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.28
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "id": "books",
+          "name": "books",
+          "size": 0.26,
+          "keys": [
+            {
+              "t": 0.1,
+              "pos": [
+                0.3,
+                0.18
+              ],
+              "scale": 0.7,
+              "alpha": 0
+            },
+            {
+              "t": 0.28,
+              "pos": [
+                0.3,
+                0.18
+              ],
+              "scale": 1.05,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.65,
+              "pos": [
+                0.3,
+                0.18
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.3,
+                0.18
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "id": "door",
+          "name": "door",
+          "size": 0.32,
+          "keys": [
+            {
+              "t": 0.15,
+              "pos": [
+                0.7,
+                0.16
+              ],
+              "scale": 0.7,
+              "alpha": 0
+            },
+            {
+              "t": 0.33,
+              "pos": [
+                0.7,
+                0.16
+              ],
+              "scale": 1.05,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.7,
+              "pos": [
+                0.7,
+                0.16
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.7,
+                0.16
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "05_cta",
+      "narration": "No Plan A. No Plan B. Just you, betting on you.",
+      "min_dur": 3.8,
+      "props": [
+        {
+          "type": "icon",
+          "id": "check",
+          "name": "check",
+          "color": "#23b26d",
+          "r": 0.16,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "format": "kinetic-typography+scenery",
+    "topic": "no-backup-plan-motivation"
+  }
+}

@@ -1,0 +1,702 @@
+{
+  "title": "5 Silent Signs You're More Lonely Than You Realize",
+  "handle": "@Inklings1",
+  "hook": "5 SILENT SIGNS YOU'RE LONELY",
+  "hook_dur": 1.8,
+  "style": {
+    "background": "#0e1320",
+    "ink": "#f2ede1",
+    "accent": "#ff5d5d",
+    "muted": "#6f7791",
+    "palette": [
+      "#ff5d5d",
+      "#1f9bff",
+      "#ffb454",
+      "#23b26d",
+      "#a463f2"
+    ],
+    "fps": 30,
+    "grain": 0.05,
+    "vignette": 0.55,
+    "caption": {
+      "mode": "kinetic",
+      "size": 0.1,
+      "y": 0.46,
+      "max_chars": 16
+    }
+  },
+  "voice": {
+    "backend": "kokoro",
+    "voice": "am_liam",
+    "polish": true,
+    "gap": 0.28
+  },
+  "scenes": [
+    {
+      "id": "01_intro",
+      "narration": "Loneliness doesn't always look empty. Here are 5 silent signs you're more lonely than you realize.",
+      "min_dur": 3.4,
+      "props": [
+        {
+          "type": "icon",
+          "id": "heart",
+          "name": "heart",
+          "color": "#1f9bff",
+          "r": 0.16,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.24
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "02_item1",
+      "narration": "You scroll through old messages just to feel like someone's still there.",
+      "min_dur": 3.6,
+      "props": [
+        {
+          "type": "icon",
+          "id": "chat",
+          "name": "chat",
+          "color": "#1f9bff",
+          "r": 0.16,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.24
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.24
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.24
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.24
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "label",
+          "id": "num1",
+          "text": "1/5",
+          "size": 0.07,
+          "color": "#1f9bff",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.12
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.12
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.12
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.12
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "03_item2",
+      "narration": "You stay busy on purpose, because stillness is when it gets loud.",
+      "min_dur": 3.6,
+      "props": [
+        {
+          "type": "icon",
+          "id": "clock",
+          "name": "clock",
+          "color": "#ffb454",
+          "r": 0.16,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.24
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.24
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.24
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.24
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "label",
+          "id": "num2",
+          "text": "2/5",
+          "size": 0.07,
+          "color": "#ffb454",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.12
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.12
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.12
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.12
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "04_item3",
+      "narration": "You crave connection but cancel plans the moment they're offered.",
+      "min_dur": 3.6,
+      "props": [
+        {
+          "type": "icon",
+          "id": "heart",
+          "name": "heart",
+          "color": "#ff5d5d",
+          "r": 0.16,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.24
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.24
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.24
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.24
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "label",
+          "id": "num3",
+          "text": "3/5",
+          "size": 0.07,
+          "color": "#ff5d5d",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.12
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.12
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.12
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.12
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "05_item4",
+      "narration": "You feel lonely in a room full of people who actually like you.",
+      "min_dur": 3.6,
+      "props": [
+        {
+          "type": "object",
+          "id": "armchair",
+          "name": "armchair",
+          "size": 0.44,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.5,
+                0.3
+              ],
+              "scale": 0.7,
+              "alpha": 0
+            },
+            {
+              "t": 0.18,
+              "pos": [
+                0.5,
+                0.3
+              ],
+              "scale": 1.05,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.3
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.3
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "id": "mug",
+          "name": "mug",
+          "size": 0.27,
+          "keys": [
+            {
+              "t": 0.1,
+              "pos": [
+                0.3,
+                0.18
+              ],
+              "scale": 0.7,
+              "alpha": 0
+            },
+            {
+              "t": 0.28,
+              "pos": [
+                0.3,
+                0.18
+              ],
+              "scale": 1.05,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.65,
+              "pos": [
+                0.3,
+                0.18
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.3,
+                0.18
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "id": "blanket",
+          "name": "blanket",
+          "size": 0.27,
+          "keys": [
+            {
+              "t": 0.15,
+              "pos": [
+                0.7,
+                0.18
+              ],
+              "scale": 0.7,
+              "alpha": 0
+            },
+            {
+              "t": 0.33,
+              "pos": [
+                0.7,
+                0.18
+              ],
+              "scale": 1.05,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.7,
+              "pos": [
+                0.7,
+                0.18
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.7,
+                0.18
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "label",
+          "id": "num4",
+          "text": "4/5",
+          "size": 0.07,
+          "color": "#a463f2",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.12
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.12
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.12
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.12
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "06_item5",
+      "narration": "You've started talking to yourself just to hear a voice that isn't a screen.",
+      "min_dur": 3.6,
+      "props": [
+        {
+          "type": "icon",
+          "id": "brain",
+          "name": "brain",
+          "color": "#23b26d",
+          "r": 0.16,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.24
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.24
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.24
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.24
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "label",
+          "id": "num5",
+          "text": "5/5",
+          "size": 0.07,
+          "color": "#23b26d",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.12
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.12
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.12
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.12
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "07_cta",
+      "narration": "If even one of these felt familiar, comment below, you're not as alone as it feels. Like this and subscribe for more.",
+      "min_dur": 3.8,
+      "props": [
+        {
+          "type": "icon",
+          "id": "check",
+          "name": "check",
+          "color": "#23b26d",
+          "r": 0.16,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.24
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.24
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.24
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.24
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "format": "kinetic-typography+listicle",
+    "topic": "loneliness-signs"
+  }
+}

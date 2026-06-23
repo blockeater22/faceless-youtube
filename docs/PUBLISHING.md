@@ -422,3 +422,169 @@ Same rules as the launch batch: 5 separate evergreen Shorts, no required order.
 Spread across 3–5 days at the AM/PM windows above so each gets its own push,
 or post 1/day to keep "Mind Glitches" feeling like a series. Pin the comment-CTA
 on each.
+
+---
+
+## Batch 3 — "Mental Energy & Loneliness" listicle Shorts (10 videos)
+
+`scripts/generate_mental_health_shorts_batch.py` → `stories/*.json` · 9:16 · ~28–35s each.
+Trending self-improvement/mental-health niche (mental energy, loneliness, depression,
+anxiety, burnout) using a 5-item listicle structure: a bold title-card **hook** is now
+the literal first frame of every video (fixed `_draw_hook` so it's fully opaque from
+frame 0 — a proper thumbnail/cover look), each of the 5 items gets a numbered **n/5**
+badge above its icon, and every video closes with an explicit comment/like/subscribe CTA.
+
+### #1 — 5 Habits Secretly Draining Your Mental Energy Every Day
+**File:** `output/habits_draining_mental_energy_9x16.mp4`
+**Description:**
+```
+You're not lazy — these 5 everyday habits are quietly draining your mental energy before you even notice. Watch till the end, you're probably doing #3.
+
+💬 Which habit hit closest to home? Comment the number below.
+👍 Like if this explained a lot.
+🔔 Subscribe for daily psychology shorts.
+
+#shorts #mentalhealth #psychology #mentalenergy #inklings
+```
+**Tags:** `mental energy, mental exhaustion, draining habits, psychology facts, self improvement, burnout, mental health awareness, energy drainers, habits to break, Inklings`
+**Pinned comment:** "Which one is secretly draining you? 👀 Comment the number — I read every single one."
+
+### #2 — 5 Silent Signs You're More Lonely Than You Realize
+**File:** `output/silent_signs_of_loneliness_9x16.mp4`
+**Description:**
+```
+Loneliness doesn't always look like being alone. Here are 5 quiet signs it's happening to you right now.
+
+💬 Which sign hit hardest? You're not alone — tell me below.
+👍 Like if you needed this today.
+🔔 Subscribe for more on mental health and loneliness.
+
+#shorts #loneliness #mentalhealth #psychology #inklings
+```
+**Tags:** `loneliness, signs of loneliness, mental health, lonely even with people, psychology facts, emotional health, feeling alone, self awareness, Inklings`
+**Pinned comment:** "If even one of these felt familiar — you're not as alone as it feels. I'm reading every comment today. 💬"
+
+### #3 — 5 Signs of High-Functioning Depression Most People Miss
+**File:** `output/high_functioning_depression_signs_9x16.mp4`
+**Description:**
+```
+High-functioning depression hides behind a smile, a job, and a packed schedule. Here are 5 signs most people completely miss — in themselves and others.
+
+💬 Does any of this sound like you? You're not broken, you're tired.
+👍 Like if this needs to be said more.
+🔔 Subscribe for more mental health awareness.
+
+#shorts #depression #mentalhealth #highfunctioningdepression #inklings
+```
+**Tags:** `high functioning depression, signs of depression, mental health awareness, depression symptoms, psychology facts, emotional exhaustion, mental health, Inklings`
+**Pinned comment:** "If this sounds like you — you are not broken, you are tired. 💙 Comment below, I read everything."
+
+### #4 — 5 Habits Quietly Feeding Your Anxiety Without You Knowing
+**File:** `output/habits_feeding_anxiety_9x16.mp4`
+**Description:**
+```
+These 5 everyday habits are quietly feeding your anxiety — and most people never connect the dots.
+
+💬 Which habit do you need to drop first?
+👍 Like if this called you out (gently).
+🔔 Subscribe for more psychology shorts.
+
+#shorts #anxiety #mentalhealth #psychology #inklings
+```
+**Tags:** `anxiety habits, anxiety triggers, mental health, psychology facts, overthinking, anxiety relief, self improvement, Inklings`
+**Pinned comment:** "Which one are you guilty of? No judgment, just comment the number 👇"
+
+### #5 — 5 Things Mentally Strong People Never Do
+**File:** `output/mentally_strong_people_never_do_9x16.mp4`
+**Description:**
+```
+Mentally strong people aren't fearless — they just never do these 5 things.
+
+💬 Which one are you working on?
+👍 Like if this hit different.
+🔔 Subscribe for more self-improvement shorts.
+
+#shorts #mentalstrength #selfimprovement #psychology #inklings
+```
+**Tags:** `mentally strong people, mental strength, self improvement, resilience, psychology facts, confidence, personal growth, Inklings`
+**Pinned comment:** "Which one are YOU working on right now? Comment below 👇"
+
+### #6 — 5 Reasons You're Tired After a Full Night's Sleep
+**File:** `output/tired_after_sleeping_reasons_9x16.mp4`
+**Description:**
+```
+Slept 8 hours and still exhausted? Here are 5 sneaky reasons why your sleep isn't actually recharging you.
+
+💬 Which one's been sabotaging you?
+👍 Like if you needed this.
+🔔 Subscribe for more.
+
+#shorts #sleep #mentalhealth #healthtips #inklings
+```
+**Tags:** `why am i tired after sleeping, sleep quality, sleep tips, mental energy, fatigue causes, health facts, psychology facts, Inklings`
+**Pinned comment:** "Which one's been wrecking your sleep? Comment below 👇"
+
+### #7 — 5 Habits of People Who Never Burn Out
+**File:** `output/habits_people_never_burn_out_9x16.mp4`
+**Description:**
+```
+Some people just don't burn out — here are the 5 habits they all quietly share.
+
+💬 Which habit are you missing?
+👍 Like if you're adding one of these today.
+🔔 Subscribe for more.
+
+#shorts #burnout #productivity #selfimprovement #inklings
+```
+**Tags:** `burnout prevention, productivity habits, work life balance, self improvement, mental health, psychology facts, Inklings`
+**Pinned comment:** "Which habit are you stealing for yourself? 👇"
+
+### #8 — 5 Signs You're Emotionally Exhausted, Not Just Tired
+**File:** `output/emotionally_exhausted_signs_9x16.mp4`
+**Description:**
+```
+Tired, sleep can fix. This is different. Here are 5 signs you're emotionally exhausted, not just tired.
+
+💬 Be honest — which one is you right now?
+👍 Like if this needed to be said.
+🔔 Subscribe for more.
+
+#shorts #emotionalhealth #mentalhealth #burnout #inklings
+```
+**Tags:** `emotional exhaustion, emotional burnout, mental health, signs of burnout, psychology facts, self care, Inklings`
+**Pinned comment:** "If this is you — be gentle with yourself today. 💙 Comment below."
+
+### #9 — 5 Small Habits That Instantly Boost Your Mental Energy
+**File:** `output/habits_boost_mental_energy_9x16.mp4`
+**Description:**
+```
+Want your mental energy back today? Start with these 5 small habits — they take less than 2 minutes each.
+
+💬 Which one will you try first?
+👍 Like if you're trying #1 today.
+🔔 Subscribe for more.
+
+#shorts #mentalenergy #selfimprovement #productivity #inklings
+```
+**Tags:** `boost mental energy, mental energy tips, self improvement, productivity habits, psychology facts, motivation, Inklings`
+**Pinned comment:** "Which one are you trying first? Comment below 👇"
+
+### #10 — 5 Signs You're Lonely Even Around People You Love
+**File:** `output/lonely_around_people_you_love_9x16.mp4`
+**Description:**
+```
+You can be surrounded by people and still feel completely alone. Here are 5 signs it's happening to you.
+
+💬 Has this happened to you? You're not alone in feeling alone.
+👍 Like if this needs to be said.
+🔔 Subscribe for more on mental health.
+
+#shorts #loneliness #mentalhealth #psychology #inklings
+```
+**Tags:** `lonely in a relationship, loneliness, feeling alone, mental health, emotional health, psychology facts, Inklings`
+**Pinned comment:** "If this is you — let someone in today. You deserve to be truly seen. 💙"
+
+### Posting
+10 evergreen Shorts — spread 1–2/day over a week so each gets its own push (mixing
+dark/light visual mood between consecutive posts keeps the feed varied). Pin the
+comment-CTA above on each upload immediately at publish time.

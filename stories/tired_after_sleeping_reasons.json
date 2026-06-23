@@ -1,0 +1,702 @@
+{
+  "title": "5 Reasons You're Tired After a Full Night's Sleep",
+  "handle": "@Inklings1",
+  "hook": "5 REASONS YOU'RE STILL TIRED",
+  "hook_dur": 1.8,
+  "style": {
+    "background": "#ffffff",
+    "ink": "#15161a",
+    "accent": "#ff5d5d",
+    "muted": "#9aa0ab",
+    "palette": [
+      "#ff5d5d",
+      "#1f9bff",
+      "#ffb454",
+      "#23b26d",
+      "#a463f2"
+    ],
+    "fps": 30,
+    "grain": 0.0,
+    "vignette": 0.0,
+    "caption": {
+      "mode": "kinetic",
+      "size": 0.1,
+      "y": 0.46,
+      "max_chars": 16
+    }
+  },
+  "voice": {
+    "backend": "kokoro",
+    "voice": "am_liam",
+    "polish": true,
+    "gap": 0.28
+  },
+  "scenes": [
+    {
+      "id": "01_intro",
+      "narration": "Slept eight hours and still exhausted? Here are 5 sneaky reasons why.",
+      "min_dur": 3.4,
+      "props": [
+        {
+          "type": "icon",
+          "id": "clock",
+          "name": "clock",
+          "color": "#1f9bff",
+          "r": 0.16,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.24
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "02_item1",
+      "narration": "Your sleep schedule changes every day, so your body never locks into a rhythm.",
+      "min_dur": 3.6,
+      "props": [
+        {
+          "type": "icon",
+          "id": "clock",
+          "name": "clock",
+          "color": "#1f9bff",
+          "r": 0.16,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.24
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.24
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.24
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.24
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "label",
+          "id": "num1",
+          "text": "1/5",
+          "size": 0.07,
+          "color": "#1f9bff",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.12
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.12
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.12
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.12
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "03_item2",
+      "narration": "Your phone's blue light tricks your brain into staying half-awake all night.",
+      "min_dur": 3.6,
+      "props": [
+        {
+          "type": "icon",
+          "id": "warning",
+          "name": "warning",
+          "color": "#ff5d5d",
+          "r": 0.16,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.24
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.24
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.24
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.24
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "label",
+          "id": "num2",
+          "text": "2/5",
+          "size": 0.07,
+          "color": "#ff5d5d",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.12
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.12
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.12
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.12
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "04_item3",
+      "narration": "Stress hormones don't clock out just because your eyes are closed.",
+      "min_dur": 3.6,
+      "props": [
+        {
+          "type": "object",
+          "id": "armchair",
+          "name": "armchair",
+          "size": 0.44,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.5,
+                0.3
+              ],
+              "scale": 0.7,
+              "alpha": 0
+            },
+            {
+              "t": 0.18,
+              "pos": [
+                0.5,
+                0.3
+              ],
+              "scale": 1.05,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.3
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.3
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "id": "blanket",
+          "name": "blanket",
+          "size": 0.27,
+          "keys": [
+            {
+              "t": 0.1,
+              "pos": [
+                0.3,
+                0.18
+              ],
+              "scale": 0.7,
+              "alpha": 0
+            },
+            {
+              "t": 0.28,
+              "pos": [
+                0.3,
+                0.18
+              ],
+              "scale": 1.05,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.65,
+              "pos": [
+                0.3,
+                0.18
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.3,
+                0.18
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "id": "mug",
+          "name": "mug",
+          "size": 0.27,
+          "keys": [
+            {
+              "t": 0.15,
+              "pos": [
+                0.7,
+                0.18
+              ],
+              "scale": 0.7,
+              "alpha": 0
+            },
+            {
+              "t": 0.33,
+              "pos": [
+                0.7,
+                0.18
+              ],
+              "scale": 1.05,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.7,
+              "pos": [
+                0.7,
+                0.18
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.7,
+                0.18
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "label",
+          "id": "num3",
+          "text": "3/5",
+          "size": 0.07,
+          "color": "#a463f2",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.12
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.12
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.12
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.12
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "05_item4",
+      "narration": "Snoring or shallow breathing can quietly cut your oxygen all night long.",
+      "min_dur": 3.6,
+      "props": [
+        {
+          "type": "icon",
+          "id": "chat",
+          "name": "chat",
+          "color": "#ffb454",
+          "r": 0.16,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.24
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.24
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.24
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.24
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "label",
+          "id": "num4",
+          "text": "4/5",
+          "size": 0.07,
+          "color": "#ffb454",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.12
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.12
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.12
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.12
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "06_item5",
+      "narration": "Skipping water during the day leaves your brain running on empty by morning.",
+      "min_dur": 3.6,
+      "props": [
+        {
+          "type": "icon",
+          "id": "arrow_down",
+          "name": "arrow_down",
+          "color": "#23b26d",
+          "r": 0.16,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.24
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.24
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.24
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.24
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "label",
+          "id": "num5",
+          "text": "5/5",
+          "size": 0.07,
+          "color": "#23b26d",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.12
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.12
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.12
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.12
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "07_cta",
+      "narration": "Which one's been sabotaging your sleep? Comment below, like this, and subscribe for more.",
+      "min_dur": 3.8,
+      "props": [
+        {
+          "type": "icon",
+          "id": "check",
+          "name": "check",
+          "color": "#23b26d",
+          "r": 0.16,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.24
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.24
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.24
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.24
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "format": "kinetic-typography+listicle",
+    "topic": "tired-after-sleep"
+  }
+}

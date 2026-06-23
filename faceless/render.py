@@ -352,9 +352,9 @@ def _draw_hook(frame, text, abs_t, dur, size, mindim, style):
         return
     w, h = size
     fade = 0.30
-    if abs_t < 0.12:                       # snap in (slight overshoot)
+    if abs_t < 0.12:                       # snap in (slight overshoot), fully visible immediately
         p = abs_t / 0.12
-        alpha, scale = min(1.0, p * 1.6), 1.14 - 0.14 * p
+        alpha, scale = 1.0, 1.14 - 0.14 * p
     elif abs_t > dur - fade:               # quick fade out
         alpha, scale = max(0.0, (dur - abs_t) / fade), 1.0
     else:

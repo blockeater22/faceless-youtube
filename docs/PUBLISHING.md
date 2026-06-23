@@ -327,3 +327,98 @@ matters less — but post **evening (7–9 PM)** or a weekend for the initial pu
 - Add each upload to its **playlist** during publishing (not after).
 - Keep the **thumbnail** consistent for the 16:9 long-form: one stick figure +
   the amber **?** + a 3–5 word question in white.
+
+---
+
+## Shorts batch — "Mind Glitches" (5 evergreen psychology-effect Shorts)
+
+`scripts/generate_psych_shorts_batch.py` → `stories/{baader_meinhof,ikea_effect,
+spotlight_effect,dunning_kruger,mere_exposure}.json` · 9:16 · ~19–20s each ·
+Playlist: **Mind Glitches**
+
+Picked for the same reason as the Zeigarnik demo: named psychology effects give
+viewers an instant "that's literally me" + a shareable label, and unlike news
+trends the underlying psychology doesn't go stale — these compound views for years.
+Each is structured hook (0–5s) → promise (5–15s) → name-the-effect (15–30s) →
+pattern-interrupt scene → CTA, per the uppbeat.io/1of10.com rules already in use.
+
+### #1 — Why You See It Everywhere Once You Learn About It (Baader-Meinhof Effect)
+**File:** `output/baader_meinhof_9x16.mp4`
+**Title (A/B):**
+- `Why You See It Everywhere Once You Learn About It (Baader-Meinhof Effect)`
+- `The Psychology Trick Your Brain Plays On You Daily`
+```
+Ever learn a new word, then suddenly hear it everywhere? That's not coincidence — it's the Baader-Meinhof phenomenon, and once you know it you can't unsee it.
+
+💬 What's something you started noticing everywhere right after you learned about it?
+🔔 New psychology shorts daily — subscribe so you don't miss one.
+
+#shorts #psychology #baadermeinhof #mindblown #inklings
+```
+**Tags:** `baader meinhof effect, frequency illusion, psychology facts, cognitive bias, mind tricks, brain facts, psychology shorts, mindblown, did you know, Inklings`
+
+### #2 — Why You Love What You Build More Than What You Buy (IKEA Effect)
+**File:** `output/ikea_effect_9x16.mp4`
+**Title (A/B):**
+- `Why You Love the Wobbly Shelf You Built More Than a Perfect One (IKEA Effect)`
+- `The Reason You're Proud of Things You Made Badly`
+```
+You love that wobbly shelf you built more than a perfect one from the store — and there's a name for why. The IKEA Effect is quietly hijacking how you value everything you make.
+
+💬 What's something you built that you're weirdly proud of?
+🔔 New psychology shorts daily — subscribe.
+
+#shorts #psychology #ikeaeffect #mindblown #inklings
+```
+**Tags:** `ikea effect, psychology facts, cognitive bias, endowment effect, why we love what we make, mind tricks, psychology shorts, self improvement, Inklings`
+
+### #3 — Nobody Noticed What You Think They Noticed (Spotlight Effect)
+**File:** `output/spotlight_effect_9x16.mp4`
+**Title (A/B):**
+- `Nobody Noticed What You Think They Noticed (Spotlight Effect)`
+- `Why You Think Everyone's Watching You (They're Not)`
+```
+Think everyone noticed that thing you said? They didn't. The Spotlight Effect explains why your brain massively overestimates how much people are paying attention to you.
+
+💬 What's something you were embarrassed about that nobody actually noticed?
+🔔 New psychology shorts daily — subscribe.
+
+#shorts #psychology #spotlighteffect #socialanxiety #inklings
+```
+**Tags:** `spotlight effect, social anxiety, psychology facts, cognitive bias, overthinking, social psychology, mind tricks, psychology shorts, Inklings`
+
+### #4 — Why Confident People Are Often Wrong (Dunning-Kruger Effect)
+**File:** `output/dunning_kruger_9x16.mp4`
+**Title (A/B):**
+- `Why Confident People Are Often Wrong (Dunning-Kruger Effect)`
+- `The Less You Know, The More Confident You Sound`
+```
+The less someone knows, the more confident they sound — and it's not arrogance. The Dunning-Kruger Effect is a blind spot wired into how confidence actually works.
+
+💬 Ever caught yourself being confidently wrong? Be honest.
+🔔 New psychology shorts daily — subscribe.
+
+#shorts #psychology #dunningkruger #mindblown #inklings
+```
+**Tags:** `dunning kruger effect, confidence vs competence, cognitive bias, psychology facts, mind tricks, self awareness, psychology shorts, Inklings`
+
+### #5 — Why a Song You Hated Grows On You (Mere-Exposure Effect)
+**File:** `output/mere_exposure_9x16.mp4`
+**Title (A/B):**
+- `Why a Song You Hated Grows On You (Mere-Exposure Effect)`
+- `The Psychology Reason Things Grow On You`
+```
+Why does that song you hated grow on you after the tenth listen? Your brain isn't changing its taste — it's rewarding familiarity. Meet the Mere-Exposure Effect.
+
+💬 What's a song (or person) you didn't like at first but now love?
+🔔 New psychology shorts daily — subscribe.
+
+#shorts #psychology #mereexposure #lifehack #inklings
+```
+**Tags:** `mere exposure effect, familiarity bias, psychology facts, why we like things more, cognitive bias, mind tricks, psychology shorts, Inklings`
+
+### Posting
+Same rules as the launch batch: 5 separate evergreen Shorts, no required order.
+Spread across 3–5 days at the AM/PM windows above so each gets its own push,
+or post 1/day to keep "Mind Glitches" feeling like a series. Pin the comment-CTA
+on each.

@@ -8,3 +8,9 @@ imageio-ffmpeg>=0.5   # bundled ffmpeg fallback (system ffmpeg used if present)
 #   - gTTS       : online Google voice (pip install gTTS) - blocked on some networks
 #   - elevenlabs : final-channel quality (pip install elevenlabs + ELEVENLABS_API_KEY)
 gTTS>=2.5
+
+# Script generation on a FREE Gemini key (autopilot/scriptwriter.py "gemini" backend):
+google-genai>=0.3        # https://aistudio.google.com/apikey -> GEMINI_API_KEY
+# AI-image visual style (autopilot/images.py) uses only the stdlib + Pillow for
+# Pollinations (no key). Kokoro neural voice (am_liam, ...): pip install kokoro-onnx
+#   then run scripts/setup_kokoro.sh to fetch the model + voices.

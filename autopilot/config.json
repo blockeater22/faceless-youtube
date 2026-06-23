@@ -12,9 +12,13 @@
   "embiggen": 1.42,
   "handle": "@Inklings1",
 
-  "kokoro_voice": "af_heart",
-  "kokoro_speed": 1.0,
+  "kokoro_voice": "am_liam",
+  "kokoro_speed": 0.9,
   "piper_model": "voices/en_US-ryan-high.onnx",
+
+  "image_provider": "pollinations",
+  "image_style": "",
+  "image_model": "",
 
   "rotation": ["whatif", "howto", "otheryou", "reflection"],
 

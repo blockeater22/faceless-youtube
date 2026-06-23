@@ -1,13 +1,17 @@
 """Turn a topic brief into a full video script (title + hook + beats).
 
-Three backends:
+Backends:
+  - "gemini": Google's Gemini API on a **free** key (GEMINI_API_KEY or
+        GOOGLE_API_KEY from https://aistudio.google.com/apikey). Free tier as of
+        2026: gemini-2.5-flash ~10 req/min, 250 req/day — plenty for a couple of
+        videos a day. Default when a Gemini key is present.
   - "claude_code": run the Claude Code CLI headless, authenticated by a Claude
         Pro/Max **subscription** token (CLAUDE_CODE_OAUTH_TOKEN from
-        `claude setup-token`). No metered API charges. Recommended.
+        `claude setup-token`). No metered API charges.
   - "claude": the Anthropic **API** (needs ANTHROPIC_API_KEY — pay per token).
-  - "offline": a templated fallback so the pipeline still runs with no Claude at
+  - "offline": a templated fallback so the pipeline still runs with no LLM at
         all (lower quality — fine for a private review queue, not auto-public).
-"auto" prefers claude_code (if the CLI + token are present), then the API key,
+"auto" prefers gemini (free key), then claude_code, then the Anthropic API key,
 then offline.
 """
 from __future__ import annotations
@@ -138,6 +142,55 @@ def _user_prompt(topic: dict, trends: list | None = None) -> str:
             "Return ONLY the JSON object.")
 
 
+def _gemini_key() -> str | None:
+    return os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
+
+
+def _via_gemini(topic: dict, model: str | None = None, trends: list | None = None) -> dict:
+    """Generate the script with the Gemini API on a free key.
+
+    Uses the unified `google-genai` SDK (`pip install google-genai`). Falls back
+    to the legacy `google-generativeai` SDK if that's what's installed.
+    """
+    key = _gemini_key()
+    if not key:
+        raise RuntimeError("GEMINI_API_KEY not set (get a free key at "
+                           "https://aistudio.google.com/apikey)")
+    # gemini-2.0-flash retired Mar 2026 -> default to 2.5-flash on the free tier.
+    name = model if (model and model.startswith("gemini")) else "gemini-2.5-flash"
+    prompt = _user_prompt(topic, trends)
+    try:  # preferred: new unified SDK
+        from google import genai  # type: ignore
+        from google.genai import types  # type: ignore
+        client = genai.Client(api_key=key)
+        resp = client.models.generate_content(
+            model=name,
+            contents=prompt,
+            config=types.GenerateContentConfig(
+                system_instruction=SYSTEM,
+                response_mime_type="application/json",
+                max_output_tokens=16000,
+                temperature=0.95,
+            ),
+        )
+        return json.loads(_extract_json(resp.text))
+    except ImportError:
+        pass
+    # legacy SDK fallback
+    try:
+        import google.generativeai as genai  # type: ignore
+    except ImportError as exc:
+        raise RuntimeError("install the Gemini SDK: `pip install google-genai`") from exc
+    genai.configure(api_key=key)
+    gmodel = genai.GenerativeModel(name, system_instruction=SYSTEM)
+    resp = gmodel.generate_content(
+        prompt,
+        generation_config={"response_mime_type": "application/json",
+                           "max_output_tokens": 16000, "temperature": 0.95},
+    )
+    return json.loads(_extract_json(resp.text))
+
+
 def _via_claude(topic: dict, model: str, trends: list | None = None) -> dict:
     import anthropic  # lazy import
     client = anthropic.Anthropic()  # reads ANTHROPIC_API_KEY
@@ -259,21 +312,27 @@ def write_script(topic: dict, backend: str = "auto", model: str = "claude-opus-4
                  trends: list | None = None) -> dict:
     """Return {title, hook, beats}. Tries backends in order, ending at offline."""
     import shutil
+    has_gemini = bool(_gemini_key())
     has_cc = bool(os.environ.get("CLAUDE_CODE_OAUTH_TOKEN")) and bool(shutil.which("claude"))
     has_api = bool(os.environ.get("ANTHROPIC_API_KEY"))
 
-    if backend == "claude_code":
+    if backend == "gemini":
+        order = ["gemini"]
+    elif backend == "claude_code":
         order = ["cc"]
     elif backend == "claude":
         order = ["api"]
     elif backend == "offline":
         order = ["offline"]
-    else:  # auto
-        order = ([("cc")] if has_cc else []) + (["api"] if has_api else []) + ["offline"]
+    else:  # auto — free Gemini key first, then Claude options, then offline
+        order = (["gemini"] if has_gemini else []) + (["cc"] if has_cc else []) \
+            + (["api"] if has_api else []) + ["offline"]
 
     last_exc = None
     for b in order:
         try:
+            if b == "gemini":
+                return _sanitize(_via_gemini(topic, model, trends))
             if b == "cc":
                 return _sanitize(_via_claude_code(topic, trends))
             if b == "api":

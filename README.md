@@ -47,6 +47,36 @@ Outputs land in `output/<story-name>/<story-name>_9x16.mp4` (and `_16x9.mp4`).
 
 ---
 
+## One command: `generate`
+
+Don't want to write JSON? Just say generate. It picks a trending topic, writes the
+script (free **Gemini** key → Claude → offline fallback), narrates it with **Kokoro
+"Liam"**, renders the video, and drops a paste-ready **title / description / tags**
+sidecar — no upload, you review then publish.
+
+```bash
+python -m autopilot.generate                 # stick-figure long-form (16:9)
+python -m autopilot.generate --shorts         # a 9:16 Short
+python -m autopilot.generate --style image     # AI-image slideshow (Pollinations, no key)
+python -m autopilot.generate --topic "What if your phone showed why you open it?"
+python -m autopilot.generate --voice am_michael --speed 0.85   # deeper, calmer voice
+```
+
+- **Script** — set `GEMINI_API_KEY` (free: https://aistudio.google.com/apikey) for the
+  `gemini` backend; falls back to Claude or an offline template automatically.
+- **Voice** — Kokoro `am_liam` at `speed 0.9` by default (calmer than its native 200 WPM);
+  `pip install kokoro-onnx` + `bash scripts/setup_kokoro.sh`.
+- **Visuals** — `--style stick` (default, original + fully offline) or `--style image`
+  (Pollinations/Cloudflare/Hugging Face — all have free tiers).
+
+**New here?** Two docs added for this:
+- **[docs/MAC_SETUP.md](docs/MAC_SETUP.md)** — exact M3 (MacBook Pro) setup, start to first video.
+- **[docs/RESEARCH.md](docs/RESEARCH.md)** — the research + devil's-advocate writeup: realistic
+  monetization timeline, Shorts vs long-form lengths, voice pitch/pace, and the 2026 AI-content
+  rules you must respect to *stay* monetized.
+
+---
+
 ## How a story works
 
 A story is a JSON file with `style`, `voice`, and a list of `scenes`. Each scene

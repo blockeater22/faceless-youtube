@@ -221,7 +221,7 @@ def _offline(topic: dict, mode: str = "long") -> dict:
         ("solo", "You just have to notice a little more than you did yesterday.", "stand"),
         ("stars", "Because you only get so many ordinary days. And they're not ordinary at all.", None),
     ]
-    for tmpl, line, face in (body if mode == "short" else body * 2):
+    for tmpl, line, face in (body[:10] if mode == "short" else body * 2):
         beat = {"template": tmpl, "narration": line}
         if face:
             beat["face"] = face

@@ -8,11 +8,13 @@
   "publish_slots_utc": ["13:00", "01:00"],
   "category_id": "22",
 
-  "formats": ["16:9"],
+  "mode": "short",
+  "formats": ["9:16"],
+  "min_dur": 2.6,
   "embiggen": 1.42,
   "handle": "@Inklings1",
 
-  "kokoro_voice": "af_heart",
+  "kokoro_voice": "am_liam",
   "kokoro_speed": 1.0,
   "piper_model": "voices/en_US-ryan-high.onnx",
 
@@ -20,5 +22,5 @@
 
   "tag_suffix": ["Inklings", "stick figure animation", "deep thoughts", "philosophy"],
 
-  "_comment": "publish_mode: private | schedule | public. private (default) -> daily run uploads as Private; YOU schedule/publish manually in YouTube Studio (this also sidesteps the API audit, since manual publishing in Studio always works). schedule -> private + publishAt the next slot (auto-goes-public only after your API project passes audit). publish_slots_utc 13:00 ~ 8AM ET, 01:00 ~ 8PM ET."
+  "_comment": "mode: short (9:16 Shorts, ~35-55s — the growth engine for a new channel) | long (16:9, 4-7 min). min_dur = per-scene floor in seconds (lower = tighter pacing, fewer gaps). voice gap is in the story voice block. publish_mode private -> upload Private, you publish in Studio."
 }

@@ -98,7 +98,7 @@ def main(argv=None):
         print(f"\n=== [{i+1}/{count}] {topic['kind']}: {topic['brief']} ===")
         try:
             script = scriptwriter.write_script(topic, backend=backend, model=cfg.get("model"),
-                                               trends=trend_titles)
+                                               trends=trend_titles, mode=cfg.get("mode", "long"))
             slug = f"auto_{dt.datetime.now(dt.timezone.utc):%Y%m%d}_{topic['kind']}_{i}"
             art = _produce.produce(topic, script, cfg, slug=slug, outroot=args.outroot)
             print(f"  rendered {art['video'].name}  ({art['video'].stat().st_size/1e6:.1f} MB)")

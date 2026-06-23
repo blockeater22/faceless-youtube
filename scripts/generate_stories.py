@@ -21,9 +21,9 @@ BASE_STYLE = {
     "logo": "branding/watermark.png", "logo_pos": "tl", "logo_scale": 0.1, "logo_opacity": 0.72,
 }
 BASE_VOICE = {
-    "backend": "kokoro", "kokoro_voice": "af_heart", "kokoro_speed": 1.0,
+    "backend": "kokoro", "kokoro_voice": "am_liam", "kokoro_speed": 1.0,
     "piper_model": "voices/en_US-ryan-high.onnx", "piper_length": 1.1,
-    "voice": "cmu_us_slt_arctic_hts", "rate": 135, "polish": True, "gap": 0.5,
+    "voice": "cmu_us_slt_arctic_hts", "rate": 135, "polish": True, "gap": 0.22,
 }
 MIN_DUR = 4.8   # per-scene floor -> deliberate holds; keeps videos in the 1-2 min range
 HOOK_DUR = 1.8  # seconds of big on-screen hook text at the very start

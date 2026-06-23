@@ -55,7 +55,7 @@ def _icon_prop(name):
                      {"t": 1, "pos": [0.72, 0.30], "alpha": 1, "scale": 1.0}]}
 
 
-def _beats_to_scenes(beats, embiggen):
+def _beats_to_scenes(beats, embiggen, min_dur=3.6):
     tmpl = dict(TEMPLATES)
     tmpl["chapter"] = _chapter
     scenes = []
@@ -78,7 +78,7 @@ def _beats_to_scenes(beats, embiggen):
         if b.get("icon"):
             props = list(props) + [_icon_prop(b["icon"])]
         scenes.append({"id": f"{i:02d}_{t}", "narration": b["narration"],
-                       "min_dur": 3.4 if t == "chapter" else 5.6,
+                       "min_dur": 2.2 if t == "chapter" else min_dur,
                        "actors": actors, "props": props})
     return scenes
 
@@ -111,7 +111,8 @@ def build_metadata(script, topic):
 
 def produce(topic, script, config, slug=None, outroot="output"):
     slug = slug or f"auto_{_slugify(script['title'])}"
-    scenes = _beats_to_scenes(script["beats"], config.get("embiggen", 1.42))
+    scenes = _beats_to_scenes(script["beats"], config.get("embiggen", 1.42),
+                              config.get("min_dur", 3.6))
     voice = dict(BASE_VOICE)
     if config.get("kokoro_voice"):
         voice["kokoro_voice"] = config["kokoro_voice"]

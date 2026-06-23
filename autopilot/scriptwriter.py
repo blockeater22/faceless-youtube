@@ -108,44 +108,49 @@ rain=sadness, star=wonder, clock=time, gift=giving, eye=noticing/being seen).
 icon and no second person should be rare."""
 
 
-def _user_prompt(topic: dict, trends: list | None = None) -> str:
+def _user_prompt(topic: dict, trends: list | None = None, mode: str = "long") -> str:
     kind = topic["kind"]
-    extra = ""
-    if kind == "howto":
-        extra = ("\nThis is a how-to video: open by naming the feeling, then give "
-                 "4-6 clear, psychology-backed shifts. Mark each shift with a `chapter` "
-                 "beat (num + a 2-3 word uppercase ctitle), then 2-4 solo/two beats "
-                 "explaining it. End on an empowering line, then the cta.")
-    elif kind == "whatif":
-        extra = ("\nThis is a 'what if' video: open on the premise, build the world, "
-                 "then turn it into something the viewer feels about their own life. "
-                 "No chapter cards — keep it a flowing narrative.")
-    elif kind == "otheryou":
-        extra = ("\nThis is a 'parallel self' video: make the other version vivid and "
-                 "specific, then make it a direction the viewer can move toward. "
-                 "No chapter cards.")
-    else:
-        extra = "\nThis is a reflective piece. No chapter cards — flowing narrative."
     trend_block = ""
     if trends:
         joined = "\n".join(f"- {t}" for t in trends[:12])
         trend_block = ("\n\nWhat's getting views in this niche right now — use ONLY as "
                        "inspiration for angle, curiosity, and title energy; do NOT copy a "
                        f"title and do NOT drift off-brand:\n{joined}")
+
+    if mode == "short":
+        directive = (
+            "\nFORMAT: a vertical YouTube SHORT — the channel's growth engine. Write 12-18 "
+            "beats, about 35-55 seconds total. The FIRST beat must be an instant, "
+            "scroll-stopping hook (a bold claim or a sharp question) with NO warm-up. Keep "
+            "ONE tight idea, fast and punchy; one short sentence per beat; no chapter cards. "
+            "End on a line that makes them rewatch or comment. Still illustrate every line "
+            "(icons / two-figure interactions).")
+    else:
+        longx = {
+            "howto": ("\nThis is a how-to video: name the feeling, then 4-6 psychology-backed "
+                      "shifts, each marked with a `chapter` beat (num + 2-3 word uppercase "
+                      "ctitle) then 2-4 explaining beats. End empowering, then the cta."),
+            "whatif": ("\nThis is a 'what if' video: open on the premise, build the world, then "
+                       "turn it into something the viewer feels. No chapter cards."),
+            "otheryou": ("\nThis is a 'parallel self' video: make the other version vivid and "
+                         "specific, then a direction the viewer can move toward. No chapter cards."),
+        }.get(kind, "\nThis is a reflective piece. No chapter cards — flowing narrative.")
+        directive = longx + ("\nChoose the ideal length yourself (tight 3-5 min or fuller "
+                             "6-8 min — see the system instructions).")
+
     return (f"Write the script.\nTopic / brief: {topic['brief']}\n"
-            f"Playlist: {topic['playlist']}.{extra}{trend_block}\n"
-            "Choose the ideal length yourself (see the system instructions). "
+            f"Playlist: {topic['playlist']}.{trend_block}{directive}\n"
             "Return ONLY the JSON object.")
 
 
-def _via_claude(topic: dict, model: str, trends: list | None = None) -> dict:
+def _via_claude(topic: dict, model: str, trends: list | None = None, mode: str = "long") -> dict:
     import anthropic  # lazy import
     client = anthropic.Anthropic()  # reads ANTHROPIC_API_KEY
     resp = client.messages.create(
         model=model,
         max_tokens=16000,
         system=SYSTEM,
-        messages=[{"role": "user", "content": _user_prompt(topic, trends)}],
+        messages=[{"role": "user", "content": _user_prompt(topic, trends, mode)}],
         output_config={"format": {"type": "json_schema", "schema": SCHEMA}},
     )
     text = next((b.text for b in resp.content if b.type == "text"), "")
@@ -175,7 +180,7 @@ def _extract_json(text: str) -> str:
     raise ValueError("unbalanced JSON in Claude Code output")
 
 
-def _via_claude_code(topic: dict, trends: list | None = None) -> dict:
+def _via_claude_code(topic: dict, trends: list | None = None, mode: str = "long") -> dict:
     """Generate the script by running the Claude Code CLI headless, billed to a
     Claude Pro/Max subscription (CLAUDE_CODE_OAUTH_TOKEN). No metered API."""
     import shutil
@@ -183,7 +188,7 @@ def _via_claude_code(topic: dict, trends: list | None = None) -> dict:
     exe = shutil.which("claude")
     if not exe:
         raise RuntimeError("claude CLI not found (npm install -g @anthropic-ai/claude-code)")
-    prompt = (SYSTEM + "\n\n" + _user_prompt(topic, trends) +
+    prompt = (SYSTEM + "\n\n" + _user_prompt(topic, trends, mode) +
               "\n\nOutput ONLY the raw JSON object described above — no markdown "
               "fences, no commentary, no tool use.")
     proc = subprocess.run([exe, "-p", prompt], capture_output=True, text=True, timeout=900)
@@ -195,7 +200,7 @@ def _via_claude_code(topic: dict, trends: list | None = None) -> dict:
 # --------------------------------------------------------------------------- #
 # Offline fallback — coherent but generic; recommend a Claude backend.
 # --------------------------------------------------------------------------- #
-def _offline(topic: dict) -> dict:
+def _offline(topic: dict, mode: str = "long") -> dict:
     brief = topic["brief"].rstrip("?.")
     title = topic["brief"] if topic["brief"].endswith("?") else topic["brief"]
     beats = [{"template": "hook", "narration": f"{brief}?", "face": "neutral"}]
@@ -216,7 +221,7 @@ def _offline(topic: dict) -> dict:
         ("solo", "You just have to notice a little more than you did yesterday.", "stand"),
         ("stars", "Because you only get so many ordinary days. And they're not ordinary at all.", None),
     ]
-    for tmpl, line, face in body * 2:  # repeat to reach a few minutes
+    for tmpl, line, face in (body if mode == "short" else body * 2):
         beat = {"template": tmpl, "narration": line}
         if face:
             beat["face"] = face
@@ -256,7 +261,7 @@ def _sanitize(script: dict) -> dict:
 
 
 def write_script(topic: dict, backend: str = "auto", model: str = "claude-opus-4-8",
-                 trends: list | None = None) -> dict:
+                 trends: list | None = None, mode: str = "long") -> dict:
     """Return {title, hook, beats}. Tries backends in order, ending at offline."""
     import shutil
     has_cc = bool(os.environ.get("CLAUDE_CODE_OAUTH_TOKEN")) and bool(shutil.which("claude"))
@@ -275,10 +280,10 @@ def write_script(topic: dict, backend: str = "auto", model: str = "claude-opus-4
     for b in order:
         try:
             if b == "cc":
-                return _sanitize(_via_claude_code(topic, trends))
+                return _sanitize(_via_claude_code(topic, trends, mode))
             if b == "api":
-                return _sanitize(_via_claude(topic, model, trends))
-            return _sanitize(_offline(topic))
+                return _sanitize(_via_claude(topic, model, trends, mode))
+            return _sanitize(_offline(topic, mode))
         except Exception as exc:  # noqa: BLE001
             last_exc = exc
             print(f"  [scriptwriter] backend '{b}' failed ({exc}); trying next")

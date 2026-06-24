@@ -600,14 +600,23 @@ min each (low end of the range) with a deliberately slowed narration pace
 (kokoro_speed 0.78) to keep the per-cut cadence inside the 3-5s target while
 still reaching a real long-form length.
 
+SEO note: titles, descriptions and tags below are optimized for vidIQ-style
+scoring — the focus keyword leads the title, appears in the first sentence of
+the description and as the first tag, and recurs 2-4x in the body; descriptions
+run 180-230 words; each video uses ~18-21 tags filling most of YouTube's 500-
+character tag budget (broad head terms + long-tail phrases).
+
 ### #1 — 6 Psychological Effects Secretly Running Your Life
 **File:** `output/lf_psychological_effects_16x9.mp4`
 **Duration:** 5:10
+**Title:** 6 Psychological Effects Secretly Running Your Life
 **Description:**
 ```
-Your brain runs on scripts you've never noticed. These 6 psychological effects
-are quietly steering your decisions, your relationships, and your day — right
-now, without permission.
+These 6 psychological effects are secretly running your life right now — and most people never notice them. From the spotlight effect to loss aversion and the sunk cost fallacy, your brain leans on hidden cognitive biases to make thousands of decisions every single day, usually without your permission.
+
+In this video we break down 6 of the most powerful psychological effects and cognitive biases that quietly shape your decisions, your relationships, your spending, and the way you see yourself. These are real psychology facts about human behavior — once you can name each effect, you can finally catch your brain in the act and take back a little control over the scripts running in the background.
+
+If you're into psychology, self improvement, or just understanding why we do what we do, these are the mind tricks worth knowing.
 
 ⏱️ Chapters:
 0:00 Intro
@@ -618,22 +627,26 @@ now, without permission.
 3:28 5. Social Proof
 4:09 6. Sunk Cost Fallacy
 
-💬 Which one caught you off guard? Tell me below.
+💬 Which psychological effect caught you off guard? Tell me below.
 👍 Like if this opened your eyes.
-🔔 Subscribe for more on the mind, mindset, and meaning.
+🔔 Subscribe for more on psychology, the mind, and self improvement.
 
-#psychology #mindset #selfimprovement #inklings
+#psychology #psychologyfacts #mindset #selfimprovement #inklings
 ```
-**Tags:** `psychological effects, cognitive bias, psychology facts, mindset, self improvement, mind tricks, Inklings`
-**Pinned comment:** "Which one of these six is quietly running YOUR life? Comment the number 👇"
+**Tags:** `psychological effects, cognitive biases, psychology facts, psychology of the mind, human behavior, spotlight effect, mere exposure effect, loss aversion, zeigarnik effect, social proof, sunk cost fallacy, mind tricks, behavioral psychology, brain hacks, mental models, decision making, why we do what we do, self improvement, mindset, psychology explained, Inklings`
+**Pinned comment:** "Which of these 6 psychological effects is quietly running YOUR life? Comment the number 👇"
 
 ### #2 — 6 Harsh Truths About Life Nobody Tells You
 **File:** `output/lf_harsh_truths_16x9.mp4`
 **Duration:** 5:15
+**Title:** 6 Harsh Truths About Life Nobody Tells You
 **Description:**
 ```
-Nobody warns you about these six truths — so consider this your warning.
-Uncomfortable, honest, and the kind of video you'll want to watch twice.
+These are 6 harsh truths about life nobody tells you — so consider this your warning. Most people only learn these hard truths the slow, painful way, years too late. You can learn them now, in about five minutes, for free.
+
+In this video we walk through 6 brutal but honest life lessons about growing up, taking responsibility, and seeing reality clearly: nobody is coming to save you, most people won't change, you'll be forgotten faster than you think, comfort is quietly the enemy, time alone doesn't heal you, and you're more replaceable at work than you'd like to admit.
+
+None of these harsh truths are comfortable, but all of them are useful. Accept them early and they stop being threats and start becoming an unfair advantage. This one is for anyone serious about self improvement, personal growth, and building real mental toughness.
 
 ⏱️ Chapters:
 0:00 Intro
@@ -644,22 +657,26 @@ Uncomfortable, honest, and the kind of video you'll want to watch twice.
 3:25 5. Time Doesn't Heal, Habits Do
 4:11 6. Replaceable at Work, Not Home
 
-💬 Which truth landed hardest? Let me know below.
+💬 Which harsh truth landed hardest? Let me know below.
 👍 Like if you needed to hear this today.
 🔔 Subscribe for more honest, no-fluff videos on life and growth.
 
-#harshtruths #selfimprovement #mindset #inklings
+#harshtruths #hardtruths #lifelessons #selfimprovement #inklings
 ```
-**Tags:** `harsh truths about life, life lessons, self improvement, mindset, motivational, psychology facts, Inklings`
-**Pinned comment:** "Which one of these 6 truths hit you the hardest? Comment below 👇"
+**Tags:** `harsh truths about life, hard truths, life lessons, brutal truths, truths nobody tells you, harsh reality, life advice, growing up, wake up call, self improvement, personal growth, motivation, mindset, mental toughness, self discipline, maturity, stoicism, life truths, motivational video, Inklings`
+**Pinned comment:** "Which of these 6 harsh truths hit you the hardest? Comment below 👇"
 
 ### #3 — 6 Reasons You Feel So Behind in Life
 **File:** `output/lf_feel_behind_16x9.mp4`
 **Duration:** 5:22
+**Title:** 6 Reasons You Feel So Behind in Life
 **Description:**
 ```
-That feeling of being "behind" everyone else is real — but the race you think
-you're losing might not actually exist. Here's why, in 6 parts.
+If you constantly feel behind in life, this video explains exactly why — and why the race you think you're losing probably doesn't even exist. That feeling of being behind everyone else is incredibly common, but it's built on a comparison that was rigged from the start.
+
+In this video we break down 6 reasons you feel so behind in life: you're comparing your reality to everyone else's highlight reel, you're stuck in the comparison trap, nobody shows you their struggle years, you're measuring yourself against the wrong timeline, your burnout looks like laziness, and you never actually defined what "ahead" means.
+
+Feeling behind isn't proof that you're failing — usually it's proof that your standards are borrowed from people whose full story you've never seen. If you're working on self improvement, motivation, and a healthier mindset, this is your reminder that there's no universal schedule you're falling off of.
 
 ⏱️ Chapters:
 0:00 Intro
@@ -672,20 +689,24 @@ you're losing might not actually exist. Here's why, in 6 parts.
 
 💬 What does "ahead" actually mean to you? Tell me below.
 👍 Like if this needed to be said.
-🔔 Subscribe for more on mindset and growth.
+🔔 Subscribe for more on mindset, motivation, and growth.
 
-#selfimprovement #mindset #motivation #inklings
+#feelingbehind #selfimprovement #mindset #motivation #inklings
 ```
-**Tags:** `feeling behind in life, comparison, self improvement, mindset, motivation, psychology facts, Inklings`
+**Tags:** `feeling behind in life, why you feel behind, am i behind in life, behind in life, comparison trap, stop comparing yourself, social media comparison, life timeline, success timeline, late bloomer, self improvement, personal growth, motivation, mindset, self worth, burnout, mental health, life advice, motivational video, Inklings`
 **Pinned comment:** "What does 'ahead' actually mean to YOU? Comment below 👇"
 
 ### #4 — 6 Silent Signs of the Loneliness Epidemic
 **File:** `output/lf_loneliness_epidemic_16x9.mp4`
 **Duration:** 5:23
+**Title:** 6 Silent Signs of the Loneliness Epidemic
 **Description:**
 ```
-You can have a packed calendar and still feel completely alone. Here are 6
-silent signs of the loneliness epidemic hiding inside an ordinary week.
+The loneliness epidemic is real, and these are 6 silent signs it's already touching your life. You can have a full calendar, a long contact list, and people around you all day — and still feel completely alone. That quiet, modern kind of loneliness is exactly what makes it so easy to miss.
+
+In this video we break down 6 silent signs of the loneliness epidemic hiding inside an ordinary week: feeling alone in a crowd, texting replacing real visits, rehearsing conversations before you have them, small talk being all that's left, missing people you're technically still "friends" with, and slowly disappearing without anyone noticing.
+
+Recognizing these signs of loneliness is the first step out of them. If this video describes your week, you're not broken and you're definitely not alone in feeling alone — modern life is engineered to isolate us. This one's for anyone who cares about mental health, emotional health, and real human connection.
 
 ⏱️ Chapters:
 0:00 Intro
@@ -700,18 +721,22 @@ silent signs of the loneliness epidemic hiding inside an ordinary week.
 👍 Like if this needs to be said.
 🔔 Subscribe for more on mental health and connection.
 
-#loneliness #mentalhealth #psychology #inklings
+#loneliness #lonelinessepidemic #mentalhealth #psychology #inklings
 ```
-**Tags:** `loneliness epidemic, lonely, mental health, emotional health, psychology facts, connection, Inklings`
-**Pinned comment:** "If this is you — text someone today. You deserve to be truly seen. 💙"
+**Tags:** `loneliness epidemic, feeling lonely, loneliness, why am i lonely, lonely in a crowd, lonely even with friends, signs of loneliness, social isolation, modern loneliness, mental health, emotional health, human connection, friendship, social anxiety, loneliness explained, self improvement, psychology facts, mental wellness, Inklings`
+**Pinned comment:** "If this is you — reach out to one person today. You deserve to be truly seen. 💙"
 
 ### #5 — 6 Mindset Shifts That Will Change How You See Everything
 **File:** `output/lf_mindset_shifts_16x9.mp4`
 **Duration:** 5:20
+**Title:** 6 Mindset Shifts That Will Change How You See Everything
 **Description:**
 ```
-Your whole life runs through a handful of sentences in your head. Change six
-of them, and you quietly change how you see everything.
+These 6 mindset shifts will change how you see everything — your problems, your past, and what you're capable of next. Your whole life runs through a handful of sentences you repeat in your head; change those sentences and you quietly change your entire reality.
+
+In this video we break down 6 simple but powerful mindset shifts: from victim to author, from perfect to done, from compare to inspire, from reaction to response, from scarcity to enough, and from someday to today. Each one is a small reframe, but stacked together they completely change how you think, decide, and show up.
+
+This isn't fake positivity — it's practical mindset work for real personal growth. If you're focused on self improvement, motivation, and changing your mindset for good, pick the one shift you need most this week and start there.
 
 ⏱️ Chapters:
 0:00 Intro
@@ -722,22 +747,26 @@ of them, and you quietly change how you see everything.
 3:30 5. From Scarcity to Enough
 4:16 6. From Someday to Today
 
-💬 Which shift do you need most this week? Tell me below.
+💬 Which mindset shift do you need most this week? Tell me below.
 👍 Like if one of these reframed something for you.
-🔔 Subscribe for more on mindset and growth.
+🔔 Subscribe for more on mindset, motivation, and growth.
 
-#mindset #selfimprovement #motivation #inklings
+#mindset #mindsetshift #selfimprovement #motivation #inklings
 ```
-**Tags:** `mindset shifts, reframe, self improvement, motivation, psychology facts, personal growth, Inklings`
+**Tags:** `mindset shifts, change your mindset, growth mindset, mindset, reframe your thinking, perspective shift, mental reframe, life changing mindset, mindset reset, success mindset, positive thinking, how to change your life, self improvement, personal growth, motivation, self help, psychology, motivational video, Inklings`
 **Pinned comment:** "Which mindset shift do you need most this week? Comment below 👇"
 
 ### #6 — Why Smart People Procrastinate More Than Anyone Else
 **File:** `output/lf_smart_procrastinate_16x9.mp4`
 **Duration:** 5:35
+**Title:** Why Smart People Procrastinate More Than Anyone Else
 **Description:**
 ```
-The smartest people you know are often the biggest procrastinators — and it's
-not laziness. Here are 6 reasons intelligence quietly fuels stalling.
+Ever wonder why smart people procrastinate more than anyone else? It's one of the strangest things in psychology: the more intelligent and capable someone is, the worse their procrastination often gets — and it has almost nothing to do with laziness.
+
+In this video we break down 6 reasons smart people procrastinate: perfectionism disguised as laziness, a quiet fear of finding their own limits, too many options and no filter, chronically overestimating future motivation, boredom with anything beneath them, and mistaking thinking about a task for actually doing it.
+
+If you've ever felt capable of so much yet stuck doing nothing, this procrastination psychology will hit uncomfortably close. Understanding why you stall is the first real step to stopping. This one's for the overthinkers chasing self improvement, focus, and better productivity.
 
 ⏱️ Chapters:
 0:00 Intro
@@ -752,18 +781,22 @@ not laziness. Here are 6 reasons intelligence quietly fuels stalling.
 👍 Like if you recognized yourself in this.
 🔔 Subscribe for more on psychology and productivity.
 
-#procrastination #psychology #productivity #inklings
+#procrastination #psychology #productivity #selfimprovement #inklings
 ```
-**Tags:** `procrastination, why smart people procrastinate, psychology facts, productivity, self improvement, Inklings`
+**Tags:** `why smart people procrastinate, procrastination, how to stop procrastinating, procrastination psychology, beat procrastination, perfectionism, overthinking, intelligent people, productivity, focus, discipline, self improvement, motivation, psychology facts, lazy or smart, procrastinator, mindset, self discipline, Inklings`
 **Pinned comment:** "Which of these 6 is YOUR exact flavor of stalling? Comment below 👇"
 
 ### #7 — 6 Habits That Are Secretly Destroying Your Mental Health
 **File:** `output/lf_mental_health_habits_16x9.mp4`
 **Duration:** 5:17
+**Title:** 6 Habits That Are Secretly Destroying Your Mental Health
 **Description:**
 ```
-Some of your most normal daily habits are quietly wrecking your mind. Here are
-6 of the quietest mental health killers in modern life — and how to fix them.
+These 6 habits are secretly destroying your mental health — and most of them look completely normal. They're not dramatic or obvious, which is exactly why they slip past you every single day while quietly wearing you down.
+
+In this video we break down 6 everyday habits that damage your mental health: doomscrolling before bed, comparing your real life to a highlight feed, saying yes when you mean no, skipping meals in the name of productivity, bottling everything up instead of talking, and treating rest like laziness. For each one I'll show why it hurts and a simple way to start fixing it.
+
+Small habits compound — in both directions. Swap even one or two of these and your mental health, energy, and mood can shift fast. This video is for anyone serious about self care, emotional health, and real self improvement.
 
 ⏱️ Chapters:
 0:00 Intro
@@ -776,20 +809,24 @@ Some of your most normal daily habits are quietly wrecking your mind. Here are
 
 💬 Which habit hit closest to home? Be honest below.
 👍 Like if you're changing one of these today.
-🔔 Subscribe for more on mental health.
+🔔 Subscribe for more on mental health and self care.
 
-#mentalhealth #selfimprovement #psychology #inklings
+#mentalhealth #selfcare #selfimprovement #psychology #inklings
 ```
-**Tags:** `mental health habits, bad habits, mental health, self improvement, psychology facts, self care, Inklings`
+**Tags:** `mental health habits, habits destroying mental health, bad habits, toxic habits, mental health, self care, anxiety, doomscrolling, burnout, emotional health, mental wellness, healthy habits, how to improve mental health, stress, self improvement, psychology, mindset, mental health tips, Inklings`
 **Pinned comment:** "Which habit are YOU changing this week? Comment below 👇"
 
 ### #8 — 6 Lessons Hitting Rock Bottom Teaches You That Success Never Will
 **File:** `output/lf_rock_bottom_lessons_16x9.mp4`
 **Duration:** 5:10
+**Title:** 6 Lessons Hitting Rock Bottom Teaches You That Success Never Will
 **Description:**
 ```
-Success can be faked, performed, photographed. Rock bottom can't. Here are 6
-brutal, honest lessons hitting bottom teaches you that winning never does.
+Hitting rock bottom teaches you 6 lessons that success never will. Success can be faked, performed, and photographed — rock bottom can't. When everything falls apart, you finally see your life with zero filters, and what it shows you is brutal but priceless.
+
+In this video we walk through 6 hard-won lessons from hitting rock bottom: who actually stays when you have nothing, how little you truly need to survive, your real tolerance for pain, what you'd been avoiding all along, how to rebuild from nothing, and what you're genuinely capable of when there's no other option.
+
+Rock bottom isn't the end of your story — for a lot of people it's the most honest beginning they ever get. If you're in a hard season right now, this is your reminder that resilience is built in exactly these moments. For anyone who cares about mental toughness, personal growth, and a real comeback.
 
 ⏱️ Chapters:
 0:00 Intro
@@ -804,18 +841,22 @@ brutal, honest lessons hitting bottom teaches you that winning never does.
 👍 Like if you've been there and made it through.
 🔔 Subscribe for more on resilience and growth.
 
-#resilience #selfimprovement #mindset #inklings
+#rockbottom #resilience #selfimprovement #mindset #inklings
 ```
-**Tags:** `rock bottom, resilience, hitting rock bottom, mindset, self improvement, psychology facts, Inklings`
+**Tags:** `rock bottom, hitting rock bottom, lessons from rock bottom, rock bottom to success, resilience, bouncing back, rebuilding your life, overcoming adversity, comeback, hard times, mental toughness, life lessons, personal growth, self improvement, motivation, never give up, mindset, motivational video, Inklings`
 **Pinned comment:** "What did rock bottom teach you that success never could? Comment below 👇"
 
 ### #9 — The Real Reason You Can't Stop Comparing Yourself to Others
 **File:** `output/lf_comparing_yourself_16x9.mp4`
 **Duration:** 5:20
+**Title:** The Real Reason You Can't Stop Comparing Yourself to Others
 **Description:**
 ```
-You promise yourself you'll stop comparing — then open the app anyway. It's
-not a willpower problem. Here's the real, ancient reason it won't let go.
+This is the real reason you can't stop comparing yourself to others — and it's not a willpower problem. You promise yourself you'll stop, then open the app and do it anyway, because comparison is wired into you at a level far older than social media.
+
+In this video we break down why comparing yourself to others feels impossible to quit: it's an ancient survival instinct, your brain was built for a village of 150 people instead of a feed of millions, you're matching your behind-the-scenes against everyone's highlight reel, status anxiety is thousands of years old, comparison has no finish line, and — finally — how to turn that same instinct into fuel instead of self-destruction.
+
+Understanding the psychology behind comparison is how you loosen its grip. You can't delete the instinct, but you can stop letting it quietly run your self worth. This one's for anyone working on mental health, self esteem, and a healthier mindset.
 
 ⏱️ Chapters:
 0:00 Intro
@@ -830,18 +871,22 @@ not a willpower problem. Here's the real, ancient reason it won't let go.
 👍 Like if this finally made sense.
 🔔 Subscribe for more on psychology and the mind.
 
-#comparison #psychology #mentalhealth #inklings
+#comparison #psychology #mentalhealth #selfworth #inklings
 ```
-**Tags:** `comparing yourself to others, comparison, social media psychology, mental health, psychology facts, Inklings`
+**Tags:** `comparing yourself to others, stop comparing yourself, comparison trap, comparison is the thief of joy, why we compare, social comparison, social media psychology, status anxiety, self worth, self esteem, jealousy, envy, mental health, psychology facts, self improvement, mindset, human behavior, Inklings`
 **Pinned comment:** "What is your comparison instinct actually pointing you toward? Comment below 👇"
 
 ### #10 — 6 Signs You're More Emotionally Mature Than You Realize
 **File:** `output/lf_emotional_maturity_16x9.mp4`
 **Duration:** 5:28
+**Title:** 6 Signs You're More Emotionally Mature Than You Realize
 **Description:**
 ```
-Emotional maturity rarely feels like a trophy — it usually feels like nothing.
-Here are 6 quiet signs you're more grown than you give yourself credit for.
+Here are 6 signs you're more emotionally mature than you realize. Emotional maturity rarely feels like a trophy — it usually feels like nothing, like calm, like just handling things. That's exactly why so many genuinely mature people don't give themselves any credit for it.
+
+In this video we go through 6 quiet signs of emotional maturity and emotional intelligence: you apologize without excuses, you can sit with discomfort instead of running from it, you don't need to win every argument, you set boundaries without guilt, you let go of what you can't control, and you can celebrate other people without comparing yourself to them.
+
+Emotional maturity isn't about never feeling things — it's about what you do with what you feel. If a few of these already sound like you, you've grown more than you give yourself credit for. This one's for anyone focused on self awareness, personal growth, and healthier relationships.
 
 ⏱️ Chapters:
 0:00 Intro
@@ -856,13 +901,14 @@ Here are 6 quiet signs you're more grown than you give yourself credit for.
 👍 Like if you needed this reminder today.
 🔔 Subscribe for more on mindset and growth.
 
-#emotionalintelligence #mindset #selfimprovement #inklings
+#emotionalmaturity #emotionalintelligence #selfimprovement #mindset #inklings
 ```
-**Tags:** `emotional maturity, emotional intelligence, self improvement, mindset, psychology facts, personal growth, Inklings`
+**Tags:** `emotional maturity, signs of emotional maturity, emotional intelligence, emotional growth, maturity, self awareness, emotional regulation, how to be emotionally mature, mature mindset, personal growth, self improvement, relationships, mindset, psychology, self help, growing up, emotional health, Inklings`
 **Pinned comment:** "Which of these 6 signs already sounds like you? Comment below 👇"
 
 ### Posting
 10 long-form video essays — post 2-3/week (long-form needs more time to find
-its audience than Shorts) so each gets a dedicated push. Add the chapter
-timestamps to the YouTube description on upload so YouTube renders clickable
-chapters. Pin the comment-CTA above on each upload immediately at publish time.
+its audience than Shorts) so each gets a dedicated push. Paste the chapter
+timestamps into the YouTube description on upload so YouTube renders clickable
+chapters, and paste the full Tags list into the tag/keyword field (not just the
+hashtags). Pin the comment-CTA above on each upload immediately at publish time.

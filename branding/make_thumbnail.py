@@ -1,78 +1,78 @@
 #!/usr/bin/env python3
 """Generate a 1280x720 YouTube thumbnail with the faceless engine.
 
+High-CTR layout: a big shocked face (the strongest single CTR lever), a bold
+circular hero-number badge, a vivid radial-gradient background instead of a
+flat panel, and a short, high-contrast headline with a highlight bar behind
+the punchiest word.
+
 Edit the constants and re-run:  python branding/make_thumbnail.py
 """
-import random
 import sys
 from pathlib import Path
 
 from PIL import Image, ImageDraw
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-from faceless.draw import Sketcher                 # noqa: E402
-from faceless.figures import draw_figure, get_pose  # noqa: E402
-from faceless.render import _background, _font      # noqa: E402
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from thumbnail_kit import (W, H, badge, big_face, fit_size, highlight_bar,  # noqa: E402
+                            prop_icon, radial_bg, stroke_text)
 
-BG = (14, 19, 32)
-INK = (242, 237, 225)
-ACCENT = (255, 180, 84)
+INK = (18, 14, 26)
 WHITE = (255, 255, 255)
+HOT = (255, 110, 40)
+COOL = (10, 11, 22)
+BADGE_BG = (230, 32, 56)
 
 BIG_NUMBER = "7"
-LINES = [                       # (text, colour) per line, left-aligned
-    [("THOUGHTS", WHITE)],
-    [("THAT CHANGE", WHITE)],
-    [("EVERYTHING", ACCENT)],
+LINES = [                       # (text, colour, highlight_or_None) per line
+    [("THOUGHTS", WHITE, None)],
+    [("THAT CHANGE", WHITE, None)],
+    [("EVERYTHING", WHITE, BADGE_BG)],
 ]
 OUT = Path(__file__).resolve().parent / "thumbnail_seven_thoughts.png"
 
 
-def _line(d, segs, x0, y, font, stroke):
-    x = x0
-    for text, color in segs:
-        d.text((x, y), text, font=font, fill=color + (255,), anchor="la",
-               stroke_width=stroke, stroke_fill=(0, 0, 0, 255))
-        x += font.getlength(text)
-
-
 def thumbnail():
-    w, h = 1280, 720
-    img = _background((w, h), BG, 0.62).copy()
-    sk = Sketcher((w, h), INK, 7, 2.2, 11)
+    img = radial_bg(W, H, HOT, COOL, center=(0.27, 0.58))
 
-    # starfield across the top
-    rng = random.Random(7)
-    for _ in range(18):
-        x, y = rng.uniform(0.04, 0.98) * w, rng.uniform(0.04, 0.46) * h
-        sk.dot((x, y), rng.uniform(2.5, 5.5), color=ACCENT if rng.random() < 0.5 else WHITE)
+    # big shocked face, lower-left - the single highest-leverage CTR element
+    big_face(img, W * 0.25, H * 0.92, H * 0.56, pose="arms_up", face="surprised",
+              color=INK, lw=15, wobble=4)
 
-    # figure gazing up (bottom-left, under the number; feet kept in frame)
-    draw_figure(sk, (w * 0.19, h * 0.80), h * 0.38, get_pose("look_up"), color=INK)
-    sk.composite_onto(img)
+    # bold hero-number badge, upper-left
+    badge(img, W * 0.135, H * 0.165, 78, BADGE_BG, BIG_NUMBER, ring=WHITE)
 
     d = ImageDraw.Draw(img)
-    # giant hero number
-    d.text((w * 0.15, h * 0.45), BIG_NUMBER, font=_font(400), anchor="mm",
-           fill=ACCENT + (255,), stroke_width=18, stroke_fill=(0, 0, 0, 255))
-
-    # stacked headline, auto-fit so the widest line stays inside the frame
-    x0 = w * 0.34
-    max_w = w * 0.965 - x0
-    size = 150
-    while size > 48:
+    # stacked, auto-fit headline (right side), with a highlight bar behind the
+    # punchiest word so the eye lands there first
+    from faceless.render import _font  # noqa: E402
+    x0 = W * 0.40
+    max_w = W * 0.965 - x0
+    size = 128
+    while size > 56:
         f = _font(size)
-        widest = max(sum(f.getlength(t) for t, _ in segs) for segs in LINES)
+        widest = max(sum(f.getlength(t) for t, _, _ in segs) for segs in LINES)
         if widest <= max_w:
             break
         size -= 3
-    line_font = _font(size)
-    lh = int(size * 1.14)
+    f = _font(size)
+    lh = int(size * 1.18)
     stroke = max(8, size // 9)
-    y = (h - lh * len(LINES)) // 2
+    y = H * 0.5 - lh * len(LINES) / 2
+
     for segs in LINES:
-        _line(d, segs, x0, y, line_font, stroke=stroke)
+        x = x0
+        for text, color, hl in segs:
+            tw = f.getlength(text)
+            if hl:
+                pad = size * 0.14
+                highlight_bar(d, x - pad, y - pad * 0.5, x + tw + pad, y + lh - pad * 0.9, hl, radius=18)
+            stroke_text(d, (x, y), text, f, color, stroke_width=stroke, anchor="la")
+            x += tw
         y += lh
+
+    # relatable colourful prop, tucked beside the headline
+    prop_icon(img, "lightbulb", W * 0.40, H * 0.86, 56, (255, 212, 63))
 
     img.convert("RGB").save(OUT)
     print("wrote", OUT, "->", Image.open(OUT).size)

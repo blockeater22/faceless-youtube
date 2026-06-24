@@ -17,3 +17,6 @@ output/*.mp3
 output/_voices/
 output/[0-9]*_*/
 output/longform_*/
+# per-video render working dirs are transient; only the flat output/*.mp4
+# files (moved out after a render completes) are committed as samples.
+output/*/

@@ -588,3 +588,281 @@ You can be surrounded by people and still feel completely alone. Here are 5 sign
 10 evergreen Shorts — spread 1–2/day over a week so each gets its own push (mixing
 dark/light visual mood between consecutive posts keeps the feed varied). Pin the
 comment-CTA above on each upload immediately at publish time.
+
+## Batch 4 — Long-Form Video Essays (10 videos, ~5 min each, 6 chapters)
+
+Each video opens with a punch-in hook line, 5-7 intro beats, then 6 numbered
+chapters (the "5-6 hooks" requested), and a comment-CTA outro. Visuals change
+roughly every 3-5 seconds (templates rotate every beat) to keep retention high
+across the runtime. Render note: hitting the full 5-10 min range reliably
+across 10 unique scripts would need ~150+ beats/video; these land at ~5-5.5
+min each (low end of the range) with a deliberately slowed narration pace
+(kokoro_speed 0.78) to keep the per-cut cadence inside the 3-5s target while
+still reaching a real long-form length.
+
+### #1 — 6 Psychological Effects Secretly Running Your Life
+**File:** `output/lf_psychological_effects_16x9.mp4`
+**Duration:** 5:10
+**Description:**
+```
+Your brain runs on scripts you've never noticed. These 6 psychological effects
+are quietly steering your decisions, your relationships, and your day — right
+now, without permission.
+
+⏱️ Chapters:
+0:00 Intro
+0:32 1. Spotlight Effect
+1:14 2. Mere-Exposure Effect
+2:03 3. Loss Aversion
+2:47 4. Zeigarnik Effect
+3:28 5. Social Proof
+4:09 6. Sunk Cost Fallacy
+
+💬 Which one caught you off guard? Tell me below.
+👍 Like if this opened your eyes.
+🔔 Subscribe for more on the mind, mindset, and meaning.
+
+#psychology #mindset #selfimprovement #inklings
+```
+**Tags:** `psychological effects, cognitive bias, psychology facts, mindset, self improvement, mind tricks, Inklings`
+**Pinned comment:** "Which one of these six is quietly running YOUR life? Comment the number 👇"
+
+### #2 — 6 Harsh Truths About Life Nobody Tells You
+**File:** `output/lf_harsh_truths_16x9.mp4`
+**Duration:** 5:15
+**Description:**
+```
+Nobody warns you about these six truths — so consider this your warning.
+Uncomfortable, honest, and the kind of video you'll want to watch twice.
+
+⏱️ Chapters:
+0:00 Intro
+0:33 1. Nobody Is Coming
+1:16 2. Most People Won't Change
+2:01 3. You'll Be Forgotten Fast
+2:42 4. Comfort Is the Enemy
+3:25 5. Time Doesn't Heal, Habits Do
+4:11 6. Replaceable at Work, Not Home
+
+💬 Which truth landed hardest? Let me know below.
+👍 Like if you needed to hear this today.
+🔔 Subscribe for more honest, no-fluff videos on life and growth.
+
+#harshtruths #selfimprovement #mindset #inklings
+```
+**Tags:** `harsh truths about life, life lessons, self improvement, mindset, motivational, psychology facts, Inklings`
+**Pinned comment:** "Which one of these 6 truths hit you the hardest? Comment below 👇"
+
+### #3 — 6 Reasons You Feel So Behind in Life
+**File:** `output/lf_feel_behind_16x9.mp4`
+**Duration:** 5:22
+**Description:**
+```
+That feeling of being "behind" everyone else is real — but the race you think
+you're losing might not actually exist. Here's why, in 6 parts.
+
+⏱️ Chapters:
+0:00 Intro
+0:35 1. The Highlight Reel
+1:19 2. The Comparison Trap
+2:04 3. Nobody Shows the Struggle Years
+2:50 4. You're Measuring the Wrong Timeline
+3:35 5. Burnout Disguised as Laziness
+4:19 6. You Haven't Defined 'Ahead'
+
+💬 What does "ahead" actually mean to you? Tell me below.
+👍 Like if this needed to be said.
+🔔 Subscribe for more on mindset and growth.
+
+#selfimprovement #mindset #motivation #inklings
+```
+**Tags:** `feeling behind in life, comparison, self improvement, mindset, motivation, psychology facts, Inklings`
+**Pinned comment:** "What does 'ahead' actually mean to YOU? Comment below 👇"
+
+### #4 — 6 Silent Signs of the Loneliness Epidemic
+**File:** `output/lf_loneliness_epidemic_16x9.mp4`
+**Duration:** 5:23
+**Description:**
+```
+You can have a packed calendar and still feel completely alone. Here are 6
+silent signs of the loneliness epidemic hiding inside an ordinary week.
+
+⏱️ Chapters:
+0:00 Intro
+0:32 1. Surrounded but Still Alone
+1:13 2. Texting Replaced Visiting
+2:00 3. Rehearsing Conversations
+2:46 4. Only Small Talk Left
+3:31 5. Missing the People Still Here
+4:17 6. Nobody Notices You're Gone
+
+💬 Which sign hit closest to home? You're not alone in feeling alone.
+👍 Like if this needs to be said.
+🔔 Subscribe for more on mental health and connection.
+
+#loneliness #mentalhealth #psychology #inklings
+```
+**Tags:** `loneliness epidemic, lonely, mental health, emotional health, psychology facts, connection, Inklings`
+**Pinned comment:** "If this is you — text someone today. You deserve to be truly seen. 💙"
+
+### #5 — 6 Mindset Shifts That Will Change How You See Everything
+**File:** `output/lf_mindset_shifts_16x9.mp4`
+**Duration:** 5:20
+**Description:**
+```
+Your whole life runs through a handful of sentences in your head. Change six
+of them, and you quietly change how you see everything.
+
+⏱️ Chapters:
+0:00 Intro
+0:34 1. From Victim to Author
+1:15 2. From Perfect to Done
+2:02 3. From Compare to Inspire
+2:45 4. From Reaction to Response
+3:30 5. From Scarcity to Enough
+4:16 6. From Someday to Today
+
+💬 Which shift do you need most this week? Tell me below.
+👍 Like if one of these reframed something for you.
+🔔 Subscribe for more on mindset and growth.
+
+#mindset #selfimprovement #motivation #inklings
+```
+**Tags:** `mindset shifts, reframe, self improvement, motivation, psychology facts, personal growth, Inklings`
+**Pinned comment:** "Which mindset shift do you need most this week? Comment below 👇"
+
+### #6 — Why Smart People Procrastinate More Than Anyone Else
+**File:** `output/lf_smart_procrastinate_16x9.mp4`
+**Duration:** 5:35
+**Description:**
+```
+The smartest people you know are often the biggest procrastinators — and it's
+not laziness. Here are 6 reasons intelligence quietly fuels stalling.
+
+⏱️ Chapters:
+0:00 Intro
+0:35 1. Perfectionism Disguised as Lazy
+1:20 2. Afraid to Find Their Limit
+2:08 3. Too Many Options, No Filter
+2:56 4. Overestimating Future Motivation
+3:43 5. Bored Beneath Them
+4:27 6. Mistaking Thinking for Doing
+
+💬 Which one is your exact flavor of stalling? Be honest below.
+👍 Like if you recognized yourself in this.
+🔔 Subscribe for more on psychology and productivity.
+
+#procrastination #psychology #productivity #inklings
+```
+**Tags:** `procrastination, why smart people procrastinate, psychology facts, productivity, self improvement, Inklings`
+**Pinned comment:** "Which of these 6 is YOUR exact flavor of stalling? Comment below 👇"
+
+### #7 — 6 Habits That Are Secretly Destroying Your Mental Health
+**File:** `output/lf_mental_health_habits_16x9.mp4`
+**Duration:** 5:17
+**Description:**
+```
+Some of your most normal daily habits are quietly wrecking your mind. Here are
+6 of the quietest mental health killers in modern life — and how to fix them.
+
+⏱️ Chapters:
+0:00 Intro
+0:33 1. Doomscrolling Before Bed
+1:18 2. Comparing Life to a Feed
+2:00 3. Saying Yes When You Mean No
+2:45 4. Skipping Meals for 'Productivity'
+3:29 5. Bottling Up Instead of Talking
+4:12 6. Treating Rest Like Laziness
+
+💬 Which habit hit closest to home? Be honest below.
+👍 Like if you're changing one of these today.
+🔔 Subscribe for more on mental health.
+
+#mentalhealth #selfimprovement #psychology #inklings
+```
+**Tags:** `mental health habits, bad habits, mental health, self improvement, psychology facts, self care, Inklings`
+**Pinned comment:** "Which habit are YOU changing this week? Comment below 👇"
+
+### #8 — 6 Lessons Hitting Rock Bottom Teaches You That Success Never Will
+**File:** `output/lf_rock_bottom_lessons_16x9.mp4`
+**Duration:** 5:10
+**Description:**
+```
+Success can be faked, performed, photographed. Rock bottom can't. Here are 6
+brutal, honest lessons hitting bottom teaches you that winning never does.
+
+⏱️ Chapters:
+0:00 Intro
+0:33 1. Who Actually Stays
+1:15 2. How Little You Truly Need
+1:59 3. Your Real Tolerance for Pain
+2:39 4. What You Were Avoiding
+3:23 5. How to Rebuild From Nothing
+4:08 6. What You're Actually Capable Of
+
+💬 What did your own rock bottom teach you? Tell me below.
+👍 Like if you've been there and made it through.
+🔔 Subscribe for more on resilience and growth.
+
+#resilience #selfimprovement #mindset #inklings
+```
+**Tags:** `rock bottom, resilience, hitting rock bottom, mindset, self improvement, psychology facts, Inklings`
+**Pinned comment:** "What did rock bottom teach you that success never could? Comment below 👇"
+
+### #9 — The Real Reason You Can't Stop Comparing Yourself to Others
+**File:** `output/lf_comparing_yourself_16x9.mp4`
+**Duration:** 5:20
+**Description:**
+```
+You promise yourself you'll stop comparing — then open the app anyway. It's
+not a willpower problem. Here's the real, ancient reason it won't let go.
+
+⏱️ Chapters:
+0:00 Intro
+0:37 1. Comparison Is a Survival Instinct
+1:21 2. Built for a Village, Not a Feed
+2:04 3. Highlight Reel vs Behind the Scenes
+2:47 4. Status Anxiety Is Ancient
+3:34 5. Comparison Has No Finish Line
+4:17 6. Turning Comparison Into Fuel
+
+💬 What is your comparison instinct actually pointing you toward? Tell me below.
+👍 Like if this finally made sense.
+🔔 Subscribe for more on psychology and the mind.
+
+#comparison #psychology #mentalhealth #inklings
+```
+**Tags:** `comparing yourself to others, comparison, social media psychology, mental health, psychology facts, Inklings`
+**Pinned comment:** "What is your comparison instinct actually pointing you toward? Comment below 👇"
+
+### #10 — 6 Signs You're More Emotionally Mature Than You Realize
+**File:** `output/lf_emotional_maturity_16x9.mp4`
+**Duration:** 5:28
+**Description:**
+```
+Emotional maturity rarely feels like a trophy — it usually feels like nothing.
+Here are 6 quiet signs you're more grown than you give yourself credit for.
+
+⏱️ Chapters:
+0:00 Intro
+0:36 1. Apologize Without Excuses
+1:20 2. You Can Sit With Discomfort
+2:06 3. Don't Need to Win Every Argument
+2:50 4. Boundaries Without Guilt
+3:35 5. Letting Go of the Uncontrollable
+4:22 6. Celebrate Others Without Comparing
+
+💬 Which of these six already sounds like you? Tell me below.
+👍 Like if you needed this reminder today.
+🔔 Subscribe for more on mindset and growth.
+
+#emotionalintelligence #mindset #selfimprovement #inklings
+```
+**Tags:** `emotional maturity, emotional intelligence, self improvement, mindset, psychology facts, personal growth, Inklings`
+**Pinned comment:** "Which of these 6 signs already sounds like you? Comment below 👇"
+
+### Posting
+10 long-form video essays — post 2-3/week (long-form needs more time to find
+its audience than Shorts) so each gets a dedicated push. Add the chapter
+timestamps to the YouTube description on upload so YouTube renders clickable
+chapters. Pin the comment-CTA above on each upload immediately at publish time.

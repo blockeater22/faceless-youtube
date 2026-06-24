@@ -606,8 +606,17 @@ the description and as the first tag, and recurs 2-4x in the body; descriptions
 run 180-230 words; each video uses ~18-21 tags filling most of YouTube's 500-
 character tag budget (broad head terms + long-tail phrases).
 
+Thumbnail note: each video has a custom 1280x720 thumbnail in
+`branding/longform_thumbs/` (regenerate via `python branding/make_longform_thumbnails.py`).
+They're built for click-through / vidIQ-style thumbnail scoring — a bright,
+saturated, high-contrast background (distinct color per topic), a large
+expressive face as the focal point, and only 2-3 huge words plus an optional
+hero number, all with a heavy black outline so they read at feed size. This
+replaces the old dark, low-contrast, tiny-figure style that was scoring ~30-40%.
+
 ### #1 — 6 Psychological Effects Secretly Running Your Life
 **File:** `output/lf_psychological_effects_16x9.mp4`
+**Thumbnail:** `branding/longform_thumbs/lf_psychological_effects.png` (1280x720)
 **Duration:** 5:10
 **Title:** 6 Psychological Effects Secretly Running Your Life
 **Description:**
@@ -638,6 +647,7 @@ If you're into psychology, self improvement, or just understanding why we do wha
 
 ### #2 — 6 Harsh Truths About Life Nobody Tells You
 **File:** `output/lf_harsh_truths_16x9.mp4`
+**Thumbnail:** `branding/longform_thumbs/lf_harsh_truths.png` (1280x720)
 **Duration:** 5:15
 **Title:** 6 Harsh Truths About Life Nobody Tells You
 **Description:**
@@ -668,6 +678,7 @@ None of these harsh truths are comfortable, but all of them are useful. Accept t
 
 ### #3 — 6 Reasons You Feel So Behind in Life
 **File:** `output/lf_feel_behind_16x9.mp4`
+**Thumbnail:** `branding/longform_thumbs/lf_feel_behind.png` (1280x720)
 **Duration:** 5:22
 **Title:** 6 Reasons You Feel So Behind in Life
 **Description:**
@@ -698,6 +709,7 @@ Feeling behind isn't proof that you're failing — usually it's proof that your 
 
 ### #4 — 6 Silent Signs of the Loneliness Epidemic
 **File:** `output/lf_loneliness_epidemic_16x9.mp4`
+**Thumbnail:** `branding/longform_thumbs/lf_loneliness_epidemic.png` (1280x720)
 **Duration:** 5:23
 **Title:** 6 Silent Signs of the Loneliness Epidemic
 **Description:**
@@ -728,6 +740,7 @@ Recognizing these signs of loneliness is the first step out of them. If this vid
 
 ### #5 — 6 Mindset Shifts That Will Change How You See Everything
 **File:** `output/lf_mindset_shifts_16x9.mp4`
+**Thumbnail:** `branding/longform_thumbs/lf_mindset_shifts.png` (1280x720)
 **Duration:** 5:20
 **Title:** 6 Mindset Shifts That Will Change How You See Everything
 **Description:**
@@ -758,6 +771,7 @@ This isn't fake positivity — it's practical mindset work for real personal gro
 
 ### #6 — Why Smart People Procrastinate More Than Anyone Else
 **File:** `output/lf_smart_procrastinate_16x9.mp4`
+**Thumbnail:** `branding/longform_thumbs/lf_smart_procrastinate.png` (1280x720)
 **Duration:** 5:35
 **Title:** Why Smart People Procrastinate More Than Anyone Else
 **Description:**
@@ -788,6 +802,7 @@ If you've ever felt capable of so much yet stuck doing nothing, this procrastina
 
 ### #7 — 6 Habits That Are Secretly Destroying Your Mental Health
 **File:** `output/lf_mental_health_habits_16x9.mp4`
+**Thumbnail:** `branding/longform_thumbs/lf_mental_health_habits.png` (1280x720)
 **Duration:** 5:17
 **Title:** 6 Habits That Are Secretly Destroying Your Mental Health
 **Description:**
@@ -818,6 +833,7 @@ Small habits compound — in both directions. Swap even one or two of these and 
 
 ### #8 — 6 Lessons Hitting Rock Bottom Teaches You That Success Never Will
 **File:** `output/lf_rock_bottom_lessons_16x9.mp4`
+**Thumbnail:** `branding/longform_thumbs/lf_rock_bottom_lessons.png` (1280x720)
 **Duration:** 5:10
 **Title:** 6 Lessons Hitting Rock Bottom Teaches You That Success Never Will
 **Description:**
@@ -848,6 +864,7 @@ Rock bottom isn't the end of your story — for a lot of people it's the most ho
 
 ### #9 — The Real Reason You Can't Stop Comparing Yourself to Others
 **File:** `output/lf_comparing_yourself_16x9.mp4`
+**Thumbnail:** `branding/longform_thumbs/lf_comparing_yourself.png` (1280x720)
 **Duration:** 5:20
 **Title:** The Real Reason You Can't Stop Comparing Yourself to Others
 **Description:**
@@ -878,6 +895,7 @@ Understanding the psychology behind comparison is how you loosen its grip. You c
 
 ### #10 — 6 Signs You're More Emotionally Mature Than You Realize
 **File:** `output/lf_emotional_maturity_16x9.mp4`
+**Thumbnail:** `branding/longform_thumbs/lf_emotional_maturity.png` (1280x720)
 **Duration:** 5:28
 **Title:** 6 Signs You're More Emotionally Mature Than You Realize
 **Description:**

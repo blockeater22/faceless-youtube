@@ -938,7 +938,7 @@ hashtags). Pin the comment-CTA above on each upload immediately at publish time.
 ### 🧠 Cognitive Biases & Psychology Effects (10 videos)
 
 #### #1 — Why Attractive People Get Away With More (Halo Effect)
-**File:** `output/halo_effect/halo_effect_9x16.mp4`
+**File:** `output/halo_effect_9x16.mp4`
 **Description:**
 ```
 Ever notice attractive people seem more trustworthy before they even speak? That's not your imagination, it's one impression secretly rating everything else about them.
@@ -953,7 +953,7 @@ Ever notice attractive people seem more trustworthy before they even speak? That
 **Pinned comment:** "Have you ever judged someone's character just from how they looked? I read every single comment 👇"
 
 #### #2 — Why Believing In Someone Makes Them Better (Pygmalion Effect)
-**File:** `output/pygmalion_effect/pygmalion_effect_9x16.mp4`
+**File:** `output/pygmalion_effect_9x16.mp4`
 **Description:**
 ```
 Believing in someone can actually make them perform better, even if nothing else changes. It's not magic, your expectations are quietly shaping how people show up.
@@ -968,7 +968,7 @@ Believing in someone can actually make them perform better, even if nothing else
 **Pinned comment:** "Who believed in you before you believed in yourself? Tell me below, genuinely curious 👀"
 
 #### #3 — Why Horoscopes Feel So Accurate (Barnum Effect)
-**File:** `output/barnum_effect/barnum_effect_9x16.mp4`
+**File:** `output/barnum_effect_9x16.mp4`
 **Description:**
 ```
 Ever read a horoscope and think, wait, that's literally me? It's not psychic, it's a trick vague statements play on every brain.
@@ -983,7 +983,7 @@ Ever read a horoscope and think, wait, that's literally me? It's not psychic, it
 **Pinned comment:** "Has a horoscope or quiz result ever felt like it called you out? Drop it in the comments, I want to know 💬"
 
 #### #4 — Why The First Number You See Controls What You'll Pay (Anchoring Bias)
-**File:** `output/anchoring_bias/anchoring_bias_9x16.mp4`
+**File:** `output/anchoring_bias_9x16.mp4`
 **Description:**
 ```
 Why does a $90 shirt suddenly feel cheap right after you see a $300 one? Your brain didn't recalculate the price, it just compared it to whatever number it saw first.
@@ -998,7 +998,7 @@ Why does a $90 shirt suddenly feel cheap right after you see a $300 one? Your br
 **Pinned comment:** "Have you ever bought something just because it looked cheap next to something pricier? I read every single comment 👇"
 
 #### #5 — Why You Finish Bad Movies You Already Hate (Sunk Cost Fallacy)
-**File:** `output/sunk_cost_fallacy/sunk_cost_fallacy_9x16.mp4`
+**File:** `output/sunk_cost_fallacy_9x16.mp4`
 **Description:**
 ```
 Why do you finish a terrible movie you've hated since minute ten? It's not curiosity, it's your brain refusing to admit the time was wasted.
@@ -1013,7 +1013,7 @@ Why do you finish a terrible movie you've hated since minute ten? It's not curio
 **Pinned comment:** "What's something you kept going with just because you'd already invested so much? Tell me below, genuinely curious 👀"
 
 #### #6 — Why You Only Notice Proof That You're Right (Confirmation Bias)
-**File:** `output/confirmation_bias/confirmation_bias_9x16.mp4`
+**File:** `output/confirmation_bias_9x16.mp4`
 **Description:**
 ```
 Ever notice you only find proof that you're right, never that you're wrong? Your brain isn't being fair, it's quietly filtering out anything that disagrees with you.
@@ -1028,7 +1028,7 @@ Ever notice you only find proof that you're right, never that you're wrong? Your
 **Pinned comment:** "What's a belief you've had to actually fight your own brain to question? Drop it in the comments, I want to know 💬"
 
 #### #7 — Why One Bad Comment Outweighs 100 Good Ones (Negativity Bias)
-**File:** `output/negativity_bias/negativity_bias_9x16.mp4`
+**File:** `output/negativity_bias_9x16.mp4`
 **Description:**
 ```
 Why does one harsh comment stick with you longer than a hundred kind ones? It's not that you're too sensitive, your brain weighs bad news heavier than good.
@@ -1043,7 +1043,7 @@ Why does one harsh comment stick with you longer than a hundred kind ones? It's 
 **Pinned comment:** "What's a piece of criticism that's stuck with you way longer than it deserved? I read every single comment 👇"
 
 #### #8 — Why 'Just Believe In Yourself' Is Terrible Advice (Survivorship Bias)
-**File:** `output/survivorship_bias/survivorship_bias_9x16.mp4`
+**File:** `output/survivorship_bias_9x16.mp4`
 **Description:**
 ```
 Every billionaire says just believe in yourself and drop out. Why doesn't that work for everyone? Because you're only hearing from the ones it worked for, the other ten thousand never got a microphone.
@@ -1058,7 +1058,7 @@ Every billionaire says just believe in yourself and drop out. Why doesn't that w
 **Pinned comment:** "What's some 'just do this' advice you've realized only survivors get to give? Tell me below, genuinely curious 👀"
 
 #### #9 — Why A Sugar Pill Can Actually Make You Feel Better (Placebo Effect)
-**File:** `output/placebo_effect/placebo_effect_9x16.mp4`
+**File:** `output/placebo_effect_9x16.mp4`
 **Description:**
 ```
 How can a pill with literally nothing in it actually make pain go away? It's not fake, believing you're being treated can trigger a real chemical response.
@@ -1073,7 +1073,7 @@ How can a pill with literally nothing in it actually make pain go away? It's not
 **Pinned comment:** "Has 'you'll probably be fine' ever actually made you feel better? Drop it in the comments, I want to know 💬"
 
 #### #10 — Why Nobody Helps When Everyone's Watching (Bystander Effect)
-**File:** `output/bystander_effect/bystander_effect_9x16.mp4`
+**File:** `output/bystander_effect_9x16.mp4`
 **Description:**
 ```
 Why does help arrive slower the bigger the crowd watching gets? It's not that people don't care, everyone's quietly waiting for someone else to go first.
@@ -1090,7 +1090,7 @@ Why does help arrive slower the bigger the crowd watching gets? It's not that pe
 ### 💸 Money Psychology (10 videos)
 
 #### #11 — Why You Never Feel Richer No Matter How Much You Earn (Lifestyle Creep)
-**File:** `output/lifestyle_creep/lifestyle_creep_9x16.mp4`
+**File:** `output/lifestyle_creep_9x16.mp4`
 **Description:**
 ```
 Ever get a raise and somehow still feel broke three months later? It's not bad luck, your spending is quietly rising right alongside your income.
@@ -1105,7 +1105,7 @@ Ever get a raise and somehow still feel broke three months later? It's not bad l
 **Pinned comment:** "What's one 'small upgrade' that quietly ate your last raise? I read every single comment 👇"
 
 #### #12 — Why Found Money Disappears Faster Than Earned Money (Mental Accounting)
-**File:** `output/mental_accounting/mental_accounting_9x16.mp4`
+**File:** `output/mental_accounting_9x16.mp4`
 **Description:**
 ```
 Why does a $50 gift card disappear faster than $50 from your paycheck? Your brain doesn't treat all money the same, even though dollars are dollars.
@@ -1120,7 +1120,7 @@ Why does a $50 gift card disappear faster than $50 from your paycheck? Your brai
 **Pinned comment:** "What's the fastest you've ever blown through 'free' money? Tell me below, genuinely curious 👀"
 
 #### #13 — Why Losing $100 Hurts More Than Winning $100 Feels Good (Loss Aversion)
-**File:** `output/loss_aversion/loss_aversion_9x16.mp4`
+**File:** `output/loss_aversion_9x16.mp4`
 **Description:**
 ```
 Why does losing $100 sting way more than finding $100 feels good? Your brain isn't being dramatic, losses are wired to hurt roughly twice as much as gains feel good.
@@ -1135,7 +1135,7 @@ Why does losing $100 sting way more than finding $100 feels good? Your brain isn
 **Pinned comment:** "What's something you held onto way too long just to avoid feeling the loss? Drop it in the comments, I want to know 💬"
 
 #### #14 — Why One New Thing Makes Everything Else Feel Outdated (Diderot Effect)
-**File:** `output/diderot_effect/diderot_effect_9x16.mp4`
+**File:** `output/diderot_effect_9x16.mp4`
 **Description:**
 ```
 Buy one nice new thing, and suddenly everything around it looks shabby. Why? It's not your stuff that changed, it's the new standard sitting right next to it.
@@ -1150,7 +1150,7 @@ Buy one nice new thing, and suddenly everything around it looks shabby. Why? It'
 **Pinned comment:** "What's one purchase that secretly triggered five more? I read every single comment 👇"
 
 #### #15 — Why Future You Always Gets The Short End (Present Bias)
-**File:** `output/present_bias/present_bias_9x16.mp4`
+**File:** `output/present_bias_9x16.mp4`
 **Description:**
 ```
 Why does saving for retirement lose to a $6 coffee, every single time? Your brain isn't lazy, it just values right now far more than it values later.
@@ -1165,7 +1165,7 @@ Why does saving for retirement lose to a $6 coffee, every single time? Your brai
 **Pinned comment:** "What's something future-you keeps getting outvoted on? Tell me below, genuinely curious 👀"
 
 #### #16 — Why The Middle-Priced Option Is Almost Never An Accident (Decoy Effect)
-**File:** `output/decoy_effect/decoy_effect_9x16.mp4`
+**File:** `output/decoy_effect_9x16.mp4`
 **Description:**
 ```
 Ever notice the medium popcorn is barely cheaper than the large? That's on purpose. That weird pricing isn't a mistake, it's designed to push you toward one specific option.
@@ -1180,7 +1180,7 @@ Ever notice the medium popcorn is barely cheaper than the large? That's on purpo
 **Pinned comment:** "Have you ever caught yourself picking the 'obvious deal' on a menu? Drop it in the comments, I want to know 💬"
 
 #### #17 — Why You Value Your Stuff More Than Anyone Else Would Pay For It (Endowment Effect)
-**File:** `output/endowment_effect/endowment_effect_9x16.mp4`
+**File:** `output/endowment_effect_9x16.mp4`
 **Description:**
 ```
 Why do you price your old stuff so much higher than anyone's willing to pay? It's not greed, the moment something becomes yours, your brain inflates its worth.
@@ -1195,7 +1195,7 @@ Why do you price your old stuff so much higher than anyone's willing to pay? It'
 **Pinned comment:** "What's something you overpriced just because it was yours? I read every single comment 👇"
 
 #### #18 — Why Feeling Broke Makes You Worse With Money (Scarcity Mindset)
-**File:** `output/scarcity_mindset/scarcity_mindset_9x16.mp4`
+**File:** `output/scarcity_mindset_9x16.mp4`
 **Description:**
 ```
 Why does feeling broke make it even harder to make good money decisions? It's not a character flaw, scarcity quietly hijacks how your brain thinks.
@@ -1210,7 +1210,7 @@ Why does feeling broke make it even harder to make good money decisions? It's no
 **Pinned comment:** "Has feeling tight on money ever made you make a worse decision, not a better one? Tell me below, genuinely curious 👀"
 
 #### #19 — Why Your Expenses Always Rise To Match Your Income (Parkinson's Law)
-**File:** `output/parkinsons_law/parkinsons_law_9x16.mp4`
+**File:** `output/parkinsons_law_9x16.mp4`
 **Description:**
 ```
 Why does every raise somehow get fully spent within a month? It's not a coincidence, your expenses are wired to expand and match whatever you earn.
@@ -1225,7 +1225,7 @@ Why does every raise somehow get fully spent within a month? It's not a coincide
 **Pinned comment:** "Has a raise ever vanished faster than you expected? Drop it in the comments, I want to know 💬"
 
 #### #20 — Why You Feel Broke Even When Your Bank Account Says Otherwise (Money Dysmorphia)
-**File:** `output/money_dysmorphia/money_dysmorphia_9x16.mp4`
+**File:** `output/money_dysmorphia_9x16.mp4`
 **Description:**
 ```
 Why do you feel financially behind, even when the numbers say you're actually fine? It's not your math that's wrong, it's how you're seeing yourself against everyone else.
@@ -1242,7 +1242,7 @@ Why do you feel financially behind, even when the numbers say you're actually fi
 ### ❤️ Relationship Psychology (10 videos)
 
 #### #21 — Why Too Much Affection Too Fast Is A Red Flag (Love Bombing)
-**File:** `output/love_bombing/love_bombing_9x16.mp4`
+**File:** `output/love_bombing_9x16.mp4`
 **Description:**
 ```
 Why does a relationship that started with way too much, too fast, almost always go wrong? It's not just intensity, it can be a pattern designed to win your trust before you've earned the chance to question it.
@@ -1257,7 +1257,7 @@ Why does a relationship that started with way too much, too fast, almost always 
 **Pinned comment:** "Have you ever noticed a relationship move suspiciously fast at the start? I read every single comment 👇"
 
 #### #22 — Why Someone Who Barely Texts You Still Has You Hooked (Breadcrumbing)
-**File:** `output/breadcrumbing/breadcrumbing_9x16.mp4`
+**File:** `output/breadcrumbing_9x16.mp4`
 **Description:**
 ```
 Why does someone who barely texts you back still somehow keep you hooked? It's not a real connection, it's just enough attention to keep hope alive without ever committing to anything.
@@ -1272,7 +1272,7 @@ Why does someone who barely texts you back still somehow keep you hooked? It's n
 **Pinned comment:** "Have you ever stayed hooked on someone who only gave you crumbs? Tell me below, genuinely curious 👀"
 
 #### #23 — Why You Panic The Moment They Take Too Long To Text Back (Anxious Attachment)
-**File:** `output/anxious_attachment/anxious_attachment_9x16.mp4`
+**File:** `output/anxious_attachment_9x16.mp4`
 **Description:**
 ```
 Why does one slow reply send your brain straight into panic mode? It's not overreacting, it's an attachment pattern formed long before this relationship started.
@@ -1287,7 +1287,7 @@ Why does one slow reply send your brain straight into panic mode? It's not overr
 **Pinned comment:** "Does a slow reply ever send your anxiety spiraling, even when you know it's probably nothing? Drop it in the comments, I want to know 💬"
 
 #### #24 — Why You Like People Who Subtly Copy You (Mirroring Effect)
-**File:** `output/mirroring_effect/mirroring_effect_9x16.mp4`
+**File:** `output/mirroring_effect_9x16.mp4`
 **Description:**
 ```
 Ever instantly click with someone who just felt like they 'got' you? Part of that wasn't chemistry, it was your body language being quietly copied back to you.
@@ -1302,7 +1302,7 @@ Ever instantly click with someone who just felt like they 'got' you? Part of tha
 **Pinned comment:** "Have you ever felt an instant connection you couldn't quite explain? I read every single comment 👇"
 
 #### #25 — Why Doing Someone A Favor Makes Them Like You More (Reciprocity Principle)
-**File:** `output/reciprocity_principle/reciprocity_principle_9x16.mp4`
+**File:** `output/reciprocity_principle_9x16.mp4`
 **Description:**
 ```
 Why do you end up liking someone more right after they do you a small favor? It's not about the favor itself, it's a rule your brain follows almost automatically.
@@ -1317,7 +1317,7 @@ Why do you end up liking someone more right after they do you a small favor? It'
 **Pinned comment:** "Has a small favor ever made you like someone way more than you expected? Tell me below, genuinely curious 👀"
 
 #### #26 — Why Asking Someone For A Favor Can Make Them Like You More (Ben Franklin Effect)
-**File:** `output/benjamin_franklin_effect/benjamin_franklin_effect_9x16.mp4`
+**File:** `output/benjamin_franklin_effect_9x16.mp4`
 **Description:**
 ```
 Why would asking your rival for a favor actually make them like you more? It sounds backwards, but your brain rewrites the story to make it make sense.
@@ -1332,7 +1332,7 @@ Why would asking your rival for a favor actually make them like you more? It sou
 **Pinned comment:** "Have you ever ended up liking someone more after doing them a favor? Drop it in the comments, I want to know 💬"
 
 #### #27 — The 4 Warning Signs That Predict A Breakup (The Four Horsemen)
-**File:** `output/four_horsemen/four_horsemen_9x16.mp4`
+**File:** `output/four_horsemen_9x16.mp4`
 **Description:**
 ```
 Researchers can predict a breakup years early just by watching how couples argue. It's not about whether you fight, it's about exactly how you fight.
@@ -1347,7 +1347,7 @@ Researchers can predict a breakup years early just by watching how couples argue
 **Pinned comment:** "Which of the four have you caught yourself doing in an argument? I read every single comment 👇"
 
 #### #28 — Why Shutting Down In An Argument Hurts More Than Yelling (Stonewalling)
-**File:** `output/stonewalling_effect/stonewalling_effect_9x16.mp4`
+**File:** `output/stonewalling_effect_9x16.mp4`
 **Description:**
 ```
 Why does silence in an argument hurt more than someone actually yelling? It's not just frustrating, it can feel like genuine emotional abandonment in the moment.
@@ -1362,7 +1362,7 @@ Why does silence in an argument hurt more than someone actually yelling? It's no
 **Pinned comment:** "Have you ever shut down in an argument, or had someone shut down on you? Tell me below, genuinely curious 👀"
 
 #### #29 — Why You Sometimes Accuse Your Partner Of What You're Actually Feeling (Projection)
-**File:** `output/projection_in_relationships/projection_in_relationships_9x16.mp4`
+**File:** `output/projection_in_relationships_9x16.mp4`
 **Description:**
 ```
 Why do you sometimes accuse your partner of the exact thing you're secretly feeling? It's not hypocrisy, it's your own mind unconsciously protecting itself.
@@ -1377,7 +1377,7 @@ Why do you sometimes accuse your partner of the exact thing you're secretly feel
 **Pinned comment:** "Have you ever caught yourself projecting a feeling onto someone else? Drop it in the comments, I want to know 💬"
 
 #### #30 — Why New Love Feels Like An Obsession You Can't Control (Limerence)
-**File:** `output/limerence/limerence_9x16.mp4`
+**File:** `output/limerence_9x16.mp4`
 **Description:**
 ```
 Why does a new crush feel less like attraction and more like an obsession you can't switch off? It's not weakness, it's an actual altered mental state your brain temporarily slips into.
@@ -1394,7 +1394,7 @@ Why does a new crush feel less like attraction and more like an obsession you ca
 ### 🧬 Brain & Neuroscience Facts (10 videos)
 
 #### #31 — Why You Say Things You Regret The Second You're Angry (Amygdala Hijack)
-**File:** `output/amygdala_hijack/amygdala_hijack_9x16.mp4`
+**File:** `output/amygdala_hijack_9x16.mp4`
 **Description:**
 ```
 Why do you say things in anger that you'd never actually mean? It's not really you talking, it's a part of your brain that bypassed your better judgment completely.
@@ -1409,7 +1409,7 @@ Why do you say things in anger that you'd never actually mean? It's not really y
 **Pinned comment:** "Have you ever said something in the heat of the moment you instantly regretted? I read every single comment 👇"
 
 #### #32 — Why You Defend A Bad Decision Instead Of Admitting It (Cognitive Dissonance)
-**File:** `output/cognitive_dissonance/cognitive_dissonance_9x16.mp4`
+**File:** `output/cognitive_dissonance_9x16.mp4`
 **Description:**
 ```
 Why do you defend a decision you secretly know was wrong? It's not stubbornness, your brain physically dislikes holding two conflicting beliefs at once.
@@ -1424,7 +1424,7 @@ Why do you defend a decision you secretly know was wrong? It's not stubbornness,
 **Pinned comment:** "Have you ever caught yourself defending a choice you privately knew wasn't your best one? Tell me below, genuinely curious 👀"
 
 #### #33 — Why You Remember The Worst Moment Of A Trip, Not The Best Day (Peak-End Rule)
-**File:** `output/peak_end_rule/peak_end_rule_9x16.mp4`
+**File:** `output/peak_end_rule_9x16.mp4`
 **Description:**
 ```
 Why does one bad hour ruin your memory of an otherwise great vacation? Your brain isn't averaging the experience, it's only really filing away two moments.
@@ -1439,7 +1439,7 @@ Why does one bad hour ruin your memory of an otherwise great vacation? Your brai
 **Pinned comment:** "Has one bad moment ever hijacked your memory of an otherwise good experience? Drop it in the comments, I want to know 💬"
 
 #### #34 — Why Time Disappears When You're Truly Focused (Flow State)
-**File:** `output/flow_state/flow_state_9x16.mp4`
+**File:** `output/flow_state_9x16.mp4`
 **Description:**
 ```
 Why does time completely disappear when you're locked into something you love? It's not just focus, it's a distinct mental state your brain only enters under very specific conditions.
@@ -1454,7 +1454,7 @@ Why does time completely disappear when you're locked into something you love? I
 **Pinned comment:** "What's the last thing that put you in a flow state so deep you lost track of time? I read every single comment 👇"
 
 #### #35 — Why Your Best Ideas Show Up In The Shower (Default Mode Network)
-**File:** `output/default_mode_network/default_mode_network_9x16.mp4`
+**File:** `output/default_mode_network_9x16.mp4`
 **Description:**
 ```
 Why do your best ideas always seem to show up in the shower, never at your desk? It's not random, a whole network in your brain only switches on when you stop trying so hard.
@@ -1469,7 +1469,7 @@ Why do your best ideas always seem to show up in the shower, never at your desk?
 **Pinned comment:** "Where do your best ideas actually show up, not at your desk? Tell me below, genuinely curious 👀"
 
 #### #36 — Why Your Brain Can Still Rewire Itself At Any Age (Neuroplasticity)
-**File:** `output/neuroplasticity/neuroplasticity_9x16.mp4`
+**File:** `output/neuroplasticity_9x16.mp4`
 **Description:**
 ```
 Think your personality and habits are permanently fixed by now? They're not. Your brain isn't a finished product, it's still physically rewiring itself based on what you repeat.
@@ -1484,7 +1484,7 @@ Think your personality and habits are permanently fixed by now? They're not. You
 **Pinned comment:** "What's one habit you've actually managed to rewire over time? Drop it in the comments, I want to know 💬"
 
 #### #37 — Why You People-Please Instead Of Standing Up For Yourself (Fawn Response)
-**File:** `output/fawn_response/fawn_response_9x16.mp4`
+**File:** `output/fawn_response_9x16.mp4`
 **Description:**
 ```
 Why do you instinctively people-please instead of standing up for yourself in conflict? It's not weakness, it's a survival response your nervous system learned works.
@@ -1499,7 +1499,7 @@ Why do you instinctively people-please instead of standing up for yourself in co
 **Pinned comment:** "Do you tend to fight, flee, freeze, or fawn when conflict shows up? I read every single comment 👇"
 
 #### #38 — Why A Word Gets Stuck Right On The Tip Of Your Tongue (Tip-of-the-Tongue)
-**File:** `output/tip_of_tongue/tip_of_tongue_9x16.mp4`
+**File:** `output/tip_of_tongue_9x16.mp4`
 **Description:**
 ```
 Why does a word sometimes feel stuck right on the tip of your tongue, just out of reach? Your brain didn't lose the word, it's having trouble retrieving it from where it's actually stored.
@@ -1514,7 +1514,7 @@ Why does a word sometimes feel stuck right on the tip of your tongue, just out o
 **Pinned comment:** "Has a word ever sat on the tip of your tongue for an embarrassingly long time? Tell me below, genuinely curious 👀"
 
 #### #39 — Why Your Willpower Crashes By The End Of The Day (Decision Fatigue)
-**File:** `output/decision_fatigue/decision_fatigue_9x16.mp4`
+**File:** `output/decision_fatigue_9x16.mp4`
 **Description:**
 ```
 Why do you make worse decisions at 9pm than you do at 9am? It's not laziness, your brain's decision-making resource is genuinely running low.
@@ -1529,7 +1529,7 @@ Why do you make worse decisions at 9pm than you do at 9am? It's not laziness, yo
 **Pinned comment:** "What's your worst decision-fatigue habit, the thing you always cave on by night? Drop it in the comments, I want to know 💬"
 
 #### #40 — Why You Remember The First And Last Thing, Never The Middle (Serial Position Effect)
-**File:** `output/serial_position_effect/serial_position_effect_9x16.mp4`
+**File:** `output/serial_position_effect_9x16.mp4`
 **Description:**
 ```
 Why can you remember the first and last item on a list, but the middle just vanishes? Your memory isn't broken, it's just built to prioritize beginnings and endings.
@@ -1546,7 +1546,7 @@ Why can you remember the first and last item on a list, but the middle just vani
 ### 🔁 Habit-Building Psychology (10 videos)
 
 #### #41 — Why Starting For Just 2 Minutes Beats Waiting For Motivation (2-Minute Rule)
-**File:** `output/two_minute_rule/two_minute_rule_9x16.mp4`
+**File:** `output/two_minute_rule_9x16.mp4`
 **Description:**
 ```
 Why does committing to just two minutes get you to actually start, when an hour-long plan doesn't? It's not a trick, it removes the one thing that's actually stopping you, the size of the first step.
@@ -1561,7 +1561,7 @@ Why does committing to just two minutes get you to actually start, when an hour-
 **Pinned comment:** "What's one task you'd actually start today if you only had to do it for two minutes? I read every single comment 👇"
 
 #### #42 — Why Attaching A New Habit To An Old One Actually Works (Habit Stacking)
-**File:** `output/habit_stacking/habit_stacking_9x16.mp4`
+**File:** `output/habit_stacking_9x16.mp4`
 **Description:**
 ```
 Why is it so much easier to start a new habit right after an old one you already do automatically? It's not discipline, you're borrowing momentum from a habit your brain already runs on autopilot.
@@ -1576,7 +1576,7 @@ Why is it so much easier to start a new habit right after an old one you already
 **Pinned comment:** "What existing habit could you stack a new one onto today? Tell me below, genuinely curious 👀"
 
 #### #43 — Why Pairing A Chore With Something Fun Makes It Easier (Temptation Bundling)
-**File:** `output/temptation_bundling/temptation_bundling_9x16.mp4`
+**File:** `output/temptation_bundling_9x16.mp4`
 **Description:**
 ```
 Why does folding laundry suddenly feel easier the moment you only allow your favorite show during it? It's not a coincidence, you've quietly made the boring task the price of admission for the fun one.
@@ -1591,7 +1591,7 @@ Why does folding laundry suddenly feel easier the moment you only allow your fav
 **Pinned comment:** "What chore could you make easier by pairing it with something you actually enjoy? Drop it in the comments, I want to know 💬"
 
 #### #44 — Why 'I'll Exercise More' Always Fails But A Specific Plan Doesn't (Implementation Intentions)
-**File:** `output/implementation_intentions/implementation_intentions_9x16.mp4`
+**File:** `output/implementation_intentions_9x16.mp4`
 **Description:**
 ```
 Why does 'I'll exercise more' almost always fail, while a specific time and place actually works? It's not willpower, vague goals give your brain nothing concrete to act on.
@@ -1606,7 +1606,7 @@ Why does 'I'll exercise more' almost always fail, while a specific time and plac
 **Pinned comment:** "What vague goal of yours needs an actual time and place attached to it? I read every single comment 👇"
 
 #### #45 — Why Just Not Breaking The Chain Builds Habits Faster (Seinfeld Strategy)
-**File:** `output/seinfeld_strategy/seinfeld_strategy_9x16.mp4`
+**File:** `output/seinfeld_strategy_9x16.mp4`
 **Description:**
 ```
 Why does marking an X on a calendar every day build a habit faster than a big ambitious goal does? It's not about the goal anymore, it's about protecting a streak your brain doesn't want to lose.
@@ -1621,7 +1621,7 @@ Why does marking an X on a calendar every day build a habit faster than a big am
 **Pinned comment:** "What's the longest streak you've ever managed to protect? Tell me below, genuinely curious 👀"
 
 #### #46 — Why 'I'm Trying To Quit' Fails But 'I'm Not A Smoker' Works (Identity-Based Habits)
-**File:** `output/identity_based_habits/identity_based_habits_9x16.mp4`
+**File:** `output/identity_based_habits_9x16.mp4`
 **Description:**
 ```
 Why does 'I'm not a smoker' work better than 'I'm trying to quit smoking'? It's not just wording, one is a behavior you're fighting, the other is who you've decided you are.
@@ -1636,7 +1636,7 @@ Why does 'I'm not a smoker' work better than 'I'm trying to quit smoking'? It's 
 **Pinned comment:** "What's a habit you'd break faster if you changed how you described yourself, not just what you do? Drop it in the comments, I want to know 💬"
 
 #### #47 — Why Putting Your Phone In Another Room Actually Works (Friction Reduction)
-**File:** `output/friction_reduction/friction_reduction_9x16.mp4`
+**File:** `output/friction_reduction_9x16.mp4`
 **Description:**
 ```
 Why does putting your phone in another room actually cut your screen time more than willpower ever did? It's not self-control, you've just made the bad habit slightly harder to reach.
@@ -1651,7 +1651,7 @@ Why does putting your phone in another room actually cut your screen time more t
 **Pinned comment:** "What's one piece of friction you could add to a habit you're trying to break? I read every single comment 👇"
 
 #### #48 — Why Every Habit You Have Follows The Exact Same Hidden Loop
-**File:** `output/habit_loop/habit_loop_9x16.mp4`
+**File:** `output/habit_loop_9x16.mp4`
 **Description:**
 ```
 Did you know every habit you have, good or bad, follows the exact same hidden structure? It's not random behavior, it's a loop your brain runs on repeat without you noticing.
@@ -1666,7 +1666,7 @@ Did you know every habit you have, good or bad, follows the exact same hidden st
 **Pinned comment:** "Can you spot the cue that kicks off your hardest habit to break? Tell me below, genuinely curious 👀"
 
 #### #49 — Why 1% Better Every Day Beats Any Big Dramatic Change (The 1% Rule)
-**File:** `output/one_percent_rule/one_percent_rule_9x16.mp4`
+**File:** `output/one_percent_rule_9x16.mp4`
 **Description:**
 ```
 Why does getting just 1% better every day end up beating any big dramatic overhaul? It's not slower, it's compounding, and compounding is deceptively, eventually massive.
@@ -1681,7 +1681,7 @@ Why does getting just 1% better every day end up beating any big dramatic overha
 **Pinned comment:** "What's one tiny 1% improvement you could actually stack today? Drop it in the comments, I want to know 💬"
 
 #### #50 — Why Missing One Day Makes You Quit Completely (All-Or-Nothing Trap)
-**File:** `output/all_or_nothing_trap/all_or_nothing_trap_9x16.mp4`
+**File:** `output/all_or_nothing_trap_9x16.mp4`
 **Description:**
 ```
 Why does missing one single day at the gym sometimes turn into missing a whole month? It's not laziness, it's a thinking trap that turns one small slip into total surrender.

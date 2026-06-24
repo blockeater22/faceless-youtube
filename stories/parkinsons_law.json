@@ -1,0 +1,755 @@
+{
+  "title": "Why Your Expenses Always Rise To Match Your Income (Parkinson's Law)",
+  "handle": "@Inklings1",
+  "hook": "WHY DOES EVERY RAISE SOMEHOW GET FULLY SPE",
+  "hook_dur": 1.7,
+  "style": {
+    "background": "#ffffff",
+    "ink": "#15161a",
+    "accent": "#ff5d5d",
+    "muted": "#9aa0ab",
+    "palette": [
+      "#ff5d5d",
+      "#1f9bff",
+      "#ffb454",
+      "#23b26d",
+      "#a463f2"
+    ],
+    "fps": 30,
+    "grain": 0.0,
+    "vignette": 0.0,
+    "caption": {
+      "mode": "kinetic",
+      "size": 0.1,
+      "y": 0.46,
+      "max_chars": 16
+    }
+  },
+  "voice": {
+    "backend": "kokoro",
+    "voice": "am_liam",
+    "polish": true,
+    "gap": 0.3
+  },
+  "scenes": [
+    {
+      "id": "01_hook",
+      "narration": "Why does every raise somehow get fully spent within a month?",
+      "min_dur": 4.2,
+      "props": [
+        {
+          "type": "icon",
+          "id": "arrow_up",
+          "name": "arrow_up",
+          "color": "#23b26d",
+          "r": 0.16,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "think",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "point_up",
+              "scale": 0.0,
+              "alpha": 0
+            },
+            {
+              "t": 0.18,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "point_up",
+              "scale": 0.22,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "point_up",
+              "scale": 0.22,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "02_promise",
+      "narration": "It's not a coincidence, your expenses are wired to expand and match whatever you earn.",
+      "min_dur": 4.2,
+      "props": [
+        {
+          "type": "icon",
+          "id": "brain",
+          "name": "brain",
+          "color": "#a463f2",
+          "r": 0.16,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "angry",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "reach",
+              "scale": 0.0,
+              "alpha": 0
+            },
+            {
+              "t": 0.18,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "reach",
+              "scale": 0.22,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "reach",
+              "scale": 0.22,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "03_name",
+      "narration": "It's called Parkinson's Law of Money.",
+      "min_dur": 3.8,
+      "props": [
+        {
+          "type": "icon",
+          "id": "lightbulb",
+          "name": "lightbulb",
+          "color": "#ff5d5d",
+          "r": 0.16,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "think",
+              "scale": 0.0,
+              "alpha": 0
+            },
+            {
+              "t": 0.18,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "think",
+              "scale": 0.22,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "think",
+              "scale": 0.22,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "04_explain1",
+      "narration": "Demand for money rises to meet the supply of it, no matter how much that supply grows.",
+      "min_dur": 4.6,
+      "props": [
+        {
+          "type": "icon",
+          "id": "arrow_up",
+          "name": "arrow_up",
+          "color": "#1f9bff",
+          "r": 0.16,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "shrug",
+              "scale": 0.0,
+              "alpha": 0
+            },
+            {
+              "t": 0.18,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "shrug",
+              "scale": 0.22,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "shrug",
+              "scale": 0.22,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "05_explain2",
+      "narration": "Without a plan, more income doesn't create savings, it just creates a bigger version of broke.",
+      "min_dur": 4.6,
+      "props": [
+        {
+          "type": "object",
+          "id": "table",
+          "name": "table",
+          "size": 0.44,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.5,
+                0.3
+              ],
+              "scale": 0.7,
+              "alpha": 0
+            },
+            {
+              "t": 0.18,
+              "pos": [
+                0.5,
+                0.3
+              ],
+              "scale": 1.05,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.3
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.3
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "id": "laptop",
+          "name": "laptop",
+          "size": 0.27,
+          "keys": [
+            {
+              "t": 0.1,
+              "pos": [
+                0.3,
+                0.18
+              ],
+              "scale": 0.7,
+              "alpha": 0
+            },
+            {
+              "t": 0.28,
+              "pos": [
+                0.3,
+                0.18
+              ],
+              "scale": 1.05,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.65,
+              "pos": [
+                0.3,
+                0.18
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.3,
+                0.18
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "id": "books",
+          "name": "books",
+          "size": 0.27,
+          "keys": [
+            {
+              "t": 0.15,
+              "pos": [
+                0.7,
+                0.18
+              ],
+              "scale": 0.7,
+              "alpha": 0
+            },
+            {
+              "t": 0.33,
+              "pos": [
+                0.7,
+                0.18
+              ],
+              "scale": 1.05,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.7,
+              "pos": [
+                0.7,
+                0.18
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.7,
+                0.18
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "sad",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "wave",
+              "scale": 0.0,
+              "alpha": 0
+            },
+            {
+              "t": 0.18,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "wave",
+              "scale": 0.22,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "wave",
+              "scale": 0.22,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "06_cta",
+      "narration": "Has a raise ever vanished faster than you expected? Comment below, like this video, and subscribe to Inklings for more daily psychology in under a minute.",
+      "min_dur": 4.8,
+      "props": [
+        {
+          "type": "icon",
+          "id": "thumbs_up",
+          "name": "thumbs_up",
+          "color": "#23b26d",
+          "r": 0.15,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.36,
+                0.22
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.36,
+                0.22
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.36,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.36,
+                0.22
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "icon",
+          "id": "bell",
+          "name": "bell",
+          "color": "#ffb454",
+          "r": 0.15,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.64,
+                0.22
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.64,
+                0.22
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.64,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.64,
+                0.22
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "point_up",
+              "scale": 0.0,
+              "alpha": 0
+            },
+            {
+              "t": 0.18,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "point_up",
+              "scale": 0.22,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "point_up",
+              "scale": 0.22,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "format": "kinetic-typography+scenery",
+    "topic": "parkinsons_law",
+    "tags": [
+      "parkinsons law",
+      "money psychology",
+      "personal finance",
+      "saving habits",
+      "money psychology",
+      "shorts",
+      "Inklings"
+    ],
+    "hashtags": [
+      "#shorts",
+      "#moneypsychology",
+      "#parkinsonslaw",
+      "#inklings"
+    ],
+    "comment_prompt": "Has a raise ever vanished faster than you expected?"
+  }
+}

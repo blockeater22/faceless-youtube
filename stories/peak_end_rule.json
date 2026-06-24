@@ -1,0 +1,755 @@
+{
+  "title": "Why You Remember The Worst Moment Of A Trip, Not The Best Day (Peak-End Rule)",
+  "handle": "@Inklings1",
+  "hook": "WHY DOES ONE BAD HOUR RUIN YOUR MEMORY OF ",
+  "hook_dur": 1.7,
+  "style": {
+    "background": "#ffffff",
+    "ink": "#15161a",
+    "accent": "#ff5d5d",
+    "muted": "#9aa0ab",
+    "palette": [
+      "#ff5d5d",
+      "#1f9bff",
+      "#ffb454",
+      "#23b26d",
+      "#a463f2"
+    ],
+    "fps": 30,
+    "grain": 0.0,
+    "vignette": 0.0,
+    "caption": {
+      "mode": "kinetic",
+      "size": 0.1,
+      "y": 0.46,
+      "max_chars": 16
+    }
+  },
+  "voice": {
+    "backend": "kokoro",
+    "voice": "am_liam",
+    "polish": true,
+    "gap": 0.3
+  },
+  "scenes": [
+    {
+      "id": "01_hook",
+      "narration": "Why does one bad hour ruin your memory of an otherwise great vacation?",
+      "min_dur": 4.2,
+      "props": [
+        {
+          "type": "icon",
+          "id": "chat",
+          "name": "chat",
+          "color": "#ffb454",
+          "r": 0.16,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "think",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "point_up",
+              "scale": 0.0,
+              "alpha": 0
+            },
+            {
+              "t": 0.18,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "point_up",
+              "scale": 0.22,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "point_up",
+              "scale": 0.22,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "02_promise",
+      "narration": "Your brain isn't averaging the experience, it's only really filing away two moments.",
+      "min_dur": 4.2,
+      "props": [
+        {
+          "type": "icon",
+          "id": "brain",
+          "name": "brain",
+          "color": "#23b26d",
+          "r": 0.16,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "think",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "reach",
+              "scale": 0.0,
+              "alpha": 0
+            },
+            {
+              "t": 0.18,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "reach",
+              "scale": 0.22,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "reach",
+              "scale": 0.22,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "03_name",
+      "narration": "Psychologists call it the Peak-End Rule.",
+      "min_dur": 3.8,
+      "props": [
+        {
+          "type": "icon",
+          "id": "lightbulb",
+          "name": "lightbulb",
+          "color": "#a463f2",
+          "r": 0.16,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "think",
+              "scale": 0.0,
+              "alpha": 0
+            },
+            {
+              "t": 0.18,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "think",
+              "scale": 0.22,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "think",
+              "scale": 0.22,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "04_explain1",
+      "narration": "You mostly remember the most intense peak of an experience, and however it ended, everything in between fades.",
+      "min_dur": 4.6,
+      "props": [
+        {
+          "type": "icon",
+          "id": "chat",
+          "name": "chat",
+          "color": "#ff5d5d",
+          "r": 0.16,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "think",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "shrug",
+              "scale": 0.0,
+              "alpha": 0
+            },
+            {
+              "t": 0.18,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "shrug",
+              "scale": 0.22,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "shrug",
+              "scale": 0.22,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "05_explain2",
+      "narration": "That's why a great trip with one bad last day can feel worse in memory than it actually was in real time.",
+      "min_dur": 4.6,
+      "props": [
+        {
+          "type": "object",
+          "id": "table",
+          "name": "table",
+          "size": 0.44,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.5,
+                0.3
+              ],
+              "scale": 0.7,
+              "alpha": 0
+            },
+            {
+              "t": 0.18,
+              "pos": [
+                0.5,
+                0.3
+              ],
+              "scale": 1.05,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.3
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.3
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "id": "books",
+          "name": "books",
+          "size": 0.27,
+          "keys": [
+            {
+              "t": 0.1,
+              "pos": [
+                0.3,
+                0.18
+              ],
+              "scale": 0.7,
+              "alpha": 0
+            },
+            {
+              "t": 0.28,
+              "pos": [
+                0.3,
+                0.18
+              ],
+              "scale": 1.05,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.65,
+              "pos": [
+                0.3,
+                0.18
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.3,
+                0.18
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "id": "laptop",
+          "name": "laptop",
+          "size": 0.27,
+          "keys": [
+            {
+              "t": 0.15,
+              "pos": [
+                0.7,
+                0.18
+              ],
+              "scale": 0.7,
+              "alpha": 0
+            },
+            {
+              "t": 0.33,
+              "pos": [
+                0.7,
+                0.18
+              ],
+              "scale": 1.05,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.7,
+              "pos": [
+                0.7,
+                0.18
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.7,
+                0.18
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "think",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "wave",
+              "scale": 0.0,
+              "alpha": 0
+            },
+            {
+              "t": 0.18,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "wave",
+              "scale": 0.22,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "wave",
+              "scale": 0.22,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "06_cta",
+      "narration": "Has one bad moment ever hijacked your memory of an otherwise good experience? Tell me in the comments, like this if it hit home, and subscribe to Inklings for more.",
+      "min_dur": 4.8,
+      "props": [
+        {
+          "type": "icon",
+          "id": "thumbs_up",
+          "name": "thumbs_up",
+          "color": "#23b26d",
+          "r": 0.15,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.36,
+                0.22
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.36,
+                0.22
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.36,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.36,
+                0.22
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "icon",
+          "id": "bell",
+          "name": "bell",
+          "color": "#ffb454",
+          "r": 0.15,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.64,
+                0.22
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.64,
+                0.22
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.64,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.64,
+                0.22
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "point_up",
+              "scale": 0.0,
+              "alpha": 0
+            },
+            {
+              "t": 0.18,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "point_up",
+              "scale": 0.22,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "point_up",
+              "scale": 0.22,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "format": "kinetic-typography+scenery",
+    "topic": "peak_end_rule",
+    "tags": [
+      "peak end rule",
+      "memory psychology",
+      "brain science",
+      "psychology facts",
+      "brain facts",
+      "shorts",
+      "Inklings"
+    ],
+    "hashtags": [
+      "#shorts",
+      "#brainfacts",
+      "#peakendrule",
+      "#inklings"
+    ],
+    "comment_prompt": "Has one bad moment ever hijacked your memory of an otherwise good experience?"
+  }
+}

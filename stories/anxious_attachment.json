@@ -1,0 +1,755 @@
+{
+  "title": "Why You Panic The Moment They Take Too Long To Text Back (Anxious Attachment)",
+  "handle": "@Inklings1",
+  "hook": "WHY DOES ONE SLOW REPLY SEND YOUR BRAIN ST",
+  "hook_dur": 1.7,
+  "style": {
+    "background": "#ffffff",
+    "ink": "#15161a",
+    "accent": "#ff5d5d",
+    "muted": "#9aa0ab",
+    "palette": [
+      "#ff5d5d",
+      "#1f9bff",
+      "#ffb454",
+      "#23b26d",
+      "#a463f2"
+    ],
+    "fps": 30,
+    "grain": 0.0,
+    "vignette": 0.0,
+    "caption": {
+      "mode": "kinetic",
+      "size": 0.1,
+      "y": 0.46,
+      "max_chars": 16
+    }
+  },
+  "voice": {
+    "backend": "kokoro",
+    "voice": "am_liam",
+    "polish": true,
+    "gap": 0.3
+  },
+  "scenes": [
+    {
+      "id": "01_hook",
+      "narration": "Why does one slow reply send your brain straight into panic mode?",
+      "min_dur": 4.2,
+      "props": [
+        {
+          "type": "icon",
+          "id": "chat",
+          "name": "chat",
+          "color": "#ffb454",
+          "r": 0.16,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "think",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "point_up",
+              "scale": 0.0,
+              "alpha": 0
+            },
+            {
+              "t": 0.18,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "point_up",
+              "scale": 0.22,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "point_up",
+              "scale": 0.22,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "02_promise",
+      "narration": "It's not overreacting, it's an attachment pattern formed long before this relationship started.",
+      "min_dur": 4.2,
+      "props": [
+        {
+          "type": "icon",
+          "id": "heart",
+          "name": "heart",
+          "color": "#23b26d",
+          "r": 0.16,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "think",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "reach",
+              "scale": 0.0,
+              "alpha": 0
+            },
+            {
+              "t": 0.18,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "reach",
+              "scale": 0.22,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "reach",
+              "scale": 0.22,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "03_name",
+      "narration": "Psychologists call it Anxious Attachment.",
+      "min_dur": 3.8,
+      "props": [
+        {
+          "type": "icon",
+          "id": "lightbulb",
+          "name": "lightbulb",
+          "color": "#a463f2",
+          "r": 0.16,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "sad",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "think",
+              "scale": 0.0,
+              "alpha": 0
+            },
+            {
+              "t": 0.18,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "think",
+              "scale": 0.22,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "think",
+              "scale": 0.22,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "04_explain1",
+      "narration": "Early experiences where love felt inconsistent can wire your brain to treat distance as danger.",
+      "min_dur": 4.6,
+      "props": [
+        {
+          "type": "icon",
+          "id": "chat",
+          "name": "chat",
+          "color": "#ff5d5d",
+          "r": 0.16,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "angry",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "shrug",
+              "scale": 0.0,
+              "alpha": 0
+            },
+            {
+              "t": 0.18,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "shrug",
+              "scale": 0.22,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "shrug",
+              "scale": 0.22,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "05_explain2",
+      "narration": "So your nervous system reacts to a late text the same way it would to actually being left.",
+      "min_dur": 4.6,
+      "props": [
+        {
+          "type": "object",
+          "id": "armchair",
+          "name": "armchair",
+          "size": 0.44,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.5,
+                0.3
+              ],
+              "scale": 0.7,
+              "alpha": 0
+            },
+            {
+              "t": 0.18,
+              "pos": [
+                0.5,
+                0.3
+              ],
+              "scale": 1.05,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.3
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.3
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "id": "mug",
+          "name": "mug",
+          "size": 0.27,
+          "keys": [
+            {
+              "t": 0.1,
+              "pos": [
+                0.3,
+                0.18
+              ],
+              "scale": 0.7,
+              "alpha": 0
+            },
+            {
+              "t": 0.28,
+              "pos": [
+                0.3,
+                0.18
+              ],
+              "scale": 1.05,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.65,
+              "pos": [
+                0.3,
+                0.18
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.3,
+                0.18
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "id": "blanket",
+          "name": "blanket",
+          "size": 0.27,
+          "keys": [
+            {
+              "t": 0.15,
+              "pos": [
+                0.7,
+                0.18
+              ],
+              "scale": 0.7,
+              "alpha": 0
+            },
+            {
+              "t": 0.33,
+              "pos": [
+                0.7,
+                0.18
+              ],
+              "scale": 1.05,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.7,
+              "pos": [
+                0.7,
+                0.18
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.7,
+                0.18
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "think",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "wave",
+              "scale": 0.0,
+              "alpha": 0
+            },
+            {
+              "t": 0.18,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "wave",
+              "scale": 0.22,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "wave",
+              "scale": 0.22,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "06_cta",
+      "narration": "Does a slow reply ever send your anxiety spiraling, even when you know it's probably nothing? Drop your answer in the comments, hit like, and subscribe to Inklings so you don't miss the next one.",
+      "min_dur": 4.8,
+      "props": [
+        {
+          "type": "icon",
+          "id": "thumbs_up",
+          "name": "thumbs_up",
+          "color": "#23b26d",
+          "r": 0.15,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.36,
+                0.22
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.36,
+                0.22
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.36,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.36,
+                0.22
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "icon",
+          "id": "bell",
+          "name": "bell",
+          "color": "#ffb454",
+          "r": 0.15,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.64,
+                0.22
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.64,
+                0.22
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.64,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.64,
+                0.22
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "sad",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "point_up",
+              "scale": 0.0,
+              "alpha": 0
+            },
+            {
+              "t": 0.18,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "point_up",
+              "scale": 0.22,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "point_up",
+              "scale": 0.22,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "format": "kinetic-typography+scenery",
+    "topic": "anxious_attachment",
+    "tags": [
+      "anxious attachment",
+      "attachment styles",
+      "relationship psychology",
+      "dating anxiety",
+      "relationship psychology",
+      "shorts",
+      "Inklings"
+    ],
+    "hashtags": [
+      "#shorts",
+      "#relationshippsychology",
+      "#anxiousattachment",
+      "#inklings"
+    ],
+    "comment_prompt": "Does a slow reply ever send your anxiety spiraling, even when you know it's probably nothing?"
+  }
+}

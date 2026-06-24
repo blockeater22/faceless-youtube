@@ -1,0 +1,755 @@
+{
+  "title": "Why You Value Your Stuff More Than Anyone Else Would Pay For It (Endowment Effect)",
+  "handle": "@Inklings1",
+  "hook": "WHY DO YOU PRICE YOUR OLD STUFF SO MUCH HI",
+  "hook_dur": 1.7,
+  "style": {
+    "background": "#ffffff",
+    "ink": "#15161a",
+    "accent": "#ff5d5d",
+    "muted": "#9aa0ab",
+    "palette": [
+      "#ff5d5d",
+      "#1f9bff",
+      "#ffb454",
+      "#23b26d",
+      "#a463f2"
+    ],
+    "fps": 30,
+    "grain": 0.0,
+    "vignette": 0.0,
+    "caption": {
+      "mode": "kinetic",
+      "size": 0.1,
+      "y": 0.46,
+      "max_chars": 16
+    }
+  },
+  "voice": {
+    "backend": "kokoro",
+    "voice": "am_liam",
+    "polish": true,
+    "gap": 0.3
+  },
+  "scenes": [
+    {
+      "id": "01_hook",
+      "narration": "Why do you price your old stuff so much higher than anyone's willing to pay?",
+      "min_dur": 4.2,
+      "props": [
+        {
+          "type": "icon",
+          "id": "warning",
+          "name": "warning",
+          "color": "#1f9bff",
+          "r": 0.16,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "think",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "point_up",
+              "scale": 0.0,
+              "alpha": 0
+            },
+            {
+              "t": 0.18,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "point_up",
+              "scale": 0.22,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "point_up",
+              "scale": 0.22,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "02_promise",
+      "narration": "It's not greed, the moment something becomes yours, your brain inflates its worth.",
+      "min_dur": 4.2,
+      "props": [
+        {
+          "type": "icon",
+          "id": "brain",
+          "name": "brain",
+          "color": "#ffb454",
+          "r": 0.16,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "reach",
+              "scale": 0.0,
+              "alpha": 0
+            },
+            {
+              "t": 0.18,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "reach",
+              "scale": 0.22,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "reach",
+              "scale": 0.22,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "03_name",
+      "narration": "Economists call it the Endowment Effect.",
+      "min_dur": 3.8,
+      "props": [
+        {
+          "type": "icon",
+          "id": "lightbulb",
+          "name": "lightbulb",
+          "color": "#23b26d",
+          "r": 0.16,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "think",
+              "scale": 0.0,
+              "alpha": 0
+            },
+            {
+              "t": 0.18,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "think",
+              "scale": 0.22,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "think",
+              "scale": 0.22,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "04_explain1",
+      "narration": "Owning something flips a switch, losing it now feels like a loss, not just missing a gain.",
+      "min_dur": 4.6,
+      "props": [
+        {
+          "type": "icon",
+          "id": "warning",
+          "name": "warning",
+          "color": "#a463f2",
+          "r": 0.16,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "sad",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "shrug",
+              "scale": 0.0,
+              "alpha": 0
+            },
+            {
+              "t": 0.18,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "shrug",
+              "scale": 0.22,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "shrug",
+              "scale": 0.22,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "05_explain2",
+      "narration": "That's why selling your own car always feels like robbery, and buying someone else's feels like a steal.",
+      "min_dur": 4.6,
+      "props": [
+        {
+          "type": "object",
+          "id": "table",
+          "name": "table",
+          "size": 0.44,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.5,
+                0.3
+              ],
+              "scale": 0.7,
+              "alpha": 0
+            },
+            {
+              "t": 0.18,
+              "pos": [
+                0.5,
+                0.3
+              ],
+              "scale": 1.05,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.3
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.3
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "id": "laptop",
+          "name": "laptop",
+          "size": 0.27,
+          "keys": [
+            {
+              "t": 0.1,
+              "pos": [
+                0.3,
+                0.18
+              ],
+              "scale": 0.7,
+              "alpha": 0
+            },
+            {
+              "t": 0.28,
+              "pos": [
+                0.3,
+                0.18
+              ],
+              "scale": 1.05,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.65,
+              "pos": [
+                0.3,
+                0.18
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.3,
+                0.18
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "id": "books",
+          "name": "books",
+          "size": 0.27,
+          "keys": [
+            {
+              "t": 0.15,
+              "pos": [
+                0.7,
+                0.18
+              ],
+              "scale": 0.7,
+              "alpha": 0
+            },
+            {
+              "t": 0.33,
+              "pos": [
+                0.7,
+                0.18
+              ],
+              "scale": 1.05,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.7,
+              "pos": [
+                0.7,
+                0.18
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.7,
+                0.18
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "think",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "wave",
+              "scale": 0.0,
+              "alpha": 0
+            },
+            {
+              "t": 0.18,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "wave",
+              "scale": 0.22,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "wave",
+              "scale": 0.22,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "06_cta",
+      "narration": "What's something you overpriced just because it was yours? Drop your answer in the comments, hit like, and subscribe to Inklings so you don't miss the next one.",
+      "min_dur": 4.8,
+      "props": [
+        {
+          "type": "icon",
+          "id": "thumbs_up",
+          "name": "thumbs_up",
+          "color": "#23b26d",
+          "r": 0.15,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.36,
+                0.22
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.36,
+                0.22
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.36,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.36,
+                0.22
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "icon",
+          "id": "bell",
+          "name": "bell",
+          "color": "#ffb454",
+          "r": 0.15,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.64,
+                0.22
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.64,
+                0.22
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.64,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.64,
+                0.22
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "sad",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "point_up",
+              "scale": 0.0,
+              "alpha": 0
+            },
+            {
+              "t": 0.18,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "point_up",
+              "scale": 0.22,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "point_up",
+              "scale": 0.22,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "format": "kinetic-typography+scenery",
+    "topic": "endowment_effect",
+    "tags": [
+      "endowment effect",
+      "behavioral economics",
+      "money psychology",
+      "ownership bias",
+      "money psychology",
+      "shorts",
+      "Inklings"
+    ],
+    "hashtags": [
+      "#shorts",
+      "#moneypsychology",
+      "#endowmenteffect",
+      "#inklings"
+    ],
+    "comment_prompt": "What's something you overpriced just because it was yours?"
+  }
+}

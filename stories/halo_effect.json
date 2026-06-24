@@ -1,0 +1,755 @@
+{
+  "title": "Why Attractive People Get Away With More (Halo Effect)",
+  "handle": "@Inklings1",
+  "hook": "EVER NOTICE ATTRACTIVE PEOPLE SEEM MORE TR",
+  "hook_dur": 1.7,
+  "style": {
+    "background": "#ffffff",
+    "ink": "#15161a",
+    "accent": "#ff5d5d",
+    "muted": "#9aa0ab",
+    "palette": [
+      "#ff5d5d",
+      "#1f9bff",
+      "#ffb454",
+      "#23b26d",
+      "#a463f2"
+    ],
+    "fps": 30,
+    "grain": 0.0,
+    "vignette": 0.0,
+    "caption": {
+      "mode": "kinetic",
+      "size": 0.1,
+      "y": 0.46,
+      "max_chars": 16
+    }
+  },
+  "voice": {
+    "backend": "kokoro",
+    "voice": "am_liam",
+    "polish": true,
+    "gap": 0.3
+  },
+  "scenes": [
+    {
+      "id": "01_hook",
+      "narration": "Ever notice attractive people seem more trustworthy before they even speak?",
+      "min_dur": 4.2,
+      "props": [
+        {
+          "type": "icon",
+          "id": "warning",
+          "name": "warning",
+          "color": "#ff5d5d",
+          "r": 0.16,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "point_up",
+              "scale": 0.0,
+              "alpha": 0
+            },
+            {
+              "t": 0.18,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "point_up",
+              "scale": 0.22,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "point_up",
+              "scale": 0.22,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "02_promise",
+      "narration": "That's not your imagination, it's one impression secretly rating everything else about them.",
+      "min_dur": 4.2,
+      "props": [
+        {
+          "type": "icon",
+          "id": "brain",
+          "name": "brain",
+          "color": "#1f9bff",
+          "r": 0.16,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "surprised",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "reach",
+              "scale": 0.0,
+              "alpha": 0
+            },
+            {
+              "t": 0.18,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "reach",
+              "scale": 0.22,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "reach",
+              "scale": 0.22,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "03_name",
+      "narration": "Psychologists call it the Halo Effect.",
+      "min_dur": 3.8,
+      "props": [
+        {
+          "type": "icon",
+          "id": "lightbulb",
+          "name": "lightbulb",
+          "color": "#ffb454",
+          "r": 0.16,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "think",
+              "scale": 0.0,
+              "alpha": 0
+            },
+            {
+              "t": 0.18,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "think",
+              "scale": 0.22,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "think",
+              "scale": 0.22,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "04_explain1",
+      "narration": "The moment your brain decides someone looks good, it assumes they're also smart, kind, and honest.",
+      "min_dur": 4.6,
+      "props": [
+        {
+          "type": "icon",
+          "id": "warning",
+          "name": "warning",
+          "color": "#23b26d",
+          "r": 0.16,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.22
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "think",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "shrug",
+              "scale": 0.0,
+              "alpha": 0
+            },
+            {
+              "t": 0.18,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "shrug",
+              "scale": 0.22,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "shrug",
+              "scale": 0.22,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "05_explain2",
+      "narration": "Teachers grade them easier, juries trust them more, bosses promote them faster, all from one snap judgment.",
+      "min_dur": 4.6,
+      "props": [
+        {
+          "type": "object",
+          "id": "table",
+          "name": "table",
+          "size": 0.44,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.5,
+                0.3
+              ],
+              "scale": 0.7,
+              "alpha": 0
+            },
+            {
+              "t": 0.18,
+              "pos": [
+                0.5,
+                0.3
+              ],
+              "scale": 1.05,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.3
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.3
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "id": "laptop",
+          "name": "laptop",
+          "size": 0.27,
+          "keys": [
+            {
+              "t": 0.1,
+              "pos": [
+                0.3,
+                0.18
+              ],
+              "scale": 0.7,
+              "alpha": 0
+            },
+            {
+              "t": 0.28,
+              "pos": [
+                0.3,
+                0.18
+              ],
+              "scale": 1.05,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.65,
+              "pos": [
+                0.3,
+                0.18
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.3,
+                0.18
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "id": "books",
+          "name": "books",
+          "size": 0.27,
+          "keys": [
+            {
+              "t": 0.15,
+              "pos": [
+                0.7,
+                0.18
+              ],
+              "scale": 0.7,
+              "alpha": 0
+            },
+            {
+              "t": 0.33,
+              "pos": [
+                0.7,
+                0.18
+              ],
+              "scale": 1.05,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.7,
+              "pos": [
+                0.7,
+                0.18
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.7,
+                0.18
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "think",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "wave",
+              "scale": 0.0,
+              "alpha": 0
+            },
+            {
+              "t": 0.18,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "wave",
+              "scale": 0.22,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "wave",
+              "scale": 0.22,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "06_cta",
+      "narration": "Have you ever judged someone's character just from how they looked? Comment below, like this video, and subscribe to Inklings for more daily psychology in under a minute.",
+      "min_dur": 4.8,
+      "props": [
+        {
+          "type": "icon",
+          "id": "thumbs_up",
+          "name": "thumbs_up",
+          "color": "#23b26d",
+          "r": 0.15,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.36,
+                0.22
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.36,
+                0.22
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.36,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.36,
+                0.22
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "icon",
+          "id": "bell",
+          "name": "bell",
+          "color": "#ffb454",
+          "r": 0.15,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.64,
+                0.22
+              ],
+              "scale": 0.6,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.64,
+                0.22
+              ],
+              "scale": 1.08,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.64,
+                0.22
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.64,
+                0.22
+              ],
+              "scale": 1.04,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "think",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "point_up",
+              "scale": 0.0,
+              "alpha": 0
+            },
+            {
+              "t": 0.18,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "point_up",
+              "scale": 0.22,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.26,
+                0.83
+              ],
+              "pose": "point_up",
+              "scale": 0.22,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "format": "kinetic-typography+scenery",
+    "topic": "halo_effect",
+    "tags": [
+      "halo effect",
+      "cognitive bias",
+      "first impressions",
+      "attractiveness bias",
+      "psychology facts",
+      "shorts",
+      "Inklings"
+    ],
+    "hashtags": [
+      "#shorts",
+      "#psychology",
+      "#haloeffect",
+      "#inklings"
+    ],
+    "comment_prompt": "Have you ever judged someone's character just from how they looked?"
+  }
+}

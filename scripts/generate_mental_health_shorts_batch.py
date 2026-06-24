@@ -20,10 +20,14 @@ Run:    python scripts/generate_mental_health_shorts_batch.py
 Render: python -m faceless build stories/<name>.json --formats 9:16
 """
 import json
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "stories"
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from direction import infer_face  # noqa: E402
 
 PALETTE = ["#ff5d5d", "#1f9bff", "#ffb454", "#23b26d", "#a463f2"]
 
@@ -107,8 +111,29 @@ def obj_prop(name, pos, size, color=None, t0=0.0):
     return d
 
 
-def scene(sid, narration, props=None, min_dur=3.2):
-    return {"id": sid, "narration": narration, "min_dur": min_dur, "props": props or []}
+def scene(sid, narration, props=None, min_dur=3.2, actors=None):
+    return {"id": sid, "narration": narration, "min_dur": min_dur,
+            "props": props or [], "actors": actors or []}
+
+
+# A small expressive "narrator" character that reacts to each line - gives the
+# kinetic-typography Shorts a someone-is-telling-you-this storytelling feel.
+NARR_POS = [0.26, 0.83]
+NARR_POSES = ["point_up", "reach", "think", "shrug", "wave"]
+
+
+def narrator(narration, k, mood="think"):
+    pose = NARR_POSES[k % len(NARR_POSES)]
+    face = infer_face(narration, default=mood)
+
+    def kf(t, scale, alpha, ease=None):
+        d = {"t": round(t, 3), "pos": NARR_POS, "pose": pose, "scale": scale, "alpha": alpha}
+        if ease:
+            d["ease"] = ease
+        return d
+
+    return {"type": "figure", "id": "narrator", "color": "ink", "face": face,
+            "keys": [kf(0, 0.0, 0), kf(0.18, 0.22, 1, "pop"), kf(1.0, 0.22, 1)]}
 
 
 ICON_POS = [0.5, 0.24]
@@ -126,19 +151,22 @@ def item_scene(n, icon_name, narration, color, scenery_names=None):
         ]
     else:
         props = [icon_prop(icon_name, ICON_POS, 0.16, color), num_label(n, NUM_POS, color)]
-    return scene(f"{n+1:02d}_item{n}", narration, props, min_dur=3.6)
+    return scene(f"{n+1:02d}_item{n}", narration, props, min_dur=3.6,
+                 actors=[narrator(narration, n)])
 
 
 def build(slug, title, style, hook, intro_icon, items, cta_icon, cta_line, topic):
     intro_color = items[0][1]
+    intro_text = title_intro(title)
     scenes = [
-        scene("01_intro", title_intro(title), [thumb_icon(intro_icon, ICON_POS, 0.16, intro_color)],
-              min_dur=3.4),
+        scene("01_intro", intro_text, [thumb_icon(intro_icon, ICON_POS, 0.16, intro_color)],
+              min_dur=3.4, actors=[narrator(intro_text, 0, mood="surprised")]),
     ]
     for i, (icon_name, color, line, *rest) in enumerate(items, start=1):
         scenery_names = rest[0] if rest else None
         scenes.append(item_scene(i, icon_name, line, color, scenery_names))
-    scenes.append(scene("07_cta", cta_line, [icon_prop(cta_icon, ICON_POS, 0.16, "#23b26d")], min_dur=3.8))
+    scenes.append(scene("07_cta", cta_line, [icon_prop(cta_icon, ICON_POS, 0.16, "#23b26d")],
+                        min_dur=3.8, actors=[narrator(cta_line, 4, mood="happy")]))
     return {
         "title": title,
         "handle": "@Inklings1",

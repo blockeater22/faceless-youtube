@@ -14,10 +14,14 @@ Run:    python scripts/generate_psych_shorts_batch.py
 Render: python -m faceless build stories/<name>.json --formats 9:16
 """
 import json
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "stories"
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from direction import infer_face  # noqa: E402
 
 PALETTE = ["#ff5d5d", "#1f9bff", "#ffb454", "#23b26d", "#a463f2"]
 
@@ -70,8 +74,40 @@ def obj_prop(name, pos, size, color=None, t0=0.0):
     return d
 
 
+# A small expressive "narrator" that reacts to each line, so these kinetic-text
+# Shorts feel like someone is telling the story rather than just floating words.
+NARR_POS = [0.26, 0.83]
+NARR_POSES = ["point_up", "reach", "think", "shrug", "wave"]
+_SCENE_K = [0]
+
+
+def narrator(narration, k, mood="think"):
+    pose = NARR_POSES[k % len(NARR_POSES)]
+    face = infer_face(narration, default=mood)
+
+    def kf(t, scale, alpha, ease=None):
+        d = {"t": round(t, 3), "pos": NARR_POS, "pose": pose, "scale": scale, "alpha": alpha}
+        if ease:
+            d["ease"] = ease
+        return d
+
+    return {"type": "figure", "id": "narrator", "color": "ink", "face": face,
+            "keys": [kf(0, 0.0, 0), kf(0.18, 0.22, 1, "pop"), kf(1.0, 0.22, 1)]}
+
+
+def _mood_for(sid):
+    if "hook" in sid:
+        return "surprised"
+    if "cta" in sid:
+        return "happy"
+    return "think"
+
+
 def scene(sid, narration, props=None, min_dur=3.2):
-    return {"id": sid, "narration": narration, "min_dur": min_dur, "props": props or []}
+    k = _SCENE_K[0]
+    _SCENE_K[0] += 1
+    return {"id": sid, "narration": narration, "min_dur": min_dur,
+            "props": props or [], "actors": [narrator(narration, k, _mood_for(sid))]}
 
 
 def build(slug, title, scenes, topic):

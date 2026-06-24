@@ -13,4 +13,9 @@ gTTS>=2.5
 google-genai>=0.3        # https://aistudio.google.com/apikey -> GEMINI_API_KEY
 # AI-image visual style (autopilot/images.py) uses only the stdlib + Pillow for
 # Pollinations (no key). Kokoro neural voice (am_liam, ...): pip install kokoro-onnx
+certifi>=2024.0          # SSL roots for image providers on macOS python.org builds
 #   then run scripts/setup_kokoro.sh to fetch the model + voices.
+
+# Local browser UI:
+fastapi>=0.115
+uvicorn>=0.30

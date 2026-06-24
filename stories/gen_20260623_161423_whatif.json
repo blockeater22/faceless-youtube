@@ -1,0 +1,884 @@
+{
+  "title": "What if your phone told the truth?",
+  "handle": "@MindSpark",
+  "hook": "What if your phone told the truth",
+  "hook_dur": 2.0,
+  "meta": {
+    "playlist": "What If\u2026",
+    "kind": "whatif",
+    "auto": true,
+    "channel": "mindspark"
+  },
+  "style": {
+    "background": "#101418",
+    "ink": "#f4f7fa",
+    "accent": "#34d3c0",
+    "muted": "#5e6b78",
+    "fps": 24,
+    "wobble": 1.9,
+    "grain": 0.045,
+    "vignette": 0.55,
+    "caption": {
+      "size": 0.05,
+      "color": "#ffffff"
+    },
+    "logo": "branding/watermark.png",
+    "logo_pos": "tl",
+    "logo_scale": 0.1,
+    "logo_opacity": 0.72,
+    "scenery": false
+  },
+  "voice": {
+    "backend": "kokoro",
+    "kokoro_voice": "am_michael",
+    "kokoro_speed": 1.0,
+    "piper_model": "voices/en_US-ryan-high.onnx",
+    "piper_length": 1.1,
+    "voice": "cmu_us_slt_arctic_hts",
+    "rate": 135,
+    "polish": true,
+    "gap": 0.0
+  },
+  "scenes": [
+    {
+      "id": "00_hook",
+      "narration": "What if your phone told the truth?",
+      "min_dur": 2.4,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.438,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.438,
+              "alpha": 1
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.438,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.438,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "label",
+          "id": "q",
+          "text": "?",
+          "color": "accent",
+          "size": 0.16,
+          "keys": [
+            {
+              "t": 0.35,
+              "pos": [
+                0.66,
+                0.31
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.66,
+                0.29
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.66,
+                0.29
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        }
+      ]
+    },
+    {
+      "id": "01_solo",
+      "narration": "Sit with that for a second. What if your phone told the truth.",
+      "min_dur": 3.0,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "think",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.438,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.438,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.438,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "02_solo",
+      "narration": "It sounds small. But follow it, and it changes how today feels.",
+      "min_dur": 3.0,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "stand",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.438,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.438,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.438,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "03_crowd",
+      "narration": "We move through our days mostly on autopilot, barely noticing.",
+      "min_dur": 3.0,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "m0",
+          "color": "ink",
+          "face": "dots",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.15,
+                0.5
+              ],
+              "pose": "wave",
+              "scale": 0.1898,
+              "alpha": 0
+            },
+            {
+              "t": 0.05,
+              "pos": [
+                0.15,
+                0.5
+              ],
+              "pose": "stand",
+              "scale": 0.1898,
+              "alpha": 0
+            },
+            {
+              "t": 0.17,
+              "pos": [
+                0.15,
+                0.5
+              ],
+              "pose": "wave",
+              "scale": 0.1898,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.15,
+                0.5
+              ],
+              "pose": "wave",
+              "scale": 0.1898,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "m1",
+          "color": "muted",
+          "face": "dots",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.33,
+                0.42
+              ],
+              "pose": "celebrate",
+              "scale": 0.1898,
+              "alpha": 0
+            },
+            {
+              "t": 0.12,
+              "pos": [
+                0.33,
+                0.42
+              ],
+              "pose": "stand",
+              "scale": 0.1898,
+              "alpha": 0
+            },
+            {
+              "t": 0.24,
+              "pos": [
+                0.33,
+                0.42
+              ],
+              "pose": "celebrate",
+              "scale": 0.1898,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.33,
+                0.42
+              ],
+              "pose": "celebrate",
+              "scale": 0.1898,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "m2",
+          "color": "ink",
+          "face": "dots",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.56
+              ],
+              "pose": "point_up",
+              "scale": 0.1898,
+              "alpha": 0
+            },
+            {
+              "t": 0.19,
+              "pos": [
+                0.5,
+                0.56
+              ],
+              "pose": "stand",
+              "scale": 0.1898,
+              "alpha": 0
+            },
+            {
+              "t": 0.31,
+              "pos": [
+                0.5,
+                0.56
+              ],
+              "pose": "point_up",
+              "scale": 0.1898,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.56
+              ],
+              "pose": "point_up",
+              "scale": 0.1898,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "m3",
+          "color": "muted",
+          "face": "dots",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.67,
+                0.42
+              ],
+              "pose": "shrug",
+              "scale": 0.1898,
+              "alpha": 0
+            },
+            {
+              "t": 0.26,
+              "pos": [
+                0.67,
+                0.42
+              ],
+              "pose": "stand",
+              "scale": 0.1898,
+              "alpha": 0
+            },
+            {
+              "t": 0.38,
+              "pos": [
+                0.67,
+                0.42
+              ],
+              "pose": "shrug",
+              "scale": 0.1898,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.67,
+                0.42
+              ],
+              "pose": "shrug",
+              "scale": 0.1898,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "m4",
+          "color": "ink",
+          "face": "dots",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.85,
+                0.5
+              ],
+              "pose": "wave",
+              "scale": 0.1898,
+              "alpha": 0
+            },
+            {
+              "t": 0.33,
+              "pos": [
+                0.85,
+                0.5
+              ],
+              "pose": "stand",
+              "scale": 0.1898,
+              "alpha": 0
+            },
+            {
+              "t": 0.45,
+              "pos": [
+                0.85,
+                0.5
+              ],
+              "pose": "wave",
+              "scale": 0.1898,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.85,
+                0.5
+              ],
+              "pose": "wave",
+              "scale": 0.1898,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "m5",
+          "color": "muted",
+          "face": "dots",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.36
+              ],
+              "pose": "stand",
+              "scale": 0.1898,
+              "alpha": 0
+            },
+            {
+              "t": 0.4,
+              "pos": [
+                0.5,
+                0.36
+              ],
+              "pose": "stand",
+              "scale": 0.1898,
+              "alpha": 0
+            },
+            {
+              "t": 0.52,
+              "pos": [
+                0.5,
+                0.36
+              ],
+              "pose": "stand",
+              "scale": 0.1898,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.36
+              ],
+              "pose": "stand",
+              "scale": 0.1898,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "04_solo",
+      "narration": "And the quiet truths are the ones we skip right past.",
+      "min_dur": 3.0,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "stand",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.438,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.438,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.438,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "05_two",
+      "narration": "Think of someone close to you. Picture them clearly.",
+      "min_dur": 3.0,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "a",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3942,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3942,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3942,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "b",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3942,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3942,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3942,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "06_solo",
+      "narration": "Now think of how rarely you really stop and look.",
+      "min_dur": 3.0,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "sad",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.438,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.438,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.438,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "07_walk",
+      "narration": "Time keeps moving whether or not you're paying attention.",
+      "min_dur": 3.0,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.3,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.438,
+              "alpha": 0
+            },
+            {
+              "t": 0.12,
+              "pos": [
+                0.3,
+                0.62
+              ],
+              "pose": "walk_a",
+              "scale": 0.438,
+              "alpha": 1
+            },
+            {
+              "t": 0.276,
+              "pos": [
+                0.38,
+                0.62
+              ],
+              "pose": "walk_a",
+              "scale": 0.438,
+              "alpha": 1
+            },
+            {
+              "t": 0.432,
+              "pos": [
+                0.45999999999999996,
+                0.62
+              ],
+              "pose": "walk_b",
+              "scale": 0.438,
+              "alpha": 1
+            },
+            {
+              "t": 0.588,
+              "pos": [
+                0.54,
+                0.62
+              ],
+              "pose": "walk_a",
+              "scale": 0.438,
+              "alpha": 1
+            },
+            {
+              "t": 0.744,
+              "pos": [
+                0.6199999999999999,
+                0.62
+              ],
+              "pose": "walk_b",
+              "scale": 0.438,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.7,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.438,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "08_cta",
+      "narration": "What did this stir up for you? Tell me below \u2014 and subscribe for more quiet thoughts like this.",
+      "min_dur": 3.0,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.438,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.438,
+              "alpha": 1
+            },
+            {
+              "t": 0.56,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.438,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.438,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "label",
+          "id": "m",
+          "text": "+",
+          "color": "accent",
+          "size": 0.08,
+          "keys": [
+            {
+              "t": 0.45,
+              "pos": [
+                0.68,
+                0.38
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.65,
+              "pos": [
+                0.68,
+                0.36
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.68,
+                0.36
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        }
+      ]
+    }
+  ]
+}

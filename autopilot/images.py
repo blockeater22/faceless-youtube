@@ -5,8 +5,7 @@ Three providers, in order of zero-friction:
         FLUX under the hood. https://image.pollinations.ai/prompt/<prompt>
   - "cloudflare": Cloudflare Workers AI (generous free tier ~10k neurons/day).
         Needs CF_ACCOUNT_ID + CF_API_TOKEN. Model flux-1-schnell.
-  - "huggingface": HF Serverless Inference API. Needs HF_TOKEN. Rate-limited but
-        free.
+  - "huggingface": HF Inference via router.huggingface.co. Needs HF_TOKEN (Inference Providers permission).
 
 Every provider returns a PNG written to `out_path`. A consistent STYLE_SUFFIX is
 appended to each prompt so frames across one video share a look (this is the
@@ -15,10 +14,14 @@ single biggest lever for a slideshow not feeling random).
 from __future__ import annotations
 
 import os
+import ssl
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from pathlib import Path
+
+from autopilot import hf_rate_limit
 
 # Appended to every prompt so a whole video reads as one coherent set of frames.
 # Override per channel via config["image_style"].
@@ -27,7 +30,24 @@ STYLE_SUFFIX = (
     "shallow depth of field, film grain, highly detailed, 4k, no text, no watermark"
 )
 
+# Hugging Face retired api-inference.huggingface.co (DNS gone / 410). Use Inference Providers router.
+HF_INFERENCE_BASE = "https://router.huggingface.co/hf-inference"
+
 _UA = {"User-Agent": "faceless-youtube/1.0 (+https://github.com)"}
+
+
+def _ssl_context() -> ssl.SSLContext:
+    """CA bundle for macOS / python.org builds missing system certs."""
+    try:
+        import certifi
+
+        return ssl.create_default_context(cafile=certifi.where())
+    except ImportError:
+        return ssl.create_default_context()
+
+
+def _urlopen(req: urllib.request.Request, timeout: int = 180):
+    return urllib.request.urlopen(req, timeout=timeout, context=_ssl_context())
 
 
 def build_prompt(scene_prompt: str, style: str | None = None) -> str:
@@ -38,7 +58,8 @@ def build_prompt(scene_prompt: str, style: str | None = None) -> str:
 def generate_image(scene_prompt: str, out_path: str | Path, *, width: int = 1280,
                    height: int = 720, provider: str = "pollinations",
                    style: str | None = None, seed: int | None = None,
-                   model: str | None = None, retries: int = 3) -> Path:
+                   model: str | None = None, retries: int = 3,
+                   fallback: bool = True) -> Path:
     """Generate one image to `out_path`. Falls back to a solid card on failure so
     a render never dies for one bad frame."""
     out_path = Path(out_path)
@@ -61,8 +82,10 @@ def generate_image(scene_prompt: str, out_path: str | Path, *, width: int = 1280
         except Exception as exc:  # noqa: BLE001
             last_exc = exc
             time.sleep(2 * (attempt + 1))  # backoff; pollinations queues under load
+    if not fallback:
+        raise RuntimeError(f"{provider} image generation failed: {last_exc}")
     print(f"  [images] '{provider}' failed ({last_exc}); using a fallback card")
-    _fallback_card(out_path, width, height, scene_prompt)
+    fallback_card(out_path, width, height, scene_prompt)
     return out_path
 
 
@@ -71,12 +94,18 @@ def generate_image(scene_prompt: str, out_path: str | Path, *, width: int = 1280
 # --------------------------------------------------------------------------- #
 def _pollinations(prompt: str, out: Path, w: int, h: int, seed, model) -> None:
     enc = urllib.parse.quote(prompt)
-    params = {"width": w, "height": h, "nologo": "true", "model": model or "flux"}
+    params = {
+        "width": w,
+        "height": h,
+        "nologo": "true",
+        "private": "true",
+        "model": model or "flux",
+    }
     if seed is not None:
         params["seed"] = int(seed)
     url = f"https://image.pollinations.ai/prompt/{enc}?" + urllib.parse.urlencode(params)
     req = urllib.request.Request(url, headers=_UA)
-    with urllib.request.urlopen(req, timeout=180) as r, open(out, "wb") as f:
+    with _urlopen(req, timeout=180) as r, open(out, "wb") as f:
         f.write(r.read())
 
 
@@ -93,7 +122,7 @@ def _cloudflare(prompt: str, out: Path, w: int, h: int, model) -> None:
     req = urllib.request.Request(url, data=body, method="POST",
                                  headers={"Authorization": f"Bearer {token}",
                                           "Content-Type": "application/json", **_UA})
-    with urllib.request.urlopen(req, timeout=180) as r:
+    with _urlopen(req, timeout=180) as r:
         data = json.loads(r.read())
     # flux-schnell returns base64 JPEG in result.image
     b64 = (data.get("result") or {}).get("image")
@@ -104,20 +133,69 @@ def _cloudflare(prompt: str, out: Path, w: int, h: int, model) -> None:
 
 def _huggingface(prompt: str, out: Path, model) -> None:
     import json
+
     token = os.environ.get("HF_TOKEN") or os.environ.get("HUGGINGFACE_TOKEN")
     if not token:
         raise RuntimeError("set HF_TOKEN for the Hugging Face Inference API")
+    if not hf_rate_limit.is_available():
+        raise RuntimeError("huggingface credits or quota exhausted for this session")
+
     model = model or "black-forest-labs/FLUX.1-schnell"
-    url = f"https://api-inference.huggingface.co/models/{model}"
+    url = f"{HF_INFERENCE_BASE}/models/{model}"
     body = json.dumps({"inputs": prompt}).encode()
-    req = urllib.request.Request(url, data=body, method="POST",
-                                 headers={"Authorization": f"Bearer {token}",
-                                          "Content-Type": "application/json", **_UA})
-    with urllib.request.urlopen(req, timeout=180) as r:
-        out.write_bytes(r.read())  # raw image bytes
+    last_exc: Exception | None = None
+
+    for attempt in range(hf_rate_limit.max_retries()):
+        hf_rate_limit.wait_before_request()
+        req = urllib.request.Request(
+            url,
+            data=body,
+            method="POST",
+            headers={
+                "Authorization": f"Bearer {token}",
+                "Content-Type": "application/json",
+                **_UA,
+            },
+        )
+        try:
+            with _urlopen(req, timeout=180) as r:
+                out.write_bytes(r.read())
+            return
+        except urllib.error.HTTPError as exc:
+            err_body = exc.read().decode("utf-8", errors="replace")
+            if hf_rate_limit.looks_like_quota_error(exc.code, err_body):
+                hf_rate_limit.mark_quota_exhausted()
+                raise RuntimeError(
+                    "huggingface monthly credits or quota exhausted; use Auto or Pollinations"
+                ) from exc
+            if exc.code == 429:
+                wait = hf_rate_limit.parse_reset_seconds(exc.headers) or min(
+                    15 * (attempt + 1), hf_rate_limit.max_retry_wait_sec()
+                )
+                wait = min(wait, hf_rate_limit.max_retry_wait_sec())
+                print(f"  [images] HF rate limited (429), waiting {wait:.0f}s before retry")
+                hf_rate_limit.schedule_cooldown(wait)
+                last_exc = exc
+                continue
+            loading_wait = hf_rate_limit.looks_like_model_loading(exc.code, err_body)
+            if loading_wait is not None:
+                print(f"  [images] HF model loading (~{loading_wait:.0f}s), waiting …")
+                hf_rate_limit.schedule_cooldown(loading_wait)
+                last_exc = exc
+                continue
+            raise RuntimeError(
+                f"huggingface HTTP {exc.code}: {err_body[:240]}"
+            ) from exc
+        except Exception as exc:  # noqa: BLE001
+            last_exc = exc
+            if attempt + 1 >= hf_rate_limit.max_retries():
+                break
+            time.sleep(min(2 * (attempt + 1), 10))
+
+    raise RuntimeError(f"huggingface image generation failed: {last_exc}")
 
 
-def _fallback_card(out: Path, w: int, h: int, text: str) -> None:
+def fallback_card(out: Path, w: int, h: int, text: str) -> None:
     """A dark gradient card with the prompt — keeps the video intact offline."""
     from PIL import Image, ImageDraw
     img = Image.new("RGB", (w, h), (14, 19, 32))

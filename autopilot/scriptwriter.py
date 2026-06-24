@@ -19,6 +19,8 @@ from __future__ import annotations
 import json
 import os
 
+from autopilot import gemini_pool
+
 ALLOWED_TEMPLATES = [
     "hook", "solo", "two", "crowd", "walk", "stars",
     "celebrate", "split", "label_above", "point", "compare", "chapter", "cta",
@@ -31,6 +33,7 @@ SCHEMA = {
     "properties": {
         "title": {"type": "string"},
         "hook": {"type": "string"},
+        "thumbnail_text": {"type": "string"},
         "beats": {
             "type": "array",
             "items": {
@@ -50,6 +53,13 @@ SCHEMA = {
                     "faceA": {"type": "string"},
                     "faceB": {"type": "string"},
                     "colorB": {"type": "string"},
+                    "image_prompt": {"type": "string"},
+                    "negative_prompt": {"type": "string"},
+                    "visual_style": {"type": "string"},
+                    "visual_effect": {"type": "string"},
+                    "scene_type": {"type": "string"},
+                    "duration_hint": {"type": "number"},
+                    "caption_emphasis": {"type": "string"},
                 },
                 "required": ["template", "narration"],
                 "additionalProperties": False,
@@ -60,19 +70,87 @@ SCHEMA = {
     "additionalProperties": False,
 }
 
-SYSTEM = """You write scripts for "Inklings" — a YouTube channel of hand-drawn, \
-black-background stick-figure videos about the mind, meaning, time, and the quietly \
-mind-bending. The voice is calm, warm, and emotionally resonant; second person; plain \
-language; short sentences that each land on their own. No emojis, no hashtags, no stage \
-directions inside the narration.
+DEFAULT_PERSONA = (
+    "Inklings — hand-drawn, black-background stick-figure videos about the mind, meaning, "
+    "time, and the quietly mind-bending. The voice is calm, warm, and emotionally resonant; "
+    "second person; plain language; short sentences that each land on their own."
+)
 
-You output a single JSON object: {title, hook, beats}.
+# Retention craft distilled from how top faceless/stick-figure channels open and hold
+# viewers (front-loaded hooks, open loops, pattern interrupts, mid-roll engagement).
+RETENTION_BLOCK = """RETENTION — write for the first 30 seconds and for watch-time:
+- The `hook` beat must create instant tension or curiosity in the first 1-3 seconds: a bold \
+claim, a vivid question, a stake, or a result. Never open with "Hey", a greeting, channel \
+branding, or slow setup. Lead with the most interesting idea, not the context.
+- Use a proven hook shape: forbidden truth ("No one tells you this..."), personal stake \
+("This is why you keep..."), impossible contrast ("The laziest habit that..."), or visible \
+object mystery ("Your phone is training you to..."). The first line must feel like a secret \
+the viewer cannot skip.
+- Beat 2-3 must pay a tiny bit of that curiosity off AND open a bigger loop (promise what's \
+coming) so they stay: e.g. "But the strange part comes later."
+- Include 3-5 DISTINCT curiosity hooks across the whole video (a fresh loop roughly every \
+20-30 seconds, or for shorts every 2-3 beats): re-hook lines like "Here's where it gets \
+weird", "But there's a catch", "Now watch what happens". Never let curiosity flatline.
+- Keep an open loop running at all times — answer one question while raising the next.
+- Keep each beat SHORT so a new visual lands roughly every 2-3 seconds: one short sentence \
+per beat is ideal; avoid long paragraphs in a single beat.
+- Use pattern interrupts every 1-2 beats: switch template (solo -> two -> crowd -> stars), \
+change scale, set a different `face`/`pose`, or drop a `text`/`icon` to make the visuals pop.
+- DYNAMIC PROPS: Use `icon` AND `text` heavily! Whenever a beat makes a point, set `text` to \
+the 1-2 most important words of that line so they pop up on screen. Or set `icon` to illustrate \
+the concept. The screen should feel busy and animated.
+- MOTIVATED COLOR/LIGHT: When an object emits or implies energy, set `visual_effect` to \
+`glow`, `rays`, or `burst`. Example: phone -> `icon: phone`, `visual_effect: rays` so the \
+screen light can reflect toward the face; realization -> bulb + glow; emotional warmth -> \
+heart + glow; important keyword -> text + burst. Use `rays` sparingly — only for phones, \
+bulbs, sun, or stars. Most beats should have NO visual_effect.
+- Vary sentence rhythm: short, short, longer, short. Each beat should make the next feel \
+inevitable. Cut filler words ruthlessly.
+- Around the emotional turn (roughly 60-75% through), plant ONE soft engagement nudge inside \
+the narration — invite a comment or reflection ("Tell me if you've felt this") — woven in, \
+not an ad break.
+- The final `cta` beat: land the emotional payoff, ask the viewer a warm specific question \
+(drives comments), then explicitly ask them to like, share, and subscribe. Example ending: \
+"If this helped, like, share it with someone who needs it, and subscribe for more." \
+Set `text` to the last punchy keyword (e.g. SUBSCRIBE) and `caption_emphasis` to include \
+that word so it pops when spoken. Keep it human, never salesy."""
+
+
+def build_system(persona: str | None = None, cta_style: str = "warm") -> str:
+    persona = (persona or DEFAULT_PERSONA).strip()
+    tone = {
+        "energetic": "Punchy and motivating; keep momentum high.",
+        "calm": "Slow, soothing, lots of breathing room.",
+        "warm": "Warm, intimate, emotionally resonant.",
+    }.get(cta_style, "Warm, intimate, emotionally resonant.")
+    return _SYSTEM_TEMPLATE.format(persona=persona, tone=tone, retention=RETENTION_BLOCK) + _SYSTEM_BODY
+
+
+# Back-compat default used by older callers/tests.
+SYSTEM = None  # set after _SYSTEM_BODY is defined
+
+
+_SYSTEM_TEMPLATE = """You write scripts for this YouTube channel:
+{persona}
+
+Channel tone: {tone}
+Always: second person; plain language; no emojis, no hashtags, no stage directions inside \
+the narration.
+
+{retention}
+
+You output a single JSON object: {{title, hook, beats}}.
 - title: one clickable line (curiosity or emotion), ideally under 60 characters.
 - hook: a 3-6 word on-screen teaser (it will be shown in capitals at the very start).
+- thumbnail_text: 2-5 words MAX for the YouTube thumbnail — ALL CAPS curiosity gap \
+(e.g. "AI OWNS YOUR DREAMS", "STOP DOOMSCROLLING"). Must be different from the title; \
+punchy, mobile-readable, no punctuation clutter.
 - beats: an ordered list of beats — YOU pick the length that best fits the topic and what's \
 trending: a tight, punchy piece (~26-38 beats, ~3-5 min) for high-curiosity hooks, or a fuller \
 piece (~46-58 beats, ~6-8 min) for rich, emotional, or how-to topics. Each beat is ONE or TWO spoken sentences \
-(the `narration`) plus a `template` that controls the visuals.
+(the `narration`) plus a `template` that controls stick visuals."""
+
+_SYSTEM_BODY = """
 
 Templates (use a varied rhythm; most beats are "solo"):
 - hook: the very FIRST beat — a punchy opening line.
@@ -91,9 +169,20 @@ Templates (use a varied rhythm; most beats are "solo"):
 Use chapter cards ONLY for how-to / list videos to mark each step.
 - cta: the very LAST beat — ask the viewer a warm question, then a soft nudge to subscribe.
 
-Optional per-beat fields: `pose` (one of: stand, think, look_up, point_up, reach, wave, \
-shrug, celebrate) and `face` (one of: neutral, happy, sad, surprised) — choose them to \
-match the emotion of the line. For `point` you may set `dir` to "l" or "r".
+Optional per-beat fields:
+- `pose` (stand, think, look_up, point_up, reach, wave, shrug, celebrate).
+- `face` (neutral, happy, sad, surprised).
+- `icon` (heart, speech, thought, cloud, rain, door, phone, sun, moon, star, clock, gift, spiral, bulb, eye).
+- `text` (a 1-3 word keyword to float on screen).
+- `visual_effect` (glow, rays, burst) to make the icon/keyword visually attractive.
+
+Hybrid AI-image fields are REQUIRED on every beat:
+- `image_prompt`: a cinematic image prompt that illustrates the narration without on-image text.
+- `negative_prompt`: what to avoid, especially text, logos, celebrity likenesses, gore, nudity, UI screenshots, watermarks.
+- `visual_style`: a short shared style phrase that keeps the whole video visually consistent.
+- `scene_type`: one of symbolic, environment, object, character, abstract, transition, cta.
+- `duration_hint`: estimated spoken duration in seconds for the beat.
+- `caption_emphasis`: 1-4 words from the narration that should feel important in captions.
 
 Rules: start with exactly one `hook` beat and end with exactly one `cta` beat. Keep \
 narration tight and specific; avoid clichés and filler. Do not number sentences except \
@@ -108,11 +197,16 @@ ILLUSTRATE every line — never just narrate over a standing figure:
 thought, cloud, rain, door, phone, sun, moon, star, clock, gift, spiral, bulb, eye \
 (heart=love/warmth, spiral=overthinking, door=a choice, phone=connection, bulb=a realization, \
 rain=sadness, star=wonder, clock=time, gift=giving, eye=noticing/being seen).
+- Every 2-3 beats, include one cinematic visual moment where color is motivated by the story: \
+screen glow, light rays, heat/warmth, pressure lines, thought cloud, or bright keyword burst.
 - Always give the figure a pose + face that matches the emotion. A neutral figure with no \
 icon and no second person should be rare."""
 
+SYSTEM = build_system()
 
-def _user_prompt(topic: dict, trends: list | None = None) -> str:
+
+def _user_prompt(topic: dict, trends: list | None = None,
+                 desired_length: str | None = None) -> str:
     kind = topic["kind"]
     extra = ""
     if kind == "howto":
@@ -136,69 +230,65 @@ def _user_prompt(topic: dict, trends: list | None = None) -> str:
         trend_block = ("\n\nWhat's getting views in this niche right now — use ONLY as "
                        "inspiration for angle, curiosity, and title energy; do NOT copy a "
                        f"title and do NOT drift off-brand:\n{joined}")
+    length = desired_length or topic.get("desired_length") or "auto"
+    length_block = (
+        "\nDesired length: "
+        f"{length}. Beats are SHORT now — each beat is ~3-4 seconds spoken (one short "
+        "sentence), so a new visual lands constantly. If this is `shorts`, use 7-10 beats "
+        "total (hook + body + cta), target under 55 seconds. If this is `3-5`, use 40-60 "
+        "beats. If this is `6-8`, use 70-100 beats. If it is a custom minute target, "
+        "estimate ~16-18 beats per minute and pick a beat count to match."
+    )
     return (f"Write the script.\nTopic / brief: {topic['brief']}\n"
             f"Playlist: {topic['playlist']}.{extra}{trend_block}\n"
-            "Choose the ideal length yourself (see the system instructions). "
+            f"{length_block}\n"
+            "Make image prompts concrete, coherent across scenes, and safe for YouTube. "
             "Return ONLY the JSON object.")
 
 
 def _gemini_key() -> str | None:
-    return os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
+    ks = gemini_pool.keys()
+    return ks[0].value if ks else None
 
 
-def _via_gemini(topic: dict, model: str | None = None, trends: list | None = None) -> dict:
+def _via_gemini(topic: dict, model: str | None = None, trends: list | None = None,
+                desired_length: str | None = None, job_id: str | None = None,
+                system: str | None = None) -> dict:
     """Generate the script with the Gemini API on a free key.
 
     Uses the unified `google-genai` SDK (`pip install google-genai`). Falls back
     to the legacy `google-generativeai` SDK if that's what's installed.
     """
-    key = _gemini_key()
-    if not key:
+    if not gemini_pool.has_key():
         raise RuntimeError("GEMINI_API_KEY not set (get a free key at "
                            "https://aistudio.google.com/apikey)")
-    # gemini-2.0-flash retired Mar 2026 -> default to 2.5-flash on the free tier.
-    name = model if (model and model.startswith("gemini")) else "gemini-2.5-flash"
-    prompt = _user_prompt(topic, trends)
-    try:  # preferred: new unified SDK
-        from google import genai  # type: ignore
-        from google.genai import types  # type: ignore
-        client = genai.Client(api_key=key)
-        resp = client.models.generate_content(
-            model=name,
-            contents=prompt,
-            config=types.GenerateContentConfig(
-                system_instruction=SYSTEM,
-                response_mime_type="application/json",
-                max_output_tokens=16000,
-                temperature=0.95,
-            ),
-        )
-        return json.loads(_extract_json(resp.text))
-    except ImportError:
-        pass
-    # legacy SDK fallback
-    try:
-        import google.generativeai as genai  # type: ignore
-    except ImportError as exc:
-        raise RuntimeError("install the Gemini SDK: `pip install google-genai`") from exc
-    genai.configure(api_key=key)
-    gmodel = genai.GenerativeModel(name, system_instruction=SYSTEM)
-    resp = gmodel.generate_content(
+    gemini_model = model if (model and str(model).startswith("gemini")) else None
+    if not gemini_model:
+        gemini_model = os.environ.get("GEMINI_MODEL") or None
+    if gemini_model == "gemini-auto":
+        gemini_model = None
+    prompt = _user_prompt(topic, trends, desired_length)
+    return gemini_pool.generate_json(
         prompt,
-        generation_config={"response_mime_type": "application/json",
-                           "max_output_tokens": 16000, "temperature": 0.95},
+        system_instruction=system or SYSTEM,
+        model=gemini_model,
+        temperature=0.72,
+        # Rich beat JSON (image prompts + visual effects) can exceed 16k tokens for
+        # long videos. Truncation is the main cause of "unbalanced JSON" failures.
+        max_output_tokens=32768,
+        job_id=job_id or topic.get("brief"),
     )
-    return json.loads(_extract_json(resp.text))
 
 
-def _via_claude(topic: dict, model: str, trends: list | None = None) -> dict:
+def _via_claude(topic: dict, model: str, trends: list | None = None,
+                desired_length: str | None = None, system: str | None = None) -> dict:
     import anthropic  # lazy import
     client = anthropic.Anthropic()  # reads ANTHROPIC_API_KEY
     resp = client.messages.create(
         model=model,
         max_tokens=16000,
-        system=SYSTEM,
-        messages=[{"role": "user", "content": _user_prompt(topic, trends)}],
+        system=system or SYSTEM,
+        messages=[{"role": "user", "content": _user_prompt(topic, trends, desired_length)}],
         output_config={"format": {"type": "json_schema", "schema": SCHEMA}},
     )
     text = next((b.text for b in resp.content if b.type == "text"), "")
@@ -228,7 +318,8 @@ def _extract_json(text: str) -> str:
     raise ValueError("unbalanced JSON in Claude Code output")
 
 
-def _via_claude_code(topic: dict, trends: list | None = None) -> dict:
+def _via_claude_code(topic: dict, trends: list | None = None,
+                     desired_length: str | None = None, system: str | None = None) -> dict:
     """Generate the script by running the Claude Code CLI headless, billed to a
     Claude Pro/Max subscription (CLAUDE_CODE_OAUTH_TOKEN). No metered API."""
     import shutil
@@ -236,7 +327,7 @@ def _via_claude_code(topic: dict, trends: list | None = None) -> dict:
     exe = shutil.which("claude")
     if not exe:
         raise RuntimeError("claude CLI not found (npm install -g @anthropic-ai/claude-code)")
-    prompt = (SYSTEM + "\n\n" + _user_prompt(topic, trends) +
+    prompt = ((system or SYSTEM) + "\n\n" + _user_prompt(topic, trends, desired_length) +
               "\n\nOutput ONLY the raw JSON object described above — no markdown "
               "fences, no commentary, no tool use.")
     proc = subprocess.run([exe, "-p", prompt], capture_output=True, text=True, timeout=900)
@@ -250,35 +341,93 @@ def _via_claude_code(topic: dict, trends: list | None = None) -> dict:
 # --------------------------------------------------------------------------- #
 def _offline(topic: dict) -> dict:
     brief = topic["brief"].rstrip("?.")
-    title = topic["brief"] if topic["brief"].endswith("?") else topic["brief"]
-    beats = [{"template": "hook", "narration": f"{brief}?", "face": "neutral"}]
+    short = " ".join(brief.split()[:9])
+    title = short if len(short) < 64 else short[:61] + "..."
+    beats = [{"template": "hook", "narration": f"What if {short.lower()} was already controlling you?",
+              "face": "surprised", "icon": "eye", "text": "LOOK CLOSER", "visual_effect": "burst"}]
     body = [
-        ("solo", f"Sit with that for a second. {brief}.", "think"),
-        ("solo", "It sounds small. But follow it, and it changes how today feels.", "stand"),
-        ("crowd", "We move through our days mostly on autopilot, barely noticing.", None),
-        ("solo", "And the quiet truths are the ones we skip right past.", "stand"),
-        ("two", "Think of someone close to you. Picture them clearly.", "stand"),
-        ("solo", "Now think of how rarely you really stop and look.", "sad"),
-        ("walk", "Time keeps moving whether or not you're paying attention.", "neutral"),
-        ("stars", "Zoom out far enough and the small worries go quiet.", None),
-        ("solo", "Zoom back in, and what's left is what actually matters.", "stand"),
-        ("split", "There's a version of you that already lives this way.", None),
-        ("solo", "Calmer. Kinder to themselves. More awake to the moment.", "neutral"),
-        ("celebrate", "And the gap between you and them is just a handful of choices.", None),
-        ("solo", "You don't have to fix everything tonight.", "stand"),
-        ("solo", "You just have to notice a little more than you did yesterday.", "stand"),
-        ("stars", "Because you only get so many ordinary days. And they're not ordinary at all.", None),
+        ("solo", f"Your brain filters reality before you even notice it.", "think", "eye", "FILTER", None),
+        ("solo", "That sounds small, until one hidden bias changes your whole day.", "stand", "spiral", "HIDDEN BIAS", "burst"),
+        ("crowd", "Everyone around you is walking through their own invisible filter.", None, "thought", "INVISIBLE", None),
+        ("solo", "Here is where it gets strange.", "surprised", "bulb", "STRANGE", "glow"),
+        ("two", "Two people can see the same moment and feel opposite truths.", "stand", "speech", "SAME MOMENT", "burst"),
+        ("solo", "Your phone does this too, by rewarding only the loudest signals.", "sad", "phone", "LOUD SIGNALS", "rays"),
+        ("walk", "So attention becomes a path you keep walking without choosing.", "neutral", "door", "ATTENTION", None),
+        ("stars", "But when you see the filter, you get a little space from it.", None, "star", "SPACE", None),
+        ("split", "One version of you reacts instantly.", None, "spiral", "REACT", "burst"),
+        ("solo", "Another version pauses long enough to ask one better question.", "think", "bulb", "PAUSE", "glow"),
+        ("celebrate", "That tiny pause is where better choices begin.", None, "gift", "CHOICE", None),
+        ("solo", "You do not need a perfect mind.", "stand", "heart", "GENTLE", None),
+        ("solo", "You just need to catch the pattern one second earlier.", "stand", "eye", "ONE SECOND", None),
+        ("stars", "Because seeing clearly is not magic. It is practice.", None, "star", "PRACTICE", None),
     ]
-    for tmpl, line, face in body * 2:  # repeat to reach a few minutes
+    for tmpl, line, face, icon, text, effect in body * 2:  # repeat to reach a few minutes
         beat = {"template": tmpl, "narration": line}
         if face:
             beat["face"] = face
+        beat["icon"] = icon
+        beat["text"] = text
+        if effect:
+            beat["visual_effect"] = effect
         beats.append(beat)
     beats.append({"template": "cta",
-                  "narration": "What did this stir up for you? Tell me below — "
-                               "and subscribe for more quiet thoughts like this.",
-                  "face": "happy"})
+                  "narration": "What did this stir up for you? Tell me below. "
+                               "If this helped, like, share, and subscribe for more.",
+                  "face": "happy", "icon": "heart", "text": "SUBSCRIBE",
+                  "caption_emphasis": "subscribe, share, like", "visual_effect": "burst"})
     return {"title": title, "hook": brief[:34], "beats": beats}
+
+
+def _default_image_prompt(narration: str, title: str) -> str:
+    line = narration.strip().rstrip(".")
+    return (
+        "Cinematic symbolic scene for a faceless reflective YouTube video, "
+        f"illustrating: {line}. Recurring lonely stick-figure silhouette, dark "
+        f"minimal world, topic mood from title: {title}. No text in image."
+    )
+
+
+def _min_beats(desired_length: str | None) -> int:
+    length = (desired_length or "auto").lower()
+    if length == "shorts":
+        return 7
+    if length == "3-5":
+        return 28
+    if length == "6-8":
+        return 50
+    if length.startswith("about"):
+        try:
+            mins = float(length.split()[1])
+            return max(7, int(mins * 14))
+        except (ValueError, IndexError):
+            pass
+    return 20
+
+
+def _validate_script_length(script: dict, desired_length: str | None) -> None:
+    n = len(script.get("beats", []))
+    need = _min_beats(desired_length)
+    if n < need:
+        raise ValueError(f"script too short ({n} beats, need ~{need} for {desired_length or 'auto'})")
+
+
+def _enforce_cta(beat: dict) -> dict:
+    if beat.get("template") != "cta":
+        return beat
+    narr = beat.get("narration", "")
+    lower = narr.lower()
+    if "like" not in lower or "subscribe" not in lower:
+        narr = narr.rstrip(".")
+        narr += ". If this helped you, hit like, share it with someone who needs it, and subscribe for more."
+        beat["narration"] = narr
+    if "share" not in narr.lower():
+        beat["narration"] = beat["narration"].replace("like,", "like, share,")
+    beat.setdefault("text", "SUBSCRIBE")
+    beat.setdefault("icon", "heart")
+    beat.setdefault("caption_emphasis", "subscribe, share, like")
+    if beat.get("visual_effect") == "rays":
+        beat["visual_effect"] = "burst"
+    return beat
 
 
 def _sanitize(script: dict) -> dict:
@@ -291,9 +440,26 @@ def _sanitize(script: dict) -> dict:
             t = "solo"
         clean = {"template": t, "narration": b["narration"].strip()}
         for k in ("pose", "face", "text", "num", "ctitle", "dir",
-                  "icon", "poseA", "poseB", "faceA", "faceB", "colorB"):
+                  "icon", "poseA", "poseB", "faceA", "faceB", "colorB",
+                  "image_prompt", "negative_prompt", "visual_style",
+                  "visual_effect", "scene_type", "duration_hint", "caption_emphasis"):
             if b.get(k):
                 clean[k] = b[k]
+        if not clean.get("image_prompt"):
+            clean["image_prompt"] = _default_image_prompt(
+                clean["narration"], script.get("title", script.get("hook", ""))
+            )
+        clean.setdefault(
+            "negative_prompt",
+            "text, subtitles, words, logos, watermark, celebrity likeness, gore, nudity",
+        )
+        clean.setdefault(
+            "visual_style",
+            "cinematic dark minimal faceless storytelling, muted teal and warm amber",
+        )
+        clean.setdefault("scene_type", "symbolic")
+        clean.setdefault("caption_emphasis", "")
+        clean = _enforce_cta(clean)
         beats.append(clean)
     if not beats:
         raise ValueError("script had no usable beats")
@@ -301,20 +467,30 @@ def _sanitize(script: dict) -> dict:
         beats.insert(0, {"template": "hook", "narration": beats[0]["narration"]})
     if beats[-1]["template"] != "cta":
         beats.append({"template": "cta",
-                      "narration": "What did this stir up for you? Tell me below, "
-                                   "and subscribe for more.", "face": "happy"})
-    return {"title": script.get("title", "").strip() or script.get("hook", "Untitled"),
-            "hook": (script.get("hook") or script["title"])[:40],
-            "beats": beats}
+                      "narration": "What did this stir up for you? Tell me below. "
+                                   "If this helped, like, share, and subscribe for more.",
+                      "face": "happy", "text": "SUBSCRIBE", "icon": "heart",
+                      "caption_emphasis": "subscribe, share, like", "visual_effect": "burst"})
+    else:
+        beats[-1] = _enforce_cta(beats[-1])
+    out = {"title": script.get("title", "").strip() or script.get("hook", "Untitled"),
+           "hook": (script.get("hook") or script["title"])[:40],
+           "beats": beats}
+    if script.get("thumbnail_text"):
+        out["thumbnail_text"] = str(script["thumbnail_text"]).strip().upper()[:42]
+    return out
 
 
 def write_script(topic: dict, backend: str = "auto", model: str = "claude-opus-4-8",
-                 trends: list | None = None) -> dict:
+                 trends: list | None = None, desired_length: str | None = None,
+                 job_id: str | None = None, persona: str | None = None,
+                 cta_style: str = "warm", gemini_model: str | None = None) -> dict:
     """Return {title, hook, beats}. Tries backends in order, ending at offline."""
     import shutil
     has_gemini = bool(_gemini_key())
     has_cc = bool(os.environ.get("CLAUDE_CODE_OAUTH_TOKEN")) and bool(shutil.which("claude"))
     has_api = bool(os.environ.get("ANTHROPIC_API_KEY"))
+    system = build_system(persona, cta_style)
 
     if backend == "gemini":
         order = ["gemini"]
@@ -332,11 +508,19 @@ def write_script(topic: dict, backend: str = "auto", model: str = "claude-opus-4
     for b in order:
         try:
             if b == "gemini":
-                return _sanitize(_via_gemini(topic, model, trends))
+                script = _sanitize(_via_gemini(
+                    topic, gemini_model, trends, desired_length, job_id, system,
+                ))
+                _validate_script_length(script, desired_length)
+                return script
             if b == "cc":
-                return _sanitize(_via_claude_code(topic, trends))
+                script = _sanitize(_via_claude_code(topic, trends, desired_length, system))
+                _validate_script_length(script, desired_length)
+                return script
             if b == "api":
-                return _sanitize(_via_claude(topic, model, trends))
+                script = _sanitize(_via_claude(topic, model, trends, desired_length, system))
+                _validate_script_length(script, desired_length)
+                return script
             return _sanitize(_offline(topic))
         except Exception as exc:  # noqa: BLE001
             last_exc = exc

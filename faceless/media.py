@@ -8,17 +8,39 @@ from functools import lru_cache
 from pathlib import Path
 
 
+@lru_cache(maxsize=8)
+def _ffmpeg_has_filter(exe: str, filter_name: str) -> bool:
+    proc = subprocess.run(
+        [exe, "-filters"],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    text = (proc.stdout.decode("utf-8", "ignore")
+            + proc.stderr.decode("utf-8", "ignore"))
+    return filter_name in text
+
+
 @lru_cache(maxsize=1)
 def ffmpeg_exe() -> str:
-    """Prefer system ffmpeg; fall back to the pip-bundled binary."""
+    """Prefer an ffmpeg build with ``subtitles``/libass (required for AI-image captions)."""
+    candidates: list[str] = []
     sys_ff = shutil.which("ffmpeg")
     if sys_ff:
-        return sys_ff
+        candidates.append(sys_ff)
     try:
         import imageio_ffmpeg
-        return imageio_ffmpeg.get_ffmpeg_exe()
-    except Exception as exc:  # pragma: no cover
-        raise RuntimeError("ffmpeg not found (install ffmpeg or `pip install imageio-ffmpeg`)") from exc
+        bundled = imageio_ffmpeg.get_ffmpeg_exe()
+        if bundled not in candidates:
+            candidates.append(bundled)
+    except Exception:
+        pass
+    if not candidates:
+        raise RuntimeError("ffmpeg not found (install ffmpeg or `pip install imageio-ffmpeg`)")
+
+    for exe in candidates:
+        if _ffmpeg_has_filter(exe, "subtitles"):
+            return exe
+    return candidates[0]
 
 
 @lru_cache(maxsize=1)

@@ -21,18 +21,20 @@ def _hex(s: str) -> tuple[int, int, int]:
 
 @dataclass
 class Style:
-    background: str = "#0e1320"
-    ink: str = "#f2ede1"
-    accent: str = "#ffb454"
-    muted: str = "#8a93a6"
-    ink_width: float = 0.0058     # fraction of min(W,H)
+    background: str = "#101a2e"
+    ink: str = "#fffaf0"
+    accent: str = "#ffd23f"
+    muted: str = "#9aa6bf"
+    ink_width: float = 0.0078     # fraction of min(W,H) — bold sticker outline
+    outline: float = 1.9          # contrast halo width as a multiple of ink_width (0 = off)
     wobble: float = 1.7           # px at 1080 min-dim
     boil_every: int = 2           # re-seed wobble every N frames ("on twos")
     fps: int = 24
-    grain: float = 0.05           # film-grain strength 0..1
-    vignette: float = 0.55        # corner darkening 0..1
+    grain: float = 0.02           # film-grain strength 0..1
+    vignette: float = 0.16        # corner darkening 0..1
     life: float = 1.0             # idle motion (breath/sway/blink); 0 = off
-    cam: float = 0.05             # Ken Burns zoom amplitude per scene; 0 = locked off
+    cam: float = 0.06             # Ken Burns zoom amplitude per scene; 0 = locked off
+    transition: float = 0.0       # seconds of fade-through-paper between scenes; 0 = hard cut
     draw_in: bool = True          # sketch figures on (strokes appear) as they enter
     draw_in_dur: float = 0.45     # seconds of the draw-on reveal
     shadow: float = 0.16          # contact-shadow opacity 0..1; 0 = off
@@ -83,11 +85,14 @@ class Scene:
     min_dur: float = 2.2
     bg: str | None = None          # optional per-scene background override
     caption: str | None = None     # override caption text (defaults to narration)
+    caption_emphasis: str = ""     # comma-separated words to highlight in captions
+    word_timings: list = field(default_factory=list)  # filled after TTS in build_audio
     actors: list[dict] = field(default_factory=list)
     props: list[dict] = field(default_factory=list)
     # filled in during the build:
     audio: str | None = None
-    duration: float = 0.0
+    spoken_dur: float = 0.0   # narration length excluding trailing gap
+    duration: float = 0.0       # padded scene length (audio + min_dur floor)
 
 
 @dataclass

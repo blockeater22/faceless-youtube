@@ -48,6 +48,8 @@ class Sketcher:
         width: float,
         wobble: float,
         seed: int,
+        halo: tuple[int, int, int] | None = None,
+        halo_extra: float = 0.0,
     ) -> None:
         self.size = size
         self.img = Image.new("RGBA", size, (0, 0, 0, 0))
@@ -56,6 +58,10 @@ class Sketcher:
         self.width = max(1, int(round(width)))
         self.wobble = wobble
         self._seed = seed
+        # A contrasting outline drawn *under* every stroke so coloured figures
+        # read against any background (the "bold sticker" look of viral stickman).
+        self.halo = halo
+        self.halo_extra = max(0.0, halo_extra)
         self._stroke = 0
 
     # -- internal -------------------------------------------------------- #
@@ -97,6 +103,12 @@ class Sketcher:
             wob = _truncate(wob, draw)
         if len(wob) < 2:
             return
+        if self.halo and self.halo_extra > 0:
+            hw = w + int(round(self.halo_extra))
+            self.draw.line(wob, fill=self.halo, width=hw, joint="curve")
+            for p in [wob[0]] + ([wob[-1]] if draw >= 1.0 else []):
+                r = hw / 2.0
+                self.draw.ellipse([p[0] - r, p[1] - r, p[0] + r, p[1] + r], fill=self.halo)
         self.draw.line(wob, fill=color or self.ink, width=w, joint="curve")
         # round the caps so segments meet cleanly; leave the moving tip uncapped
         caps = [wob[0]] + ([wob[-1]] if draw >= 1.0 else [])
@@ -133,6 +145,9 @@ class Sketcher:
 
     def dot(self, center: Point, r: float, color=None) -> None:
         cx, cy = center
+        if self.halo and self.halo_extra > 0:
+            hr = r + self.halo_extra / 2.0
+            self.draw.ellipse([cx - hr, cy - hr, cx + hr, cy + hr], fill=self.halo)
         self.draw.ellipse([cx - r, cy - r, cx + r, cy + r], fill=color or self.ink)
 
     def composite_onto(self, base: Image.Image, alpha: float = 1.0) -> None:

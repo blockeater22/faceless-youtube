@@ -11,11 +11,14 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 from . import anim, media, motion, scenery, tts
+from . import captions as kinetic_captions
 from .draw import Sketcher
 from .figures import draw_figure, get_pose
 from .model import RESOLUTIONS, Scene, Script, load_script
 
 FONT_CANDIDATES = [
+    Path(__file__).parent / "fonts" / "Kalam-Bold.ttf",
+    Path(__file__).parent / "fonts" / "Bangers-Regular.ttf",
     "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
     "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
     "/usr/share/fonts/truetype/freefont/FreeSansBold.ttf",
@@ -26,7 +29,7 @@ FONT_CANDIDATES = [
 def _font(size: int) -> ImageFont.FreeTypeFont:
     for path in FONT_CANDIDATES:
         if Path(path).exists():
-            return ImageFont.truetype(path, size)
+            return ImageFont.truetype(str(path), size)
     return ImageFont.load_default(size)
 
 
@@ -102,6 +105,17 @@ def _shadow(frame: Image.Image, px: float, py: float, unit: float, style, alpha:
     frame.alpha_composite(layer.filter(ImageFilter.GaussianBlur(max(2, int(0.02 * unit)))))
 
 
+def _figure_halo(col: tuple[int, int, int], style, mindim: int):
+    """Pick a contrasting outline colour (dark for light figures, light for dark
+    ones) so coloured stick figures pop on any background — the bold sticker look."""
+    extra = getattr(style, "outline", 0.0)
+    if not extra:
+        return None, 0.0
+    lum = 0.299 * col[0] + 0.587 * col[1] + 0.114 * col[2]
+    halo = (16, 18, 26) if lum > 140 else (255, 252, 245)
+    return halo, style.ink_width * mindim * extra
+
+
 def _draw_actor(frame: Image.Image, actor: dict, prog: float, size, mindim, style,
                 seed, duration: float, abs_t: float):
     keys = actor.get("keys", [])
@@ -127,7 +141,9 @@ def _draw_actor(frame: Image.Image, actor: dict, prog: float, size, mindim, styl
     if style.shadow > 0 and draw_frac > 0.2:
         _shadow(frame, px, py, unit, style, alpha * draw_frac)
 
-    sk = Sketcher(size, col, style.ink_width * mindim, style.wobble * (mindim / 1080), seed)
+    halo, halo_extra = _figure_halo(col, style, mindim)
+    sk = Sketcher(size, col, style.ink_width * mindim, style.wobble * (mindim / 1080), seed,
+                  halo=halo, halo_extra=halo_extra)
     draw_figure(sk, (px, py), unit, pose, color=col, face=face,
                 t=abs_t, phase=motion.phase_for(actor.get("id", "")),
                 life=style.life, draw=draw_frac)
@@ -140,6 +156,27 @@ def _actor_pos(actors: list[dict], aid: str, t: float, size):
             s = anim.sample_keys(a["keys"], t, {"pos": "vec"})
             return s["pos"]
     return None
+
+
+def _draw_glow_effect(frame, center, color, alpha, scale, size, mindim, prop, actors, t):
+    """Motivated colour/light: a soft glow halo tied to the prop.
+
+    Ray/burst *line* effects were removed — they read as messy stringy lines in
+    video. Any prop that previously asked for "rays"/"burst" now gets a clean
+    soft glow instead.
+    """
+    if not prop.get("glow") and not prop.get("rays") and prop.get("effect") not in ("glow", "rays", "burst"):
+        return
+    x, y = center
+    layer = Image.new("RGBA", size, (0, 0, 0, 0))
+    d = ImageDraw.Draw(layer)
+    a = int(120 * max(0.0, min(1.0, alpha)))
+    radius = prop.get("glow_radius", 0.18) * mindim * scale
+    for i, mult in enumerate((1.0, 1.55, 2.15)):
+        rr = radius * mult
+        aa = int(a / (i + 1.4))
+        d.ellipse([x - rr, y - rr, x + rr, y + rr], fill=color + (aa,))
+    frame.alpha_composite(layer.filter(ImageFilter.GaussianBlur(max(6, int(0.035 * mindim)))))
 
 
 def _draw_prop(frame, prop, t, size, mindim, style, seed, actors):
@@ -166,6 +203,8 @@ def _draw_prop(frame, prop, t, size, mindim, style, seed, actors):
         return (p[0] * w, p[1] * h)
 
     if ptype == "label":
+        if pos is not None:
+            _draw_glow_effect(frame, XY(pos), color, alpha, scale, size, mindim, prop, actors, t)
         layer = Image.new("RGBA", size, (0, 0, 0, 0))
         d = ImageDraw.Draw(layer)
         fs = int(prop.get("size", 0.06) * mindim * scale)
@@ -176,6 +215,8 @@ def _draw_prop(frame, prop, t, size, mindim, style, seed, actors):
         return
 
     sk = Sketcher(size, color, style.ink_width * mindim, style.wobble * (mindim / 1080), seed)
+    if pos is not None:
+        _draw_glow_effect(frame, XY(pos), color, alpha, scale, size, mindim, prop, actors, t)
     if ptype == "circle":
         sk.circle(XY(pos), prop.get("r", 0.1) * mindim * scale, color=color)
     elif ptype == "rect":
@@ -211,54 +252,21 @@ def _draw_prop(frame, prop, t, size, mindim, style, seed, actors):
     sk.composite_onto(frame, alpha)
 
 
-def _draw_caption(frame, text, reveal, size, mindim, style):
-    if not text:
-        return
-    w, h = size
-    cfg = style.caption or {}
-    fs = int(cfg.get("size", 0.047) * mindim)
-    font = _font(fs)
-    words = text.split()
-    n_vis = max(0, min(len(words), math.ceil(reveal * len(words))))
-    if n_vis == 0:
-        return
-    vis = words[:n_vis]
-    max_w = w * 0.86
-
-    # word-wrap the visible words
-    lines, cur = [], []
-    for word in vis:
-        trial = " ".join(cur + [word])
-        if font.getlength(trial) > max_w and cur:
-            lines.append(cur)
-            cur = [word]
-        else:
-            cur.append(word)
-    if cur:
-        lines.append(cur)
-
-    line_h = int(fs * 1.28)
-    block_h = line_h * len(lines)
-    base_y = (0.80 if h >= w else 0.855) * h - block_h / 2
-
-    layer = Image.new("RGBA", size, (0, 0, 0, 0))
-    d = ImageDraw.Draw(layer)
-    ink = style.color(cfg.get("color", "#ffffff"))
-    accent = style.color("accent")
-    stroke = max(2, fs // 11)
-    newest = n_vis - 1
-    idx = 0
-    for li, line in enumerate(lines):
-        total = font.getlength(" ".join(line))
-        x = (w - total) / 2
-        y = base_y + li * line_h
-        for word in line:
-            col = accent if idx == newest else ink
-            d.text((x, y), word, font=font, fill=col + (255,),
-                   stroke_width=stroke, stroke_fill=(0, 0, 0, 235))
-            x += font.getlength(word + " ")
-            idx += 1
-    frame.alpha_composite(layer)
+def _draw_caption(frame, text, local_t: float, spoken_dur: float, size, mindim, style,
+                  *, emphasis: str = "", word_timings=None):
+    """Word-by-word captions synced to spoken narration time (not padded silence)."""
+    kinetic_captions.draw_kinetic_caption(
+        frame,
+        text,
+        local_t,
+        spoken_dur,
+        size,
+        mindim,
+        style,
+        font_loader=_font,
+        emphasis=emphasis or None,
+        word_timings=word_timings,
+    )
 
 
 @lru_cache(maxsize=8)
@@ -321,11 +329,32 @@ def _draw_hook(frame, text, abs_t, dur, size, mindim, style):
         lines.append(" ".join(cur))
 
     line_h = int(fs * 1.16)
-    cy = int(h * 0.33)
+    cy = int(h * 0.40)
     y = cy - line_h * len(lines) // 2
+    block_h = line_h * len(lines)
+    block_w = min(max_w, max((font.getlength(ln) for ln in lines), default=0))
+
     layer = Image.new("RGBA", size, (0, 0, 0, 0))
     d = ImageDraw.Draw(layer)
     a = int(255 * alpha)
+
+    # soft accent glow behind the text — instant energy on the opening second
+    burst = Image.new("RGBA", size, (0, 0, 0, 0))
+    bd = ImageDraw.Draw(burst)
+    bx, by = w / 2, cy + block_h * 0.04
+    br = max(block_w, block_h) * 1.15
+    for i, mult in enumerate((1.0, 0.7, 0.45)):
+        rr = br * (0.7 + 0.5 * i)
+        bd.ellipse([bx - rr, by - rr * 0.7, bx + rr, by + rr * 0.7],
+                   fill=style.color("accent") + (int(34 * alpha * mult),))
+    frame.alpha_composite(burst.filter(ImageFilter.GaussianBlur(int(0.05 * mindim))))
+
+    # rounded contrast card so the text always reads
+    pad_x, pad_y = int(0.05 * w), int(0.03 * h)
+    card = [w / 2 - block_w / 2 - pad_x, y - pad_y,
+            w / 2 + block_w / 2 + pad_x, y + block_h + pad_y]
+    d.rounded_rectangle(card, radius=int(0.03 * mindim), fill=(14, 16, 26, int(150 * alpha)))
+
     stroke = max(3, fs // 8)
     for ln in lines:
         d.text((w / 2, y), ln, font=font, anchor="ma", fill=(255, 255, 255, a),
@@ -334,14 +363,35 @@ def _draw_hook(frame, text, abs_t, dur, size, mindim, style):
     frame.alpha_composite(layer)
 
 
-def render_frame(script: Script, scene: Scene, local_t: float, size, mindim, frame_idx) -> Image.Image:
+def _hook_pad(script: Script) -> float:
+    return script.hook_dur if script.hook else 0.0
+
+
+def render_frame(script: Script, scene: Scene | None, local_t: float, size, mindim,
+                 frame_idx: int, *, hook_only: bool = False) -> Image.Image:
     style = script.style
-    bg = style.color(scene.bg) if scene.bg else style.color(style.background)
+    if scene and scene.bg:
+        bg = style.color(scene.bg)
+    else:
+        bg = style.color(style.background)
     frame = _background(size, bg, style.vignette).copy()
     seed = frame_idx // max(1, style.boil_every)
-    prog = local_t / scene.duration if scene.duration else 1.0
-
     abs_t = frame_idx / max(1, style.fps)
+
+    if hook_only or scene is None:
+        if getattr(style, "scenery", True):
+            scenery.draw_backdrop(frame, abs_t, motion.scene_seed("hook"))
+        _draw_watermark(frame, script, size, mindim, style)
+        if script.hook:
+            _draw_hook(frame, script.hook, abs_t, script.hook_dur, size, mindim, style)
+        out = frame.convert("RGB")
+        if style.grain > 0:
+            arr = np.asarray(out).astype(np.int16)
+            arr = np.clip(arr + _grain_stack(size, style.grain)[frame_idx % 12], 0, 255)
+            out = Image.fromarray(arr.astype(np.uint8), "RGB")
+        return out
+
+    prog = local_t / scene.duration if scene.duration else 1.0
     if getattr(style, "scenery", True) and not scene.bg:
         scenery.draw_backdrop(frame, abs_t, motion.scene_seed(scene.id))
     for prop in scene.props:
@@ -359,10 +409,14 @@ def render_frame(script: Script, scene: Scene, local_t: float, size, mindim, fra
         frame = motion.camera(frame, prog, motion.scene_seed(scene.id), style.cam)
 
     in_hook = bool(script.hook) and abs_t < script.hook_dur
-    if not in_hook:   # hook card replaces the caption while it's up
-        reveal = min(1.0, local_t / (scene.duration * 0.82)) if scene.duration else 1.0
-        _draw_caption(frame, scene.caption if scene.caption is not None else scene.narration,
-                      reveal, size, mindim, style)
+    if not in_hook:
+        spoken = scene.spoken_dur or max(0.12, scene.duration - getattr(script.voice, "gap", 0.0))
+        cap_text = scene.caption if scene.caption is not None else scene.narration
+        _draw_caption(
+            frame, cap_text, local_t, spoken, size, mindim, style,
+            emphasis=getattr(scene, "caption_emphasis", "") or "",
+            word_timings=getattr(scene, "word_timings", None) or None,
+        )
     _draw_watermark(frame, script, size, mindim, style)
     if in_hook:
         _draw_hook(frame, script.hook, abs_t, script.hook_dur, size, mindim, style)
@@ -373,6 +427,53 @@ def render_frame(script: Script, scene: Scene, local_t: float, size, mindim, fra
         arr = np.clip(arr + _grain_stack(size, style.grain)[frame_idx % 12], 0, 255)
         out = Image.fromarray(arr.astype(np.uint8), "RGB")
     return out
+
+
+# --------------------------------------------------------------------------- #
+# Prop timing — sync pop-in to the spoken word, not a fixed early fraction
+# --------------------------------------------------------------------------- #
+def _word_appear_fraction(narration: str, sync_word: str,
+                          word_timings=None, spoken_dur: float = 0.0) -> float:
+    if not sync_word or not narration:
+        return 0.45
+    hint = sync_word.lower().strip(".,!?\"'")
+    if word_timings and spoken_dur > 0:
+        for wt in word_timings:
+            word = wt.get("word", "") if isinstance(wt, dict) else wt.word
+            start = wt.get("start", 0.0) if isinstance(wt, dict) else wt.start
+            if hint in word.lower().strip(".,!?\"'"):
+                return min(0.95, max(0.05, start / spoken_dur))
+    words = narration.split()
+    for i, w in enumerate(words):
+        if hint in w.lower().strip(".,!?\"'"):
+            return min(0.95, max(0.05, (i + 0.15) / max(1, len(words))))
+    return 0.45
+
+
+def _retime_prop(prop: dict, appear_frac: float) -> None:
+    keys = prop.get("keys") or []
+    pos = keys[-1].get("pos", [0.5, 0.3]) if keys else [0.5, 0.3]
+    pos = list(pos)
+    t0 = max(0.0, appear_frac - 0.02)
+    t1 = min(0.98, appear_frac + 0.08)
+    prop["keys"] = [
+        {"t": round(t0, 3), "pos": pos, "alpha": 0, "scale": 0.35},
+        {"t": round(t1, 3), "pos": [pos[0], pos[1] - 0.02], "alpha": 1, "scale": 1.0, "ease": "pop"},
+        {"t": 1.0, "pos": [pos[0], pos[1] - 0.02], "alpha": 1, "scale": 1.0},
+    ]
+
+
+def _sync_scene_props(scene) -> None:
+    spoken = scene.spoken_dur or scene.duration or 1.0
+    for prop in scene.props:
+        sync = prop.get("sync_word")
+        if sync:
+            _retime_prop(
+                prop,
+                _word_appear_fraction(
+                    scene.narration, sync, getattr(scene, "word_timings", None), spoken,
+                ),
+            )
 
 
 # --------------------------------------------------------------------------- #
@@ -388,17 +489,40 @@ def build_audio(script: Script, workdir: Path) -> Path:
         tts.synth(scene.narration, raw, script.voice)
         scene.audio = str(raw)
         spoken = media.duration(raw)
+        gap = max(0.0, getattr(script.voice, "gap", 0.0))
+        scene.spoken_dur = round(max(0.12, spoken - gap), 3)
         scene.duration = round(max(scene.min_dur, spoken), 3)
+        scene.word_timings = [
+            wt.to_dict()
+            for wt in kinetic_captions.build_word_timings(
+                raw,
+                scene.narration,
+                scene.spoken_dur,
+                getattr(scene, "caption_emphasis", "") or "",
+            )
+        ]
+        _sync_scene_props(scene)
         clip = adir / f"scene_{i:02d}_p.wav"
         media.pad_to(raw, clip, scene.duration)
         padded.append(clip)
         print(f"  scene {i:02d} '{scene.id}': {scene.duration:.2f}s  \"{scene.narration[:48]}\"")
     master = adir / "master.wav"
     media.concat(padded, master)
+    pad = _hook_pad(script)
+    if pad > 0:
+        hook_sil = adir / "hook_pad.wav"
+        media.make_silence(hook_sil, pad)
+        hooked = adir / "master_hooked.wav"
+        media.concat([hook_sil, master], hooked)
+        master = hooked
     return master
 
 
 def scene_at(script: Script, t: float):
+    pad = _hook_pad(script)
+    if t < pad:
+        return None, t
+    t -= pad
     acc = 0.0
     for i, sc in enumerate(script.scenes):
         if t < acc + sc.duration or i == len(script.scenes) - 1:
@@ -407,12 +531,31 @@ def scene_at(script: Script, t: float):
     return len(script.scenes) - 1, 0.0
 
 
+def _apply_transition(img, script, si, local_t, size, mindim, frame_idx, trans):
+    """Fade a scene up from / down to the paper at its edges, so consecutive scenes
+    cross through a clean beat instead of a hard cut. Cheap (one extra bg frame)."""
+    scene = script.scenes[si]
+    half = trans / 2.0
+    left = scene.duration - local_t
+    fade_in = local_t < half and si > 0
+    fade_out = left < half and si < len(script.scenes) - 1
+    if not (fade_in or fade_out):
+        return img
+    frac = (local_t / half) if fade_in else (left / half)
+    frac = max(0.0, min(1.0, frac))
+    bg = script.style.color(script.style.background)
+    paper = _background(size, bg, script.style.vignette).convert("RGB")
+    return Image.blend(paper, img, frac)
+
+
 def render(script: Script, outdir: str | Path, formats: list[str], audio: Path) -> list[Path]:
     outdir = Path(outdir)
     outdir.mkdir(parents=True, exist_ok=True)
     fps = script.style.fps
-    total = sum(s.duration for s in script.scenes)
-    n_frames = max(1, round(total * fps))
+    audio_dur = media.duration(audio)
+    total = _hook_pad(script) + sum(s.duration for s in script.scenes)
+    timeline = max(total, audio_dur)
+    n_frames = max(1, int(math.ceil(timeline * fps - 1e-9)))
     results = []
 
     for fmt in formats:
@@ -436,10 +579,16 @@ def render(script: Script, outdir: str | Path, formats: list[str], audio: Path) 
         # writer (this happened on long videos). A file never blocks.
         errf = tempfile.TemporaryFile()
         proc = subprocess.Popen(cmd, stdin=subprocess.PIPE, stderr=errf)
+        trans = max(0.0, getattr(script.style, "transition", 0.0))
         try:
             for f in range(n_frames):
                 si, local_t = scene_at(script, f / fps)
-                img = render_frame(script, script.scenes[si], local_t, size, mindim, f)
+                if si is None:
+                    img = render_frame(script, None, local_t, size, mindim, f, hook_only=True)
+                else:
+                    img = render_frame(script, script.scenes[si], local_t, size, mindim, f)
+                    if trans > 0:
+                        img = _apply_transition(img, script, si, local_t, size, mindim, f, trans)
                 proc.stdin.write(img.tobytes())
                 if f % 96 == 0:
                     print(f"    {f:4d}/{n_frames}  ({100*f//n_frames:3d}%)", flush=True)

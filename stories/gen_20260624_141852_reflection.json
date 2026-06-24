@@ -1,0 +1,949 @@
+{
+  "title": "Your Memories Are Not Real",
+  "handle": "@Inklings1",
+  "hook": "YOUR MEMORIES ARE LIES",
+  "hook_dur": 2.0,
+  "meta": {
+    "playlist": "3 AM Thoughts",
+    "kind": "reflection",
+    "auto": true,
+    "channel": "inklings"
+  },
+  "style": {
+    "background": "#0e1320",
+    "ink": "#f2ede1",
+    "accent": "#ffb454",
+    "muted": "#6f7791",
+    "fps": 24,
+    "wobble": 1.7,
+    "grain": 0.05,
+    "vignette": 0.55,
+    "caption": {
+      "size": 0.05,
+      "color": "#ffffff"
+    },
+    "logo": "/Users/hariom/Projects/faceless-youtube/branding/inklings/watermark.png",
+    "logo_pos": "tl",
+    "logo_scale": 0.1,
+    "logo_opacity": 0.72,
+    "scenery": true,
+    "transition": 0.35
+  },
+  "voice": {
+    "backend": "kokoro",
+    "kokoro_voice": "am_liam",
+    "kokoro_speed": 1.0,
+    "piper_model": "voices/en_US-ryan-high.onnx",
+    "piper_length": 1.1,
+    "voice": "cmu_us_slt_arctic_hts",
+    "rate": 135,
+    "polish": true,
+    "gap": 0.0
+  },
+  "scenes": [
+    {
+      "id": "00_hook",
+      "narration": "The memories you hold aren't real.",
+      "min_dur": 2.6,
+      "caption_emphasis": "aren't real",
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "label",
+          "id": "q",
+          "text": "?",
+          "color": "#ff5a5f",
+          "size": 0.16,
+          "keys": [
+            {
+              "t": 0.35,
+              "pos": [
+                0.66,
+                0.31
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.66,
+                0.29
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.66,
+                0.29
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "t",
+          "text": "NOT REAL",
+          "color": "#ff5a5f",
+          "size": 0.08,
+          "front": true,
+          "sync_word": "not real",
+          "effect": "burst",
+          "glow": false,
+          "glow_radius": 0.1,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.32,
+                0.28
+              ],
+              "alpha": 0,
+              "scale": 0.35
+            },
+            {
+              "t": 0.15,
+              "pos": [
+                0.32,
+                0.25
+              ],
+              "alpha": 1,
+              "scale": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.32,
+                0.25
+              ],
+              "alpha": 1,
+              "scale": 1.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "01_solo",
+      "narration": "Every time you recall a past moment, you rewrite it.",
+      "min_dur": 3.0,
+      "caption_emphasis": "rewrite it",
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "icon",
+          "name": "spiral",
+          "color": "#ffb454",
+          "size": 0.12,
+          "front": true,
+          "sync_word": "it",
+          "effect": "glow",
+          "glow": true,
+          "rays": false,
+          "glow_to": "hero",
+          "glow_radius": 0.11,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.72,
+                0.32
+              ],
+              "alpha": 0,
+              "scale": 0.35
+            },
+            {
+              "t": 0.15,
+              "pos": [
+                0.72,
+                0.3
+              ],
+              "alpha": 1,
+              "scale": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.72,
+                0.3
+              ],
+              "alpha": 1,
+              "scale": 1.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "02_solo",
+      "narration": "Your past is not a tape, but a story you tell yourself.",
+      "min_dur": 3.0,
+      "caption_emphasis": "story you tell",
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "icon",
+          "name": "speech",
+          "color": "#22c1a4",
+          "size": 0.12,
+          "front": true,
+          "sync_word": "tell",
+          "effect": null,
+          "glow": false,
+          "rays": false,
+          "glow_to": "hero",
+          "glow_radius": 0.11,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.72,
+                0.32
+              ],
+              "alpha": 0,
+              "scale": 0.35
+            },
+            {
+              "t": 0.15,
+              "pos": [
+                0.72,
+                0.3
+              ],
+              "alpha": 1,
+              "scale": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.72,
+                0.3
+              ],
+              "alpha": 1,
+              "scale": 1.0
+            }
+          ]
+        },
+        {
+          "type": "label",
+          "id": "t",
+          "text": "STORY",
+          "color": "#22c1a4",
+          "size": 0.08,
+          "front": true,
+          "sync_word": "story",
+          "effect": "burst",
+          "glow": false,
+          "glow_radius": 0.1,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.32,
+                0.28
+              ],
+              "alpha": 0,
+              "scale": 0.35
+            },
+            {
+              "t": 0.15,
+              "pos": [
+                0.32,
+                0.25
+              ],
+              "alpha": 1,
+              "scale": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.32,
+                0.25
+              ],
+              "alpha": 1,
+              "scale": 1.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "03_compare",
+      "narration": "Each retelling subtly changes who you were.",
+      "min_dur": 3.0,
+      "caption_emphasis": "changes who you were",
+      "actors": [
+        {
+          "type": "figure",
+          "id": "a",
+          "color": "muted",
+          "face": "surprised",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.34,
+                0.65
+              ],
+              "pose": "stand",
+              "scale": 0.3124,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.34,
+                0.65
+              ],
+              "pose": "stand",
+              "scale": 0.3124,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.34,
+                0.65
+              ],
+              "pose": "stand",
+              "scale": 0.3124,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "b",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.66,
+                0.62
+              ],
+              "pose": "shrug",
+              "scale": 0.4402,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.66,
+                0.62
+              ],
+              "pose": "shrug",
+              "scale": 0.4402,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.66,
+                0.62
+              ],
+              "pose": "shrug",
+              "scale": 0.4402,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "04_solo",
+      "narration": "But this secret offers a strange power.",
+      "min_dur": 3.0,
+      "caption_emphasis": "strange power",
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "icon",
+          "name": "bulb",
+          "color": "#c879ff",
+          "size": 0.12,
+          "front": true,
+          "sync_word": "power",
+          "effect": "glow",
+          "glow": true,
+          "rays": false,
+          "glow_to": "hero",
+          "glow_radius": 0.11,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.72,
+                0.32
+              ],
+              "alpha": 0,
+              "scale": 0.35
+            },
+            {
+              "t": 0.15,
+              "pos": [
+                0.72,
+                0.3
+              ],
+              "alpha": 1,
+              "scale": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.72,
+                0.3
+              ],
+              "alpha": 1,
+              "scale": 1.0
+            }
+          ]
+        },
+        {
+          "type": "label",
+          "id": "t",
+          "text": "POWER",
+          "color": "#c879ff",
+          "size": 0.08,
+          "front": true,
+          "sync_word": "power",
+          "effect": "glow",
+          "glow": true,
+          "glow_radius": 0.1,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.32,
+                0.28
+              ],
+              "alpha": 0,
+              "scale": 0.35
+            },
+            {
+              "t": 0.15,
+              "pos": [
+                0.32,
+                0.25
+              ],
+              "alpha": 1,
+              "scale": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.32,
+                0.25
+              ],
+              "alpha": 1,
+              "scale": 1.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "05_point",
+      "narration": "You can choose how you remember, shaping your future self.",
+      "min_dur": 3.0,
+      "caption_emphasis": "choose how you remember",
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 0.56,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "point_r",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "point_r",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "icon",
+          "name": "door",
+          "color": "#ff8fab",
+          "size": 0.12,
+          "front": true,
+          "sync_word": "remember",
+          "effect": null,
+          "glow": false,
+          "rays": false,
+          "glow_to": "hero",
+          "glow_radius": 0.11,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.72,
+                0.32
+              ],
+              "alpha": 0,
+              "scale": 0.35
+            },
+            {
+              "t": 0.15,
+              "pos": [
+                0.72,
+                0.3
+              ],
+              "alpha": 1,
+              "scale": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.72,
+                0.3
+              ],
+              "alpha": 1,
+              "scale": 1.0
+            }
+          ]
+        },
+        {
+          "type": "label",
+          "id": "t",
+          "text": "CHOOSE",
+          "color": "#ff8fab",
+          "size": 0.08,
+          "front": true,
+          "sync_word": "choose",
+          "effect": "burst",
+          "glow": false,
+          "glow_radius": 0.1,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.32,
+                0.28
+              ],
+              "alpha": 0,
+              "scale": 0.35
+            },
+            {
+              "t": 0.15,
+              "pos": [
+                0.32,
+                0.25
+              ],
+              "alpha": 1,
+              "scale": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.32,
+                0.25
+              ],
+              "alpha": 1,
+              "scale": 1.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "06_cta",
+      "narration": "Your past is fluid. What story will you tell next? Subscribe for more. If this helped you, hit like, share it with someone who needs it, and subscribe for more.",
+      "min_dur": 3.0,
+      "caption_emphasis": "Subscribe",
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 0.56,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "label",
+          "id": "m",
+          "text": "+",
+          "color": "#7ed957",
+          "size": 0.08,
+          "keys": [
+            {
+              "t": 0.45,
+              "pos": [
+                0.68,
+                0.38
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.65,
+              "pos": [
+                0.68,
+                0.36
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.68,
+                0.36
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "icon",
+          "name": "heart",
+          "color": "#7ed957",
+          "size": 0.12,
+          "front": true,
+          "sync_word": "subscribe",
+          "effect": null,
+          "glow": false,
+          "rays": false,
+          "glow_to": "hero",
+          "glow_radius": 0.11,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.72,
+                0.32
+              ],
+              "alpha": 0,
+              "scale": 0.35
+            },
+            {
+              "t": 0.15,
+              "pos": [
+                0.72,
+                0.3
+              ],
+              "alpha": 1,
+              "scale": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.72,
+                0.3
+              ],
+              "alpha": 1,
+              "scale": 1.0
+            }
+          ]
+        },
+        {
+          "type": "label",
+          "id": "t",
+          "text": "SUBSCRIBE",
+          "color": "#7ed957",
+          "size": 0.08,
+          "front": true,
+          "sync_word": "subscribe",
+          "effect": "burst",
+          "glow": false,
+          "glow_radius": 0.1,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.32,
+                0.28
+              ],
+              "alpha": 0,
+              "scale": 0.35
+            },
+            {
+              "t": 0.15,
+              "pos": [
+                0.32,
+                0.25
+              ],
+              "alpha": 1,
+              "scale": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.32,
+                0.25
+              ],
+              "alpha": 1,
+              "scale": 1.0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

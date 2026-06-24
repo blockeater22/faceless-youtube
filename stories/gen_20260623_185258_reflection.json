@@ -1,0 +1,1175 @@
+{
+  "title": "Your Tiny Choices Are Building Your Future",
+  "handle": "@Inklings1",
+  "hook": "THE HIDDEN PATH",
+  "hook_dur": 2.0,
+  "meta": {
+    "playlist": "3 AM Thoughts",
+    "kind": "reflection",
+    "auto": true,
+    "channel": "inklings"
+  },
+  "style": {
+    "background": "#0e1320",
+    "ink": "#f2ede1",
+    "accent": "#ffb454",
+    "muted": "#6f7791",
+    "fps": 24,
+    "wobble": 1.7,
+    "grain": 0.05,
+    "vignette": 0.55,
+    "caption": {
+      "size": 0.05,
+      "color": "#ffffff"
+    },
+    "logo": "branding/watermark.png",
+    "logo_pos": "tl",
+    "logo_scale": 0.1,
+    "logo_opacity": 0.72,
+    "scenery": true,
+    "transition": 0.35
+  },
+  "voice": {
+    "backend": "kokoro",
+    "kokoro_voice": "am_liam",
+    "kokoro_speed": 1.0,
+    "piper_model": "voices/en_US-ryan-high.onnx",
+    "piper_length": 1.1,
+    "voice": "cmu_us_slt_arctic_hts",
+    "rate": 135,
+    "polish": true,
+    "gap": 0.0
+  },
+  "scenes": [
+    {
+      "id": "00_hook",
+      "narration": "Every tiny choice you make is a secret vote for your future self.",
+      "min_dur": 2.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "label",
+          "id": "q",
+          "text": "?",
+          "color": "#ff5a5f",
+          "size": 0.16,
+          "keys": [
+            {
+              "t": 0.35,
+              "pos": [
+                0.66,
+                0.31
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.66,
+                0.29
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.66,
+                0.29
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "icon",
+          "name": "spiral",
+          "color": "#ff5a5f",
+          "size": 0.12,
+          "front": true,
+          "effect": "glow",
+          "glow": true,
+          "rays": false,
+          "glow_to": "hero",
+          "glow_radius": 0.13,
+          "keys": [
+            {
+              "t": 0.18,
+              "pos": [
+                0.72,
+                0.32
+              ],
+              "alpha": 0,
+              "scale": 0.4
+            },
+            {
+              "t": 0.4,
+              "pos": [
+                0.72,
+                0.3
+              ],
+              "alpha": 1,
+              "scale": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.72,
+                0.3
+              ],
+              "alpha": 1,
+              "scale": 1.0
+            }
+          ]
+        },
+        {
+          "type": "label",
+          "id": "t",
+          "text": "VOTE",
+          "color": "#ff5a5f",
+          "size": 0.08,
+          "front": true,
+          "effect": "glow",
+          "glow": true,
+          "glow_radius": 0.12,
+          "keys": [
+            {
+              "t": 0.18,
+              "pos": [
+                0.32,
+                0.28
+              ],
+              "alpha": 0,
+              "scale": 0.4
+            },
+            {
+              "t": 0.4,
+              "pos": [
+                0.32,
+                0.25
+              ],
+              "alpha": 1,
+              "scale": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.32,
+                0.25
+              ],
+              "alpha": 1,
+              "scale": 1.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "01_solo",
+      "narration": "You barely notice them, these quiet decisions.",
+      "min_dur": 3.0,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "shrug",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "shrug",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "shrug",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "icon",
+          "name": "cloud",
+          "color": "#ffb454",
+          "size": 0.12,
+          "front": true,
+          "effect": null,
+          "glow": false,
+          "rays": false,
+          "glow_to": "hero",
+          "glow_radius": 0.13,
+          "keys": [
+            {
+              "t": 0.18,
+              "pos": [
+                0.72,
+                0.32
+              ],
+              "alpha": 0,
+              "scale": 0.4
+            },
+            {
+              "t": 0.4,
+              "pos": [
+                0.72,
+                0.3
+              ],
+              "alpha": 1,
+              "scale": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.72,
+                0.3
+              ],
+              "alpha": 1,
+              "scale": 1.0
+            }
+          ]
+        },
+        {
+          "type": "label",
+          "id": "t",
+          "text": "QUIET",
+          "color": "#ffb454",
+          "size": 0.08,
+          "front": true,
+          "effect": "burst",
+          "glow": true,
+          "glow_radius": 0.12,
+          "keys": [
+            {
+              "t": 0.18,
+              "pos": [
+                0.32,
+                0.28
+              ],
+              "alpha": 0,
+              "scale": 0.4
+            },
+            {
+              "t": 0.4,
+              "pos": [
+                0.32,
+                0.25
+              ],
+              "alpha": 1,
+              "scale": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.32,
+                0.25
+              ],
+              "alpha": 1,
+              "scale": 1.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "02_point",
+      "narration": "But they are quietly, powerfully, shifting your entire life's direction.",
+      "min_dur": 3.0,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "surprised",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 0.56,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "point_r",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "point_r",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "icon",
+          "name": "star",
+          "color": "#22c1a4",
+          "size": 0.12,
+          "front": true,
+          "effect": "burst",
+          "glow": true,
+          "rays": false,
+          "glow_to": "hero",
+          "glow_radius": 0.13,
+          "keys": [
+            {
+              "t": 0.18,
+              "pos": [
+                0.72,
+                0.32
+              ],
+              "alpha": 0,
+              "scale": 0.4
+            },
+            {
+              "t": 0.4,
+              "pos": [
+                0.72,
+                0.3
+              ],
+              "alpha": 1,
+              "scale": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.72,
+                0.3
+              ],
+              "alpha": 1,
+              "scale": 1.0
+            }
+          ]
+        },
+        {
+          "type": "label",
+          "id": "t",
+          "text": "SHIFTING",
+          "color": "#22c1a4",
+          "size": 0.08,
+          "front": true,
+          "effect": "burst",
+          "glow": true,
+          "glow_radius": 0.12,
+          "keys": [
+            {
+              "t": 0.18,
+              "pos": [
+                0.32,
+                0.28
+              ],
+              "alpha": 0,
+              "scale": 0.4
+            },
+            {
+              "t": 0.4,
+              "pos": [
+                0.32,
+                0.25
+              ],
+              "alpha": 1,
+              "scale": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.32,
+                0.25
+              ],
+              "alpha": 1,
+              "scale": 1.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "03_walk",
+      "narration": "One more scroll, one skipped workout, one kind word.",
+      "min_dur": 3.0,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.3,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.12,
+              "pos": [
+                0.3,
+                0.62
+              ],
+              "pose": "walk_a",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 0.276,
+              "pos": [
+                0.38,
+                0.62
+              ],
+              "pose": "walk_a",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 0.432,
+              "pos": [
+                0.45999999999999996,
+                0.62
+              ],
+              "pose": "walk_b",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 0.588,
+              "pos": [
+                0.54,
+                0.62
+              ],
+              "pose": "walk_a",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 0.744,
+              "pos": [
+                0.6199999999999999,
+                0.62
+              ],
+              "pose": "walk_b",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.7,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "icon",
+          "name": "clock",
+          "color": "#4d8bff",
+          "size": 0.12,
+          "front": true,
+          "effect": null,
+          "glow": false,
+          "rays": false,
+          "glow_to": "hero",
+          "glow_radius": 0.13,
+          "keys": [
+            {
+              "t": 0.18,
+              "pos": [
+                0.72,
+                0.32
+              ],
+              "alpha": 0,
+              "scale": 0.4
+            },
+            {
+              "t": 0.4,
+              "pos": [
+                0.72,
+                0.3
+              ],
+              "alpha": 1,
+              "scale": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.72,
+                0.3
+              ],
+              "alpha": 1,
+              "scale": 1.0
+            }
+          ]
+        },
+        {
+          "type": "label",
+          "id": "t",
+          "text": "ONE MORE",
+          "color": "#4d8bff",
+          "size": 0.08,
+          "front": true,
+          "effect": "burst",
+          "glow": true,
+          "glow_radius": 0.12,
+          "keys": [
+            {
+              "t": 0.18,
+              "pos": [
+                0.32,
+                0.28
+              ],
+              "alpha": 0,
+              "scale": 0.4
+            },
+            {
+              "t": 0.4,
+              "pos": [
+                0.32,
+                0.25
+              ],
+              "alpha": 1,
+              "scale": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.32,
+                0.25
+              ],
+              "alpha": 1,
+              "scale": 1.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "04_compare",
+      "narration": "Each choice seems small, but it adds another brick to the road you're building.",
+      "min_dur": 3.0,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "a",
+          "color": "muted",
+          "face": "surprised",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.34,
+                0.65
+              ],
+              "pose": "stand",
+              "scale": 0.3124,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.34,
+                0.65
+              ],
+              "pose": "stand",
+              "scale": 0.3124,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.34,
+                0.65
+              ],
+              "pose": "stand",
+              "scale": 0.3124,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "b",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.66,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.4402,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.66,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.4402,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.66,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.4402,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "icon",
+          "name": "door",
+          "color": "#c879ff",
+          "size": 0.12,
+          "front": true,
+          "effect": "glow",
+          "glow": true,
+          "rays": false,
+          "glow_to": "hero",
+          "glow_radius": 0.13,
+          "keys": [
+            {
+              "t": 0.18,
+              "pos": [
+                0.72,
+                0.32
+              ],
+              "alpha": 0,
+              "scale": 0.4
+            },
+            {
+              "t": 0.4,
+              "pos": [
+                0.72,
+                0.3
+              ],
+              "alpha": 1,
+              "scale": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.72,
+                0.3
+              ],
+              "alpha": 1,
+              "scale": 1.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "05_celebrate",
+      "narration": "You are not just living your life; you are actively designing it.",
+      "min_dur": 3.0,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.66
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 0.4,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "celebrate",
+              "scale": 0.426,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "celebrate",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "label",
+          "id": "e1",
+          "text": "!",
+          "color": "#ff8fab",
+          "size": 0.07,
+          "keys": [
+            {
+              "t": 0.4,
+              "pos": [
+                0.31,
+                0.36
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.31,
+                0.33999999999999997
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.31,
+                0.33999999999999997
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "e2",
+          "text": "!",
+          "color": "#ff8fab",
+          "size": 0.07,
+          "keys": [
+            {
+              "t": 0.5,
+              "pos": [
+                0.7,
+                0.38
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.7,
+              "pos": [
+                0.7,
+                0.36
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.7,
+                0.36
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "icon",
+          "name": "bulb",
+          "color": "#ff8fab",
+          "size": 0.12,
+          "front": true,
+          "effect": "rays",
+          "glow": true,
+          "rays": true,
+          "glow_to": "hero",
+          "glow_radius": 0.13,
+          "keys": [
+            {
+              "t": 0.18,
+              "pos": [
+                0.72,
+                0.32
+              ],
+              "alpha": 0,
+              "scale": 0.4
+            },
+            {
+              "t": 0.4,
+              "pos": [
+                0.72,
+                0.3
+              ],
+              "alpha": 1,
+              "scale": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.72,
+                0.3
+              ],
+              "alpha": 1,
+              "scale": 1.0
+            }
+          ]
+        },
+        {
+          "type": "label",
+          "id": "t",
+          "text": "DESIGNING",
+          "color": "#ff8fab",
+          "size": 0.08,
+          "front": true,
+          "effect": "burst",
+          "glow": true,
+          "glow_radius": 0.12,
+          "keys": [
+            {
+              "t": 0.18,
+              "pos": [
+                0.32,
+                0.28
+              ],
+              "alpha": 0,
+              "scale": 0.4
+            },
+            {
+              "t": 0.4,
+              "pos": [
+                0.32,
+                0.25
+              ],
+              "alpha": 1,
+              "scale": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.32,
+                0.25
+              ],
+              "alpha": 1,
+              "scale": 1.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "06_cta",
+      "narration": "What tiny choice will you make today that will gently reshape your tomorrow? Tell me in the comments. And remember to like and subscribe for more Inklings.",
+      "min_dur": 3.0,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 0.56,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "label",
+          "id": "m",
+          "text": "+",
+          "color": "#7ed957",
+          "size": 0.08,
+          "keys": [
+            {
+              "t": 0.45,
+              "pos": [
+                0.68,
+                0.38
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.65,
+              "pos": [
+                0.68,
+                0.36
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.68,
+                0.36
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "icon",
+          "name": "heart",
+          "color": "#7ed957",
+          "size": 0.12,
+          "front": true,
+          "effect": "glow",
+          "glow": true,
+          "rays": false,
+          "glow_to": "hero",
+          "glow_radius": 0.13,
+          "keys": [
+            {
+              "t": 0.18,
+              "pos": [
+                0.72,
+                0.32
+              ],
+              "alpha": 0,
+              "scale": 0.4
+            },
+            {
+              "t": 0.4,
+              "pos": [
+                0.72,
+                0.3
+              ],
+              "alpha": 1,
+              "scale": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.72,
+                0.3
+              ],
+              "alpha": 1,
+              "scale": 1.0
+            }
+          ]
+        },
+        {
+          "type": "label",
+          "id": "t",
+          "text": "TOMORROW",
+          "color": "#7ed957",
+          "size": 0.08,
+          "front": true,
+          "effect": "glow",
+          "glow": true,
+          "glow_radius": 0.12,
+          "keys": [
+            {
+              "t": 0.18,
+              "pos": [
+                0.32,
+                0.28
+              ],
+              "alpha": 0,
+              "scale": 0.4
+            },
+            {
+              "t": 0.4,
+              "pos": [
+                0.32,
+                0.25
+              ],
+              "alpha": 1,
+              "scale": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.32,
+                0.25
+              ],
+              "alpha": 1,
+              "scale": 1.0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

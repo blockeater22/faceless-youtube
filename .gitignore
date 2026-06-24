@@ -17,6 +17,16 @@ output/[0-9]*_*/
 output/longform_*/
 output/auto_*/
 
+.env
+output/
+output/**/
+output/**/**/
+output/**/**/**/
+output/**/**/**/**/
+output/**/**/**/**/**/
+output/**/**/**/**/**/**/
+output/**/**/**/**/**/**/**/
+output/**/**/**/**/**/**/**/**/
 # autopilot: secrets + regenerable artifacts (state.json IS committed for no-repeat tracking)
 voices/
 *.onnx

@@ -1,0 +1,116 @@
+[
+  {
+    "id": "inklings",
+    "name": "Inklings",
+    "handle": "@Inklings1",
+    "persona": "Inklings \u2014 bright, colourful, hand-drawn stick-figure videos about the mind, meaning, time, and the quietly mind-bending. Calm, warm, emotionally resonant; second person; plain language; short sentences that each land on their own.",
+    "palette": {
+      "background": "#101a2e",
+      "ink": "#fffaf0",
+      "accent": "#ffd23f",
+      "muted": "#9aa6bf"
+    },
+    "figure": {
+      "embiggen": 1.42,
+      "wobble": 1.7,
+      "grain": 0.02,
+      "scenery": true
+    },
+    "colors": [
+      "#ff5a5f",
+      "#ffd23f",
+      "#22c1a4",
+      "#4d8bff",
+      "#c879ff",
+      "#ff8fab",
+      "#7ed957"
+    ],
+    "voice": {
+      "kokoro_voice": "am_liam",
+      "kokoro_speed": 0.92
+    },
+    "rotation": [
+      "whatif",
+      "reflection",
+      "otheryou",
+      "howto"
+    ],
+    "tag_suffix": [
+      "stick figure animation",
+      "deep thoughts",
+      "philosophy"
+    ],
+    "hashtags": [
+      "#deepthoughts",
+      "#philosophy",
+      "#mindfulness",
+      "#sonder"
+    ],
+    "cta_style": "warm",
+    "thumb": "bubbles",
+    "assets": {
+      "profile": "branding/inklings/profile.png",
+      "banner": "branding/inklings/banner.png",
+      "watermark": "branding/inklings/watermark.png"
+    }
+  },
+  {
+    "id": "channel",
+    "name": "Axiom",
+    "handle": "@AxiomMind",
+    "persona": "An articulate, analytical narrator dissecting complex psychological concepts and decision science with clarity. Maintain a confident, educational, and slightly philosophical tone, using precise language and logical progressions.",
+    "palette": {
+      "background": "#141432",
+      "ink": "#fffaf0",
+      "accent": "#00ded1",
+      "muted": "#9aa6bf"
+    },
+    "figure": {
+      "embiggen": 1.42,
+      "wobble": 1.7,
+      "grain": 0.02,
+      "scenery": true,
+      "transition": 0.35,
+      "pace": 3.0
+    },
+    "voice": {
+      "kokoro_voice": "am_liam",
+      "kokoro_speed": 0.95
+    },
+    "colors": [
+      "#ff5a5f",
+      "#ffb454",
+      "#22c1a4",
+      "#4d8bff",
+      "#c879ff",
+      "#ff8fab",
+      "#7ed957"
+    ],
+    "default_length": "3-5",
+    "default_format": "16:9",
+    "default_style": "stick",
+    "rotation": [
+      "whatif",
+      "howto",
+      "otheryou",
+      "reflection"
+    ],
+    "tag_suffix": [
+      "stick figure animation",
+      "deep thoughts"
+    ],
+    "hashtags": [
+      "#deepthoughts",
+      "#stickfigure",
+      "#mindfulness"
+    ],
+    "cta_style": "warm",
+    "thumb": "bubbles",
+    "image_provider": "auto",
+    "assets": {
+      "profile": "branding/channel/profile.png",
+      "banner": "branding/channel/banner.png",
+      "watermark": "branding/channel/watermark.png"
+    }
+  }
+]

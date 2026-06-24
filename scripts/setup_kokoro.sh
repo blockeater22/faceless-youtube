@@ -3,7 +3,22 @@
 # Kokoro is #1 on the TTS Arena for natural narration — our channel voice.
 set -e
 
-python -m pip install --upgrade kokoro-onnx >/dev/null
+PYTHON_BIN="${PYTHON_BIN:-}"
+if [ -z "$PYTHON_BIN" ]; then
+  for candidate in python3 python python3.12 python3.11; do
+    if command -v "$candidate" >/dev/null 2>&1; then
+      PYTHON_BIN="$candidate"
+      break
+    fi
+  done
+fi
+
+if [ -z "$PYTHON_BIN" ]; then
+  echo "No Python executable found. Set PYTHON_BIN=/path/to/python and rerun." >&2
+  exit 1
+fi
+
+"$PYTHON_BIN" -m pip install --upgrade kokoro-onnx >/dev/null
 
 mkdir -p voices
 cd voices

@@ -2,6 +2,7 @@
   "videos_per_day": 2,
 
   "script_backend": "auto",
+  "gemini_model": "gemini-auto",
   "model": "claude-opus-4-8",
 
   "publish_mode": "private",

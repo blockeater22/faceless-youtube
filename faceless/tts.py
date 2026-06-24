@@ -7,6 +7,7 @@ once you set ``ELEVENLABS_API_KEY``. Swap backends in the story's ``voice`` bloc
 from __future__ import annotations
 
 import os
+import platform
 import shutil
 import subprocess
 import wave
@@ -37,32 +38,54 @@ def synth(text: str, out_wav: str | Path, voice: Voice) -> None:
             _kokoro(text, raw, voice)
         elif backend == "gtts":
             _gtts(text, raw, voice)
+        elif backend == "say":
+            _macos_say(text, raw, voice)
         elif backend == "elevenlabs":
             _elevenlabs(text, raw, voice)
         else:
             raise ValueError(f"unknown tts backend: {voice.backend}")
     except Exception as exc:
         # never let a missing neural model kill a render: degrade gracefully
-        # (piper/elevenlabs -> festival -> espeak) keeping the requested polish.
-        fb = _fallback_voice(voice, exclude={backend})
-        if fb is None:
-            raise
-        print(f"  [tts] '{backend}' unavailable ({exc}); falling back to '{fb.backend}'")
-        (_festival if fb.backend == "festival" else _espeak)(text, raw, fb)
+        # keeping the requested polish. On macOS, prefer the built-in `say`
+        # because MBROLA voices like `mb-us2` are usually Linux-only.
+        last_exc: Exception = exc
+        for fb in _fallback_voices(voice, exclude={backend}):
+            try:
+                print(f"  [tts] '{backend}' unavailable ({last_exc}); falling back to '{fb.backend}'")
+                if fb.backend == "festival":
+                    _festival(text, raw, fb)
+                elif fb.backend == "say":
+                    _macos_say(text, raw, fb)
+                else:
+                    _espeak(text, raw, fb)
+                break
+            except Exception as fb_exc:  # noqa: BLE001
+                last_exc = fb_exc
+        else:
+            # Last-resort: keep the render alive with timed silence rather than
+            # losing an entire long video after scripts/images are generated.
+            seconds = max(1.2, len(text.split()) / 2.4)
+            print(f"  [tts] all TTS backends failed ({last_exc}); using {seconds:.1f}s silence")
+            _silence(raw, seconds)
 
     _finalize(raw, out_wav, voice)
     raw.unlink(missing_ok=True)
 
 
-def _fallback_voice(voice: Voice, exclude: set[str]) -> Voice | None:
-    """Pick the best still-available offline backend, skipping ones already tried."""
+def _fallback_voices(voice: Voice, exclude: set[str]) -> list[Voice]:
+    """Available offline fallbacks, ordered for the current platform."""
+    fallbacks: list[Voice] = []
     if "festival" not in exclude and shutil.which("text2wave"):
-        return Voice(backend="festival", voice="cmu_us_slt_arctic_hts",
-                     rate=voice.rate, polish=voice.polish, gap=voice.gap)
+        fallbacks.append(Voice(backend="festival", voice="cmu_us_slt_arctic_hts",
+                               rate=voice.rate, polish=voice.polish, gap=voice.gap))
+    if "say" not in exclude and platform.system() == "Darwin" and shutil.which("say"):
+        fallbacks.append(Voice(backend="say", voice="Samantha", rate=voice.rate,
+                               polish=voice.polish, gap=voice.gap))
     if "espeak" not in exclude and (shutil.which("espeak-ng") or shutil.which("espeak")):
-        return Voice(backend="espeak", voice="mb-us2", rate=voice.rate,
-                     pitch=voice.pitch, polish=voice.polish, gap=voice.gap)
-    return None
+        for voice_id in ("en-us", "en", ""):
+            fallbacks.append(Voice(backend="espeak", voice=voice_id, rate=voice.rate,
+                                   pitch=voice.pitch, polish=voice.polish, gap=voice.gap))
+    return fallbacks
 
 
 # --------------------------------------------------------------------------- #
@@ -72,11 +95,32 @@ def _espeak(text: str, out: Path, voice: Voice) -> None:
     exe = shutil.which("espeak-ng") or shutil.which("espeak")
     if not exe:
         raise RuntimeError("espeak-ng not installed (apt-get install espeak-ng)")
-    subprocess.run(
-        [exe, "-v", voice.voice, "-s", str(voice.rate), "-p", str(voice.pitch),
-         "-w", str(out), text],
-        check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
-    )
+    cmd = [exe]
+    if voice.voice:
+        cmd += ["-v", voice.voice]
+    cmd += ["-s", str(voice.rate), "-p", str(voice.pitch), "-w", str(out), text]
+    proc = subprocess.run(cmd, capture_output=True, text=True)
+    if proc.returncode != 0 or not out.exists() or out.stat().st_size < 256:
+        err = (proc.stderr or proc.stdout or "").strip()
+        raise RuntimeError(f"espeak synthesis failed for voice {voice.voice!r}: {err[-300:]}")
+
+
+def _macos_say(text: str, out: Path, voice: Voice) -> None:
+    exe = shutil.which("say")
+    if not exe:
+        raise RuntimeError("macOS say command not available")
+    aiff = out.with_suffix(".aiff")
+    cmd = [exe, "-r", str(max(80, min(260, voice.rate))), "-o", str(aiff)]
+    if voice.voice:
+        cmd += ["-v", voice.voice]
+    cmd.append(text)
+    proc = subprocess.run(cmd, capture_output=True, text=True)
+    if proc.returncode != 0 or not aiff.exists() or aiff.stat().st_size < 256:
+        err = (proc.stderr or proc.stdout or "").strip()
+        raise RuntimeError(f"macOS say synthesis failed: {err[-300:]}")
+    run([ffmpeg_exe(), "-y", "-i", str(aiff), "-ar", "44100", "-ac", "1",
+         "-c:a", "pcm_s16le", str(out)])
+    aiff.unlink(missing_ok=True)
 
 
 def _festival(text: str, out: Path, voice: Voice) -> None:
@@ -191,15 +235,18 @@ def _elevenlabs(text: str, out: Path, voice: Voice) -> None:
 def _finalize(raw: Path, out: Path, voice: Voice) -> None:
     """Add a trailing gap and (optionally) a 'warmth' chain so the offline
     voice sounds less brittle. Output is 44.1k stereo pcm."""
+    # Trim leading/trailing silence generated by TTS models before padding
+    silrm = "silenceremove=start_periods=1:start_threshold=-50dB:start_duration=0.01:stop_periods=1:stop_threshold=-50dB:stop_duration=0.05,"
+    
     if voice.polish:
         # NB: no reverb/echo - it smears speech and reads as "buffering".
         # Gentle EQ + slow-attack compression + loudness-normalise only.
-        chain = ("highpass=f=75,lowpass=f=7600,"
+        chain = (f"{silrm}highpass=f=75,lowpass=f=7600,"
                  "acompressor=threshold=-16dB:ratio=2.5:attack=20:release=260,"
                  "loudnorm=I=-16:TP=-1.5:LRA=11,"
                  f"apad=pad_dur={voice.gap}")
     else:
-        chain = f"apad=pad_dur={voice.gap}"
+        chain = f"{silrm}apad=pad_dur={voice.gap}"
     run([ffmpeg_exe(), "-y", "-i", str(raw), "-af", chain,
          "-ar", "44100", "-ac", "2", "-c:a", "pcm_s16le", str(out)])
 

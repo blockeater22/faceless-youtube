@@ -15,9 +15,10 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "stories"
 
 BASE_STYLE = {
-    "background": "#0e1320", "ink": "#f2ede1", "accent": "#ffb454", "muted": "#6f7791",
-    "fps": 24, "wobble": 1.7, "grain": 0.05, "vignette": 0.55,
-    "caption": {"size": 0.05, "color": "#ffffff"},
+    "background": "#101a2e", "ink": "#fffaf0", "accent": "#ffd23f", "muted": "#9aa6bf",
+    "fps": 24, "wobble": 1.7, "grain": 0.02, "vignette": 0.16,
+    "ink_width": 0.0078, "outline": 1.9,
+    "caption": {"size": 0.058, "color": "#ffffff"},
     "logo": "branding/watermark.png", "logo_pos": "tl", "logo_scale": 0.1, "logo_opacity": 0.72,
 }
 BASE_VOICE = {

@@ -1,0 +1,1461 @@
+{
+  "title": "The Invisible Weight of Always Saying Yes",
+  "handle": "@Inklings1",
+  "hook": "YOU ARE NOT AN ENDLESS WELL",
+  "hook_dur": 2.0,
+  "meta": {
+    "playlist": "3 AM Thoughts",
+    "kind": "reflection",
+    "auto": true
+  },
+  "style": {
+    "background": "#0e1320",
+    "ink": "#f2ede1",
+    "accent": "#ffb454",
+    "muted": "#6f7791",
+    "fps": 24,
+    "wobble": 1.7,
+    "grain": 0.05,
+    "vignette": 0.55,
+    "caption": {
+      "size": 0.05,
+      "color": "#ffffff"
+    },
+    "logo": "branding/watermark.png",
+    "logo_pos": "tl",
+    "logo_scale": 0.1,
+    "logo_opacity": 0.72
+  },
+  "voice": {
+    "backend": "kokoro",
+    "kokoro_voice": "am_liam",
+    "kokoro_speed": 1.0,
+    "piper_model": "voices/en_US-ryan-high.onnx",
+    "piper_length": 1.1,
+    "voice": "cmu_us_slt_arctic_hts",
+    "rate": 135,
+    "polish": true,
+    "gap": 0.5
+  },
+  "scenes": [
+    {
+      "id": "00_hook",
+      "narration": "You\u2019ve mastered the art of saying \"yes.\"",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "label",
+          "id": "q",
+          "text": "?",
+          "color": "accent",
+          "size": 0.16,
+          "keys": [
+            {
+              "t": 0.35,
+              "pos": [
+                0.66,
+                0.31
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.55,
+              "pos": [
+                0.66,
+                0.29
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.66,
+                0.29
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "icon",
+          "name": "speech",
+          "color": "accent",
+          "size": 0.12,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.18,
+              "pos": [
+                0.72,
+                0.32
+              ],
+              "alpha": 0,
+              "scale": 0.4
+            },
+            {
+              "t": 0.4,
+              "pos": [
+                0.72,
+                0.3
+              ],
+              "alpha": 1,
+              "scale": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.72,
+                0.3
+              ],
+              "alpha": 1,
+              "scale": 1.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "01_solo",
+      "narration": "To friends, to family, to work \u2013 your default answer is \"absolutely.\"",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "reach",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "reach",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "reach",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "icon",
+          "name": "heart",
+          "color": "accent",
+          "size": 0.12,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.18,
+              "pos": [
+                0.72,
+                0.32
+              ],
+              "alpha": 0,
+              "scale": 0.4
+            },
+            {
+              "t": 0.4,
+              "pos": [
+                0.72,
+                0.3
+              ],
+              "alpha": 1,
+              "scale": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.72,
+                0.3
+              ],
+              "alpha": 1,
+              "scale": 1.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "02_crowd",
+      "narration": "You wear your helpfulness like a badge of honor, always ready to step in.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "m0",
+          "color": "ink",
+          "face": "dots",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.15,
+                0.5
+              ],
+              "pose": "wave",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.05,
+              "pos": [
+                0.15,
+                0.5
+              ],
+              "pose": "stand",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.17,
+              "pos": [
+                0.15,
+                0.5
+              ],
+              "pose": "wave",
+              "scale": 0.1846,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.15,
+                0.5
+              ],
+              "pose": "wave",
+              "scale": 0.1846,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "m1",
+          "color": "muted",
+          "face": "dots",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.33,
+                0.42
+              ],
+              "pose": "celebrate",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.12,
+              "pos": [
+                0.33,
+                0.42
+              ],
+              "pose": "stand",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.24,
+              "pos": [
+                0.33,
+                0.42
+              ],
+              "pose": "celebrate",
+              "scale": 0.1846,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.33,
+                0.42
+              ],
+              "pose": "celebrate",
+              "scale": 0.1846,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "m2",
+          "color": "ink",
+          "face": "dots",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.56
+              ],
+              "pose": "point_up",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.19,
+              "pos": [
+                0.5,
+                0.56
+              ],
+              "pose": "stand",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.31,
+              "pos": [
+                0.5,
+                0.56
+              ],
+              "pose": "point_up",
+              "scale": 0.1846,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.56
+              ],
+              "pose": "point_up",
+              "scale": 0.1846,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "m3",
+          "color": "muted",
+          "face": "dots",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.67,
+                0.42
+              ],
+              "pose": "shrug",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.26,
+              "pos": [
+                0.67,
+                0.42
+              ],
+              "pose": "stand",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.38,
+              "pos": [
+                0.67,
+                0.42
+              ],
+              "pose": "shrug",
+              "scale": 0.1846,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.67,
+                0.42
+              ],
+              "pose": "shrug",
+              "scale": 0.1846,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "m4",
+          "color": "ink",
+          "face": "dots",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.85,
+                0.5
+              ],
+              "pose": "wave",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.33,
+              "pos": [
+                0.85,
+                0.5
+              ],
+              "pose": "stand",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.45,
+              "pos": [
+                0.85,
+                0.5
+              ],
+              "pose": "wave",
+              "scale": 0.1846,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.85,
+                0.5
+              ],
+              "pose": "wave",
+              "scale": 0.1846,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "m5",
+          "color": "muted",
+          "face": "dots",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.36
+              ],
+              "pose": "stand",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.4,
+              "pos": [
+                0.5,
+                0.36
+              ],
+              "pose": "stand",
+              "scale": 0.1846,
+              "alpha": 0
+            },
+            {
+              "t": 0.52,
+              "pos": [
+                0.5,
+                0.36
+              ],
+              "pose": "stand",
+              "scale": 0.1846,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.36
+              ],
+              "pose": "stand",
+              "scale": 0.1846,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "03_solo",
+      "narration": "But beneath the surface, a quiet weariness starts to settle in.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "sad",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "shrug",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "shrug",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "shrug",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "icon",
+          "name": "cloud",
+          "color": "accent",
+          "size": 0.12,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.18,
+              "pos": [
+                0.72,
+                0.32
+              ],
+              "alpha": 0,
+              "scale": 0.4
+            },
+            {
+              "t": 0.4,
+              "pos": [
+                0.72,
+                0.3
+              ],
+              "alpha": 1,
+              "scale": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.72,
+                0.3
+              ],
+              "alpha": 1,
+              "scale": 1.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "04_label_above",
+      "narration": "You\u2019re pouring yourself out, bit by bit, for everyone else.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "reach",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "reach",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "reach",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "label",
+          "id": "num",
+          "text": "EMPTY",
+          "color": "accent",
+          "size": 0.07,
+          "keys": [
+            {
+              "t": 0.25,
+              "pos": [
+                0.5,
+                0.36
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.45,
+              "pos": [
+                0.5,
+                0.33999999999999997
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.33999999999999997
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true,
+          "follow": "hero",
+          "offset": [
+            0,
+            -0.26
+          ]
+        }
+      ]
+    },
+    {
+      "id": "05_solo",
+      "narration": "Your own cup, however, remains untouched, perhaps even forgotten.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "sad",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "icon",
+          "name": "spiral",
+          "color": "accent",
+          "size": 0.12,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.18,
+              "pos": [
+                0.72,
+                0.32
+              ],
+              "alpha": 0,
+              "scale": 0.4
+            },
+            {
+              "t": 0.4,
+              "pos": [
+                0.72,
+                0.3
+              ],
+              "alpha": 1,
+              "scale": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.72,
+                0.3
+              ],
+              "alpha": 1,
+              "scale": 1.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "06_split",
+      "narration": "You start to feel fragmented, a little less like yourself with each new commitment.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "sad",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3976,
+              "alpha": 1
+            },
+            {
+              "t": 0.45,
+              "pos": [
+                0.4,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3976,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.4,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3976,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "ghost",
+          "color": "muted",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3976,
+              "alpha": 0
+            },
+            {
+              "t": 0.45,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3976,
+              "alpha": 0.2
+            },
+            {
+              "t": 0.8,
+              "pos": [
+                0.62,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3976,
+              "alpha": 0.85
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.62,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3976,
+              "alpha": 0.85
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "07_two",
+      "narration": "There's a subtle resentment that builds, a quiet whisper asking, \"What about me?\"",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "a",
+          "color": "ink",
+          "face": "sad",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.33,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.3834,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "b",
+          "color": "muted",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "point",
+              "scale": 0.3834,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "point",
+              "scale": 0.3834,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.67,
+                0.62
+              ],
+              "pose": "point",
+              "scale": 0.3834,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": []
+    },
+    {
+      "id": "08_solo",
+      "narration": "Every \"yes\" to another person becomes a quiet \"no\" to your own dreams and peace.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "sad",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "icon",
+          "name": "door",
+          "color": "accent",
+          "size": 0.12,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.18,
+              "pos": [
+                0.72,
+                0.32
+              ],
+              "alpha": 0,
+              "scale": 0.4
+            },
+            {
+              "t": 0.4,
+              "pos": [
+                0.72,
+                0.3
+              ],
+              "alpha": 1,
+              "scale": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.72,
+                0.3
+              ],
+              "alpha": 1,
+              "scale": 1.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "09_solo",
+      "narration": "The real cost isn't just time or energy; it\u2019s the slow erosion of your own identity.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "surprised",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "think",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "icon",
+          "name": "bulb",
+          "color": "accent",
+          "size": 0.12,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.18,
+              "pos": [
+                0.72,
+                0.32
+              ],
+              "alpha": 0,
+              "scale": 0.4
+            },
+            {
+              "t": 0.4,
+              "pos": [
+                0.72,
+                0.3
+              ],
+              "alpha": 1,
+              "scale": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.72,
+                0.3
+              ],
+              "alpha": 1,
+              "scale": 1.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "10_celebrate",
+      "narration": "It\u2019s okay to draw boundaries, to protect the precious space within you.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.66
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 0.4,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "celebrate",
+              "scale": 0.426,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "celebrate",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "label",
+          "id": "e1",
+          "text": "!",
+          "color": "accent",
+          "size": 0.07,
+          "keys": [
+            {
+              "t": 0.4,
+              "pos": [
+                0.31,
+                0.36
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.31,
+                0.33999999999999997
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.31,
+                0.33999999999999997
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        },
+        {
+          "type": "label",
+          "id": "e2",
+          "text": "!",
+          "color": "accent",
+          "size": 0.07,
+          "keys": [
+            {
+              "t": 0.5,
+              "pos": [
+                0.7,
+                0.38
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.7,
+              "pos": [
+                0.7,
+                0.36
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.7,
+                0.36
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        }
+      ]
+    },
+    {
+      "id": "11_solo",
+      "narration": "Saying \"no\" isn't selfish; it's an act of deep self-respect and preservation.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "icon",
+          "name": "heart",
+          "color": "accent",
+          "size": 0.12,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.18,
+              "pos": [
+                0.72,
+                0.32
+              ],
+              "alpha": 0,
+              "scale": 0.4
+            },
+            {
+              "t": 0.4,
+              "pos": [
+                0.72,
+                0.3
+              ],
+              "alpha": 1,
+              "scale": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.72,
+                0.3
+              ],
+              "alpha": 1,
+              "scale": 1.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "12_cta",
+      "narration": "When was the last time you truly said \"yes\" to yourself? What would that look like? Join the Inklings community for more quiet reflections.",
+      "min_dur": 5.6,
+      "actors": [
+        {
+          "type": "figure",
+          "id": "hero",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 0
+            },
+            {
+              "t": 0.07,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "stand",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 0.56,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.426,
+              "alpha": 1
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.5,
+                0.62
+              ],
+              "pose": "wave",
+              "scale": 0.426,
+              "alpha": 1
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "label",
+          "id": "m",
+          "text": "+",
+          "color": "accent",
+          "size": 0.08,
+          "keys": [
+            {
+              "t": 0.45,
+              "pos": [
+                0.68,
+                0.38
+              ],
+              "scale": 0.4,
+              "alpha": 0
+            },
+            {
+              "t": 0.65,
+              "pos": [
+                0.68,
+                0.36
+              ],
+              "scale": 1.0,
+              "alpha": 1,
+              "ease": "pop"
+            },
+            {
+              "t": 1,
+              "pos": [
+                0.68,
+                0.36
+              ],
+              "scale": 1.0,
+              "alpha": 1
+            }
+          ],
+          "front": true
+        }
+      ]
+    }
+  ]
+}

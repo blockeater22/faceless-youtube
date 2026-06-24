@@ -102,10 +102,44 @@ def warning(d: ImageDraw.ImageDraw, cx: float, cy: float, r: float, color: Color
     d.ellipse([cx - w * 0.55, cy + r * 0.42, cx + w * 0.55, cy + r * 0.42 + w * 1.1], fill=bg)
 
 
+def thumbs_up(d: ImageDraw.ImageDraw, cx: float, cy: float, r: float, color: Color) -> None:
+    # fist (rounded block) with a wrist notch at the bottom
+    d.rounded_rectangle([cx - r * 0.1, cy - r * 0.02, cx + r * 0.72, cy + r * 0.88],
+                        radius=r * 0.22, fill=color)
+    d.rectangle([cx - r * 0.1, cy + r * 0.5, cx + r * 0.34, cy + r * 0.88], fill=color)
+    # thumb: a capsule tilted up-left, overlapping the top of the fist
+    ang = math.radians(-28)
+    length, half_w = r * 0.95, r * 0.21
+    tcx, tcy = cx - r * 0.12, cy - r * 0.3
+    dx, dy = math.cos(ang), math.sin(ang)
+    nx, ny = -dy, dx
+    half_l = length / 2
+    pts = [
+        (tcx - dx * half_l - nx * half_w, tcy - dy * half_l - ny * half_w),
+        (tcx + dx * half_l - nx * half_w, tcy + dy * half_l - ny * half_w),
+        (tcx + dx * half_l + nx * half_w, tcy + dy * half_l + ny * half_w),
+        (tcx - dx * half_l + nx * half_w, tcy - dy * half_l + ny * half_w),
+    ]
+    d.polygon(pts, fill=color)
+    for sign in (-1, 1):
+        ex, ey = tcx + sign * dx * half_l, tcy + sign * dy * half_l
+        d.ellipse([ex - half_w, ey - half_w, ex + half_w, ey + half_w], fill=color)
+
+
+def bell(d: ImageDraw.ImageDraw, cx: float, cy: float, r: float, color: Color) -> None:
+    d.pieslice([cx - r * 0.75, cy - r * 0.85, cx + r * 0.75, cy + r * 0.65], 180, 360, fill=color)
+    d.rectangle([cx - r * 0.75, cy - r * 0.1, cx + r * 0.75, cy + r * 0.35], fill=color)
+    d.polygon([(cx - r * 0.9, cy + r * 0.35), (cx + r * 0.9, cy + r * 0.35),
+               (cx + r * 0.68, cy + r * 0.55), (cx - r * 0.68, cy + r * 0.55)], fill=color)
+    d.ellipse([cx - r * 0.14, cy + r * 0.58, cx + r * 0.14, cy + r * 0.86], fill=color)
+    d.ellipse([cx - r * 0.12, cy - r * 0.95, cx + r * 0.12, cy - r * 0.72], fill=color)
+
+
 ICONS = {
     "check": check, "star": star, "heart": heart, "lightbulb": lightbulb,
     "brain": brain, "arrow_up": arrow_up, "arrow_down": arrow_down,
     "chat": chat, "clock": clock, "warning": warning,
+    "thumbs_up": thumbs_up, "bell": bell,
 }
 
 

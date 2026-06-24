@@ -77,7 +77,55 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp0",
+          "name": "star",
+          "color": "#ffd23f",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "01_crowd",
@@ -419,7 +467,54 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "object",
+          "id": "dp2",
+          "name": "laptop",
+          "size": 0.26,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "03_point",
@@ -430,7 +525,7 @@
           "type": "figure",
           "id": "hero",
           "color": "ink",
-          "face": "neutral",
+          "face": "happy",
           "keys": [
             {
               "t": 0,
@@ -531,7 +626,55 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp4",
+          "name": "star",
+          "color": "#ffd23f",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "05_stars",
@@ -542,7 +685,7 @@
           "type": "figure",
           "id": "hero",
           "color": "ink",
-          "face": "neutral",
+          "face": "happy",
           "keys": [
             {
               "t": 0,
@@ -789,7 +932,7 @@
           "type": "figure",
           "id": "hero",
           "color": "ink",
-          "face": "neutral",
+          "face": "think",
           "keys": [
             {
               "t": 0,
@@ -824,7 +967,55 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp6",
+          "name": "warning",
+          "color": "#ffb454",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "07_chapter",
@@ -954,7 +1145,55 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp8",
+          "name": "warning",
+          "color": "#ffb454",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "09_label_above",
@@ -1055,7 +1294,7 @@
           "type": "figure",
           "id": "a",
           "color": "ink",
-          "face": "neutral",
+          "face": "think",
           "keys": [
             {
               "t": 0,
@@ -1185,7 +1424,7 @@
           "type": "figure",
           "id": "hero",
           "color": "ink",
-          "face": "neutral",
+          "face": "think",
           "keys": [
             {
               "t": 0,
@@ -1276,7 +1515,54 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "object",
+          "id": "dp13",
+          "name": "books",
+          "size": 0.26,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "14_walk",
@@ -1287,7 +1573,7 @@
           "type": "figure",
           "id": "hero",
           "color": "ink",
-          "face": "happy",
+          "face": "neutral",
           "keys": [
             {
               "t": 0,
@@ -1616,7 +1902,54 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "object",
+          "id": "dp17",
+          "name": "door",
+          "size": 0.26,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "18_label_above",
@@ -1836,7 +2169,54 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "object",
+          "id": "dp20",
+          "name": "mug",
+          "size": 0.26,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "21_point",
@@ -1892,7 +2272,55 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp21",
+          "name": "warning",
+          "color": "#ffb454",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "22_solo",
@@ -1903,7 +2331,7 @@
           "type": "figure",
           "id": "hero",
           "color": "ink",
-          "face": "neutral",
+          "face": "happy",
           "keys": [
             {
               "t": 0,
@@ -1949,7 +2377,7 @@
           "type": "figure",
           "id": "hero",
           "color": "ink",
-          "face": "happy",
+          "face": "neutral",
           "keys": [
             {
               "t": 0,
@@ -2024,7 +2452,54 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "object",
+          "id": "dp23",
+          "name": "armchair",
+          "size": 0.26,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "24_stars",
@@ -2401,7 +2876,55 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp26",
+          "name": "check",
+          "color": "#23b26d",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "27_label_above",
@@ -2502,7 +3025,7 @@
           "type": "figure",
           "id": "a",
           "color": "ink",
-          "face": "neutral",
+          "face": "happy",
           "keys": [
             {
               "t": 0,
@@ -2540,7 +3063,7 @@
           "type": "figure",
           "id": "b",
           "color": "ink",
-          "face": "neutral",
+          "face": "happy",
           "keys": [
             {
               "t": 0,
@@ -2632,7 +3155,7 @@
           "type": "figure",
           "id": "hero",
           "color": "ink",
-          "face": "neutral",
+          "face": "sad",
           "keys": [
             {
               "t": 0,
@@ -2677,7 +3200,55 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp30",
+          "name": "star",
+          "color": "#ffd23f",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "31_solo",
@@ -2723,7 +3294,55 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp31",
+          "name": "heart",
+          "color": "#ff5d5d",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "32_walk",
@@ -3063,7 +3682,55 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp35",
+          "name": "clock",
+          "color": "#2dd4bf",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "36_label_above",
@@ -3164,7 +3831,7 @@
           "type": "figure",
           "id": "a",
           "color": "ink",
-          "face": "neutral",
+          "face": "angry",
           "keys": [
             {
               "t": 0,
@@ -3202,7 +3869,7 @@
           "type": "figure",
           "id": "b",
           "color": "muted",
-          "face": "neutral",
+          "face": "angry",
           "keys": [
             {
               "t": 0,
@@ -3482,7 +4149,7 @@
           "type": "figure",
           "id": "hero",
           "color": "ink",
-          "face": "neutral",
+          "face": "happy",
           "keys": [
             {
               "t": 0,
@@ -3717,6 +4384,53 @@
             }
           ],
           "front": true
+        },
+        {
+          "type": "icon",
+          "id": "dp42",
+          "name": "arrow_up",
+          "color": "#23b26d",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
         }
       ]
     },
@@ -3937,6 +4651,52 @@
             0,
             -0.26
           ]
+        },
+        {
+          "type": "object",
+          "id": "dp45",
+          "name": "mug",
+          "size": 0.26,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
         }
       ]
     },
@@ -4033,7 +4793,7 @@
           "type": "figure",
           "id": "hero",
           "color": "ink",
-          "face": "neutral",
+          "face": "think",
           "keys": [
             {
               "t": 0,
@@ -4079,7 +4839,7 @@
           "type": "figure",
           "id": "hero",
           "color": "ink",
-          "face": "neutral",
+          "face": "think",
           "keys": [
             {
               "t": 0,
@@ -4256,7 +5016,55 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp50",
+          "name": "clock",
+          "color": "#2dd4bf",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "51_celebrate",
@@ -4510,7 +5318,55 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp53",
+          "name": "heart",
+          "color": "#ff5d5d",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "54_label_above",
@@ -4611,7 +5467,7 @@
           "type": "figure",
           "id": "a",
           "color": "ink",
-          "face": "neutral",
+          "face": "happy",
           "keys": [
             {
               "t": 0,
@@ -4695,7 +5551,7 @@
           "type": "figure",
           "id": "hero",
           "color": "ink",
-          "face": "neutral",
+          "face": "happy",
           "keys": [
             {
               "t": 0,
@@ -4730,7 +5586,55 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp56",
+          "name": "chat",
+          "color": "#1f9bff",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "57_point",
@@ -4741,7 +5645,7 @@
           "type": "figure",
           "id": "hero",
           "color": "ink",
-          "face": "neutral",
+          "face": "happy",
           "keys": [
             {
               "t": 0,
@@ -4786,7 +5690,54 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "object",
+          "id": "dp57",
+          "name": "books",
+          "size": 0.26,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "58_solo",
@@ -4832,7 +5783,55 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp58",
+          "name": "star",
+          "color": "#ffd23f",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "59_walk",
@@ -4918,7 +5917,55 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp59",
+          "name": "clock",
+          "color": "#2dd4bf",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "60_stars",
@@ -4929,7 +5976,7 @@
           "type": "figure",
           "id": "hero",
           "color": "ink",
-          "face": "neutral",
+          "face": "happy",
           "keys": [
             {
               "t": 0,
@@ -5176,7 +6223,7 @@
           "type": "figure",
           "id": "hero",
           "color": "ink",
-          "face": "neutral",
+          "face": "sad",
           "keys": [
             {
               "t": 0,

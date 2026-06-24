@@ -77,7 +77,55 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp0",
+          "name": "chat",
+          "color": "#1f9bff",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "01_crowd",
@@ -419,7 +467,55 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp2",
+          "name": "brain",
+          "color": "#a463f2",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "03_point",
@@ -430,7 +526,7 @@
           "type": "figure",
           "id": "hero",
           "color": "ink",
-          "face": "neutral",
+          "face": "happy",
           "keys": [
             {
               "t": 0,
@@ -531,7 +627,55 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp4",
+          "name": "lightbulb",
+          "color": "#ffd23f",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "05_stars",
@@ -777,6 +921,53 @@
             }
           ],
           "front": true
+        },
+        {
+          "type": "icon",
+          "id": "dp5",
+          "name": "lightbulb",
+          "color": "#ffd23f",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
         }
       ]
     },
@@ -824,7 +1015,55 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp6",
+          "name": "chat",
+          "color": "#1f9bff",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "07_chapter",
@@ -919,7 +1158,7 @@
           "type": "figure",
           "id": "hero",
           "color": "ink",
-          "face": "neutral",
+          "face": "happy",
           "keys": [
             {
               "t": 0,
@@ -954,7 +1193,55 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp8",
+          "name": "star",
+          "color": "#ffd23f",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "09_crowd",
@@ -1339,6 +1626,53 @@
             0,
             -0.26
           ]
+        },
+        {
+          "type": "icon",
+          "id": "dp10",
+          "name": "brain",
+          "color": "#a463f2",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
         }
       ]
     },
@@ -1386,7 +1720,55 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp11",
+          "name": "chat",
+          "color": "#1f9bff",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "12_point",
@@ -1397,7 +1779,7 @@
           "type": "figure",
           "id": "hero",
           "color": "ink",
-          "face": "neutral",
+          "face": "sad",
           "keys": [
             {
               "t": 0,
@@ -1442,7 +1824,55 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp12",
+          "name": "warning",
+          "color": "#ffb454",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "13_solo",
@@ -1453,7 +1883,7 @@
           "type": "figure",
           "id": "hero",
           "color": "ink",
-          "face": "neutral",
+          "face": "happy",
           "keys": [
             {
               "t": 0,
@@ -1488,7 +1918,55 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp13",
+          "name": "star",
+          "color": "#ffd23f",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "14_walk",
@@ -1499,7 +1977,7 @@
           "type": "figure",
           "id": "hero",
           "color": "ink",
-          "face": "happy",
+          "face": "think",
           "keys": [
             {
               "t": 0,
@@ -1574,7 +2052,55 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp14",
+          "name": "clock",
+          "color": "#2dd4bf",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "15_celebrate",
@@ -1793,7 +2319,7 @@
           "type": "figure",
           "id": "hero",
           "color": "ink",
-          "face": "neutral",
+          "face": "think",
           "keys": [
             {
               "t": 0,
@@ -1828,7 +2354,55 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp17",
+          "name": "brain",
+          "color": "#a463f2",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "18_label_above",
@@ -1917,6 +2491,53 @@
             0,
             -0.26
           ]
+        },
+        {
+          "type": "icon",
+          "id": "dp18",
+          "name": "chat",
+          "color": "#1f9bff",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
         }
       ]
     },
@@ -1929,7 +2550,7 @@
           "type": "figure",
           "id": "a",
           "color": "ink",
-          "face": "neutral",
+          "face": "angry",
           "keys": [
             {
               "t": 0,
@@ -1967,7 +2588,7 @@
           "type": "figure",
           "id": "b",
           "color": "ink",
-          "face": "neutral",
+          "face": "angry",
           "keys": [
             {
               "t": 0,
@@ -2048,7 +2669,55 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp20",
+          "name": "chat",
+          "color": "#1f9bff",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "21_point",
@@ -2150,7 +2819,55 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp22",
+          "name": "chat",
+          "color": "#1f9bff",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "23_walk",
@@ -2236,7 +2953,55 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp23",
+          "name": "chat",
+          "color": "#1f9bff",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "24_stars",
@@ -2482,6 +3247,53 @@
             }
           ],
           "front": true
+        },
+        {
+          "type": "icon",
+          "id": "dp24",
+          "name": "chat",
+          "color": "#1f9bff",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
         }
       ]
     },
@@ -2613,7 +3425,55 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp26",
+          "name": "star",
+          "color": "#ffd23f",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "27_label_above",
@@ -2701,6 +3561,53 @@
           "offset": [
             0,
             -0.26
+          ]
+        },
+        {
+          "type": "icon",
+          "id": "dp27",
+          "name": "star",
+          "color": "#ffd23f",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
           ]
         }
       ]
@@ -2833,7 +3740,55 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp29",
+          "name": "chat",
+          "color": "#1f9bff",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "30_point",
@@ -2889,7 +3844,55 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp30",
+          "name": "brain",
+          "color": "#a463f2",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "31_solo",
@@ -2946,7 +3949,7 @@
           "type": "figure",
           "id": "hero",
           "color": "ink",
-          "face": "happy",
+          "face": "neutral",
           "keys": [
             {
               "t": 0,
@@ -3021,7 +4024,55 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp32",
+          "name": "chat",
+          "color": "#1f9bff",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "33_celebrate",
@@ -3240,7 +4291,7 @@
           "type": "figure",
           "id": "hero",
           "color": "ink",
-          "face": "neutral",
+          "face": "sad",
           "keys": [
             {
               "t": 0,
@@ -3495,7 +4546,55 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp38",
+          "name": "chat",
+          "color": "#1f9bff",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "39_point",
@@ -3506,7 +4605,7 @@
           "type": "figure",
           "id": "hero",
           "color": "ink",
-          "face": "neutral",
+          "face": "happy",
           "keys": [
             {
               "t": 0,
@@ -3551,7 +4650,55 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp39",
+          "name": "star",
+          "color": "#ffd23f",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "40_solo",
@@ -3562,7 +4709,7 @@
           "type": "figure",
           "id": "hero",
           "color": "ink",
-          "face": "neutral",
+          "face": "angry",
           "keys": [
             {
               "t": 0,
@@ -3608,7 +4755,7 @@
           "type": "figure",
           "id": "hero",
           "color": "ink",
-          "face": "happy",
+          "face": "neutral",
           "keys": [
             {
               "t": 0,
@@ -3694,7 +4841,7 @@
           "type": "figure",
           "id": "hero",
           "color": "ink",
-          "face": "neutral",
+          "face": "sad",
           "keys": [
             {
               "t": 0,
@@ -4060,7 +5207,55 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp44",
+          "name": "star",
+          "color": "#ffd23f",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "45_label_above",
@@ -4071,7 +5266,7 @@
           "type": "figure",
           "id": "hero",
           "color": "ink",
-          "face": "neutral",
+          "face": "happy",
           "keys": [
             {
               "t": 0,
@@ -4245,7 +5440,7 @@
           "type": "figure",
           "id": "hero",
           "color": "ink",
-          "face": "neutral",
+          "face": "happy",
           "keys": [
             {
               "t": 0,
@@ -4280,7 +5475,55 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp47",
+          "name": "star",
+          "color": "#ffd23f",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "48_point",
@@ -4336,7 +5579,54 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "object",
+          "id": "dp48",
+          "name": "door",
+          "size": 0.26,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "49_solo",
@@ -4347,7 +5637,7 @@
           "type": "figure",
           "id": "hero",
           "color": "ink",
-          "face": "neutral",
+          "face": "happy",
           "keys": [
             {
               "t": 0,
@@ -4382,7 +5672,55 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp49",
+          "name": "star",
+          "color": "#ffd23f",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "50_walk",
@@ -4468,7 +5806,55 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp50",
+          "name": "clock",
+          "color": "#2dd4bf",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "51_celebrate",
@@ -4687,7 +6073,7 @@
           "type": "figure",
           "id": "hero",
           "color": "ink",
-          "face": "neutral",
+          "face": "sad",
           "keys": [
             {
               "t": 0,
@@ -4811,6 +6197,52 @@
             0,
             -0.26
           ]
+        },
+        {
+          "type": "object",
+          "id": "dp54",
+          "name": "mug",
+          "size": 0.26,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
         }
       ]
     },
@@ -4823,7 +6255,7 @@
           "type": "figure",
           "id": "a",
           "color": "ink",
-          "face": "neutral",
+          "face": "think",
           "keys": [
             {
               "t": 0,
@@ -4861,7 +6293,7 @@
           "type": "figure",
           "id": "b",
           "color": "ink",
-          "face": "neutral",
+          "face": "think",
           "keys": [
             {
               "t": 0,
@@ -4942,7 +6374,55 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp56",
+          "name": "chat",
+          "color": "#1f9bff",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "57_point",
@@ -4953,7 +6433,7 @@
           "type": "figure",
           "id": "hero",
           "color": "ink",
-          "face": "neutral",
+          "face": "think",
           "keys": [
             {
               "t": 0,
@@ -4998,7 +6478,55 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp57",
+          "name": "clock",
+          "color": "#2dd4bf",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "58_solo",
@@ -5044,7 +6572,55 @@
           ]
         }
       ],
-      "props": []
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp58",
+          "name": "chat",
+          "color": "#1f9bff",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "59_walk",
@@ -5388,7 +6964,7 @@
           "type": "figure",
           "id": "hero",
           "color": "ink",
-          "face": "neutral",
+          "face": "think",
           "keys": [
             {
               "t": 0,

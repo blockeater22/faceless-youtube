@@ -82,25 +82,64 @@ def draw_figure(sk: Sketcher, hip: Point, unit: float, pose: dict,
     _draw_face(sk, head_c, hr, face, color)
 
 
+# Faces that carry an emotion get eyebrows; the calm/default ones stay clean.
+_BROWED = {"happy", "sad", "worried", "angry", "surprised", "think", "skeptical"}
+
+
+def _brow(sk, x_in, x_out, y_in, y_out, color, lw):
+    """One eyebrow as a short stroke from its inner end to its outer end."""
+    sk.line((x_in, y_in), (x_out, y_out), color=color, width=lw)
+
+
 def _draw_face(sk: Sketcher, c: Point, r: float, face: str, color) -> None:
     if face in (None, "none"):
         return
+    cx, cy = c
     ex, ey = 0.36 * r, 0.12 * r
     eye_r = max(1.0, 0.10 * r)
-    if face != "shut":
-        sk.dot((c[0] - ex, c[1] - ey), eye_r, color=color)
-        sk.dot((c[0] + ex, c[1] - ey), eye_r, color=color)
-    else:  # closed/peaceful eyes
-        sk.line((c[0] - ex * 1.4, c[1] - ey), (c[0] - ex * 0.3, c[1] - ey), color=color, width=sk.width * 0.7)
-        sk.line((c[0] + ex * 0.3, c[1] - ey), (c[0] + ex * 1.4, c[1] - ey), color=color, width=sk.width * 0.7)
+    lw = sk.width * 0.7
 
-    my = 0.42 * r
-    mw = 0.40 * r
+    # ---- eyes ----
+    if face == "shut":  # closed/peaceful eyes
+        sk.line((cx - ex * 1.4, cy - ey), (cx - ex * 0.3, cy - ey), color=color, width=lw)
+        sk.line((cx + ex * 0.3, cy - ey), (cx + ex * 1.4, cy - ey), color=color, width=lw)
+    else:
+        er = eye_r * 1.3 if face == "surprised" else eye_r
+        sk.dot((cx - ex, cy - ey), er, color=color)
+        sk.dot((cx + ex, cy - ey), er, color=color)
+
+    # ---- eyebrows (emotion) ----
+    if face in _BROWED:
+        by = cy - ey - 0.26 * r          # nominal brow line, above the eyes
+        din = 0.16 * r                    # half brow length
+        tilt = 0.10 * r                   # how strongly the brow angles
+        if face in ("sad", "worried"):    # inner ends raised -> concerned
+            _brow(sk, cx - ex + din, cx - ex - din, by - tilt, by + tilt, color, lw)
+            _brow(sk, cx + ex - din, cx + ex + din, by - tilt, by + tilt, color, lw)
+        elif face == "angry":             # inner ends lowered -> scowl
+            _brow(sk, cx - ex + din, cx - ex - din, by + tilt, by - tilt * 0.4, color, lw)
+            _brow(sk, cx + ex - din, cx + ex + din, by + tilt, by - tilt * 0.4, color, lw)
+        elif face == "surprised":         # high, flat, lifted
+            _brow(sk, cx - ex - din, cx - ex + din, by - 0.08 * r, by - 0.08 * r, color, lw)
+            _brow(sk, cx + ex - din, cx + ex + din, by - 0.08 * r, by - 0.08 * r, color, lw)
+        elif face in ("think", "skeptical"):  # one brow cocked up
+            _brow(sk, cx - ex - din, cx - ex + din, by + 0.02 * r, by + 0.02 * r, color, lw)
+            _brow(sk, cx + ex - din, cx + ex + din, by + tilt, by - tilt, color, lw)
+        else:                              # happy: gentle raised brows
+            _brow(sk, cx - ex - din, cx - ex + din, by + 0.03 * r, by - 0.03 * r, color, lw)
+            _brow(sk, cx + ex - din, cx + ex + din, by - 0.03 * r, by + 0.03 * r, color, lw)
+
+    # ---- mouth ----
+    my, mw = 0.42 * r, 0.40 * r
     if face == "happy":
-        sk.arc((c[0], c[1] + my * 0.4), mw, 25, 155, color=color, width=sk.width * 0.8)
-    elif face == "sad":
-        sk.arc((c[0], c[1] + my * 1.3), mw, 205, 335, color=color, width=sk.width * 0.8)
+        sk.arc((cx, cy + my * 0.35), mw * 1.05, 20, 160, color=color, width=sk.width * 0.85)
+    elif face in ("sad", "worried"):
+        sk.arc((cx, cy + my * 1.35), mw, 205, 335, color=color, width=sk.width * 0.85)
     elif face == "surprised":
-        sk.circle((c[0], c[1] + my), mw * 0.45, color=color, width=sk.width * 0.7)
+        sk.circle((cx, cy + my), mw * 0.42, color=color, width=lw)
+    elif face == "angry":                  # tight downturned line
+        sk.arc((cx, cy + my * 1.15), mw * 0.8, 210, 330, color=color, width=sk.width * 0.85)
+    elif face in ("think", "skeptical"):   # small off-center flat mouth
+        sk.line((cx - mw * 0.25, cy + my), (cx + mw * 0.45, cy + my), color=color, width=lw)
     elif face in ("neutral", "dots", "shut"):
-        sk.line((c[0] - mw * 0.5, c[1] + my), (c[0] + mw * 0.5, c[1] + my), color=color, width=sk.width * 0.7)
+        sk.line((cx - mw * 0.5, cy + my), (cx + mw * 0.5, cy + my), color=color, width=lw)

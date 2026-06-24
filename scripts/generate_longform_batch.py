@@ -15,8 +15,29 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from generate_stories import BASE_STYLE, OUT, TEMPLATES, label  # noqa: E402
+from direction import infer_face, infer_prop  # noqa: E402
 
 VOICE = {"backend": "kokoro", "voice": "am_liam", "polish": True, "gap": 0.22, "kokoro_speed": 0.78}
+
+# Which templates get auto-direction. Single-figure templates take the line's
+# emotion on their one face; two-figure templates take it on both; a subset also
+# gets a relatable colourful prop popped into a free corner.
+_SINGLE_FACE = {"solo", "point", "walk", "stars", "label_above"}
+_TWO_FACE = {"two", "bench", "bus"}
+_PROP_OK = {"solo", "point", "walk", "stars", "label_above"}
+
+
+def direct(tmpl, text, params, idx):
+    """Inject an inferred emotion (+ sometimes a colourful prop) into a beat."""
+    params = dict(params or {})
+    if tmpl in _SINGLE_FACE:
+        params.setdefault("face", infer_face(text))
+    elif tmpl in _TWO_FACE:
+        emo = infer_face(text)
+        params.setdefault("faceA", emo)
+        params.setdefault("faceB", emo)
+    extra = infer_prop(text, idx) if tmpl in _PROP_OK else None
+    return params, extra
 
 
 def t_chapter(p):
@@ -38,7 +59,10 @@ def build(slug, title, hook, playlist, beats):
     for i, beat in enumerate(beats):
         tmpl, text = beat[0], beat[1]
         params = beat[2] if len(beat) > 2 else {}
+        params, extra = direct(tmpl, text, params, i)
         actors, props = TMPL[tmpl](params or {})
+        if extra:
+            props = list(props) + [extra]
         min_dur = 3.2 if tmpl == "chapter" else 3.6
         scenes.append({"id": f"{i:02d}_{tmpl}", "narration": text, "min_dur": min_dur,
                        "actors": actors, "props": props})

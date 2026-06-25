@@ -76,6 +76,11 @@ class Scene:
     min_dur: float = 2.2
     bg: str | None = None          # optional per-scene background override
     caption: str | None = None     # override caption text (defaults to narration)
+    beat: str = ""                 # SOP beat: hook | explain | reframe | cta
+    # optional virtual-camera move over the scene's duration: keyframes of
+    # {"t": 0..1, "zoom": >=1.0, "pan": [x, y] in 0..1 frame-fraction}.
+    # zoom 1.0 + no pan = static (default, fully backward compatible).
+    camera: list[dict] = field(default_factory=list)
     actors: list[dict] = field(default_factory=list)
     props: list[dict] = field(default_factory=list)
     # filled in during the build:

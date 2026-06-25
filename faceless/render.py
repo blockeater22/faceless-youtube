@@ -262,9 +262,13 @@ def _chunk_phrase(text: str, max_chars: int = 16) -> list[list[str]]:
     return chunks or [[]]
 
 
-def _draw_kinetic_caption(frame, text, local_t, duration, size, mindim, style):
+def _draw_kinetic_caption(frame, text, local_t, duration, size, mindim, style, emphasis=False):
     """Big colourful, phrase-by-phrase centre-screen text (white-bg explainer
-    style) - one short phrase pops in at a time instead of a scrolling line."""
+    style) - one short phrase pops in at a time instead of a scrolling line.
+
+    ``emphasis`` punches the type up for the SOP "reframe" beat (the payoff
+    line) so it reads as a deliberate pattern-interrupt rather than the same
+    flat pop-in every other beat gets."""
     if not text or not duration:
         return
     w, h = size
@@ -276,10 +280,11 @@ def _draw_kinetic_caption(frame, text, local_t, duration, size, mindim, style):
     phase = anim.clamp(prog * n - idx)
 
     pop_in, fade_out = 0.22, 0.85
+    overshoot = 1.22 if emphasis else 1.0
     if phase < pop_in:
         e = anim.ease_out_back(phase / pop_in)
         alpha = anim.clamp(phase / pop_in * 1.3)
-        scale = 0.55 + 0.45 * e
+        scale = (0.55 + 0.45 * e) * overshoot if e < 1.0 else overshoot
     elif phase > fade_out:
         alpha = anim.clamp((1.0 - phase) / (1.0 - fade_out))
         scale = 1.0
@@ -311,6 +316,27 @@ def _draw_kinetic_caption(frame, text, local_t, duration, size, mindim, style):
         d.text((x, y), wu, font=font, anchor="lm", fill=col + (int(255 * alpha),))
         x += widths[i] + gap
     frame.alpha_composite(layer)
+
+
+def _apply_camera(frame: Image.Image, scene: Scene, prog: float, size) -> Image.Image:
+    """Ken-Burns style push-in/pan over a scene, sampled from ``scene.camera``
+    keyframes. A no-op (returns ``frame`` unchanged) for the ~90 pre-existing
+    stories that don't set ``camera`` - default zoom is 1.0 (no crop)."""
+    keys = scene.camera
+    if not keys:
+        return frame
+    s = anim.sample_keys(keys, prog, {"zoom": "num", "pan": "vec"})
+    zoom = s.get("zoom") or 1.0
+    if zoom <= 1.001:
+        return frame
+    pan = s.get("pan") or [0.5, 0.5]
+    w, h = size
+    cw, ch = w / zoom, h / zoom
+    cx, cy = anim.clamp(pan[0]) * w, anim.clamp(pan[1]) * h
+    x0 = anim.clamp(cx - cw / 2, 0, w - cw)
+    y0 = anim.clamp(cy - ch / 2, 0, h - ch)
+    crop = frame.crop((int(x0), int(y0), int(x0 + cw), int(y0 + ch)))
+    return crop.resize(size, Image.LANCZOS)
 
 
 @lru_cache(maxsize=8)
@@ -402,12 +428,15 @@ def render_frame(script: Script, scene: Scene, local_t: float, size, mindim, fra
         if prop.get("front"):
             _draw_prop(frame, prop, prog, size, mindim, style, seed, scene.actors)
 
+    frame = _apply_camera(frame, scene, prog, size)
+
     abs_t = frame_idx / max(1, style.fps)
     in_hook = bool(script.hook) and abs_t < script.hook_dur
     if not in_hook:   # hook card replaces the caption while it's up
         cap_text = scene.caption if scene.caption is not None else scene.narration
         if (style.caption or {}).get("mode") == "kinetic":
-            _draw_kinetic_caption(frame, cap_text, local_t, scene.duration, size, mindim, style)
+            _draw_kinetic_caption(frame, cap_text, local_t, scene.duration, size, mindim, style,
+                                   emphasis=scene.beat == "reframe")
         else:
             reveal = min(1.0, local_t / (scene.duration * 0.82)) if scene.duration else 1.0
             _draw_caption(frame, cap_text, reveal, size, mindim, style)

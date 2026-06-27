@@ -44,6 +44,10 @@ VOICE = {"backend": "kokoro", "voice": "am_liam", "polish": True, "gap": 0.3}
 # Sized/placed to occupy the central frame so the top isn't dead space.
 HERO_POS = [0.5, 0.52]
 HERO_SCALE = 0.46
+# Rule-of-thirds shot variety: rotate the character between centre and the two
+# thirds across sub-scenes (each sub-scene is a fresh "shot"), with the metaphor
+# prop pushed to the opposite side. Breaks the dead-centre monotony.
+HERO_X = [0.5, 0.42, 0.58, 0.5]
 # The hook character sits lower and smaller so it never overlaps the hook card,
 # which now lives near the top (style.hook_y).
 HOOK_HERO_POS = [0.5, 0.66]
@@ -159,16 +163,19 @@ def expand(beat, text):
             pose = next((p for p in palette if p != last_pose), pose)
         last_pose = pose
         duo = is_social(sent)                # two-character contrast staging
-        prop = None if duo else infer_prop(sent, i)   # the 2nd figure IS the visual
+        hx = HERO_X[i % len(HERO_X)]         # rule-of-thirds framing per shot
+        side = "r" if hx <= 0.5 else "l"     # prop opposite the character
+        prop = None if duo else infer_prop(sent, i, side=side)   # 2nd figure IS the visual
         if duo:                              # a gentle push that frames both figures
             cam = camera(1.05, (0.5, 0.5))
         elif beat == "reframe":              # build the push-in across the payoff
-            cam = camera(min(1.07 + 0.045 * i, 1.18), (0.5, 0.43))
+            cam = camera(min(1.07 + 0.045 * i, 1.18), (hx, 0.43))
         elif beat == "explain":              # alternate a gentle push with a hold
-            cam = camera(1.06, (0.5, 0.47)) if i % 2 == 0 else camera(1.0)
+            cam = camera(1.06, (hx, 0.47)) if i % 2 == 0 else camera(1.0)
         else:
             cam = camera(1.0)
-        out.append(scene(f"{beat}_{i + 1}", beat, sent, pose, 2.6, prop=prop, cam=cam, duo=duo))
+        out.append(scene(f"{beat}_{i + 1}", beat, sent, pose, 2.6, prop=prop, cam=cam,
+                         duo=duo, pos=[hx, HERO_POS[1]]))
     return out
 
 

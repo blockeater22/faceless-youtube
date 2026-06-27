@@ -112,17 +112,19 @@ def _draw_marker(sk: Sketcher, tip, unit: float, color) -> None:
     """A simple marker/pen pointing at the active draw tip - the visual cue
     that the line is being drawn by hand (whiteboard look)."""
     tx, ty = tip
-    L = unit * 0.42                       # pen length
+    L = unit * 0.36                       # pen length
     dx, dy = 0.5, -0.87                   # up-and-right
     bx, by = tx + dx * L, ty + dy * L     # back of the pen
+    nx, ny = tx + dx * L * 0.22, ty + dy * L * 0.22   # nib/barrel join
     # barrel
-    sk.draw.line([(tx, ty), (bx, by)], fill=color, width=max(3, int(unit * 0.05)), joint="curve")
-    # nib (a little triangle at the tip)
-    n = unit * 0.07
-    sk.draw.polygon([(tx, ty), (tx + n * 0.9, ty - n * 1.4),
-                     (tx - n * 0.5, ty - n * 1.6)], fill=color)
+    sk.draw.line([(nx, ny), (bx, by)], fill=color, width=max(2, int(unit * 0.032)), joint="curve")
+    # nib (a slim triangle pointing at the tip)
+    n = unit * 0.045
+    perp = (-dy, dx)
+    sk.draw.polygon([(tx, ty), (nx + perp[0] * n, ny + perp[1] * n),
+                     (nx - perp[0] * n, ny - perp[1] * n)], fill=color)
     # cap dot at the back
-    r = unit * 0.035
+    r = unit * 0.028
     sk.draw.ellipse([bx - r, by - r, bx + r, by + r], fill=color)
 
 

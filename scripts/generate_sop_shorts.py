@@ -32,6 +32,7 @@ STYLE = {
     "fps": 30,
     "grain": 0.0,
     "vignette": 0.0,
+    "draw_on": 0.9,   # whiteboard: each figure draws itself on over 0.9s
     "caption": {"mode": "kinetic", "size": 0.095, "y": 0.85, "max_chars": 14},
 }
 VOICE = {"backend": "kokoro", "voice": "am_liam", "polish": True, "gap": 0.3}
@@ -67,11 +68,13 @@ def icon_prop(name, pos, r, color):
 
 
 def hero(beat):
-    """The centred lead character for a beat, with an explicit face + pose."""
+    """The centred lead character for a beat, with an explicit face + pose.
+
+    Full scale/alpha from t=0: the whiteboard draw-on (style.draw_on) is the
+    entrance, so there's no scale-pop to fight it."""
     face, pose = BEAT_LOOK[beat]
     return {"type": "figure", "id": "narrator", "color": "ink", "face": face,
-            "keys": [{"t": 0, "pos": HERO_POS, "pose": pose, "scale": 0.0, "alpha": 0},
-                     {"t": 0.16, "pos": HERO_POS, "pose": pose, "scale": HERO_SCALE, "alpha": 1, "ease": "pop"},
+            "keys": [{"t": 0, "pos": HERO_POS, "pose": pose, "scale": HERO_SCALE, "alpha": 1},
                      {"t": 1.0, "pos": HERO_POS, "pose": pose, "scale": HERO_SCALE, "alpha": 1}]}
 
 

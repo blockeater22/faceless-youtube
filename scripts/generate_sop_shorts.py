@@ -69,8 +69,8 @@ HERO_SHIRT = "#ff9f1c"
 # open up progressively (wave -> reach -> celebrate) to build the payoff.
 BEAT_POSES = {
     "hook":    ["shrug"],
-    "explain": ["think", "point_l", "shrug", "reach"],
-    "reframe": ["wave", "reach", "celebrate", "point_up"],
+    "explain": ["think", "point_l", "crossed", "hold_box", "shrug", "reach"],
+    "reframe": ["wave", "hips", "reach", "celebrate", "cheer", "point_up"],
     "cta":     ["point_r"],
 }
 

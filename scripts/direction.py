@@ -29,6 +29,16 @@ def pick_color(i: int) -> str:
 # Emotion inference  (checked in priority order; first category that hits wins)
 # --------------------------------------------------------------------------- #
 _FACE_RULES: list[tuple[str, tuple[str, ...]]] = [
+    # The wider mouth library - placed first so explicit cues win
+    ("laughing", ("laugh", "laughing", "hilarious", "burst out", "lol",
+                  "couldn't stop laughing")),
+    ("crying",   ("cry", "crying", "tears", "sobbing", "broke down")),
+    ("shocked",  ("can't believe", "no way", "what?!", "gasp", "stunned",
+                  "speechless")),
+    ("smug",     ("told you so", "knew it", "called it", "smug", "i was right",
+                  "as predicted")),
+    ("grit",     ("clench", "grit", "force yourself", "push through", "white-knuckle",
+                  "determined")),
     ("surprised", (
         "shock", "suddenly", "realize", "realise", "secret", "secretly", "truth",
         "plot twist", "surprising", "crazy", "wild", "what if", "wait", "turns out",
@@ -76,8 +86,20 @@ def infer_face(text: str, default: str = "neutral") -> str:
 # instead of holding a generic pose - first category that hits wins)
 # --------------------------------------------------------------------------- #
 _POSE_RULES: list[tuple[str, tuple[str, ...]]] = [
+    # specific ref-image gestures first (most expressive wins on a match)
+    ("hold_box",   ("holding", "carrying", "load", "weight", "baggage", "burden")),
+    ("crossed",    ("defensive", "guarded", "stubborn", "not buying", "skeptical",
+                    "arms crossed", "shut down")),
+    ("hips",       ("confident", "ready", "stand your ground", "fed up",
+                    "had enough", "drawing a line")),
+    ("facepalm",   ("regret", "embarrass", "embarrassed", "cringe", "oh no",
+                    "can't believe", "facepalm")),
+    ("look_around",("searching", "looking for", "where is", "scanning",
+                    "watching out", "on alert")),
+    ("cheer",      ("celebrate", "winning", "amazing", "yes!", "did it",
+                    "we did it", "best news")),
     ("celebrate", ("win", "won", "free", "freedom", "finally", "proud", "relief",
-                   "relieved", "let it go", "go home", "celebrate", "lighter")),
+                   "relieved", "let it go", "go home", "lighter")),
     ("walk_a", ("busy", "rushing", "rush", "walk", "running", "run ", "moving",
                 "leave", "leaving", "walked away", "passes", "passing", "go about")),
     ("look_up", ("audience", "watching", "watch", "stage", "spotlight", "crowd",

@@ -164,7 +164,8 @@ def _draw_actor(frame: Image.Image, actor: dict, t: float, size, mindim, style, 
         if actor.get("id") == "other":          # the muted contrast character
             shirt = style.color("muted")
         head_c, hr = draw_character(sk, (px, py), unit, pose, color=fig_color,
-                                    face=face, blink=blink, shirt=shirt)
+                                    face=face, blink=blink, shirt=shirt,
+                                    hair=actor.get("hair", "tufts"))
         drawing = False                          # bold style doesn't stroke-reveal
     else:
         shirt = style.color(actor["shirt"]) if actor.get("shirt") else None

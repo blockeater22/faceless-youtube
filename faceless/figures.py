@@ -37,6 +37,19 @@ POSES: dict[str, dict] = {
     "sit":       {"lean": -6, "head": 0,   "la": [40, 78],   "ra": [-40, -78],  "ll": [70, 6],   "rl": [-70, -6]},
     "walk_a":    {"lean": 7,  "head": 2,   "la": [-22, -28], "ra": [24, 32],    "ll": [28, 36],  "rl": [-26, -32]},
     "walk_b":    {"lean": 7,  "head": 2,   "la": [24, 32],   "ra": [-22, -28],  "ll": [-26, -32],"rl": [28, 36]},
+    # --- 6 new poses (ref-image gesture vocabulary) ---
+    # arms crossed across the chest - inner forearms cross over the torso
+    "crossed":   {"lean": 0,  "head": 0,   "la": [62, 124],  "ra": [-62, -124], "ll": [10, 8],   "rl": [-10, -8]},
+    # hands on hips - upper arms out, forearms angle back to the pelvis
+    "hips":      {"lean": 0,  "head": 0,   "la": [58, 152],  "ra": [-58, -152], "ll": [10, 8],   "rl": [-10, -8]},
+    # both arms reaching forward to hold a box (parallel, slightly down)
+    "hold_box":  {"lean": 4,  "head": -2,  "la": [98, 96],   "ra": [-98, -96],  "ll": [12, 10],  "rl": [-12, -10]},
+    # head turned, one hand shielding eyes - "looking around"
+    "look_around": {"lean": -2,"head": -16,"la": [134, 156], "ra": [-22, -18],  "ll": [10, 8],   "rl": [-10, -8]},
+    # face-palm - one hand up to the face
+    "facepalm":  {"lean": -4, "head": -6,  "la": [168, 200], "ra": [-22, -18],  "ll": [10, 8],   "rl": [-10, -8]},
+    # two-hand celebrate (higher than 'celebrate', straight up)
+    "cheer":     {"lean": -2, "head": -8,  "la": [172, 180], "ra": [-172, -180],"ll": [12, 9],   "rl": [-12, -9]},
 }
 
 
@@ -139,7 +152,7 @@ def draw_figure(sk: Sketcher, hip: Point, unit: float, pose: dict,
 def draw_character(sk: Sketcher, hip: Point, unit: float, pose: dict,
                    color=(20, 22, 26), face: str = "dots", blink: bool = False,
                    shirt=(255, 200, 40), shorts=(24, 26, 32),
-                   shadow: bool = True) -> tuple[Point, float]:
+                   shadow: bool = True, hair: str = "tufts") -> tuple[Point, float]:
     """A *bold cartoon* character (thick clean outlines, T-shirt + sleeves,
     shorts, mitten hands, shoes, ground shadow) - the polished look, vs the thin
     ``draw_figure`` doodle. Reuses the same pose skeleton, so every existing pose
@@ -222,14 +235,45 @@ def draw_character(sk: Sketcher, hip: Point, unit: float, pose: dict,
     # 8) mitten hands (bigger, gloved)
     for hand in hands:
         disc(hand, lw * 1.02, white, ink)
-    # 9) head + face
+    # 9) head + hair + face
     disc(head_c, hr, white, ink)
-    _draw_face(sk, head_c, hr, face, ink, blink=blink)
+    _draw_hair(d, head_c, hr, hair, ink)
+    _draw_face(sk, head_c, hr, face, ink, blink=blink, whites=True)
     return head_c, hr
 
 
+def _draw_hair(d, head_c, hr: float, style: str, ink) -> None:
+    """Small hair tufts on top of the head - the missing ref-image detail."""
+    if not style or style == "none":
+        return
+    cx, cy = head_c
+    if style == "tufts":
+        # three little triangular tufts off the crown
+        tips = [(-0.55, -1.06), (0.0, -1.18), (0.55, -1.06)]
+        base_w = hr * 0.22
+        for tx, ty in tips:
+            px, py = cx + hr * tx, cy + hr * ty
+            d.polygon([(px - base_w, py + base_w * 0.7),
+                       (px + base_w, py + base_w * 0.7),
+                       (px, py - base_w * 1.1)], fill=ink)
+    elif style == "swoosh":
+        # a side-sweep wedge above the brow line
+        d.polygon([(cx - hr * 0.95, cy - hr * 0.55),
+                   (cx + hr * 0.05, cy - hr * 1.05),
+                   (cx + hr * 0.45, cy - hr * 0.45)], fill=ink)
+    elif style == "wild":
+        # 5 sharp spikes for an energetic look
+        for fx in (-0.7, -0.35, 0.0, 0.35, 0.7):
+            px = cx + hr * fx
+            top = cy - hr * (1.15 + 0.08 * (1 - abs(fx)))
+            d.polygon([(px - hr * 0.13, cy - hr * 0.85),
+                       (px + hr * 0.13, cy - hr * 0.85),
+                       (px, top)], fill=ink)
+
+
 # Faces that carry an emotion get eyebrows; the calm/default ones stay clean.
-_BROWED = {"happy", "sad", "worried", "angry", "surprised", "think", "skeptical"}
+_BROWED = {"happy", "sad", "worried", "angry", "surprised", "think", "skeptical",
+           "laughing", "crying", "shocked", "grit", "smug", "tongue"}
 
 
 def _brow(sk, x_in, x_out, y_in, y_out, color, lw):
@@ -237,18 +281,35 @@ def _brow(sk, x_in, x_out, y_in, y_out, color, lw):
     sk.line((x_in, y_in), (x_out, y_out), color=color, width=lw)
 
 
-def _draw_face(sk: Sketcher, c: Point, r: float, face: str, color, blink: bool = False) -> None:
+def _draw_face(sk: Sketcher, c: Point, r: float, face: str, color, blink: bool = False,
+               whites: bool = False) -> None:
     if face in (None, "none"):
         return
     cx, cy = c
     ex, ey = 0.36 * r, 0.12 * r
     eye_r = max(1.0, 0.10 * r)
     lw = sk.width * 0.7
+    bg = (255, 255, 255)                        # eye-white fill (bold style)
 
     # ---- eyes ----
     if face == "shut" or blink:  # closed/peaceful eyes (or a momentary blink)
         sk.line((cx - ex * 1.4, cy - ey), (cx - ex * 0.3, cy - ey), color=color, width=lw)
         sk.line((cx + ex * 0.3, cy - ey), (cx + ex * 1.4, cy - ey), color=color, width=lw)
+    elif whites:
+        # Bold-style: white eye discs with smaller black pupils. Pupil offsets
+        # carry the gaze direction so a 'look_up'/'look_around' actually reads.
+        wr = eye_r * (2.0 if face == "surprised" else 1.7)
+        pr = eye_r * (0.8 if face == "surprised" else 0.7)
+        gx, gy = 0.0, 0.0
+        if face == "surprised":
+            gy = -0.2 * wr                  # eyes wide, pupils up
+        elif face == "skeptical":
+            gx = 0.35 * wr                  # side-eye
+        elif face == "think":
+            gx, gy = 0.25 * wr, -0.25 * wr
+        for sx in (-1, 1):
+            sk.circle((cx + sx * ex, cy - ey), wr, color=color, width=lw, fill=bg, segments=18)
+            sk.dot((cx + sx * ex + gx, cy - ey + gy), pr, color=color)
     else:
         er = eye_r * 1.3 if face == "surprised" else eye_r
         sk.dot((cx - ex, cy - ey), er, color=color)
@@ -259,13 +320,13 @@ def _draw_face(sk: Sketcher, c: Point, r: float, face: str, color, blink: bool =
         by = cy - ey - 0.26 * r          # nominal brow line, above the eyes
         din = 0.16 * r                    # half brow length
         tilt = 0.10 * r                   # how strongly the brow angles
-        if face in ("sad", "worried"):    # inner ends raised -> concerned
+        if face in ("sad", "worried", "crying"):    # inner ends raised -> concerned
             _brow(sk, cx - ex + din, cx - ex - din, by - tilt, by + tilt, color, lw)
             _brow(sk, cx + ex - din, cx + ex + din, by - tilt, by + tilt, color, lw)
-        elif face == "angry":             # inner ends lowered -> scowl
+        elif face in ("angry", "grit"):   # inner ends lowered -> scowl
             _brow(sk, cx - ex + din, cx - ex - din, by + tilt, by - tilt * 0.4, color, lw)
             _brow(sk, cx + ex - din, cx + ex + din, by + tilt, by - tilt * 0.4, color, lw)
-        elif face == "surprised":         # high, flat, lifted
+        elif face in ("surprised", "shocked"):  # high, flat, lifted
             _brow(sk, cx - ex - din, cx - ex + din, by - 0.08 * r, by - 0.08 * r, color, lw)
             _brow(sk, cx + ex - din, cx + ex + din, by - 0.08 * r, by - 0.08 * r, color, lw)
         elif face in ("think", "skeptical"):  # one brow cocked up
@@ -277,15 +338,40 @@ def _draw_face(sk: Sketcher, c: Point, r: float, face: str, color, blink: bool =
 
     # ---- mouth ----
     my, mw = 0.42 * r, 0.40 * r
+    mw_thick = sk.width * 0.85
     if face == "happy":
-        sk.arc((cx, cy + my * 0.35), mw * 1.05, 20, 160, color=color, width=sk.width * 0.85)
+        sk.arc((cx, cy + my * 0.35), mw * 1.05, 20, 160, color=color, width=mw_thick)
+    elif face == "laughing":                # wide open smile, filled
+        sk.circle((cx, cy + my * 0.55), mw * 0.65, color=color, width=lw, fill=color)
+        # white teeth strip across the top of the mouth
+        sk.line((cx - mw * 0.55, cy + my * 0.32), (cx + mw * 0.55, cy + my * 0.32),
+                color=(255, 255, 255), width=int(lw * 1.4))
     elif face in ("sad", "worried"):
-        sk.arc((cx, cy + my * 1.35), mw, 205, 335, color=color, width=sk.width * 0.85)
+        sk.arc((cx, cy + my * 1.35), mw, 205, 335, color=color, width=mw_thick)
+    elif face == "crying":                  # wobble line - downturned, jagged
+        n = 6
+        pts = [(cx + (i / n - 0.5) * mw * 1.4,
+                cy + my * 0.85 + (0.06 * mw if i % 2 else -0.06 * mw))
+               for i in range(n + 1)]
+        sk.stroke(pts, color=color, width=mw_thick)
     elif face == "surprised":
         sk.circle((cx, cy + my), mw * 0.42, color=color, width=lw)
-    elif face == "angry":                  # tight downturned line
-        sk.arc((cx, cy + my * 1.15), mw * 0.8, 210, 330, color=color, width=sk.width * 0.85)
-    elif face in ("think", "skeptical"):   # small off-center flat mouth
+    elif face == "shocked":                 # taller open O
+        sk.circle((cx, cy + my * 1.05), mw * 0.5, color=color, width=lw, fill=color)
+    elif face == "angry":                   # tight downturned line
+        sk.arc((cx, cy + my * 1.15), mw * 0.8, 210, 330, color=color, width=mw_thick)
+    elif face == "grit":                    # bared teeth - a wide flat line with vertical ticks
+        y0 = cy + my * 0.95
+        sk.line((cx - mw * 0.55, y0), (cx + mw * 0.55, y0), color=color, width=lw)
+        for f in (-0.35, -0.05, 0.25, 0.55):
+            x = cx + mw * f
+            sk.line((x, y0 - mw * 0.18), (x, y0 + mw * 0.05), color=color, width=int(lw * 0.7))
+    elif face == "smug":                    # asymmetric upturned curl (one side)
+        sk.arc((cx + mw * 0.18, cy + my * 0.45), mw * 0.7, 0, 150, color=color, width=mw_thick)
+    elif face == "tongue":                  # smile with a tongue tip out
+        sk.arc((cx, cy + my * 0.35), mw * 1.05, 20, 160, color=color, width=mw_thick)
+        sk.dot((cx + mw * 0.05, cy + my * 0.85), mw * 0.16, color=(228, 95, 110))
+    elif face in ("think", "skeptical"):    # small off-center flat mouth
         sk.line((cx - mw * 0.25, cy + my), (cx + mw * 0.45, cy + my), color=color, width=lw)
     elif face in ("neutral", "dots", "shut"):
         sk.line((cx - mw * 0.5, cy + my), (cx + mw * 0.5, cy + my), color=color, width=lw)

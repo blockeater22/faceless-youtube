@@ -62,7 +62,10 @@ topic dict ─▶ scripting_sop (validate) ─▶ generate_sop_shorts (storyboar
 Effect glyphs · hero-size centred composition · auto-blink + idle breathing ·
 whiteboard stroke-reveal with marker cursor · scroll-stop hook (shake + pulse) ·
 per-sentence pacing · narration-synced pose + metaphor prop · two-character
-contrast staging · rule-of-thirds shot framing · bold colour-bar hook/thumbnail.
+contrast staging · rule-of-thirds shot framing · bold colour-bar hook/thumbnail ·
+proportional (approx word-sync) captions · coloured shirt + hands · richer prop
+vocabulary (eye/mask/battery) with cross-scene de-dup · procedural sound design
+(pop/whoosh/ding) + optional ducked music bed.
 
 ## Known limitations
 
@@ -77,17 +80,18 @@ contrast staging · rule-of-thirds shot framing · bold colour-bar hook/thumbnai
 
 ## Roadmap (highest leverage first)
 
-1. **Sound:** light music bed + whoosh on scene cuts + a soft "ding" on the
-   reframe. Biggest untapped retention lever.
-2. **Word-level caption sync** via the TTS word timings (kokoro) for precise
-   kinetic emphasis.
-3. **Shot-scale variety:** medium vs. closer framing on the emotional payoff,
+Done since first draft: sound design, proportional caption sync, prop
+vocabulary, coloured shirt + hands. Remaining:
+
+1. **True word-level caption sync** via a forced aligner (whisperx/aeneas) for
+   exact per-word emphasis — current timing is proportional, not aligned.
+2. **Shot-scale variety:** medium vs. closer framing on the emotional payoff,
    not just horizontal position.
-4. **Richer prop/metaphor vocabulary** (more icons + object scenery) to kill the
-   brain-icon repetition.
-5. **Character art pass:** optional coloured shirt + simple hands to close the
-   gap to reference creators.
-6. **Wire mypy + a SessionStart hook** so `pytest`/`ruff` run on every web session.
+3. **Music bed:** ship with a cleared default track (user-provided) so `sfx`
+   stories get a bed automatically, not just SFX.
+4. **Character art:** turning/profile poses, simple legs-as-shapes, so the
+   figure can walk/face directions instead of always front-on.
+5. **Wire mypy + a SessionStart hook** so `pytest`/`ruff` run on every web session.
 
 ## Running the gates
 

@@ -131,9 +131,10 @@ def expand(beat, text, icon=None):
 
 
 def build(t: dict) -> tuple[dict, str]:
+    # No support icon on the hook: the hook card owns the top, the drawing
+    # character owns the bottom - an icon up top would collide with the text.
     scenes = [
-        scene("01_hook", "hook", t["hook"], "shrug", 3.4,
-              icon=(t["hook_icon"], t["hook_color"]), cam=camera(1.0),
+        scene("01_hook", "hook", t["hook"], "shrug", 3.4, icon=None, cam=camera(1.0),
               pos=HOOK_HERO_POS, scale=HOOK_HERO_SCALE),
     ]
     scenes += expand("explain", t["explain"], icon=(t["explain_icon"], t["explain_color"]))
@@ -151,7 +152,8 @@ def build(t: dict) -> tuple[dict, str]:
     assert not errors, f"{t['slug']} fails SOP lint: {errors}"
     return {
         "title": title, "handle": "@Inklings1",
-        "hook": t["hook"].upper()[:42], "hook_dur": 1.3,
+        # full hook (never truncated mid-word); the card wraps + auto-sizes
+        "hook": t["hook"].upper().rstrip("."), "hook_dur": 1.3,
         "style": STYLE, "voice": VOICE, "scenes": scenes,
         "meta": {"format": "kinetic-typography+scenery", "topic": t["slug"],
                  "tags": tags, "hashtags": hashtags, "sop": topic_sop},

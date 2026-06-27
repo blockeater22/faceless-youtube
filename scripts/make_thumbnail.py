@@ -36,8 +36,8 @@ def make_thumb(slug: str) -> Path:
     # marooned in white space under the title.
     for actor in scene.actors:
         for k in actor.get("keys", []):
-            k["scale"] = 0.56
-            k["pos"] = [0.5, 0.64]
+            k["scale"] = 0.62
+            k["pos"] = [0.5, 0.66]
     fps = max(1, script.style.fps)
     # a moment inside the hook card's full-opacity "hold" (past the 0.12s snap,
     # before the fade) so the bars are at full saturation.

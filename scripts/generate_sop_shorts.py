@@ -64,6 +64,22 @@ BEAT_POSES = {
 }
 
 
+# Two-character (contrast) staging: "you" on the left vs "other people" on the
+# right. Used on sentences that compare the viewer to others - the strongest
+# device for the reframe ("they're too busy with their own lives to judge you").
+DUO_YOU_POS = [0.30, 0.58]
+DUO_OTHER_POS = [0.71, 0.58]
+DUO_SCALE = 0.37
+_SOCIAL_WORDS = ("most people", "other people", "everyone else", "no one else",
+                 "someone else", "they walked", "they're too busy", "the other person",
+                 "nobody", "others")
+
+
+def is_social(sentence: str) -> bool:
+    """True when a line contrasts the viewer with other people (-> two figures)."""
+    return any(w in sentence.lower() for w in _SOCIAL_WORDS)
+
+
 def sentences(text: str) -> list[str]:
     """Split a beat into its individual sentences (each becomes a sub-scene)."""
     return [s.strip() for s in re.split(r"(?<=[.!?])\s+", text.strip()) if s.strip()]
@@ -102,12 +118,31 @@ def camera(zoom_end=1.0, pan_end=(0.5, 0.5)):
             {"t": 1.0, "zoom": zoom_end, "pan": list(pan_end)}]
 
 
-def scene(sid, beat, narration, pose, min_dur, prop=None, cam=None, pos=None, scale=None):
-    """One sub-scene: a hero character (centre stage) + at most one small
-    metaphor prop set off to the upper side, so the figure stays the subject."""
+def other_actor(pose, face, pos):
+    """A second 'other people' figure for contrast staging - absorbed in its own
+    world (so the viewer sees nobody is actually watching them)."""
+    return {"type": "figure", "id": "other", "color": "muted", "face": face,
+            "keys": [{"t": 0, "pos": pos, "pose": pose, "scale": DUO_SCALE, "alpha": 1},
+                     {"t": 1.0, "pos": pos, "pose": pose, "scale": DUO_SCALE, "alpha": 1}]}
+
+
+def scene(sid, beat, narration, pose, min_dur, prop=None, cam=None, pos=None, scale=None,
+          duo=False):
+    """One sub-scene. Normally a single hero character centre stage; with
+    ``duo=True`` it's a two-character contrast: 'you' (left) reacting per the
+    beat, and an 'other person' (right) calmly minding their own business."""
+    if duo:
+        # real contrast: 'you' stands self-conscious (worried) while the 'other
+        # person' is busy walking off, not even looking - the visual proof that
+        # nobody is actually watching you.
+        you = hero(beat, "shrug", DUO_YOU_POS, DUO_SCALE)
+        you["face"] = "worried"
+        actors = [you, other_actor("walk_a", "neutral", DUO_OTHER_POS)]
+    else:
+        actors = [hero(beat, pose, pos, scale)]
     props = [prop] if prop else []
     return {"id": sid, "beat": beat, "narration": narration, "min_dur": min_dur,
-            "camera": cam or [], "props": props, "actors": [hero(beat, pose, pos, scale)]}
+            "camera": cam or [], "props": props, "actors": actors}
 
 
 def expand(beat, text):
@@ -123,14 +158,17 @@ def expand(beat, text):
         if pose == last_pose:                # never hold the same pose twice in a row
             pose = next((p for p in palette if p != last_pose), pose)
         last_pose = pose
-        prop = infer_prop(sent, i)           # colourful metaphor matched to the line
-        if beat == "reframe":                # build the push-in across the payoff
+        duo = is_social(sent)                # two-character contrast staging
+        prop = None if duo else infer_prop(sent, i)   # the 2nd figure IS the visual
+        if duo:                              # a gentle push that frames both figures
+            cam = camera(1.05, (0.5, 0.5))
+        elif beat == "reframe":              # build the push-in across the payoff
             cam = camera(min(1.07 + 0.045 * i, 1.18), (0.5, 0.43))
         elif beat == "explain":              # alternate a gentle push with a hold
             cam = camera(1.06, (0.5, 0.47)) if i % 2 == 0 else camera(1.0)
         else:
             cam = camera(1.0)
-        out.append(scene(f"{beat}_{i + 1}", beat, sent, pose, 2.6, prop=prop, cam=cam))
+        out.append(scene(f"{beat}_{i + 1}", beat, sent, pose, 2.6, prop=prop, cam=cam, duo=duo))
     return out
 
 

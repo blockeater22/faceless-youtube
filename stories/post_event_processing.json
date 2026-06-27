@@ -619,10 +619,10 @@
         },
         {
           "t": 1.0,
-          "zoom": 1.115,
+          "zoom": 1.05,
           "pan": [
             0.5,
-            0.43
+            0.5
           ]
         }
       ],
@@ -632,26 +632,54 @@
           "type": "figure",
           "id": "narrator",
           "color": "ink",
-          "face": "happy",
+          "face": "worried",
           "keys": [
             {
               "t": 0,
               "pos": [
-                0.5,
-                0.52
+                0.3,
+                0.58
               ],
-              "pose": "reach",
-              "scale": 0.46,
+              "pose": "shrug",
+              "scale": 0.37,
               "alpha": 1
             },
             {
               "t": 1.0,
               "pos": [
-                0.5,
-                0.52
+                0.3,
+                0.58
               ],
-              "pose": "reach",
-              "scale": 0.46,
+              "pose": "shrug",
+              "scale": 0.37,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "other",
+          "color": "muted",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.71,
+                0.58
+              ],
+              "pose": "walk_a",
+              "scale": 0.37,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.71,
+                0.58
+              ],
+              "pose": "walk_a",
+              "scale": 0.37,
               "alpha": 1
             }
           ]
@@ -674,10 +702,10 @@
         },
         {
           "t": 1.0,
-          "zoom": 1.1600000000000001,
+          "zoom": 1.05,
           "pan": [
             0.5,
-            0.43
+            0.5
           ]
         }
       ],
@@ -687,26 +715,54 @@
           "type": "figure",
           "id": "narrator",
           "color": "ink",
-          "face": "happy",
+          "face": "worried",
           "keys": [
             {
               "t": 0,
               "pos": [
-                0.5,
-                0.52
+                0.3,
+                0.58
               ],
-              "pose": "walk_a",
-              "scale": 0.46,
+              "pose": "shrug",
+              "scale": 0.37,
               "alpha": 1
             },
             {
               "t": 1.0,
               "pos": [
-                0.5,
-                0.52
+                0.3,
+                0.58
+              ],
+              "pose": "shrug",
+              "scale": 0.37,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "other",
+          "color": "muted",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.71,
+                0.58
               ],
               "pose": "walk_a",
-              "scale": 0.46,
+              "scale": 0.37,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.71,
+                0.58
+              ],
+              "pose": "walk_a",
+              "scale": 0.37,
               "alpha": 1
             }
           ]

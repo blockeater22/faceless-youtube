@@ -740,8 +740,8 @@
         {
           "type": "icon",
           "id": "dp3",
-          "name": "clock",
-          "color": "#2dd4bf",
+          "name": "lightbulb",
+          "color": "#ffd23f",
           "r": 0.094,
           "front": true,
           "keys": [

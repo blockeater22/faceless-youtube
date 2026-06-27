@@ -1,0 +1,904 @@
+{
+  "title": "Why You Compare Yourself to Everyone's Highlight Reel",
+  "handle": "@Inklings1",
+  "hook": "YOU COMPARE YOUR BEHIND-THE-SCENES TO EVERYONE'S HIGHLIGHT REEL",
+  "hook_dur": 1.3,
+  "style": {
+    "background": "#ffffff",
+    "ink": "#15161a",
+    "accent": "#ff5d5d",
+    "muted": "#9aa0ab",
+    "palette": [
+      "#ff5d5d",
+      "#1f9bff",
+      "#ffb454",
+      "#23b26d",
+      "#a463f2"
+    ],
+    "fps": 30,
+    "grain": 0.0,
+    "vignette": 0.0,
+    "draw_on": 0.9,
+    "hook_y": 0.18,
+    "sfx": true,
+    "caption": {
+      "mode": "kinetic",
+      "size": 0.095,
+      "y": 0.85,
+      "max_chars": 14
+    }
+  },
+  "voice": {
+    "backend": "kokoro",
+    "voice": "am_liam",
+    "polish": true,
+    "gap": 0.3
+  },
+  "scenes": [
+    {
+      "id": "01_hook",
+      "beat": "hook",
+      "narration": "You compare your behind-the-scenes to everyone's highlight reel.",
+      "min_dur": 3.4,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "props": [],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "surprised",
+          "shirt": "#ff9f1c",
+          "hands": true,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.66
+              ],
+              "pose": "shrug",
+              "scale": 0.42,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.5,
+                0.66
+              ],
+              "pose": "shrug",
+              "scale": 0.42,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "explain_1",
+      "beat": "explain",
+      "narration": "Psychologists call it social comparison.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.06,
+          "pan": [
+            0.5,
+            0.47
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp0",
+          "name": "brain",
+          "color": "#a463f2",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "think",
+          "shirt": "#ff9f1c",
+          "hands": true,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "think",
+              "scale": 0.46,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "think",
+              "scale": 0.46,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "explain_2",
+      "beat": "explain",
+      "narration": "You see their best moment and your whole mess.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp1",
+          "name": "star",
+          "color": "#ffd23f",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "think",
+          "shirt": "#ff9f1c",
+          "hands": true,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.42,
+                0.52
+              ],
+              "pose": "point_l",
+              "scale": 0.46,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.42,
+                0.52
+              ],
+              "pose": "point_l",
+              "scale": 0.46,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "explain_3",
+      "beat": "explain",
+      "narration": "Their feed is a trailer, not the full movie.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.06,
+          "pan": [
+            0.58,
+            0.47
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp2",
+          "name": "chat",
+          "color": "#1f9bff",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "think",
+          "shirt": "#ff9f1c",
+          "hands": true,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.58,
+                0.52
+              ],
+              "pose": "shrug",
+              "scale": 0.46,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.58,
+                0.52
+              ],
+              "pose": "shrug",
+              "scale": 0.46,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "explain_4",
+      "beat": "explain",
+      "narration": "Nobody posts the boring middle of an ordinary day.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.05,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "props": [],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "worried",
+          "shirt": "#ff9f1c",
+          "hands": true,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.3,
+                0.58
+              ],
+              "pose": "shrug",
+              "scale": 0.37,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.3,
+                0.58
+              ],
+              "pose": "shrug",
+              "scale": 0.37,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "other",
+          "color": "muted",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.71,
+                0.58
+              ],
+              "pose": "walk_a",
+              "scale": 0.37,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.71,
+                0.58
+              ],
+              "pose": "walk_a",
+              "scale": 0.37,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reframe_1",
+      "beat": "reframe",
+      "narration": "That gap isn't proof you're behind, it's bad data.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.07,
+          "pan": [
+            0.5,
+            0.43
+          ]
+        }
+      ],
+      "props": [],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "happy",
+          "shirt": "#ff9f1c",
+          "hands": true,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "wave",
+              "scale": 0.46,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "wave",
+              "scale": 0.46,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reframe_2",
+      "beat": "reframe",
+      "narration": "You're comparing your raw footage to their final edit.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.115,
+          "pan": [
+            0.42,
+            0.43
+          ]
+        }
+      ],
+      "props": [],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "happy",
+          "shirt": "#ff9f1c",
+          "hands": true,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.42,
+                0.52
+              ],
+              "pose": "reach",
+              "scale": 0.46,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.42,
+                0.52
+              ],
+              "pose": "reach",
+              "scale": 0.46,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reframe_3",
+      "beat": "reframe",
+      "narration": "Everyone you envy is editing out their own struggle.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.1600000000000001,
+          "pan": [
+            0.58,
+            0.43
+          ]
+        }
+      ],
+      "props": [],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "happy",
+          "shirt": "#ff9f1c",
+          "hands": true,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.58,
+                0.52
+              ],
+              "pose": "celebrate",
+              "scale": 0.46,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.58,
+                0.52
+              ],
+              "pose": "celebrate",
+              "scale": 0.46,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reframe_4",
+      "beat": "reframe",
+      "narration": "Your behind-the-scenes is the only honest film you have.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.18,
+          "pan": [
+            0.5,
+            0.43
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp3",
+          "name": "lightbulb",
+          "color": "#ffd23f",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "happy",
+          "shirt": "#ff9f1c",
+          "hands": true,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "point_up",
+              "scale": 0.46,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "point_up",
+              "scale": 0.46,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "99_cta",
+      "beat": "cta",
+      "narration": "Whose highlight reel makes you forget your own wins? Drop it below.",
+      "min_dur": 3.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp0",
+          "name": "chat",
+          "color": "#1f9bff",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "happy",
+          "shirt": "#ff9f1c",
+          "hands": true,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "point_r",
+              "scale": 0.46,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "point_r",
+              "scale": 0.46,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "format": "kinetic-typography+scenery",
+    "topic": "social_comparison",
+    "tags": [
+      "social comparison",
+      "comparison trap",
+      "highlight reel",
+      "self worth",
+      "social media anxiety",
+      "psychology",
+      "shorts",
+      "Inklings"
+    ],
+    "hashtags": [
+      "#shorts",
+      "#psychology",
+      "#socialcomparison",
+      "#inklings"
+    ],
+    "sop": {
+      "hook": "You compare your behind-the-scenes to everyone's highlight reel.",
+      "explain": "Psychologists call it social comparison. You see their best moment and your whole mess. Their feed is a trailer, not the full movie. Nobody posts the boring middle of an ordinary day.",
+      "reframe": "That gap isn't proof you're behind, it's bad data. You're comparing your raw footage to their final edit. Everyone you envy is editing out their own struggle. Your behind-the-scenes is the only honest film you have.",
+      "cta_question": "Whose highlight reel makes you forget your own wins?",
+      "specificity": "highlight reel"
+    }
+  }
+}

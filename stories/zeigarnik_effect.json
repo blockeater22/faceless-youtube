@@ -1,6 +1,8 @@
 {
-  "title": "Why Unfinished Tasks Won't Leave You Alone (Zeigarnik Effect)",
+  "title": "Why You Can't Stop Thinking About Unfinished Tasks",
   "handle": "@Inklings1",
+  "hook": "YOUR BRAIN KEEPS POKING YOU ABOUT ONE UNFINISHED TASK",
+  "hook_dur": 1.3,
   "style": {
     "background": "#ffffff",
     "ink": "#15161a",
@@ -16,11 +18,14 @@
     "fps": 30,
     "grain": 0.0,
     "vignette": 0.0,
+    "draw_on": 0.9,
+    "hook_y": 0.18,
+    "sfx": true,
     "caption": {
       "mode": "kinetic",
-      "size": 0.1,
-      "y": 0.46,
-      "max_chars": 16
+      "size": 0.095,
+      "y": 0.85,
+      "max_chars": 14
     }
   },
   "voice": {
@@ -32,51 +37,55 @@
   "scenes": [
     {
       "id": "01_hook",
-      "narration": "Why can't you stop thinking about that one unfinished task?",
+      "beat": "hook",
+      "narration": "Your brain keeps poking you about one unfinished task.",
       "min_dur": 3.4,
-      "props": [
+      "camera": [
         {
-          "type": "icon",
-          "id": "warning",
-          "name": "warning",
-          "color": "#ff5d5d",
-          "r": 0.16,
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "props": [],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "surprised",
+          "shirt": "#ff9f1c",
+          "hands": true,
           "keys": [
             {
               "t": 0,
               "pos": [
                 0.5,
-                0.22
+                0.66
               ],
-              "scale": 0.6,
-              "alpha": 0
-            },
-            {
-              "t": 0.16,
-              "pos": [
-                0.5,
-                0.22
-              ],
-              "scale": 1.08,
-              "alpha": 1,
-              "ease": "pop"
-            },
-            {
-              "t": 0.55,
-              "pos": [
-                0.5,
-                0.22
-              ],
-              "scale": 1.0,
+              "pose": "shrug",
+              "scale": 0.42,
               "alpha": 1
             },
             {
-              "t": 1,
+              "t": 1.0,
               "pos": [
                 0.5,
-                0.22
+                0.66
               ],
-              "scale": 1.04,
+              "pose": "shrug",
+              "scale": 0.42,
               "alpha": 1
             }
           ]
@@ -84,247 +93,104 @@
       ]
     },
     {
-      "id": "02_promise",
-      "narration": "It's not laziness. Your brain is doing it on purpose.",
-      "min_dur": 3.6,
+      "id": "explain_1",
+      "beat": "explain",
+      "narration": "Psychologists call it the Zeigarnik effect.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.06,
+          "pan": [
+            0.5,
+            0.47
+          ]
+        }
+      ],
       "props": [
         {
           "type": "icon",
-          "id": "brain",
+          "id": "dp0",
           "name": "brain",
-          "color": "#1f9bff",
-          "r": 0.16,
-          "keys": [
-            {
-              "t": 0,
-              "pos": [
-                0.5,
-                0.22
-              ],
-              "scale": 0.6,
-              "alpha": 0
-            },
-            {
-              "t": 0.16,
-              "pos": [
-                0.5,
-                0.22
-              ],
-              "scale": 1.08,
-              "alpha": 1,
-              "ease": "pop"
-            },
-            {
-              "t": 0.55,
-              "pos": [
-                0.5,
-                0.22
-              ],
-              "scale": 1.0,
-              "alpha": 1
-            },
-            {
-              "t": 1,
-              "pos": [
-                0.5,
-                0.22
-              ],
-              "scale": 1.04,
-              "alpha": 1
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "03_name",
-      "narration": "Psychologists call it the Zeigarnik Effect.",
-      "min_dur": 3.6,
-      "props": [
-        {
-          "type": "icon",
-          "id": "lightbulb",
-          "name": "lightbulb",
-          "color": "#ffb454",
-          "r": 0.16,
-          "keys": [
-            {
-              "t": 0,
-              "pos": [
-                0.5,
-                0.22
-              ],
-              "scale": 0.6,
-              "alpha": 0
-            },
-            {
-              "t": 0.16,
-              "pos": [
-                0.5,
-                0.22
-              ],
-              "scale": 1.08,
-              "alpha": 1,
-              "ease": "pop"
-            },
-            {
-              "t": 0.55,
-              "pos": [
-                0.5,
-                0.22
-              ],
-              "scale": 1.0,
-              "alpha": 1
-            },
-            {
-              "t": 1,
-              "pos": [
-                0.5,
-                0.22
-              ],
-              "scale": 1.04,
-              "alpha": 1
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "04_explain",
-      "narration": "Open loops create tension your mind won't drop.",
-      "min_dur": 3.8,
-      "props": [
-        {
-          "type": "object",
-          "id": "table",
-          "name": "table",
-          "size": 0.44,
+          "color": "#a463f2",
+          "r": 0.094,
+          "front": true,
           "keys": [
             {
               "t": 0.0,
               "pos": [
-                0.5,
-                0.28
+                0.81,
+                0.27
               ],
-              "scale": 0.7,
-              "alpha": 0
+              "scale": 0.5,
+              "alpha": 0.0
             },
             {
-              "t": 0.18,
+              "t": 0.16,
               "pos": [
-                0.5,
-                0.28
+                0.81,
+                0.27
               ],
-              "scale": 1.05,
-              "alpha": 1,
+              "scale": 1.08,
+              "alpha": 1.0,
               "ease": "pop"
             },
             {
-              "t": 0.55,
+              "t": 0.6,
               "pos": [
-                0.5,
-                0.28
+                0.81,
+                0.27
               ],
               "scale": 1.0,
-              "alpha": 1
+              "alpha": 1.0
             },
             {
-              "t": 1,
+              "t": 1.0,
               "pos": [
-                0.5,
-                0.28
+                0.81,
+                0.27
               ],
-              "scale": 1.0,
-              "alpha": 1
+              "scale": 1.03,
+              "alpha": 1.0
             }
           ]
-        },
+        }
+      ],
+      "actors": [
         {
-          "type": "object",
-          "id": "books",
-          "name": "books",
-          "size": 0.28,
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "think",
+          "shirt": "#ff9f1c",
+          "hands": true,
           "keys": [
             {
-              "t": 0.1,
+              "t": 0,
               "pos": [
-                0.32,
-                0.18
+                0.5,
+                0.52
               ],
-              "scale": 0.7,
-              "alpha": 0
-            },
-            {
-              "t": 0.28,
-              "pos": [
-                0.32,
-                0.18
-              ],
-              "scale": 1.05,
-              "alpha": 1,
-              "ease": "pop"
-            },
-            {
-              "t": 0.65,
-              "pos": [
-                0.32,
-                0.18
-              ],
-              "scale": 1.0,
+              "pose": "think",
+              "scale": 0.46,
               "alpha": 1
             },
             {
-              "t": 1,
+              "t": 1.0,
               "pos": [
-                0.32,
-                0.18
+                0.5,
+                0.52
               ],
-              "scale": 1.0,
-              "alpha": 1
-            }
-          ]
-        },
-        {
-          "type": "object",
-          "id": "laptop",
-          "name": "laptop",
-          "size": 0.28,
-          "keys": [
-            {
-              "t": 0.15,
-              "pos": [
-                0.66,
-                0.18
-              ],
-              "scale": 0.7,
-              "alpha": 0
-            },
-            {
-              "t": 0.33,
-              "pos": [
-                0.66,
-                0.18
-              ],
-              "scale": 1.05,
-              "alpha": 1,
-              "ease": "pop"
-            },
-            {
-              "t": 0.7,
-              "pos": [
-                0.66,
-                0.18
-              ],
-              "scale": 1.0,
-              "alpha": 1
-            },
-            {
-              "t": 1,
-              "pos": [
-                0.66,
-                0.18
-              ],
-              "scale": 1.0,
+              "pose": "think",
+              "scale": 0.46,
               "alpha": 1
             }
           ]
@@ -332,52 +198,599 @@
       ]
     },
     {
-      "id": "05_cta",
-      "narration": "Close the loop. Write it down. Tell your brain it's handled.",
-      "min_dur": 3.8,
+      "id": "explain_2",
+      "beat": "explain",
+      "narration": "Open loops stay loud until your brain closes them.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "props": [],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "think",
+          "shirt": "#ff9f1c",
+          "hands": true,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.42,
+                0.52
+              ],
+              "pose": "point_r",
+              "scale": 0.46,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.42,
+                0.52
+              ],
+              "pose": "point_r",
+              "scale": 0.46,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "explain_3",
+      "beat": "explain",
+      "narration": "An unfinished task feels louder than ten finished ones.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.06,
+          "pan": [
+            0.58,
+            0.47
+          ]
+        }
+      ],
       "props": [
         {
           "type": "icon",
-          "id": "check",
+          "id": "dp2",
           "name": "check",
           "color": "#23b26d",
-          "r": 0.16,
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "think",
+          "shirt": "#ff9f1c",
+          "hands": true,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.58,
+                0.52
+              ],
+              "pose": "shrug",
+              "scale": 0.46,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.58,
+                0.52
+              ],
+              "pose": "shrug",
+              "scale": 0.46,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "explain_4",
+      "beat": "explain",
+      "narration": "Your mind keeps the tab open so you return.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp3",
+          "name": "brain",
+          "color": "#a463f2",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "think",
+          "shirt": "#ff9f1c",
+          "hands": true,
           "keys": [
             {
               "t": 0,
               "pos": [
                 0.5,
-                0.22
+                0.52
               ],
-              "scale": 0.6,
-              "alpha": 0
+              "pose": "think",
+              "scale": 0.46,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "think",
+              "scale": 0.46,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reframe_1",
+      "beat": "reframe",
+      "narration": "That nagging isn't failure, it's a built-in reminder system.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.07,
+          "pan": [
+            0.5,
+            0.43
+          ]
+        }
+      ],
+      "props": [],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "happy",
+          "shirt": "#ff9f1c",
+          "hands": true,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "wave",
+              "scale": 0.46,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "wave",
+              "scale": 0.46,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reframe_2",
+      "beat": "reframe",
+      "narration": "Write the task down and the loop goes quiet.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.115,
+          "pan": [
+            0.42,
+            0.43
+          ]
+        }
+      ],
+      "props": [],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "happy",
+          "shirt": "#ff9f1c",
+          "hands": true,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.42,
+                0.52
+              ],
+              "pose": "reach",
+              "scale": 0.46,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.42,
+                0.52
+              ],
+              "pose": "reach",
+              "scale": 0.46,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reframe_3",
+      "beat": "reframe",
+      "narration": "Your brain trusts paper more than it trusts memory.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.1600000000000001,
+          "pan": [
+            0.58,
+            0.43
+          ]
+        }
+      ],
+      "props": [],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "happy",
+          "shirt": "#ff9f1c",
+          "hands": true,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.58,
+                0.52
+              ],
+              "pose": "think",
+              "scale": 0.46,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.58,
+                0.52
+              ],
+              "pose": "think",
+              "scale": 0.46,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reframe_4",
+      "beat": "reframe",
+      "narration": "One small step closes the loop your mind reopened.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.18,
+          "pan": [
+            0.5,
+            0.43
+          ]
+        }
+      ],
+      "props": [],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "happy",
+          "shirt": "#ff9f1c",
+          "hands": true,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "wave",
+              "scale": 0.46,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "wave",
+              "scale": 0.46,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "99_cta",
+      "beat": "cta",
+      "narration": "What unfinished task has been living in your head longest? Drop it below.",
+      "min_dur": 3.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp0",
+          "name": "chat",
+          "color": "#1f9bff",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
             },
             {
               "t": 0.16,
               "pos": [
-                0.5,
-                0.22
+                0.81,
+                0.27
               ],
               "scale": 1.08,
-              "alpha": 1,
+              "alpha": 1.0,
               "ease": "pop"
             },
             {
-              "t": 0.55,
+              "t": 0.6,
               "pos": [
-                0.5,
-                0.22
+                0.81,
+                0.27
               ],
               "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "happy",
+          "shirt": "#ff9f1c",
+          "hands": true,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "point_r",
+              "scale": 0.46,
               "alpha": 1
             },
             {
-              "t": 1,
+              "t": 1.0,
               "pos": [
                 0.5,
-                0.22
+                0.52
               ],
-              "scale": 1.04,
+              "pose": "point_r",
+              "scale": 0.46,
               "alpha": 1
             }
           ]
@@ -387,6 +800,29 @@
   ],
   "meta": {
     "format": "kinetic-typography+scenery",
-    "topic": "zeigarnik-effect"
+    "topic": "zeigarnik_effect",
+    "tags": [
+      "zeigarnik effect",
+      "unfinished tasks",
+      "intrusive thoughts",
+      "overthinking",
+      "productivity psychology",
+      "psychology",
+      "shorts",
+      "Inklings"
+    ],
+    "hashtags": [
+      "#shorts",
+      "#psychology",
+      "#zeigarnikeffect",
+      "#inklings"
+    ],
+    "sop": {
+      "hook": "Your brain keeps poking you about one unfinished task.",
+      "explain": "Psychologists call it the Zeigarnik effect. Open loops stay loud until your brain closes them. An unfinished task feels louder than ten finished ones. Your mind keeps the tab open so you return.",
+      "reframe": "That nagging isn't failure, it's a built-in reminder system. Write the task down and the loop goes quiet. Your brain trusts paper more than it trusts memory. One small step closes the loop your mind reopened.",
+      "cta_question": "What unfinished task has been living in your head longest?",
+      "specificity": "one unfinished task"
+    }
   }
 }

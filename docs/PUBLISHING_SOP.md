@@ -127,3 +127,87 @@ surface acting, emotional labor, masking emotions, saying im fine, emotional sup
   biggest lever for comments on a small channel.
 - **Thumbnails** are the bold colour-bar title + the surprised character, so the
   short reads as a complete, clickable creative even as a still.
+
+---
+
+# Week 2 — next batch (negativity bias · Zeigarnik · social comparison)
+
+Same playbook as above. Files:
+- `output/negativity_bias_9x16.mp4` + `output/negativity_bias_thumb.png`
+- `output/zeigarnik_effect_9x16.mp4` + `output/zeigarnik_effect_thumb.png`
+- `output/social_comparison_9x16.mp4` + `output/social_comparison_thumb.png`
+
+## #4 — Negativity Bias · Mon
+
+**Title:**
+```
+Why You Remember Bad Comments And Forget the Good Ones
+```
+**Description:**
+```
+One harsh comment can erase ten kind ones in a second. Psychologists call it "negativity bias" — your brain treats a single insult like a survival threat, filing praise away while it bookmarks every criticism.
+
+That sting isn't weakness. It's an old instinct: your ancestors survived by spotting danger faster than joy. The loud bad comment isn't the truth — ten quiet people liked what one loud one hated.
+
+💬 What's one kind comment you still remember word for word? Drop it below.
+
+#shorts #psychology #negativitybias #overthinking #selfworth
+```
+**Pinned first comment:**
+```
+What's one kind comment that stuck with you for YEARS? I'll start in the replies. 💬
+```
+**Tags:**
+```
+negativity bias, why one bad comment hurts, criticism, overthinking comments, rejection sensitivity, psychology shorts, mental health, self compassion, self worth, dealing with criticism, relatable, stickman animation, psychology facts, overthinker, brain facts
+```
+
+## #5 — Zeigarnik Effect · Wed
+
+**Title:**
+```
+Why You Can't Stop Thinking About Unfinished Tasks
+```
+**Description:**
+```
+Your brain won't let go of the one thing you didn't finish. Psychologists call it the "Zeigarnik effect" — open loops stay loud until your brain closes them, so one unfinished task feels louder than ten finished ones.
+
+That nagging isn't failure — it's a built-in reminder system. Write the task down and the loop goes quiet; your brain trusts paper more than memory. One small step closes the loop your mind keeps reopening.
+
+💬 What unfinished task has been living in your head the longest? Drop it below.
+
+#shorts #psychology #zeigarnikeffect #overthinking #productivity
+```
+**Pinned first comment:**
+```
+What unfinished task has been renting space in your head the longest? 👀 Name it and maybe today's the day.
+```
+**Tags:**
+```
+zeigarnik effect, unfinished tasks, why i cant stop thinking, intrusive thoughts, open loops, overthinking, procrastination psychology, psychology shorts, mental health, productivity, focus, relatable, stickman animation, psychology facts, brain facts
+```
+
+## #6 — Social Comparison · Fri
+
+**Title:**
+```
+Why You Compare Yourself to Everyone's Highlight Reel
+```
+**Description:**
+```
+You compare your behind-the-scenes to everyone else's highlight reel — and lose every time. Psychologists call it "social comparison": you see their single best moment next to your whole messy day. Their feed is a trailer, not the full movie.
+
+That gap isn't proof you're behind — it's bad data. You're comparing your raw footage to their final edit, and everyone you envy is quietly editing out their own struggle. Your behind-the-scenes is the only honest film you have.
+
+💬 Whose highlight reel makes you forget your own wins? Drop it below.
+
+#shorts #psychology #comparison #socialmedia #selfworth
+```
+**Pinned first comment:**
+```
+Be honest — whose highlight reel makes you forget your own wins? No judgment in the replies. 💬
+```
+**Tags:**
+```
+social comparison, comparison trap, highlight reel, why i compare myself, social media anxiety, comparison is the thief of joy, self worth, psychology shorts, mental health, self compassion, instagram vs reality, relatable, stickman animation, psychology facts, self esteem
+```

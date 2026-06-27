@@ -274,10 +274,46 @@ TOPICS = [
         title_behavior="You Say You're Fine", title_outcome="When You're Not",
         keywords=["surface acting", "emotional labor", "emotional suppression", "self compassion"],
     ),
+    # ---- Week 2 ----
+    dict(
+        slug="negativity_bias",
+        hook="One bad comment erased ten good ones today.",
+        explain="Psychologists call it negativity bias. Your brain treats one insult as a survival threat. "
+                "It files praise away but bookmarks every criticism. One frown in a smiling crowd grabs all your attention.",
+        reframe="That sting isn't weakness, it's an old survival instinct. Your ancestors lived by spotting danger faster than joy. "
+                "The bad comment is loud, but it isn't the truth. Ten quiet people liked what the one loud one hated.",
+        cta_question="What's one kind comment you still remember word for word?",
+        specificity="ten good ones",
+        title_behavior="You Remember Bad Comments", title_outcome="And Forget the Good Ones",
+        keywords=["negativity bias", "criticism", "overthinking comments", "self compassion", "rejection sensitivity"],
+    ),
+    dict(
+        slug="zeigarnik_effect",
+        hook="Your brain keeps poking you about one unfinished task.",
+        explain="Psychologists call it the Zeigarnik effect. Open loops stay loud until your brain closes them. "
+                "An unfinished task feels louder than ten finished ones. Your mind keeps the tab open so you return.",
+        reframe="That nagging isn't failure, it's a built-in reminder system. Write the task down and the loop goes quiet. "
+                "Your brain trusts paper more than it trusts memory. One small step closes the loop your mind reopened.",
+        cta_question="What unfinished task has been living in your head longest?",
+        specificity="one unfinished task",
+        title_behavior="You Can't Stop Thinking", title_outcome="About Unfinished Tasks",
+        keywords=["zeigarnik effect", "unfinished tasks", "intrusive thoughts", "overthinking", "productivity psychology"],
+    ),
+    dict(
+        slug="social_comparison",
+        hook="You compare your behind-the-scenes to everyone's highlight reel.",
+        explain="Psychologists call it social comparison. You see their best moment and your whole mess. "
+                "Their feed is a trailer, not the full movie. Nobody posts the boring middle of an ordinary day.",
+        reframe="That gap isn't proof you're behind, it's bad data. You're comparing your raw footage to their final edit. "
+                "Everyone you envy is editing out their own struggle. Your behind-the-scenes is the only honest film you have.",
+        cta_question="Whose highlight reel makes you forget your own wins?",
+        specificity="highlight reel",
+        title_behavior="You Compare Yourself", title_outcome="to Everyone's Highlight Reel",
+        keywords=["social comparison", "comparison trap", "highlight reel", "self worth", "social media anxiety"],
+    ),
 ]
 
-assert len(TOPICS) == 3
-assert len({t["slug"] for t in TOPICS}) == 3
+assert len({t["slug"] for t in TOPICS}) == len(TOPICS)
 VIDEOS = [build(t) for t in TOPICS]
 
 if __name__ == "__main__":

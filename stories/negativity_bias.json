@@ -1,8 +1,8 @@
 {
-  "title": "Why One Bad Comment Outweighs 100 Good Ones (Negativity Bias)",
+  "title": "Why You Remember Bad Comments And Forget the Good Ones",
   "handle": "@Inklings1",
-  "hook": "WHY DOES ONE HARSH COMMENT STICK WITH YOU ",
-  "hook_dur": 1.7,
+  "hook": "ONE BAD COMMENT ERASED TEN GOOD ONES TODAY",
+  "hook_dur": 1.3,
   "style": {
     "background": "#ffffff",
     "ink": "#15161a",
@@ -18,11 +18,14 @@
     "fps": 30,
     "grain": 0.0,
     "vignette": 0.0,
+    "draw_on": 0.9,
+    "hook_y": 0.18,
+    "sfx": true,
     "caption": {
       "mode": "kinetic",
-      "size": 0.1,
-      "y": 0.46,
-      "max_chars": 16
+      "size": 0.095,
+      "y": 0.85,
+      "max_chars": 14
     }
   },
   "voice": {
@@ -34,92 +37,55 @@
   "scenes": [
     {
       "id": "01_hook",
-      "narration": "Why does one harsh comment stick with you longer than a hundred kind ones?",
-      "min_dur": 4.2,
-      "props": [
+      "beat": "hook",
+      "narration": "One bad comment erased ten good ones today.",
+      "min_dur": 3.4,
+      "camera": [
         {
-          "type": "icon",
-          "id": "warning",
-          "name": "warning",
-          "color": "#1f9bff",
-          "r": 0.16,
-          "keys": [
-            {
-              "t": 0,
-              "pos": [
-                0.5,
-                0.22
-              ],
-              "scale": 0.6,
-              "alpha": 0
-            },
-            {
-              "t": 0.16,
-              "pos": [
-                0.5,
-                0.22
-              ],
-              "scale": 1.08,
-              "alpha": 1,
-              "ease": "pop"
-            },
-            {
-              "t": 0.55,
-              "pos": [
-                0.5,
-                0.22
-              ],
-              "scale": 1.0,
-              "alpha": 1
-            },
-            {
-              "t": 1,
-              "pos": [
-                0.5,
-                0.22
-              ],
-              "scale": 1.04,
-              "alpha": 1
-            }
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
           ]
         }
       ],
+      "props": [],
       "actors": [
         {
           "type": "figure",
           "id": "narrator",
           "color": "ink",
-          "face": "think",
+          "face": "surprised",
+          "shirt": "#ff9f1c",
+          "hands": true,
           "keys": [
             {
               "t": 0,
               "pos": [
-                0.26,
-                0.83
+                0.5,
+                0.66
               ],
-              "pose": "point_up",
-              "scale": 0.0,
-              "alpha": 0
-            },
-            {
-              "t": 0.18,
-              "pos": [
-                0.26,
-                0.83
-              ],
-              "pose": "point_up",
-              "scale": 0.22,
-              "alpha": 1,
-              "ease": "pop"
+              "pose": "shrug",
+              "scale": 0.42,
+              "alpha": 1
             },
             {
               "t": 1.0,
               "pos": [
-                0.26,
-                0.83
+                0.5,
+                0.66
               ],
-              "pose": "point_up",
-              "scale": 0.22,
+              "pose": "shrug",
+              "scale": 0.42,
               "alpha": 1
             }
           ]
@@ -127,53 +93,73 @@
       ]
     },
     {
-      "id": "02_promise",
-      "narration": "It's not that you're too sensitive, your brain weighs bad news heavier than good.",
-      "min_dur": 4.2,
+      "id": "explain_1",
+      "beat": "explain",
+      "narration": "Psychologists call it negativity bias.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.06,
+          "pan": [
+            0.5,
+            0.47
+          ]
+        }
+      ],
       "props": [
         {
           "type": "icon",
-          "id": "brain",
+          "id": "dp0",
           "name": "brain",
-          "color": "#ffb454",
-          "r": 0.16,
+          "color": "#a463f2",
+          "r": 0.094,
+          "front": true,
           "keys": [
             {
-              "t": 0,
+              "t": 0.0,
               "pos": [
-                0.5,
-                0.22
+                0.81,
+                0.27
               ],
-              "scale": 0.6,
-              "alpha": 0
+              "scale": 0.5,
+              "alpha": 0.0
             },
             {
               "t": 0.16,
               "pos": [
-                0.5,
-                0.22
+                0.81,
+                0.27
               ],
               "scale": 1.08,
-              "alpha": 1,
+              "alpha": 1.0,
               "ease": "pop"
             },
             {
-              "t": 0.55,
+              "t": 0.6,
               "pos": [
-                0.5,
-                0.22
+                0.81,
+                0.27
               ],
               "scale": 1.0,
-              "alpha": 1
+              "alpha": 1.0
             },
             {
-              "t": 1,
+              "t": 1.0,
               "pos": [
-                0.5,
-                0.22
+                0.81,
+                0.27
               ],
-              "scale": 1.04,
-              "alpha": 1
+              "scale": 1.03,
+              "alpha": 1.0
             }
           ]
         }
@@ -184,36 +170,27 @@
           "id": "narrator",
           "color": "ink",
           "face": "think",
+          "shirt": "#ff9f1c",
+          "hands": true,
           "keys": [
             {
               "t": 0,
               "pos": [
-                0.26,
-                0.83
+                0.5,
+                0.52
               ],
-              "pose": "reach",
-              "scale": 0.0,
-              "alpha": 0
-            },
-            {
-              "t": 0.18,
-              "pos": [
-                0.26,
-                0.83
-              ],
-              "pose": "reach",
-              "scale": 0.22,
-              "alpha": 1,
-              "ease": "pop"
+              "pose": "think",
+              "scale": 0.46,
+              "alpha": 1
             },
             {
               "t": 1.0,
               "pos": [
-                0.26,
-                0.83
+                0.5,
+                0.52
               ],
-              "pose": "reach",
-              "scale": 0.22,
+              "pose": "think",
+              "scale": 0.46,
               "alpha": 1
             }
           ]
@@ -221,53 +198,348 @@
       ]
     },
     {
-      "id": "03_name",
-      "narration": "Psychologists call it Negativity Bias.",
-      "min_dur": 3.8,
+      "id": "explain_2",
+      "beat": "explain",
+      "narration": "Your brain treats one insult as a survival threat.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "props": [],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "think",
+          "shirt": "#ff9f1c",
+          "hands": true,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.42,
+                0.52
+              ],
+              "pose": "point_l",
+              "scale": 0.46,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.42,
+                0.52
+              ],
+              "pose": "point_l",
+              "scale": 0.46,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "explain_3",
+      "beat": "explain",
+      "narration": "It files praise away but bookmarks every criticism.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.06,
+          "pan": [
+            0.58,
+            0.47
+          ]
+        }
+      ],
       "props": [
         {
-          "type": "icon",
-          "id": "lightbulb",
-          "name": "lightbulb",
-          "color": "#23b26d",
-          "r": 0.16,
+          "type": "object",
+          "id": "dp2",
+          "name": "books",
+          "size": 0.26,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.19,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "think",
+          "shirt": "#ff9f1c",
+          "hands": true,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.58,
+                0.52
+              ],
+              "pose": "shrug",
+              "scale": 0.46,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.58,
+                0.52
+              ],
+              "pose": "shrug",
+              "scale": 0.46,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "explain_4",
+      "beat": "explain",
+      "narration": "One frown in a smiling crowd grabs all your attention.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "props": [],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "think",
+          "shirt": "#ff9f1c",
+          "hands": true,
           "keys": [
             {
               "t": 0,
               "pos": [
                 0.5,
-                0.22
+                0.52
               ],
-              "scale": 0.6,
-              "alpha": 0
+              "pose": "look_up",
+              "scale": 0.46,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "look_up",
+              "scale": 0.46,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reframe_1",
+      "beat": "reframe",
+      "narration": "That sting isn't weakness, it's an old survival instinct.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.07,
+          "pan": [
+            0.5,
+            0.43
+          ]
+        }
+      ],
+      "props": [],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "happy",
+          "shirt": "#ff9f1c",
+          "hands": true,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "shrug",
+              "scale": 0.46,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "shrug",
+              "scale": 0.46,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reframe_2",
+      "beat": "reframe",
+      "narration": "Your ancestors lived by spotting danger faster than joy.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.115,
+          "pan": [
+            0.42,
+            0.43
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp1",
+          "name": "warning",
+          "color": "#ffb454",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
             },
             {
               "t": 0.16,
               "pos": [
-                0.5,
-                0.22
+                0.81,
+                0.27
               ],
               "scale": 1.08,
-              "alpha": 1,
+              "alpha": 1.0,
               "ease": "pop"
             },
             {
-              "t": 0.55,
+              "t": 0.6,
               "pos": [
-                0.5,
-                0.22
+                0.81,
+                0.27
               ],
               "scale": 1.0,
-              "alpha": 1
+              "alpha": 1.0
             },
             {
-              "t": 1,
+              "t": 1.0,
               "pos": [
-                0.5,
-                0.22
+                0.81,
+                0.27
               ],
-              "scale": 1.04,
-              "alpha": 1
+              "scale": 1.03,
+              "alpha": 1.0
             }
           ]
         }
@@ -278,36 +550,27 @@
           "id": "narrator",
           "color": "ink",
           "face": "happy",
+          "shirt": "#ff9f1c",
+          "hands": true,
           "keys": [
             {
               "t": 0,
               "pos": [
-                0.26,
-                0.83
+                0.42,
+                0.52
               ],
-              "pose": "think",
-              "scale": 0.0,
-              "alpha": 0
-            },
-            {
-              "t": 0.18,
-              "pos": [
-                0.26,
-                0.83
-              ],
-              "pose": "think",
-              "scale": 0.22,
-              "alpha": 1,
-              "ease": "pop"
+              "pose": "reach",
+              "scale": 0.46,
+              "alpha": 1
             },
             {
               "t": 1.0,
               "pos": [
-                0.26,
-                0.83
+                0.42,
+                0.52
               ],
-              "pose": "think",
-              "scale": 0.22,
+              "pose": "reach",
+              "scale": 0.46,
               "alpha": 1
             }
           ]
@@ -315,236 +578,73 @@
       ]
     },
     {
-      "id": "04_explain1",
-      "narration": "Ancient brains survived by overreacting to threats, so criticism still feels louder than praise.",
-      "min_dur": 4.6,
-      "props": [
+      "id": "reframe_3",
+      "beat": "reframe",
+      "narration": "The bad comment is loud, but it isn't the truth.",
+      "min_dur": 2.6,
+      "camera": [
         {
-          "type": "icon",
-          "id": "warning",
-          "name": "warning",
-          "color": "#a463f2",
-          "r": 0.16,
-          "keys": [
-            {
-              "t": 0,
-              "pos": [
-                0.5,
-                0.22
-              ],
-              "scale": 0.6,
-              "alpha": 0
-            },
-            {
-              "t": 0.16,
-              "pos": [
-                0.5,
-                0.22
-              ],
-              "scale": 1.08,
-              "alpha": 1,
-              "ease": "pop"
-            },
-            {
-              "t": 0.55,
-              "pos": [
-                0.5,
-                0.22
-              ],
-              "scale": 1.0,
-              "alpha": 1
-            },
-            {
-              "t": 1,
-              "pos": [
-                0.5,
-                0.22
-              ],
-              "scale": 1.04,
-              "alpha": 1
-            }
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.1600000000000001,
+          "pan": [
+            0.58,
+            0.43
           ]
         }
       ],
-      "actors": [
-        {
-          "type": "figure",
-          "id": "narrator",
-          "color": "ink",
-          "face": "think",
-          "keys": [
-            {
-              "t": 0,
-              "pos": [
-                0.26,
-                0.83
-              ],
-              "pose": "shrug",
-              "scale": 0.0,
-              "alpha": 0
-            },
-            {
-              "t": 0.18,
-              "pos": [
-                0.26,
-                0.83
-              ],
-              "pose": "shrug",
-              "scale": 0.22,
-              "alpha": 1,
-              "ease": "pop"
-            },
-            {
-              "t": 1.0,
-              "pos": [
-                0.26,
-                0.83
-              ],
-              "pose": "shrug",
-              "scale": 0.22,
-              "alpha": 1
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "05_explain2",
-      "narration": "One typo in a great essay is all you remember, one mistake can erase a year of good ones.",
-      "min_dur": 4.6,
       "props": [
         {
-          "type": "object",
-          "id": "table",
-          "name": "table",
-          "size": 0.44,
+          "type": "icon",
+          "id": "dp2",
+          "name": "lightbulb",
+          "color": "#ffd23f",
+          "r": 0.094,
+          "front": true,
           "keys": [
             {
               "t": 0.0,
               "pos": [
-                0.5,
-                0.3
+                0.19,
+                0.27
               ],
-              "scale": 0.7,
-              "alpha": 0
+              "scale": 0.5,
+              "alpha": 0.0
             },
             {
-              "t": 0.18,
+              "t": 0.16,
               "pos": [
-                0.5,
-                0.3
+                0.19,
+                0.27
               ],
-              "scale": 1.05,
-              "alpha": 1,
+              "scale": 1.08,
+              "alpha": 1.0,
               "ease": "pop"
             },
             {
-              "t": 0.55,
+              "t": 0.6,
               "pos": [
-                0.5,
-                0.3
+                0.19,
+                0.27
               ],
               "scale": 1.0,
-              "alpha": 1
+              "alpha": 1.0
             },
             {
-              "t": 1,
+              "t": 1.0,
               "pos": [
-                0.5,
-                0.3
+                0.19,
+                0.27
               ],
-              "scale": 1.0,
-              "alpha": 1
-            }
-          ]
-        },
-        {
-          "type": "object",
-          "id": "laptop",
-          "name": "laptop",
-          "size": 0.27,
-          "keys": [
-            {
-              "t": 0.1,
-              "pos": [
-                0.3,
-                0.18
-              ],
-              "scale": 0.7,
-              "alpha": 0
-            },
-            {
-              "t": 0.28,
-              "pos": [
-                0.3,
-                0.18
-              ],
-              "scale": 1.05,
-              "alpha": 1,
-              "ease": "pop"
-            },
-            {
-              "t": 0.65,
-              "pos": [
-                0.3,
-                0.18
-              ],
-              "scale": 1.0,
-              "alpha": 1
-            },
-            {
-              "t": 1,
-              "pos": [
-                0.3,
-                0.18
-              ],
-              "scale": 1.0,
-              "alpha": 1
-            }
-          ]
-        },
-        {
-          "type": "object",
-          "id": "books",
-          "name": "books",
-          "size": 0.27,
-          "keys": [
-            {
-              "t": 0.15,
-              "pos": [
-                0.7,
-                0.18
-              ],
-              "scale": 0.7,
-              "alpha": 0
-            },
-            {
-              "t": 0.33,
-              "pos": [
-                0.7,
-                0.18
-              ],
-              "scale": 1.05,
-              "alpha": 1,
-              "ease": "pop"
-            },
-            {
-              "t": 0.7,
-              "pos": [
-                0.7,
-                0.18
-              ],
-              "scale": 1.0,
-              "alpha": 1
-            },
-            {
-              "t": 1,
-              "pos": [
-                0.7,
-                0.18
-              ],
-              "scale": 1.0,
-              "alpha": 1
+              "scale": 1.03,
+              "alpha": 1.0
             }
           ]
         }
@@ -554,37 +654,28 @@
           "type": "figure",
           "id": "narrator",
           "color": "ink",
-          "face": "think",
+          "face": "happy",
+          "shirt": "#ff9f1c",
+          "hands": true,
           "keys": [
             {
               "t": 0,
               "pos": [
-                0.26,
-                0.83
+                0.58,
+                0.52
               ],
-              "pose": "wave",
-              "scale": 0.0,
-              "alpha": 0
-            },
-            {
-              "t": 0.18,
-              "pos": [
-                0.26,
-                0.83
-              ],
-              "pose": "wave",
-              "scale": 0.22,
-              "alpha": 1,
-              "ease": "pop"
+              "pose": "celebrate",
+              "scale": 0.46,
+              "alpha": 1
             },
             {
               "t": 1.0,
               "pos": [
-                0.26,
-                0.83
+                0.58,
+                0.52
               ],
-              "pose": "wave",
-              "scale": 0.22,
+              "pose": "celebrate",
+              "scale": 0.46,
               "alpha": 1
             }
           ]
@@ -592,99 +683,130 @@
       ]
     },
     {
-      "id": "06_cta",
-      "narration": "What's a piece of criticism that's stuck with you way longer than it deserved? Comment below, like this video, and subscribe to Inklings for more daily psychology in under a minute.",
-      "min_dur": 4.8,
-      "props": [
+      "id": "reframe_4",
+      "beat": "reframe",
+      "narration": "Ten quiet people liked what the one loud one hated.",
+      "min_dur": 2.6,
+      "camera": [
         {
-          "type": "icon",
-          "id": "thumbs_up",
-          "name": "thumbs_up",
-          "color": "#23b26d",
-          "r": 0.15,
-          "keys": [
-            {
-              "t": 0,
-              "pos": [
-                0.36,
-                0.22
-              ],
-              "scale": 0.6,
-              "alpha": 0
-            },
-            {
-              "t": 0.16,
-              "pos": [
-                0.36,
-                0.22
-              ],
-              "scale": 1.08,
-              "alpha": 1,
-              "ease": "pop"
-            },
-            {
-              "t": 0.55,
-              "pos": [
-                0.36,
-                0.22
-              ],
-              "scale": 1.0,
-              "alpha": 1
-            },
-            {
-              "t": 1,
-              "pos": [
-                0.36,
-                0.22
-              ],
-              "scale": 1.04,
-              "alpha": 1
-            }
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
           ]
         },
         {
-          "type": "icon",
-          "id": "bell",
-          "name": "bell",
-          "color": "#ffb454",
-          "r": 0.15,
+          "t": 1.0,
+          "zoom": 1.18,
+          "pan": [
+            0.5,
+            0.43
+          ]
+        }
+      ],
+      "props": [],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "happy",
+          "shirt": "#ff9f1c",
+          "hands": true,
           "keys": [
             {
               "t": 0,
               "pos": [
-                0.64,
-                0.22
+                0.5,
+                0.52
               ],
-              "scale": 0.6,
-              "alpha": 0
+              "pose": "point_up",
+              "scale": 0.46,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "point_up",
+              "scale": 0.46,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "99_cta",
+      "beat": "cta",
+      "narration": "What's one kind comment you still remember word for word? Drop it below.",
+      "min_dur": 3.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp0",
+          "name": "chat",
+          "color": "#1f9bff",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
             },
             {
               "t": 0.16,
               "pos": [
-                0.64,
-                0.22
+                0.81,
+                0.27
               ],
               "scale": 1.08,
-              "alpha": 1,
+              "alpha": 1.0,
               "ease": "pop"
             },
             {
-              "t": 0.55,
+              "t": 0.6,
               "pos": [
-                0.64,
-                0.22
+                0.81,
+                0.27
               ],
               "scale": 1.0,
-              "alpha": 1
+              "alpha": 1.0
             },
             {
-              "t": 1,
+              "t": 1.0,
               "pos": [
-                0.64,
-                0.22
+                0.81,
+                0.27
               ],
-              "scale": 1.04,
-              "alpha": 1
+              "scale": 1.03,
+              "alpha": 1.0
             }
           ]
         }
@@ -694,37 +816,28 @@
           "type": "figure",
           "id": "narrator",
           "color": "ink",
-          "face": "sad",
+          "face": "happy",
+          "shirt": "#ff9f1c",
+          "hands": true,
           "keys": [
             {
               "t": 0,
               "pos": [
-                0.26,
-                0.83
+                0.5,
+                0.52
               ],
-              "pose": "point_up",
-              "scale": 0.0,
-              "alpha": 0
-            },
-            {
-              "t": 0.18,
-              "pos": [
-                0.26,
-                0.83
-              ],
-              "pose": "point_up",
-              "scale": 0.22,
-              "alpha": 1,
-              "ease": "pop"
+              "pose": "point_r",
+              "scale": 0.46,
+              "alpha": 1
             },
             {
               "t": 1.0,
               "pos": [
-                0.26,
-                0.83
+                0.5,
+                0.52
               ],
-              "pose": "point_up",
-              "scale": 0.22,
+              "pose": "point_r",
+              "scale": 0.46,
               "alpha": 1
             }
           ]
@@ -737,10 +850,11 @@
     "topic": "negativity_bias",
     "tags": [
       "negativity bias",
-      "brain science",
       "criticism",
-      "self esteem",
-      "psychology facts",
+      "overthinking comments",
+      "self compassion",
+      "rejection sensitivity",
+      "psychology",
       "shorts",
       "Inklings"
     ],
@@ -750,6 +864,12 @@
       "#negativitybias",
       "#inklings"
     ],
-    "comment_prompt": "What's a piece of criticism that's stuck with you way longer than it deserved?"
+    "sop": {
+      "hook": "One bad comment erased ten good ones today.",
+      "explain": "Psychologists call it negativity bias. Your brain treats one insult as a survival threat. It files praise away but bookmarks every criticism. One frown in a smiling crowd grabs all your attention.",
+      "reframe": "That sting isn't weakness, it's an old survival instinct. Your ancestors lived by spotting danger faster than joy. The bad comment is loud, but it isn't the truth. Ten quiet people liked what the one loud one hated.",
+      "cta_question": "What's one kind comment you still remember word for word?",
+      "specificity": "ten good ones"
+    }
   }
 }

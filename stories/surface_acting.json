@@ -20,9 +20,9 @@
     "vignette": 0.0,
     "caption": {
       "mode": "kinetic",
-      "size": 0.1,
-      "y": 0.46,
-      "max_chars": 16
+      "size": 0.095,
+      "y": 0.85,
+      "max_chars": 14
     }
   },
   "voice": {
@@ -61,13 +61,13 @@
           "id": "warning",
           "name": "warning",
           "color": "#ffb454",
-          "r": 0.16,
+          "r": 0.11,
           "keys": [
             {
               "t": 0,
               "pos": [
-                0.5,
-                0.22
+                0.79,
+                0.28
               ],
               "scale": 0.6,
               "alpha": 0
@@ -75,8 +75,8 @@
             {
               "t": 0.16,
               "pos": [
-                0.5,
-                0.22
+                0.79,
+                0.28
               ],
               "scale": 1.08,
               "alpha": 1,
@@ -85,8 +85,8 @@
             {
               "t": 0.55,
               "pos": [
-                0.5,
-                0.22
+                0.79,
+                0.28
               ],
               "scale": 1.0,
               "alpha": 1
@@ -94,8 +94,8 @@
             {
               "t": 1,
               "pos": [
-                0.5,
-                0.22
+                0.79,
+                0.28
               ],
               "scale": 1.04,
               "alpha": 1
@@ -113,32 +113,32 @@
             {
               "t": 0,
               "pos": [
-                0.26,
-                0.83
+                0.5,
+                0.66
               ],
               "pose": "shrug",
               "scale": 0.0,
               "alpha": 0
             },
             {
-              "t": 0.18,
+              "t": 0.16,
               "pos": [
-                0.26,
-                0.83
+                0.5,
+                0.66
               ],
               "pose": "shrug",
-              "scale": 0.22,
+              "scale": 0.38,
               "alpha": 1,
               "ease": "pop"
             },
             {
               "t": 1.0,
               "pos": [
-                0.26,
-                0.83
+                0.5,
+                0.66
               ],
               "pose": "shrug",
-              "scale": 0.22,
+              "scale": 0.38,
               "alpha": 1
             }
           ]
@@ -174,13 +174,13 @@
           "id": "brain",
           "name": "brain",
           "color": "#a463f2",
-          "r": 0.16,
+          "r": 0.11,
           "keys": [
             {
               "t": 0,
               "pos": [
-                0.5,
-                0.22
+                0.79,
+                0.28
               ],
               "scale": 0.6,
               "alpha": 0
@@ -188,8 +188,8 @@
             {
               "t": 0.16,
               "pos": [
-                0.5,
-                0.22
+                0.79,
+                0.28
               ],
               "scale": 1.08,
               "alpha": 1,
@@ -198,8 +198,8 @@
             {
               "t": 0.55,
               "pos": [
-                0.5,
-                0.22
+                0.79,
+                0.28
               ],
               "scale": 1.0,
               "alpha": 1
@@ -207,8 +207,8 @@
             {
               "t": 1,
               "pos": [
-                0.5,
-                0.22
+                0.79,
+                0.28
               ],
               "scale": 1.04,
               "alpha": 1
@@ -221,37 +221,37 @@
           "type": "figure",
           "id": "narrator",
           "color": "ink",
-          "face": "sad",
+          "face": "think",
           "keys": [
             {
               "t": 0,
               "pos": [
-                0.26,
-                0.83
+                0.5,
+                0.66
               ],
-              "pose": "wave",
+              "pose": "think",
               "scale": 0.0,
               "alpha": 0
             },
             {
-              "t": 0.18,
+              "t": 0.16,
               "pos": [
-                0.26,
-                0.83
+                0.5,
+                0.66
               ],
-              "pose": "wave",
-              "scale": 0.22,
+              "pose": "think",
+              "scale": 0.38,
               "alpha": 1,
               "ease": "pop"
             },
             {
               "t": 1.0,
               "pos": [
-                0.26,
-                0.83
+                0.5,
+                0.66
               ],
-              "pose": "wave",
-              "scale": 0.22,
+              "pose": "think",
+              "scale": 0.38,
               "alpha": 1
             }
           ]
@@ -281,179 +281,43 @@
           ]
         }
       ],
-      "props": [
-        {
-          "type": "object",
-          "id": "table",
-          "name": "table",
-          "size": 0.44,
-          "keys": [
-            {
-              "t": 0.0,
-              "pos": [
-                0.5,
-                0.3
-              ],
-              "scale": 0.7,
-              "alpha": 0
-            },
-            {
-              "t": 0.18,
-              "pos": [
-                0.5,
-                0.3
-              ],
-              "scale": 1.05,
-              "alpha": 1,
-              "ease": "pop"
-            },
-            {
-              "t": 0.55,
-              "pos": [
-                0.5,
-                0.3
-              ],
-              "scale": 1.0,
-              "alpha": 1
-            },
-            {
-              "t": 1,
-              "pos": [
-                0.5,
-                0.3
-              ],
-              "scale": 1.0,
-              "alpha": 1
-            }
-          ]
-        },
-        {
-          "type": "object",
-          "id": "mug",
-          "name": "mug",
-          "size": 0.27,
-          "keys": [
-            {
-              "t": 0.1,
-              "pos": [
-                0.3,
-                0.18
-              ],
-              "scale": 0.7,
-              "alpha": 0
-            },
-            {
-              "t": 0.28,
-              "pos": [
-                0.3,
-                0.18
-              ],
-              "scale": 1.05,
-              "alpha": 1,
-              "ease": "pop"
-            },
-            {
-              "t": 0.65,
-              "pos": [
-                0.3,
-                0.18
-              ],
-              "scale": 1.0,
-              "alpha": 1
-            },
-            {
-              "t": 1,
-              "pos": [
-                0.3,
-                0.18
-              ],
-              "scale": 1.0,
-              "alpha": 1
-            }
-          ]
-        },
-        {
-          "type": "object",
-          "id": "blanket",
-          "name": "blanket",
-          "size": 0.27,
-          "keys": [
-            {
-              "t": 0.15,
-              "pos": [
-                0.7,
-                0.18
-              ],
-              "scale": 0.7,
-              "alpha": 0
-            },
-            {
-              "t": 0.33,
-              "pos": [
-                0.7,
-                0.18
-              ],
-              "scale": 1.05,
-              "alpha": 1,
-              "ease": "pop"
-            },
-            {
-              "t": 0.7,
-              "pos": [
-                0.7,
-                0.18
-              ],
-              "scale": 1.0,
-              "alpha": 1
-            },
-            {
-              "t": 1,
-              "pos": [
-                0.7,
-                0.18
-              ],
-              "scale": 1.0,
-              "alpha": 1
-            }
-          ]
-        }
-      ],
+      "props": [],
       "actors": [
         {
           "type": "figure",
           "id": "narrator",
           "color": "ink",
-          "face": "think",
+          "face": "happy",
           "keys": [
             {
               "t": 0,
               "pos": [
-                0.26,
-                0.83
+                0.5,
+                0.66
               ],
-              "pose": "point_up",
+              "pose": "wave",
               "scale": 0.0,
               "alpha": 0
             },
             {
-              "t": 0.18,
+              "t": 0.16,
               "pos": [
-                0.26,
-                0.83
+                0.5,
+                0.66
               ],
-              "pose": "point_up",
-              "scale": 0.22,
+              "pose": "wave",
+              "scale": 0.38,
               "alpha": 1,
               "ease": "pop"
             },
             {
               "t": 1.0,
               "pos": [
-                0.26,
-                0.83
+                0.5,
+                0.66
               ],
-              "pose": "point_up",
-              "scale": 0.22,
+              "pose": "wave",
+              "scale": 0.38,
               "alpha": 1
             }
           ]
@@ -489,13 +353,13 @@
           "id": "chat",
           "name": "chat",
           "color": "#1f9bff",
-          "r": 0.16,
+          "r": 0.11,
           "keys": [
             {
               "t": 0,
               "pos": [
-                0.5,
-                0.22
+                0.79,
+                0.28
               ],
               "scale": 0.6,
               "alpha": 0
@@ -503,8 +367,8 @@
             {
               "t": 0.16,
               "pos": [
-                0.5,
-                0.22
+                0.79,
+                0.28
               ],
               "scale": 1.08,
               "alpha": 1,
@@ -513,8 +377,8 @@
             {
               "t": 0.55,
               "pos": [
-                0.5,
-                0.22
+                0.79,
+                0.28
               ],
               "scale": 1.0,
               "alpha": 1
@@ -522,8 +386,8 @@
             {
               "t": 1,
               "pos": [
-                0.5,
-                0.22
+                0.79,
+                0.28
               ],
               "scale": 1.04,
               "alpha": 1
@@ -536,37 +400,37 @@
           "type": "figure",
           "id": "narrator",
           "color": "ink",
-          "face": "think",
+          "face": "happy",
           "keys": [
             {
               "t": 0,
               "pos": [
-                0.26,
-                0.83
+                0.5,
+                0.66
               ],
-              "pose": "reach",
+              "pose": "point_r",
               "scale": 0.0,
               "alpha": 0
             },
             {
-              "t": 0.18,
+              "t": 0.16,
               "pos": [
-                0.26,
-                0.83
+                0.5,
+                0.66
               ],
-              "pose": "reach",
-              "scale": 0.22,
+              "pose": "point_r",
+              "scale": 0.38,
               "alpha": 1,
               "ease": "pop"
             },
             {
               "t": 1.0,
               "pos": [
-                0.26,
-                0.83
+                0.5,
+                0.66
               ],
-              "pose": "reach",
-              "scale": 0.22,
+              "pose": "point_r",
+              "scale": 0.38,
               "alpha": 1
             }
           ]

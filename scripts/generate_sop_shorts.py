@@ -20,7 +20,6 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "stories"
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from direction import infer_face  # noqa: E402
 from faceless.scripting_sop import format_cta, title_why, validate_topic  # noqa: E402
 
 PALETTE = ["#ff5d5d", "#1f9bff", "#ffb454", "#23b26d", "#a463f2"]
@@ -33,12 +32,24 @@ STYLE = {
     "fps": 30,
     "grain": 0.0,
     "vignette": 0.0,
-    "caption": {"mode": "kinetic", "size": 0.1, "y": 0.46, "max_chars": 16},
+    "caption": {"mode": "kinetic", "size": 0.095, "y": 0.85, "max_chars": 14},
 }
 VOICE = {"backend": "kokoro", "voice": "am_liam", "polish": True, "gap": 0.3}
 
-NARR_POS = [0.26, 0.83]
-NARR_POSES = ["point_up", "reach", "think", "shrug", "wave"]
+# The character is the hero now: large and centred, not a corner decoration.
+HERO_POS = [0.5, 0.66]
+HERO_SCALE = 0.38
+
+# Each beat gets an explicit face + matching body language so the emotional arc
+# (jolt -> curiosity -> relief -> warm invite) is intentional, not whatever the
+# narration keywords happen to infer. This is what makes the reframe actually
+# land "happy" (and fire its sparkles).
+BEAT_LOOK = {
+    "hook":    ("surprised", "shrug"),
+    "explain": ("think",     "think"),
+    "reframe": ("happy",     "wave"),
+    "cta":     ("happy",     "point_r"),
+}
 
 
 def K(t, pos=None, scale=None, alpha=None, ease=None):
@@ -54,21 +65,13 @@ def icon_prop(name, pos, r, color):
             "keys": [K(0, pos, 0.6, 0), K(0.16, pos, 1.08, 1, "pop"), K(0.55, pos, 1.0, 1), K(1, pos, 1.04, 1)]}
 
 
-def obj_prop(name, pos, size, color=None, t0=0.0):
-    d = {"type": "object", "id": name, "name": name, "size": size,
-         "keys": [K(t0, pos, 0.7, 0), K(t0 + 0.18, pos, 1.05, 1, "pop"), K(t0 + 0.55, pos, 1.0, 1), K(1, pos, 1.0, 1)]}
-    if color:
-        d["color"] = color
-    return d
-
-
-def narrator(narration, k, mood):
-    pose = NARR_POSES[k % len(NARR_POSES)]
-    face = infer_face(narration, default=mood)
+def hero(beat):
+    """The centred lead character for a beat, with an explicit face + pose."""
+    face, pose = BEAT_LOOK[beat]
     return {"type": "figure", "id": "narrator", "color": "ink", "face": face,
-            "keys": [{"t": 0, "pos": NARR_POS, "pose": pose, "scale": 0.0, "alpha": 0},
-                     {"t": 0.18, "pos": NARR_POS, "pose": pose, "scale": 0.22, "alpha": 1, "ease": "pop"},
-                     {"t": 1.0, "pos": NARR_POS, "pose": pose, "scale": 0.22, "alpha": 1}]}
+            "keys": [{"t": 0, "pos": HERO_POS, "pose": pose, "scale": 0.0, "alpha": 0},
+                     {"t": 0.16, "pos": HERO_POS, "pose": pose, "scale": HERO_SCALE, "alpha": 1, "ease": "pop"},
+                     {"t": 1.0, "pos": HERO_POS, "pose": pose, "scale": HERO_SCALE, "alpha": 1}]}
 
 
 def camera(zoom_end=1.0, pan_end=(0.5, 0.5)):
@@ -78,29 +81,27 @@ def camera(zoom_end=1.0, pan_end=(0.5, 0.5)):
             {"t": 1.0, "zoom": zoom_end, "pan": list(pan_end)}]
 
 
-_K = [0]
-
-
-def scene(sid, beat, narration, props, min_dur, cam=None):
-    k = _K[0]
-    _K[0] += 1
-    mood = {"hook": "surprised", "explain": "think", "reframe": "happy", "cta": "think"}[beat]
+def scene(sid, beat, narration, min_dur, icon=None, cam=None):
+    """A beat = one hero character (centre stage) + at most one small support
+    icon set off to the upper side, so the figure stays the subject."""
+    props = []
+    if icon:
+        props.append(icon_prop(icon[0], [0.79, 0.28], 0.11, icon[1]))
     return {"id": sid, "beat": beat, "narration": narration, "min_dur": min_dur,
-            "camera": cam or [], "props": props, "actors": [narrator(narration, k, mood)]}
+            "camera": cam or [], "props": props, "actors": [hero(beat)]}
 
 
 def build(t: dict) -> tuple[dict, str]:
-    pos = [0.5, 0.22]
     scenes = [
-        scene("01_hook", "hook", t["hook"], [icon_prop(t["hook_icon"], pos, 0.16, t["hook_color"])],
-              3.4, camera(1.0)),
-        scene("02_explain", "explain", f"{t['explain']}",
-              [icon_prop(t["explain_icon"], pos, 0.16, t["explain_color"])], 5.0, camera(1.06, (0.5, 0.46))),
-        scene("03_reframe", "reframe", f"{t['reframe']}",
-              [obj_prop(t["reframe_obj1"], [0.5, 0.3], 0.44), obj_prop(t["reframe_obj2"], [0.3, 0.18], 0.27, t0=0.1),
-               obj_prop(t["reframe_obj3"], [0.7, 0.18], 0.27, t0=0.15)], 5.2, camera(1.14, (0.5, 0.42))),
-        scene("04_cta", "cta", format_cta(t["cta_question"]),
-              [icon_prop("chat", pos, 0.16, "#1f9bff")], 4.0, camera(1.0)),
+        scene("01_hook", "hook", t["hook"], 3.4,
+              icon=(t["hook_icon"], t["hook_color"]), cam=camera(1.0)),
+        scene("02_explain", "explain", t["explain"], 5.0,
+              icon=(t["explain_icon"], t["explain_color"]), cam=camera(1.06, (0.5, 0.46))),
+        # reframe is the payoff: pure character + sparkles, strongest push-in.
+        scene("03_reframe", "reframe", t["reframe"], 5.2,
+              icon=None, cam=camera(1.14, (0.5, 0.42))),
+        scene("04_cta", "cta", format_cta(t["cta_question"]), 4.0,
+              icon=("chat", "#1f9bff"), cam=camera(1.0)),
     ]
     title = title_why(t["title_behavior"], t["title_outcome"])
     tags = list(t["keywords"]) + ["psychology", "shorts", "Inklings"]

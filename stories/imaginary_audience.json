@@ -400,7 +400,7 @@
                 0.5,
                 0.52
               ],
-              "pose": "reach",
+              "pose": "hold_box",
               "scale": 0.46,
               "alpha": 1
             },
@@ -410,7 +410,7 @@
                 0.5,
                 0.52
               ],
-              "pose": "reach",
+              "pose": "hold_box",
               "scale": 0.46,
               "alpha": 1
             }
@@ -457,7 +457,7 @@
                 0.5,
                 0.52
               ],
-              "pose": "wave",
+              "pose": "reach",
               "scale": 0.46,
               "alpha": 1
             },
@@ -467,7 +467,7 @@
                 0.5,
                 0.52
               ],
-              "pose": "wave",
+              "pose": "reach",
               "scale": 0.46,
               "alpha": 1
             }

@@ -38,7 +38,7 @@ VOICE = {"backend": "kokoro", "voice": "am_liam", "polish": True, "gap": 0.3}
 
 # The character is the hero now: large and centred, not a corner decoration.
 # Sized/placed to occupy the central frame so the top isn't dead space.
-HERO_POS = [0.5, 0.56]
+HERO_POS = [0.5, 0.52]
 HERO_SCALE = 0.46
 
 # Each beat gets an explicit face + matching body language so the emotional arc

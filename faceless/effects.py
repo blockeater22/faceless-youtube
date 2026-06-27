@@ -31,8 +31,10 @@ _FACE_FX: dict[str, tuple[str, ...]] = {
     "skeptical": ("question",),
 }
 
-# Poses that imply travel/force get trailing speed lines.
-_MOTION_POSES = {"walk_a", "walk_b", "reach", "celebrate", "wave", "point_r", "point_l"}
+# Poses that imply genuine travel/force get trailing speed lines. Friendly
+# gestures (wave, point, celebrate) deliberately stay still - speed lines on a
+# wave read as motion that isn't there.
+_MOTION_POSES = {"walk_a", "walk_b", "reach"}
 
 # Glyph accent colours that pop on a light background.
 _SWEAT = (74, 164, 232)

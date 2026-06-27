@@ -302,6 +302,16 @@ def _draw_kinetic_caption(frame, text, local_t, duration, size, mindim, style, e
     upper = [word.upper() for word in words]
     widths = [font.getlength(word) for word in upper]
     total_w = sum(widths) + gap * (len(words) - 1)
+    # Fit-to-width guard: never let a phrase clip past the frame edges. The
+    # reframe-beat emphasis overshoot in particular can blow a wide phrase out
+    # of bounds, so shrink the font to fit a 92% safe area when needed.
+    max_w = w * 0.92
+    if total_w > max_w:
+        fs = max(8, int(fs * max_w / total_w))
+        font = _font(fs)
+        gap = font.getlength(" ")
+        widths = [font.getlength(word) for word in upper]
+        total_w = sum(widths) + gap * (len(words) - 1)
     x = w / 2 - total_w / 2
     y = h * cfg.get("y", 0.46)
 

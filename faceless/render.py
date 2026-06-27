@@ -94,7 +94,21 @@ def _pose_name_at(keys: list[dict], t: float) -> str:
 # --------------------------------------------------------------------------- #
 # Drawing one frame
 # --------------------------------------------------------------------------- #
-def _draw_actor(frame: Image.Image, actor: dict, t: float, size, mindim, style, seed):
+def _idle_blink(abs_t: float, actor_id: str) -> bool:
+    """A short eye-blink a few times a minute, with a per-actor phase offset so
+    figures don't all blink in lockstep. ~one blink every 3.4s for 0.12s."""
+    period, dur = 3.4, 0.12
+    off = (hash(actor_id) % 1000) / 1000.0 * period
+    return ((abs_t + off) % period) < dur
+
+
+def _idle_breathe(abs_t: float, actor_id: str, unit: float) -> float:
+    """A tiny vertical bob (returned in px) so a held pose still has life."""
+    off = (hash(actor_id) % 997) / 997.0 * math.tau
+    return math.sin(abs_t * 1.6 + off) * unit * 0.010
+
+
+def _draw_actor(frame: Image.Image, actor: dict, t: float, size, mindim, style, seed, abs_t: float = 0.0):
     keys = actor.get("keys", [])
     if not keys:
         return
@@ -105,12 +119,16 @@ def _draw_actor(frame: Image.Image, actor: dict, t: float, size, mindim, style, 
     pose = _sample_pose(keys, t)
     face = _face_at(keys, t, actor.get("face", "dots"))
     w, h = size
+    aid = actor.get("id", "")
     px, py = s["pos"][0] * w, s["pos"][1] * h
     unit = s.get("scale", 0.3) * mindim
+    # idle life: a held pose breathes slightly and blinks now and then
+    py += _idle_breathe(abs_t, aid, unit)
+    blink = _idle_blink(abs_t, aid)
     fig_color = style.color(actor.get("color", "ink"))
     sk = Sketcher(size, fig_color,
                   style.ink_width * mindim, style.wobble * (mindim / 1080), seed)
-    head_c, hr = draw_figure(sk, (px, py), unit, pose, color=fig_color, face=face)
+    head_c, hr = draw_figure(sk, (px, py), unit, pose, color=fig_color, face=face, blink=blink)
     pose_name = _pose_name_at(keys, t)
     draw_effects(sk, head_c, hr, (px, py), unit, face, pose_name,
                  actor.get("fx"), style.color("accent"), fig_color, t)
@@ -446,8 +464,9 @@ def render_frame(script: Script, scene: Scene, local_t: float, size, mindim, fra
     for prop in scene.props:
         if not prop.get("front"):
             _draw_prop(frame, prop, prog, size, mindim, style, seed, scene.actors)
+    abs_t_scene = frame_idx / max(1, style.fps)
     for actor in scene.actors:
-        _draw_actor(frame, actor, prog, size, mindim, style, seed)
+        _draw_actor(frame, actor, prog, size, mindim, style, seed, abs_t_scene)
     for prop in scene.props:
         if prop.get("front"):
             _draw_prop(frame, prop, prog, size, mindim, style, seed, scene.actors)

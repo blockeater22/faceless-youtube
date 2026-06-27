@@ -53,8 +53,12 @@ def _polar(origin: Point, length: float, angle_deg: float) -> Point:
 
 
 def draw_figure(sk: Sketcher, hip: Point, unit: float, pose: dict,
-                color=None, face: str = "dots", lw: float | None = None) -> tuple[Point, float]:
+                color=None, face: str = "dots", lw: float | None = None,
+                blink: bool = False) -> tuple[Point, float]:
     """Draw a stick figure. ``hip`` is the pixel anchor, ``unit`` the pixel U.
+
+    ``blink`` momentarily closes the eyes (driven by wall-clock time in the
+    renderer) so the character feels alive instead of frozen.
 
     Returns ``(head_center, head_radius)`` so callers can place effect glyphs
     around the head without recomputing the skeleton."""
@@ -82,7 +86,7 @@ def draw_figure(sk: Sketcher, hip: Point, unit: float, pose: dict,
         sk.stroke([shoulder, elbow, hand], color=color, width=lw)
 
     sk.circle(head_c, hr, color=color, width=lw, amp=sk.wobble * 0.5)
-    _draw_face(sk, head_c, hr, face, color)
+    _draw_face(sk, head_c, hr, face, color, blink=blink)
     return head_c, hr
 
 
@@ -95,7 +99,7 @@ def _brow(sk, x_in, x_out, y_in, y_out, color, lw):
     sk.line((x_in, y_in), (x_out, y_out), color=color, width=lw)
 
 
-def _draw_face(sk: Sketcher, c: Point, r: float, face: str, color) -> None:
+def _draw_face(sk: Sketcher, c: Point, r: float, face: str, color, blink: bool = False) -> None:
     if face in (None, "none"):
         return
     cx, cy = c
@@ -104,7 +108,7 @@ def _draw_face(sk: Sketcher, c: Point, r: float, face: str, color) -> None:
     lw = sk.width * 0.7
 
     # ---- eyes ----
-    if face == "shut":  # closed/peaceful eyes
+    if face == "shut" or blink:  # closed/peaceful eyes (or a momentary blink)
         sk.line((cx - ex * 1.4, cy - ey), (cx - ex * 0.3, cy - ey), color=color, width=lw)
         sk.line((cx + ex * 0.3, cy - ey), (cx + ex * 1.4, cy - ey), color=color, width=lw)
     else:

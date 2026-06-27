@@ -37,8 +37,9 @@ STYLE = {
 VOICE = {"backend": "kokoro", "voice": "am_liam", "polish": True, "gap": 0.3}
 
 # The character is the hero now: large and centred, not a corner decoration.
-HERO_POS = [0.5, 0.66]
-HERO_SCALE = 0.38
+# Sized/placed to occupy the central frame so the top isn't dead space.
+HERO_POS = [0.5, 0.56]
+HERO_SCALE = 0.46
 
 # Each beat gets an explicit face + matching body language so the emotional arc
 # (jolt -> curiosity -> relief -> warm invite) is intentional, not whatever the
@@ -86,7 +87,7 @@ def scene(sid, beat, narration, min_dur, icon=None, cam=None):
     icon set off to the upper side, so the figure stays the subject."""
     props = []
     if icon:
-        props.append(icon_prop(icon[0], [0.79, 0.28], 0.11, icon[1]))
+        props.append(icon_prop(icon[0], [0.80, 0.22], 0.11, icon[1]))
     return {"id": sid, "beat": beat, "narration": narration, "min_dur": min_dur,
             "camera": cam or [], "props": props, "actors": [hero(beat)]}
 

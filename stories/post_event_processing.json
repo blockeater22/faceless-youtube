@@ -66,8 +66,8 @@
           "id": "narrator",
           "color": "ink",
           "face": "surprised",
-          "shirt": "#ff9f1c",
-          "hands": true,
+          "shirt": null,
+          "hands": false,
           "keys": [
             {
               "t": 0,
@@ -171,8 +171,8 @@
           "id": "narrator",
           "color": "ink",
           "face": "think",
-          "shirt": "#ff9f1c",
-          "hands": true,
+          "shirt": null,
+          "hands": false,
           "keys": [
             {
               "t": 0,
@@ -228,8 +228,8 @@
           "id": "narrator",
           "color": "ink",
           "face": "think",
-          "shirt": "#ff9f1c",
-          "hands": true,
+          "shirt": null,
+          "hands": false,
           "keys": [
             {
               "t": 0,
@@ -332,8 +332,8 @@
           "id": "narrator",
           "color": "ink",
           "face": "think",
-          "shirt": "#ff9f1c",
-          "hands": true,
+          "shirt": null,
+          "hands": false,
           "keys": [
             {
               "t": 0,
@@ -437,8 +437,8 @@
           "id": "narrator",
           "color": "ink",
           "face": "think",
-          "shirt": "#ff9f1c",
-          "hands": true,
+          "shirt": null,
+          "hands": false,
           "keys": [
             {
               "t": 0,
@@ -494,8 +494,8 @@
           "id": "narrator",
           "color": "ink",
           "face": "happy",
-          "shirt": "#ff9f1c",
-          "hands": true,
+          "shirt": null,
+          "hands": false,
           "keys": [
             {
               "t": 0,
@@ -551,8 +551,8 @@
           "id": "narrator",
           "color": "ink",
           "face": "worried",
-          "shirt": "#ff9f1c",
-          "hands": true,
+          "shirt": null,
+          "hands": false,
           "keys": [
             {
               "t": 0,
@@ -636,8 +636,8 @@
           "id": "narrator",
           "color": "ink",
           "face": "worried",
-          "shirt": "#ff9f1c",
-          "hands": true,
+          "shirt": null,
+          "hands": false,
           "keys": [
             {
               "t": 0,
@@ -721,8 +721,8 @@
           "id": "narrator",
           "color": "ink",
           "face": "happy",
-          "shirt": "#ff9f1c",
-          "hands": true,
+          "shirt": null,
+          "hands": false,
           "keys": [
             {
               "t": 0,
@@ -826,8 +826,8 @@
           "id": "narrator",
           "color": "ink",
           "face": "happy",
-          "shirt": "#ff9f1c",
-          "hands": true,
+          "shirt": null,
+          "hands": false,
           "keys": [
             {
               "t": 0,

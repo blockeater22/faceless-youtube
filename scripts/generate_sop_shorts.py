@@ -59,9 +59,9 @@ HOOK_HERO_SCALE = 0.42
 # warm invite) is intentional, not inferred from narration keywords.
 BEAT_FACE = {"hook": "surprised", "explain": "think", "reframe": "happy", "cta": "happy"}
 
-# The lead character wears a warm shirt + has hands - a pop of colour and a
-# touch more "character" against the white background and the grey 'other'.
-HERO_SHIRT = "#ff9f1c"
+# Hero accents. Shirt is only painted in bold style (the line-style trapezoid
+# under a thin doodle looked off); the doodle hero keeps just the hand dots.
+HERO_SHIRT = None
 
 # Several poses per beat so each sentence's sub-scene reads as visually NEW -
 # the fix for one frozen sketch sitting on screen for 12s. The reframe poses
@@ -117,7 +117,7 @@ def hero(beat, pose, pos=None, scale=None):
     scale = scale or HERO_SCALE
     face = BEAT_FACE[beat]
     return {"type": "figure", "id": "narrator", "color": "ink", "face": face,
-            "shirt": HERO_SHIRT, "hands": True,
+            "shirt": HERO_SHIRT, "hands": False,
             "keys": [{"t": 0, "pos": pos, "pose": pose, "scale": scale, "alpha": 1},
                      {"t": 1.0, "pos": pos, "pose": pose, "scale": scale, "alpha": 1}]}
 

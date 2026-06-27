@@ -20,6 +20,7 @@
     "vignette": 0.0,
     "draw_on": 0.9,
     "hook_y": 0.18,
+    "sfx": true,
     "caption": {
       "mode": "kinetic",
       "size": 0.095,

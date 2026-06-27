@@ -11,7 +11,7 @@ from pathlib import Path
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
-from . import anim, icons, media, scenery, tts
+from . import anim, icons, media, scenery, sound, tts
 from .draw import Sketcher
 from .effects import draw_effects
 from .figures import draw_figure, get_pose
@@ -599,6 +599,26 @@ def build_audio(script: Script, workdir: Path) -> Path:
     media.concat(padded, concatenated)
     master = adir / "master.wav"
     media.loudnorm(concatenated, master)
+
+    # Optional procedural sound design (pop on the hook, whoosh on each cut,
+    # ding on the reframe payoff) + an optional ducked music bed. Off unless
+    # style.sfx is set, so existing stories are untouched.
+    if script.style.sfx or script.style.music:
+        starts, acc = [], 0.0
+        for sc in script.scenes:
+            starts.append(acc)
+            acc += sc.duration
+        cuts = starts[1:]                                    # every scene boundary
+        dings = [starts[i] for i, sc in enumerate(script.scenes)
+                 if sc.beat == "reframe"][:1]                # first reframe = the payoff turn
+        scored = adir / "scored.wav"
+        try:
+            if sound.mix(master, scored, cuts if script.style.sfx else [],
+                         dings if script.style.sfx else [],
+                         music=script.style.music):
+                return scored
+        except Exception as exc:                             # never let audio FX kill a render
+            print(f"  [sound] skipped ({exc})")
     return master
 
 

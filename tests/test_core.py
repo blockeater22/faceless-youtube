@@ -137,6 +137,26 @@ from faceless.model import RESOLUTIONS, load_script  # noqa: E402
 _STORIES = sorted((ROOT / "stories").glob("*.json"))
 
 
+def test_sound_synthesis_shapes():
+    from faceless import sound
+    assert sound.pop().ndim == 1 and len(sound.pop()) > 0
+    assert abs(sound.ding()).max() <= 1.0
+    assert len(sound.whoosh(0.2)) == int(sound.SR * 0.2)
+
+
+def test_sound_mix(tmp_path):
+    import numpy as np
+    import soundfile as sf
+
+    from faceless import sound
+    master = tmp_path / "m.wav"
+    sf.write(str(master), np.zeros((sound.SR * 2, 2), dtype=np.float32), sound.SR)
+    out = tmp_path / "scored.wav"
+    assert sound.mix(master, out, cuts=[1.0], dings=[1.0])
+    data, sr = sf.read(str(out))
+    assert sr == sound.SR and abs(data).max() <= 1.0 and abs(data).max() > 0  # SFX got mixed in
+
+
 @pytest.mark.skipif(not _STORIES, reason="no story JSONs present")
 @pytest.mark.parametrize("which", ["new", "old"])
 def test_render_frame_smoke(which):

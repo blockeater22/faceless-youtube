@@ -33,6 +33,8 @@ class Style:
     vignette: float = 0.55        # corner darkening 0..1
     draw_on: float = 0.0          # whiteboard draw-on time per figure (s); 0 = off
     hook_y: float = 0.33          # vertical centre of the opening hook card (0..1)
+    sfx: bool = False             # procedural pop/whoosh/ding cues; off by default
+    music: str = ""               # optional path to a cleared music-bed track
     caption: dict = field(default_factory=dict)
     logo: str = ""                # path to a corner watermark png (e.g. branding/watermark.png)
     logo_pos: str = "tl"          # corner: tl | tr | bl | br

@@ -36,6 +36,7 @@ STYLE = {
     "vignette": 0.0,
     "draw_on": 0.9,   # whiteboard: each figure draws itself on over 0.9s
     "hook_y": 0.18,   # hook card sits near the top, clear of the character below
+    "sfx": True,      # procedural pop/whoosh/ding cues (no assets needed)
     "caption": {"mode": "kinetic", "size": 0.095, "y": 0.85, "max_chars": 14},
 }
 VOICE = {"backend": "kokoro", "voice": "am_liam", "polish": True, "gap": 0.3}

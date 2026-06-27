@@ -116,7 +116,7 @@ def build(t: dict) -> tuple[dict, str]:
     assert not errors, f"{t['slug']} fails SOP lint: {errors}"
     return {
         "title": title, "handle": "@Inklings1",
-        "hook": t["hook"].upper()[:42], "hook_dur": 1.6,
+        "hook": t["hook"].upper()[:42], "hook_dur": 1.3,
         "style": STYLE, "voice": VOICE, "scenes": scenes,
         "meta": {"format": "kinetic-typography+scenery", "topic": t["slug"],
                  "tags": tags, "hashtags": hashtags, "sop": topic_sop},

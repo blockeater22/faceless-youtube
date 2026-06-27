@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import math
+import random
 import subprocess
 import tempfile
 from functools import lru_cache
@@ -460,7 +461,17 @@ def _draw_hook(frame, text, abs_t, dur, size, mindim, style):
     elif abs_t > dur - fade:               # quick fade out
         alpha, scale = max(0.0, (dur - abs_t) / fade), 1.0
     else:
-        alpha, scale = 1.0, 1.0
+        # living hold: a subtle scale pulse so the opening keeps energy
+        alpha = 1.0
+        scale = 1.0 + 0.012 * math.sin(abs_t * math.tau * 2.2)
+
+    # scroll-stop impact: a quick decaying shake over the first ~0.32s
+    shake_x = shake_y = 0.0
+    if abs_t < 0.32:
+        amp = (1.0 - abs_t / 0.32) * mindim * 0.012
+        rng = random.Random(int(abs_t * 1000))
+        shake_x = rng.uniform(-amp, amp)
+        shake_y = rng.uniform(-amp, amp)
 
     fs = max(14, int(0.088 * mindim * scale))
     font = _font(fs)
@@ -482,7 +493,7 @@ def _draw_hook(frame, text, abs_t, dur, size, mindim, style):
     a = int(255 * alpha)
     stroke = max(3, fs // 8)
     for ln in lines:
-        d.text((w / 2, y), ln, font=font, anchor="ma", fill=(255, 255, 255, a),
+        d.text((w / 2 + shake_x, y + shake_y), ln, font=font, anchor="ma", fill=(255, 255, 255, a),
                stroke_width=stroke, stroke_fill=(0, 0, 0, int(235 * alpha)))
         y += line_h
     frame.alpha_composite(layer)

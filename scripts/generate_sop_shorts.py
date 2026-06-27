@@ -21,6 +21,7 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "stories"
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from direction import infer_pose, infer_prop, make_prop  # noqa: E402
 from faceless.scripting_sop import format_cta, title_why, validate_topic  # noqa: E402
 
 PALETTE = ["#ff5d5d", "#1f9bff", "#ffb454", "#23b26d", "#a463f2"]
@@ -45,8 +46,8 @@ HERO_POS = [0.5, 0.52]
 HERO_SCALE = 0.46
 # The hook character sits lower and smaller so it never overlaps the hook card,
 # which now lives near the top (style.hook_y).
-HOOK_HERO_POS = [0.5, 0.72]
-HOOK_HERO_SCALE = 0.34
+HOOK_HERO_POS = [0.5, 0.66]
+HOOK_HERO_SCALE = 0.42
 
 # Explicit face per beat so the emotional arc (jolt -> curiosity -> relief ->
 # warm invite) is intentional, not inferred from narration keywords.
@@ -101,47 +102,50 @@ def camera(zoom_end=1.0, pan_end=(0.5, 0.5)):
             {"t": 1.0, "zoom": zoom_end, "pan": list(pan_end)}]
 
 
-def scene(sid, beat, narration, pose, min_dur, icon=None, cam=None, pos=None, scale=None):
+def scene(sid, beat, narration, pose, min_dur, prop=None, cam=None, pos=None, scale=None):
     """One sub-scene: a hero character (centre stage) + at most one small
-    support icon set off to the upper side, so the figure stays the subject."""
-    props = []
-    if icon:
-        props.append(icon_prop(icon[0], [0.80, 0.22], 0.11, icon[1]))
+    metaphor prop set off to the upper side, so the figure stays the subject."""
+    props = [prop] if prop else []
     return {"id": sid, "beat": beat, "narration": narration, "min_dur": min_dur,
             "camera": cam or [], "props": props, "actors": [hero(beat, pose, pos, scale)]}
 
 
-def expand(beat, text, icon=None):
-    """Split a beat into one sub-scene per sentence, each with a fresh pose and
-    camera move so the visual changes every ~3-4s instead of holding one sketch
-    for the whole 12s beat."""
+def expand(beat, text):
+    """Split a beat into one sub-scene per sentence. Each sub-scene's POSE and
+    METAPHOR PROP are inferred from that sentence's own words, so the character
+    acts out what's being said instead of cycling generic poses - this is what
+    keeps the visuals synced to the narration and stops them repeating."""
     out = []
-    poses = BEAT_POSES[beat]
+    palette = BEAT_POSES[beat]
+    last_pose = None
     for i, sent in enumerate(sentences(text)):
-        pose = poses[i % len(poses)]
-        if beat == "reframe":               # build the push-in across the payoff
+        pose = infer_pose(sent, palette[i % len(palette)])
+        if pose == last_pose:                # never hold the same pose twice in a row
+            pose = next((p for p in palette if p != last_pose), pose)
+        last_pose = pose
+        prop = infer_prop(sent, i)           # colourful metaphor matched to the line
+        if beat == "reframe":                # build the push-in across the payoff
             cam = camera(min(1.07 + 0.045 * i, 1.18), (0.5, 0.43))
-        elif beat == "explain":             # alternate a gentle push with a hold
+        elif beat == "explain":              # alternate a gentle push with a hold
             cam = camera(1.06, (0.5, 0.47)) if i % 2 == 0 else camera(1.0)
         else:
             cam = camera(1.0)
-        out.append(scene(f"{beat}_{i + 1}", beat, sent, pose, 2.6,
-                         icon=(icon if i == 0 else None), cam=cam))
+        out.append(scene(f"{beat}_{i + 1}", beat, sent, pose, 2.6, prop=prop, cam=cam))
     return out
 
 
 def build(t: dict) -> tuple[dict, str]:
-    # No support icon on the hook: the hook card owns the top, the drawing
-    # character owns the bottom - an icon up top would collide with the text.
+    # No support prop on the hook: the hook card owns the top, the drawing
+    # character owns the bottom - a prop up top would collide with the text.
     scenes = [
-        scene("01_hook", "hook", t["hook"], "shrug", 3.4, icon=None, cam=camera(1.0),
+        scene("01_hook", "hook", t["hook"], "shrug", 3.4, prop=None, cam=camera(1.0),
               pos=HOOK_HERO_POS, scale=HOOK_HERO_SCALE),
     ]
-    scenes += expand("explain", t["explain"], icon=(t["explain_icon"], t["explain_color"]))
-    scenes += expand("reframe", t["reframe"], icon=None)
+    scenes += expand("explain", t["explain"])
+    scenes += expand("reframe", t["reframe"])
     scenes += [
         scene("99_cta", "cta", format_cta(t["cta_question"]), "point_r", 3.6,
-              icon=("chat", "#1f9bff"), cam=camera(1.0)),
+              prop=make_prop("icon", "chat", "#1f9bff", 0), cam=camera(1.0)),
     ]
     title = title_why(t["title_behavior"], t["title_outcome"])
     tags = list(t["keywords"]) + ["psychology", "shorts", "Inklings"]

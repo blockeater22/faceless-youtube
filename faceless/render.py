@@ -449,6 +449,11 @@ def _draw_watermark(frame, script, size, mindim, style):
                fill=style.color("muted") + (170,), anchor="mm")
 
 
+# Bold, saturated bar colours for the hook/thumbnail title - punchier than the
+# softer in-body caption palette, for maximum click-attractiveness.
+_HOOK_BARS = [(255, 59, 48), (0, 122, 255), (255, 149, 0), (52, 199, 89), (124, 58, 237)]
+
+
 def _draw_hook(frame, text, abs_t, dur, size, mindim, style):
     """Big punch-in hook text for the opening seconds - the Shorts retention lever."""
     if not text or abs_t >= dur:
@@ -485,17 +490,31 @@ def _draw_hook(frame, text, abs_t, dur, size, mindim, style):
     if cur:
         lines.append(" ".join(cur))
 
-    line_h = int(fs * 1.16)
+    # Colourful highlight-bar title (thumbnail-grade), not flat B/W text: each
+    # line sits on a bold rounded bar in a rotating palette colour with white
+    # type on top. Far more click-attractive as the opening / thumbnail frame.
+    bar_h = int(fs * 1.18)
+    gap = int(fs * 0.16)
+    block_h = bar_h * len(lines) + gap * (len(lines) - 1)
     cy = int(h * style.hook_y)
-    y = cy - line_h * len(lines) // 2
+    y = cy - block_h // 2
     layer = Image.new("RGBA", size, (0, 0, 0, 0))
     d = ImageDraw.Draw(layer)
     a = int(255 * alpha)
-    stroke = max(3, fs // 8)
-    for ln in lines:
-        d.text((w / 2 + shake_x, y + shake_y), ln, font=font, anchor="ma", fill=(255, 255, 255, a),
-               stroke_width=stroke, stroke_fill=(0, 0, 0, int(235 * alpha)))
-        y += line_h
+    stroke = max(3, fs // 10)
+    palette = _HOOK_BARS
+    pad_x = int(fs * 0.32)
+    for i, ln in enumerate(lines):
+        tw = font.getlength(ln)
+        cxk = w / 2 + shake_x
+        yy = y + shake_y
+        x0, x1 = cxk - tw / 2 - pad_x, cxk + tw / 2 + pad_x
+        col = palette[i % len(palette)]
+        d.rounded_rectangle([x0, yy, x1, yy + bar_h], radius=int(bar_h * 0.26),
+                            fill=col + (int(245 * alpha),))
+        d.text((cxk, yy + bar_h * 0.5), ln, font=font, anchor="mm", fill=(255, 255, 255, a),
+               stroke_width=stroke, stroke_fill=(0, 0, 0, int(150 * alpha)))
+        y += bar_h + gap
     frame.alpha_composite(layer)
 
 

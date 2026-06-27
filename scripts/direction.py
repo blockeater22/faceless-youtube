@@ -72,6 +72,41 @@ def infer_face(text: str, default: str = "neutral") -> str:
 
 
 # --------------------------------------------------------------------------- #
+# Body-language / pose inference  (so the character ACTS the specific sentence
+# instead of holding a generic pose - first category that hits wins)
+# --------------------------------------------------------------------------- #
+_POSE_RULES: list[tuple[str, tuple[str, ...]]] = [
+    ("celebrate", ("win", "won", "free", "freedom", "finally", "proud", "relief",
+                   "relieved", "let it go", "go home", "celebrate", "lighter")),
+    ("walk_a", ("busy", "rushing", "rush", "walk", "running", "run ", "moving",
+                "leave", "leaving", "walked away", "passes", "passing", "go about")),
+    ("look_up", ("audience", "watching", "watch", "stage", "spotlight", "crowd",
+                 "stares", "everyone is looking", "the whole room", "courtroom")),
+    ("arms_up", ("bigger", "huge", "whole room", "entire", "grows", "grow",
+                 "expands", "everything", "the world", "blown up", "all of it")),
+    ("point_r", ("they", "them", "others", "other people", "grade", "grading",
+                 "judge", "judging", "blame", "point", "everyone else")),
+    ("reach", ("send", "give", "offer", "reach", "hand", "drop", "share", "hold",
+               "care", "reaching", "let the")),
+    ("sit", ("rest", "relax", "calm down", "sit", "settle", "finally rest",
+             "breathe", "at peace", "wind down")),
+    ("think", ("think", "thinking", "wonder", "replay", "rehears", "analyz",
+               "process", "figure out", "in your head", "your mind", "your brain")),
+    ("shrug", ("not weakness", "isn't weakness", "not fake", "pretend", "pretending",
+               "you're fine", "don't know", "not sure", "unsure", "shrug", "nothing")),
+]
+
+
+def infer_pose(text: str, default: str = "stand") -> str:
+    """Pick a body pose that matches the sentence's meaning."""
+    t = " " + (text or "").lower() + " "
+    for pose, words in _POSE_RULES:
+        if any(w in t for w in words):
+            return pose
+    return default
+
+
+# --------------------------------------------------------------------------- #
 # Relatable prop inference
 # --------------------------------------------------------------------------- #
 # (keywords, kind, name, semantic_color_or_None).  First match wins, so order
@@ -86,8 +121,9 @@ _PROP_RULES: list[tuple[tuple[str, ...], str, str, str | None]] = [
     (("idea", "realize", "realise", "insight", "lesson", "learned", "clarity",
       "epiphany", "aha", "understand", "figure out", "solution"),
      "icon", "lightbulb", "#ffd23f"),
-    (("brain", "mind", "mental", "psychology", "thought", "thoughts",
-      "overthink", "subconscious", "cognitive"), "icon", "brain", "#a463f2"),
+    (("brain", "mind", "mental", "psychology", "psycholog", "thought", "thoughts",
+      "overthink", "subconscious", "cognitive", "rehears", "replay", "rumination",
+      "in your head", "your head"), "icon", "brain", "#a463f2"),
     (("warning", "danger", "mistake", "trap", "wrong", "risk", "toxic", "avoid",
       "red flag", "careful", "beware"), "icon", "warning", "#ffb454"),
     (("win", "success", "succeed", "achieve", "goal", "best", "proud", "reward",
@@ -95,7 +131,8 @@ _PROP_RULES: list[tuple[tuple[str, ...], str, str, str | None]] = [
     (("rise", "rising", "growth", "increase", "improve", "higher", "level up",
       "more energy", "go up", "soar"), "icon", "arrow_up", "#23b26d"),
     (("fall", "falling", "drop", "decline", "lower", "sink", "spiral down",
-      "go down", "crash", "plummet"), "icon", "arrow_down", "#ff5d5d"),
+      "go down", "crash", "plummet", "drain", "drains", "draining", "costs energy",
+      "exhaust", "running low"), "icon", "arrow_down", "#ff5d5d"),
     (("time", "clock", "hour", "minute", "late", "someday", "today", "tomorrow",
       "deadline", "running out", "too late", "years pass"), "icon", "clock", "#2dd4bf"),
     (("done", "correct", "agree", "checklist", "accomplish", "finished",

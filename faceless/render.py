@@ -156,10 +156,12 @@ def _draw_actor(frame: Image.Image, actor: dict, t: float, size, mindim, style, 
         py += _idle_breathe(abs_t, aid, unit)
         blink = _idle_blink(abs_t, aid)
     fig_color = style.color(actor.get("color", "ink"))
+    shirt = style.color(actor["shirt"]) if actor.get("shirt") else None
     sk = Sketcher(size, fig_color,
                   style.ink_width * mindim, style.wobble * (mindim / 1080), seed)
     head_c, hr = draw_figure(sk, (px, py), unit, pose, color=fig_color, face=face,
-                             blink=blink, reveal=reveal)
+                             blink=blink, reveal=reveal, shirt=shirt,
+                             hands=bool(actor.get("hands")))
     pose_name = _pose_name_at(keys, t)
     # effect glyphs only after the figure is fully drawn
     if not drawing:
@@ -342,9 +344,25 @@ def _draw_kinetic_caption(frame, text, local_t, duration, size, mindim, style, e
     cfg = style.caption or {}
     chunks = _chunk_phrase(text, cfg.get("max_chars", 16))
     n = len(chunks)
-    prog = anim.clamp(local_t / duration)
-    idx = min(n - 1, int(prog * n))
-    phase = anim.clamp(prog * n - idx)
+    # Proportional timing (approx word-sync): a chunk's on-screen slice is
+    # weighted by its spoken length (chars as a syllable proxy), and the whole
+    # phrase finishes at ~92% of the scene so the last word lands just before
+    # the trailing silence - far closer to the audio than an even n-way split.
+    weights = [len(" ".join(c)) + 4 for c in chunks]
+    total = sum(weights) or 1
+    starts, acc = [], 0.0
+    for wt in weights:
+        starts.append(acc / total)
+        acc += wt
+    starts.append(1.0)
+    prog = anim.clamp(local_t / (duration * 0.92))
+    idx = n - 1
+    for i in range(n):
+        if starts[i] <= prog < starts[i + 1]:
+            idx = i
+            break
+    span = (starts[idx + 1] - starts[idx]) or 1e-9
+    phase = anim.clamp((prog - starts[idx]) / span)
 
     pop_in, fade_out = 0.22, 0.85
     overshoot = 1.22 if emphasis else 1.0

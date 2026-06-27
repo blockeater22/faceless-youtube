@@ -135,11 +135,39 @@ def bell(d: ImageDraw.ImageDraw, cx: float, cy: float, r: float, color: Color) -
     d.ellipse([cx - r * 0.12, cy - r * 0.95, cx + r * 0.12, cy - r * 0.72], fill=color)
 
 
+def eye(d: ImageDraw.ImageDraw, cx: float, cy: float, r: float, color: Color) -> None:
+    """An eye - 'being watched / judged / seen'."""
+    w = max(2, int(r * 0.14))
+    d.ellipse([cx - r, cy - r * 0.6, cx + r, cy + r * 0.6], outline=color, width=w)
+    d.ellipse([cx - r * 0.3, cy - r * 0.3, cx + r * 0.3, cy + r * 0.3], fill=color)  # pupil
+
+
+def mask(d: ImageDraw.ImageDraw, cx: float, cy: float, r: float, color: Color) -> None:
+    """A face mask with a painted-on smile - 'surface acting / pretending'."""
+    bg = (255, 255, 255, color[3] if len(color) > 3 else 255)
+    d.ellipse([cx - r * 0.78, cy - r, cx + r * 0.78, cy + r], fill=color)         # face
+    for sx in (-1, 1):                                                            # eye holes
+        ex = cx + sx * r * 0.38
+        d.ellipse([ex - r * 0.15, cy - r * 0.36, ex + r * 0.15, cy - r * 0.06], fill=bg)
+    w = max(2, int(r * 0.13))
+    d.arc([cx - r * 0.45, cy - r * 0.1, cx + r * 0.45, cy + r * 0.62], 20, 160, fill=bg, width=w)
+
+
+def battery(d: ImageDraw.ImageDraw, cx: float, cy: float, r: float, color: Color) -> None:
+    """A nearly-empty battery - 'energy / drained / exhausted'."""
+    w = max(2, int(r * 0.12))
+    d.rounded_rectangle([cx - r * 0.85, cy - r * 0.5, cx + r * 0.65, cy + r * 0.5],
+                        radius=r * 0.14, outline=color, width=w)
+    d.rectangle([cx + r * 0.65, cy - r * 0.22, cx + r * 0.82, cy + r * 0.22], fill=color)  # terminal
+    d.rectangle([cx - r * 0.7, cy - r * 0.32, cx - r * 0.42, cy + r * 0.32], fill=color)   # low charge
+
+
 ICONS = {
     "check": check, "star": star, "heart": heart, "lightbulb": lightbulb,
     "brain": brain, "arrow_up": arrow_up, "arrow_down": arrow_down,
     "chat": chat, "clock": clock, "warning": warning,
     "thumbs_up": thumbs_up, "bell": bell,
+    "eye": eye, "mask": mask, "battery": battery,
 }
 
 

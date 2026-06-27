@@ -63,7 +63,8 @@ def _part_reveal(g: float, idx: int, n: int) -> float:
 
 def draw_figure(sk: Sketcher, hip: Point, unit: float, pose: dict,
                 color=None, face: str = "dots", lw: float | None = None,
-                blink: bool = False, reveal: float = 1.0) -> tuple[Point, float]:
+                blink: bool = False, reveal: float = 1.0,
+                shirt=None, hands: bool = False) -> tuple[Point, float]:
     """Draw a stick figure. ``hip`` is the pixel anchor, ``unit`` the pixel U.
 
     ``blink`` momentarily closes the eyes (driven by wall-clock time in the
@@ -71,6 +72,10 @@ def draw_figure(sk: Sketcher, hip: Point, unit: float, pose: dict,
 
     ``reveal`` (0..1) draws the figure on progressively - the whiteboard/scribe
     look - in order: legs, torso, arms, head, then face. 1.0 = fully drawn.
+
+    ``shirt`` (an RGB tuple) fills a simple coloured tee over the torso; ``hands``
+    caps the arms with small fists. Both default off so existing stories are
+    unchanged.
 
     Returns ``(head_center, head_radius)`` so callers can place effect glyphs
     around the head without recomputing the skeleton."""
@@ -96,6 +101,19 @@ def draw_figure(sk: Sketcher, hip: Point, unit: float, pose: dict,
         sk.stroke([hip, knee, foot], color=color, width=lw, reveal=r)
 
     r_torso = _part_reveal(reveal, 2, n)
+    # coloured shirt: a flat tee silhouette behind the ink torso, fading in with
+    # the torso draw-on so it doesn't pop ahead of the line work.
+    if shirt is not None and r_torso > 0.45:
+        ux, uy = shoulder[0] - hip[0], shoulder[1] - hip[1]
+        ln = math.hypot(ux, uy) or 1e-6
+        px, py = -uy / ln, ux / ln                  # unit normal to the torso
+        sw, hw = 0.16 * unit, 0.115 * unit          # shoulder/hip half-widths
+        neck = _polar(shoulder, 0.05 * unit, torso_ang)
+        poly = [(neck[0] + px * sw, neck[1] + py * sw),
+                (neck[0] - px * sw, neck[1] - py * sw),
+                (hip[0] - px * hw, hip[1] - py * hw),
+                (hip[0] + px * hw, hip[1] + py * hw)]
+        sk.draw.polygon(poly, fill=shirt)
     if r_torso > 0:
         sk.stroke([hip, shoulder], color=color, width=lw, reveal=r_torso)
 
@@ -106,6 +124,8 @@ def draw_figure(sk: Sketcher, hip: Point, unit: float, pose: dict,
         elbow = _polar(shoulder, UPPER_ARM * unit, ang[0])
         hand = _polar(elbow, FOREARM * unit, ang[1])
         sk.stroke([shoulder, elbow, hand], color=color, width=lw, reveal=r)
+        if hands and r >= 0.95:                      # a small fist at the wrist
+            sk.dot(hand, 0.05 * unit, color=color)
 
     r_head = _part_reveal(reveal, 5, n)
     if r_head > 0:

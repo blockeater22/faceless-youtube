@@ -64,6 +64,8 @@
           "id": "narrator",
           "color": "ink",
           "face": "surprised",
+          "shirt": "#ff9f1c",
+          "hands": true,
           "keys": [
             {
               "t": 0,
@@ -116,8 +118,8 @@
         {
           "type": "icon",
           "id": "dp0",
-          "name": "brain",
-          "color": "#a463f2",
+          "name": "eye",
+          "color": "#1f9bff",
           "r": 0.094,
           "front": true,
           "keys": [
@@ -167,6 +169,8 @@
           "id": "narrator",
           "color": "ink",
           "face": "think",
+          "shirt": "#ff9f1c",
+          "hands": true,
           "keys": [
             {
               "t": 0,
@@ -270,6 +274,8 @@
           "id": "narrator",
           "color": "ink",
           "face": "think",
+          "shirt": "#ff9f1c",
+          "hands": true,
           "keys": [
             {
               "t": 0,
@@ -318,61 +324,15 @@
           ]
         }
       ],
-      "props": [
-        {
-          "type": "icon",
-          "id": "dp2",
-          "name": "chat",
-          "color": "#1f9bff",
-          "r": 0.094,
-          "front": true,
-          "keys": [
-            {
-              "t": 0.0,
-              "pos": [
-                0.19,
-                0.27
-              ],
-              "scale": 0.5,
-              "alpha": 0.0
-            },
-            {
-              "t": 0.16,
-              "pos": [
-                0.19,
-                0.27
-              ],
-              "scale": 1.08,
-              "alpha": 1.0,
-              "ease": "pop"
-            },
-            {
-              "t": 0.6,
-              "pos": [
-                0.19,
-                0.27
-              ],
-              "scale": 1.0,
-              "alpha": 1.0
-            },
-            {
-              "t": 1.0,
-              "pos": [
-                0.19,
-                0.27
-              ],
-              "scale": 1.03,
-              "alpha": 1.0
-            }
-          ]
-        }
-      ],
+      "props": [],
       "actors": [
         {
           "type": "figure",
           "id": "narrator",
           "color": "ink",
           "face": "think",
+          "shirt": "#ff9f1c",
+          "hands": true,
           "keys": [
             {
               "t": 0,
@@ -421,61 +381,15 @@
           ]
         }
       ],
-      "props": [
-        {
-          "type": "icon",
-          "id": "dp3",
-          "name": "chat",
-          "color": "#1f9bff",
-          "r": 0.094,
-          "front": true,
-          "keys": [
-            {
-              "t": 0.0,
-              "pos": [
-                0.81,
-                0.27
-              ],
-              "scale": 0.5,
-              "alpha": 0.0
-            },
-            {
-              "t": 0.16,
-              "pos": [
-                0.81,
-                0.27
-              ],
-              "scale": 1.08,
-              "alpha": 1.0,
-              "ease": "pop"
-            },
-            {
-              "t": 0.6,
-              "pos": [
-                0.81,
-                0.27
-              ],
-              "scale": 1.0,
-              "alpha": 1.0
-            },
-            {
-              "t": 1.0,
-              "pos": [
-                0.81,
-                0.27
-              ],
-              "scale": 1.03,
-              "alpha": 1.0
-            }
-          ]
-        }
-      ],
+      "props": [],
       "actors": [
         {
           "type": "figure",
           "id": "narrator",
           "color": "ink",
           "face": "think",
+          "shirt": "#ff9f1c",
+          "hands": true,
           "keys": [
             {
               "t": 0,
@@ -531,6 +445,8 @@
           "id": "narrator",
           "color": "ink",
           "face": "happy",
+          "shirt": "#ff9f1c",
+          "hands": true,
           "keys": [
             {
               "t": 0,
@@ -538,7 +454,7 @@
                 0.5,
                 0.52
               ],
-              "pose": "reach",
+              "pose": "wave",
               "scale": 0.46,
               "alpha": 1
             },
@@ -548,7 +464,7 @@
                 0.5,
                 0.52
               ],
-              "pose": "reach",
+              "pose": "wave",
               "scale": 0.46,
               "alpha": 1
             }
@@ -586,6 +502,8 @@
           "id": "narrator",
           "color": "ink",
           "face": "worried",
+          "shirt": "#ff9f1c",
+          "hands": true,
           "keys": [
             {
               "t": 0,
@@ -666,8 +584,8 @@
         {
           "type": "icon",
           "id": "dp2",
-          "name": "brain",
-          "color": "#a463f2",
+          "name": "eye",
+          "color": "#1f9bff",
           "r": 0.094,
           "front": true,
           "keys": [
@@ -717,6 +635,8 @@
           "id": "narrator",
           "color": "ink",
           "face": "happy",
+          "shirt": "#ff9f1c",
+          "hands": true,
           "keys": [
             {
               "t": 0,
@@ -820,6 +740,8 @@
           "id": "narrator",
           "color": "ink",
           "face": "happy",
+          "shirt": "#ff9f1c",
+          "hands": true,
           "keys": [
             {
               "t": 0,
@@ -868,61 +790,15 @@
           ]
         }
       ],
-      "props": [
-        {
-          "type": "icon",
-          "id": "dp0",
-          "name": "chat",
-          "color": "#1f9bff",
-          "r": 0.094,
-          "front": true,
-          "keys": [
-            {
-              "t": 0.0,
-              "pos": [
-                0.81,
-                0.27
-              ],
-              "scale": 0.5,
-              "alpha": 0.0
-            },
-            {
-              "t": 0.16,
-              "pos": [
-                0.81,
-                0.27
-              ],
-              "scale": 1.08,
-              "alpha": 1.0,
-              "ease": "pop"
-            },
-            {
-              "t": 0.6,
-              "pos": [
-                0.81,
-                0.27
-              ],
-              "scale": 1.0,
-              "alpha": 1.0
-            },
-            {
-              "t": 1.0,
-              "pos": [
-                0.81,
-                0.27
-              ],
-              "scale": 1.03,
-              "alpha": 1.0
-            }
-          ]
-        }
-      ],
+      "props": [],
       "actors": [
         {
           "type": "figure",
           "id": "narrator",
           "color": "ink",
           "face": "happy",
+          "shirt": "#ff9f1c",
+          "hands": true,
           "keys": [
             {
               "t": 0,

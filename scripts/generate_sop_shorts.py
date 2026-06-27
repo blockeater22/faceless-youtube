@@ -57,6 +57,10 @@ HOOK_HERO_SCALE = 0.42
 # warm invite) is intentional, not inferred from narration keywords.
 BEAT_FACE = {"hook": "surprised", "explain": "think", "reframe": "happy", "cta": "happy"}
 
+# The lead character wears a warm shirt + has hands - a pop of colour and a
+# touch more "character" against the white background and the grey 'other'.
+HERO_SHIRT = "#ff9f1c"
+
 # Several poses per beat so each sentence's sub-scene reads as visually NEW -
 # the fix for one frozen sketch sitting on screen for 12s. The reframe poses
 # open up progressively (wave -> reach -> celebrate) to build the payoff.
@@ -111,6 +115,7 @@ def hero(beat, pose, pos=None, scale=None):
     scale = scale or HERO_SCALE
     face = BEAT_FACE[beat]
     return {"type": "figure", "id": "narrator", "color": "ink", "face": face,
+            "shirt": HERO_SHIRT, "hands": True,
             "keys": [{"t": 0, "pos": pos, "pose": pose, "scale": scale, "alpha": 1},
                      {"t": 1.0, "pos": pos, "pose": pose, "scale": scale, "alpha": 1}]}
 
@@ -149,23 +154,25 @@ def scene(sid, beat, narration, pose, min_dur, prop=None, cam=None, pos=None, sc
             "camera": cam or [], "props": props, "actors": actors}
 
 
-def expand(beat, text):
+def expand(beat, text, state):
     """Split a beat into one sub-scene per sentence. Each sub-scene's POSE and
     METAPHOR PROP are inferred from that sentence's own words, so the character
-    acts out what's being said instead of cycling generic poses - this is what
-    keeps the visuals synced to the narration and stops them repeating."""
+    acts out what's being said instead of cycling generic poses. ``state`` carries
+    the last pose/prop *across beats* so nothing repeats back-to-back anywhere."""
     out = []
     palette = BEAT_POSES[beat]
-    last_pose = None
     for i, sent in enumerate(sentences(text)):
         pose = infer_pose(sent, palette[i % len(palette)])
-        if pose == last_pose:                # never hold the same pose twice in a row
-            pose = next((p for p in palette if p != last_pose), pose)
-        last_pose = pose
+        if pose == state["pose"]:            # never hold the same pose twice in a row
+            pose = next((p for p in palette if p != state["pose"]), pose)
+        state["pose"] = pose
         duo = is_social(sent)                # two-character contrast staging
         hx = HERO_X[i % len(HERO_X)]         # rule-of-thirds framing per shot
         side = "r" if hx <= 0.5 else "l"     # prop opposite the character
         prop = None if duo else infer_prop(sent, i, side=side)   # 2nd figure IS the visual
+        if prop and prop["name"] == state["prop"]:   # no same metaphor twice in a row
+            prop = None
+        state["prop"] = prop["name"] if prop else state["prop"]
         if duo:                              # a gentle push that frames both figures
             cam = camera(1.05, (0.5, 0.5))
         elif beat == "reframe":              # build the push-in across the payoff
@@ -186,12 +193,23 @@ def build(t: dict) -> tuple[dict, str]:
         scene("01_hook", "hook", t["hook"], "shrug", 3.4, prop=None, cam=camera(1.0),
               pos=HOOK_HERO_POS, scale=HOOK_HERO_SCALE),
     ]
-    scenes += expand("explain", t["explain"])
-    scenes += expand("reframe", t["reframe"])
+    state = {"pose": "shrug", "prop": None}   # carry de-dup across beats
+    scenes += expand("explain", t["explain"], state)
+    scenes += expand("reframe", t["reframe"], state)
     scenes += [
         scene("99_cta", "cta", format_cta(t["cta_question"]), "point_r", 3.6,
               prop=make_prop("icon", "chat", "#1f9bff", 0), cam=camera(1.0)),
     ]
+    # final guard: drop any prop that repeats the previous scene's, across every
+    # boundary (incl. the reframe->cta seam the per-beat pass can't see).
+    prev = None
+    for sc in scenes:
+        name = sc["props"][0]["name"] if sc["props"] else None
+        if name and name == prev:
+            sc["props"] = []
+            name = None
+        prev = name
+
     title = title_why(t["title_behavior"], t["title_outcome"])
     tags = list(t["keywords"]) + ["psychology", "shorts", "Inklings"]
     hashtags = ["#shorts", "#psychology", f"#{t['slug'].replace('_', '')}", "#inklings"]

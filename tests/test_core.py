@@ -97,7 +97,8 @@ def test_infer_pose_matches_meaning():
 
 def test_infer_prop_picks_relevant_metaphor():
     assert direction.infer_prop("Psychologists call it surface acting.", 0)["name"] == "brain"
-    assert direction.infer_prop("It quietly drains your energy.", 0)["name"] == "arrow_down"
+    assert direction.infer_prop("It quietly drains your energy.", 0)["name"] == "battery"
+    assert direction.infer_prop("Everyone in the audience is watching you.", 0)["name"] == "eye"
     p = direction.infer_prop("A totally neutral line about nothing.", 0)
     assert p is None
 

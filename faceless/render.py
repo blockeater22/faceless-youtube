@@ -12,6 +12,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 from . import anim, icons, media, scenery, tts
 from .draw import Sketcher
+from .effects import draw_effects
 from .figures import draw_figure, get_pose
 from .model import RESOLUTIONS, Scene, Script, load_script
 
@@ -80,6 +81,16 @@ def _face_at(keys: list[dict], t: float, default: str) -> str:
     return face
 
 
+def _pose_name_at(keys: list[dict], t: float) -> str:
+    """The named pose currently in effect (the most recent keyframe's pose) -
+    used to decide whether a figure is 'moving' for trailing speed lines."""
+    name = "stand"
+    for k in sorted(keys, key=lambda k: k["t"]):
+        if k["t"] <= t and isinstance(k.get("pose"), str):
+            name = k["pose"]
+    return name
+
+
 # --------------------------------------------------------------------------- #
 # Drawing one frame
 # --------------------------------------------------------------------------- #
@@ -96,10 +107,13 @@ def _draw_actor(frame: Image.Image, actor: dict, t: float, size, mindim, style, 
     w, h = size
     px, py = s["pos"][0] * w, s["pos"][1] * h
     unit = s.get("scale", 0.3) * mindim
-    sk = Sketcher(size, style.color(actor.get("color", "ink")),
+    fig_color = style.color(actor.get("color", "ink"))
+    sk = Sketcher(size, fig_color,
                   style.ink_width * mindim, style.wobble * (mindim / 1080), seed)
-    draw_figure(sk, (px, py), unit, pose,
-                color=style.color(actor.get("color", "ink")), face=face)
+    head_c, hr = draw_figure(sk, (px, py), unit, pose, color=fig_color, face=face)
+    pose_name = _pose_name_at(keys, t)
+    draw_effects(sk, head_c, hr, (px, py), unit, face, pose_name,
+                 actor.get("fx"), style.color("accent"), fig_color, t)
     sk.composite_onto(frame, alpha)
 
 

@@ -53,8 +53,11 @@ def _polar(origin: Point, length: float, angle_deg: float) -> Point:
 
 
 def draw_figure(sk: Sketcher, hip: Point, unit: float, pose: dict,
-                color=None, face: str = "dots", lw: float | None = None) -> None:
-    """Draw a stick figure. ``hip`` is the pixel anchor, ``unit`` the pixel U."""
+                color=None, face: str = "dots", lw: float | None = None) -> tuple[Point, float]:
+    """Draw a stick figure. ``hip`` is the pixel anchor, ``unit`` the pixel U.
+
+    Returns ``(head_center, head_radius)`` so callers can place effect glyphs
+    around the head without recomputing the skeleton."""
     lean = pose.get("lean", 0)
     head = pose.get("head", 0)
     la, ra = pose.get("la", [18, 16]), pose.get("ra", [-18, -16])
@@ -80,6 +83,7 @@ def draw_figure(sk: Sketcher, hip: Point, unit: float, pose: dict,
 
     sk.circle(head_c, hr, color=color, width=lw, amp=sk.wobble * 0.5)
     _draw_face(sk, head_c, hr, face, color)
+    return head_c, hr
 
 
 # Faces that carry an emotion get eyebrows; the calm/default ones stay clean.

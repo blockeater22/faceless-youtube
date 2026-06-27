@@ -13,6 +13,7 @@ Lint:   python scripts/lint_script.py "stories/*.json"
 Render: python -m faceless build stories/<slug>.json --formats 9:16
 """
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -33,6 +34,7 @@ STYLE = {
     "grain": 0.0,
     "vignette": 0.0,
     "draw_on": 0.9,   # whiteboard: each figure draws itself on over 0.9s
+    "hook_y": 0.18,   # hook card sits near the top, clear of the character below
     "caption": {"mode": "kinetic", "size": 0.095, "y": 0.85, "max_chars": 14},
 }
 VOICE = {"backend": "kokoro", "voice": "am_liam", "polish": True, "gap": 0.3}
@@ -41,17 +43,29 @@ VOICE = {"backend": "kokoro", "voice": "am_liam", "polish": True, "gap": 0.3}
 # Sized/placed to occupy the central frame so the top isn't dead space.
 HERO_POS = [0.5, 0.52]
 HERO_SCALE = 0.46
+# The hook character sits lower and smaller so it never overlaps the hook card,
+# which now lives near the top (style.hook_y).
+HOOK_HERO_POS = [0.5, 0.72]
+HOOK_HERO_SCALE = 0.34
 
-# Each beat gets an explicit face + matching body language so the emotional arc
-# (jolt -> curiosity -> relief -> warm invite) is intentional, not whatever the
-# narration keywords happen to infer. This is what makes the reframe actually
-# land "happy" (and fire its sparkles).
-BEAT_LOOK = {
-    "hook":    ("surprised", "shrug"),
-    "explain": ("think",     "think"),
-    "reframe": ("happy",     "wave"),
-    "cta":     ("happy",     "point_r"),
+# Explicit face per beat so the emotional arc (jolt -> curiosity -> relief ->
+# warm invite) is intentional, not inferred from narration keywords.
+BEAT_FACE = {"hook": "surprised", "explain": "think", "reframe": "happy", "cta": "happy"}
+
+# Several poses per beat so each sentence's sub-scene reads as visually NEW -
+# the fix for one frozen sketch sitting on screen for 12s. The reframe poses
+# open up progressively (wave -> reach -> celebrate) to build the payoff.
+BEAT_POSES = {
+    "hook":    ["shrug"],
+    "explain": ["think", "point_l", "shrug", "reach"],
+    "reframe": ["wave", "reach", "celebrate", "point_up"],
+    "cta":     ["point_r"],
 }
+
+
+def sentences(text: str) -> list[str]:
+    """Split a beat into its individual sentences (each becomes a sub-scene)."""
+    return [s.strip() for s in re.split(r"(?<=[.!?])\s+", text.strip()) if s.strip()]
 
 
 def K(t, pos=None, scale=None, alpha=None, ease=None):
@@ -67,15 +81,17 @@ def icon_prop(name, pos, r, color):
             "keys": [K(0, pos, 0.6, 0), K(0.16, pos, 1.08, 1, "pop"), K(0.55, pos, 1.0, 1), K(1, pos, 1.04, 1)]}
 
 
-def hero(beat):
-    """The centred lead character for a beat, with an explicit face + pose.
+def hero(beat, pose, pos=None, scale=None):
+    """The lead character for a sub-scene: explicit face (per beat) + pose.
 
     Full scale/alpha from t=0: the whiteboard draw-on (style.draw_on) is the
     entrance, so there's no scale-pop to fight it."""
-    face, pose = BEAT_LOOK[beat]
+    pos = pos or HERO_POS
+    scale = scale or HERO_SCALE
+    face = BEAT_FACE[beat]
     return {"type": "figure", "id": "narrator", "color": "ink", "face": face,
-            "keys": [{"t": 0, "pos": HERO_POS, "pose": pose, "scale": HERO_SCALE, "alpha": 1},
-                     {"t": 1.0, "pos": HERO_POS, "pose": pose, "scale": HERO_SCALE, "alpha": 1}]}
+            "keys": [{"t": 0, "pos": pos, "pose": pose, "scale": scale, "alpha": 1},
+                     {"t": 1.0, "pos": pos, "pose": pose, "scale": scale, "alpha": 1}]}
 
 
 def camera(zoom_end=1.0, pan_end=(0.5, 0.5)):
@@ -85,26 +101,45 @@ def camera(zoom_end=1.0, pan_end=(0.5, 0.5)):
             {"t": 1.0, "zoom": zoom_end, "pan": list(pan_end)}]
 
 
-def scene(sid, beat, narration, min_dur, icon=None, cam=None):
-    """A beat = one hero character (centre stage) + at most one small support
-    icon set off to the upper side, so the figure stays the subject."""
+def scene(sid, beat, narration, pose, min_dur, icon=None, cam=None, pos=None, scale=None):
+    """One sub-scene: a hero character (centre stage) + at most one small
+    support icon set off to the upper side, so the figure stays the subject."""
     props = []
     if icon:
         props.append(icon_prop(icon[0], [0.80, 0.22], 0.11, icon[1]))
     return {"id": sid, "beat": beat, "narration": narration, "min_dur": min_dur,
-            "camera": cam or [], "props": props, "actors": [hero(beat)]}
+            "camera": cam or [], "props": props, "actors": [hero(beat, pose, pos, scale)]}
+
+
+def expand(beat, text, icon=None):
+    """Split a beat into one sub-scene per sentence, each with a fresh pose and
+    camera move so the visual changes every ~3-4s instead of holding one sketch
+    for the whole 12s beat."""
+    out = []
+    poses = BEAT_POSES[beat]
+    for i, sent in enumerate(sentences(text)):
+        pose = poses[i % len(poses)]
+        if beat == "reframe":               # build the push-in across the payoff
+            cam = camera(min(1.07 + 0.045 * i, 1.18), (0.5, 0.43))
+        elif beat == "explain":             # alternate a gentle push with a hold
+            cam = camera(1.06, (0.5, 0.47)) if i % 2 == 0 else camera(1.0)
+        else:
+            cam = camera(1.0)
+        out.append(scene(f"{beat}_{i + 1}", beat, sent, pose, 2.6,
+                         icon=(icon if i == 0 else None), cam=cam))
+    return out
 
 
 def build(t: dict) -> tuple[dict, str]:
     scenes = [
-        scene("01_hook", "hook", t["hook"], 3.4,
-              icon=(t["hook_icon"], t["hook_color"]), cam=camera(1.0)),
-        scene("02_explain", "explain", t["explain"], 5.0,
-              icon=(t["explain_icon"], t["explain_color"]), cam=camera(1.06, (0.5, 0.46))),
-        # reframe is the payoff: pure character + sparkles, strongest push-in.
-        scene("03_reframe", "reframe", t["reframe"], 5.2,
-              icon=None, cam=camera(1.14, (0.5, 0.42))),
-        scene("04_cta", "cta", format_cta(t["cta_question"]), 4.0,
+        scene("01_hook", "hook", t["hook"], "shrug", 3.4,
+              icon=(t["hook_icon"], t["hook_color"]), cam=camera(1.0),
+              pos=HOOK_HERO_POS, scale=HOOK_HERO_SCALE),
+    ]
+    scenes += expand("explain", t["explain"], icon=(t["explain_icon"], t["explain_color"]))
+    scenes += expand("reframe", t["reframe"], icon=None)
+    scenes += [
+        scene("99_cta", "cta", format_cta(t["cta_question"]), "point_r", 3.6,
               icon=("chat", "#1f9bff"), cam=camera(1.0)),
     ]
     title = title_why(t["title_behavior"], t["title_outcome"])

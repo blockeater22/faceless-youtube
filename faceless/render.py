@@ -486,7 +486,7 @@ def _draw_hook(frame, text, abs_t, dur, size, mindim, style):
         lines.append(" ".join(cur))
 
     line_h = int(fs * 1.16)
-    cy = int(h * 0.33)
+    cy = int(h * style.hook_y)
     y = cy - line_h * len(lines) // 2
     layer = Image.new("RGBA", size, (0, 0, 0, 0))
     d = ImageDraw.Draw(layer)

@@ -19,6 +19,7 @@
     "grain": 0.0,
     "vignette": 0.0,
     "draw_on": 0.9,
+    "hook_y": 0.18,
     "caption": {
       "mode": "kinetic",
       "size": 0.095,
@@ -115,20 +116,20 @@
               "t": 0,
               "pos": [
                 0.5,
-                0.52
+                0.72
               ],
               "pose": "shrug",
-              "scale": 0.46,
+              "scale": 0.34,
               "alpha": 1
             },
             {
               "t": 1.0,
               "pos": [
                 0.5,
-                0.52
+                0.72
               ],
               "pose": "shrug",
-              "scale": 0.46,
+              "scale": 0.34,
               "alpha": 1
             }
           ]
@@ -136,10 +137,10 @@
       ]
     },
     {
-      "id": "02_explain",
+      "id": "explain_1",
       "beat": "explain",
-      "narration": "Psychologists call it post-event processing. Your brain keeps replaying it to rehearse what it missed. It's trying to file the moment away so it can finally rest. Each replay is your mind hunting for a cleaner ending.",
-      "min_dur": 5.0,
+      "narration": "Psychologists call it post-event processing.",
+      "min_dur": 2.6,
       "camera": [
         {
           "t": 0.0,
@@ -154,7 +155,7 @@
           "zoom": 1.06,
           "pan": [
             0.5,
-            0.46
+            0.47
           ]
         }
       ],
@@ -238,10 +239,10 @@
       ]
     },
     {
-      "id": "03_reframe",
-      "beat": "reframe",
-      "narration": "That replay isn't weakness, it's your brain finishing unfinished business. No one else is still in that kitchen with you. The conversation ended for them the second they walked away. You can let the scene close without a perfect comeback.",
-      "min_dur": 5.2,
+      "id": "explain_2",
+      "beat": "explain",
+      "narration": "Your brain keeps replaying it to rehearse what it missed.",
+      "min_dur": 2.6,
       "camera": [
         {
           "t": 0.0,
@@ -253,10 +254,175 @@
         },
         {
           "t": 1.0,
-          "zoom": 1.14,
+          "zoom": 1.0,
           "pan": [
             0.5,
-            0.42
+            0.5
+          ]
+        }
+      ],
+      "props": [],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "think",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "point_l",
+              "scale": 0.46,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "point_l",
+              "scale": 0.46,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "explain_3",
+      "beat": "explain",
+      "narration": "It's trying to file the moment away so it can finally rest.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.06,
+          "pan": [
+            0.5,
+            0.47
+          ]
+        }
+      ],
+      "props": [],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "think",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "shrug",
+              "scale": 0.46,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "shrug",
+              "scale": 0.46,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "explain_4",
+      "beat": "explain",
+      "narration": "Each replay is your mind hunting for a cleaner ending.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "props": [],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "think",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "reach",
+              "scale": 0.46,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "reach",
+              "scale": 0.46,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reframe_1",
+      "beat": "reframe",
+      "narration": "That replay isn't weakness, it's your brain finishing unfinished business.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.07,
+          "pan": [
+            0.5,
+            0.43
           ]
         }
       ],
@@ -293,10 +459,175 @@
       ]
     },
     {
-      "id": "04_cta",
+      "id": "reframe_2",
+      "beat": "reframe",
+      "narration": "No one else is still in that kitchen with you.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.115,
+          "pan": [
+            0.5,
+            0.43
+          ]
+        }
+      ],
+      "props": [],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "reach",
+              "scale": 0.46,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "reach",
+              "scale": 0.46,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reframe_3",
+      "beat": "reframe",
+      "narration": "The conversation ended for them the second they walked away.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.1600000000000001,
+          "pan": [
+            0.5,
+            0.43
+          ]
+        }
+      ],
+      "props": [],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "celebrate",
+              "scale": 0.46,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "celebrate",
+              "scale": 0.46,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reframe_4",
+      "beat": "reframe",
+      "narration": "You can let the scene close without a perfect comeback.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.18,
+          "pan": [
+            0.5,
+            0.43
+          ]
+        }
+      ],
+      "props": [],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "happy",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "point_up",
+              "scale": 0.46,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "point_up",
+              "scale": 0.46,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "99_cta",
       "beat": "cta",
       "narration": "When did you last win an argument hours after it ended? Drop it below.",
-      "min_dur": 4.0,
+      "min_dur": 3.6,
       "camera": [
         {
           "t": 0.0,

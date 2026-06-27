@@ -124,10 +124,10 @@ TOPICS = [
         hook="You reread that text three times before sending it.",
         hook_icon="chat", hook_color="#1f9bff",
         explain="Psychologists call it the imaginary audience effect. Your brain stages a courtroom trial for one short message. "
-                "It feels like the whole room is grading your wording.",
+                "It feels like the whole room is grading your wording. Every comma feels like it carries your whole reputation.",
         explain_icon="brain", explain_color="#a463f2",
         reframe="That's not insecurity, it's evidence you care how you land. Most people are too busy rehearsing their own lines to grade yours. "
-                "The audience in your head is bigger than the one in real life.",
+                "The audience in your head is bigger than the one in real life. Send the message and let the imaginary jury go home.",
         reframe_obj1="table", reframe_obj2="laptop", reframe_obj3="books",
         cta_question="What's the longest you've ever rehearsed a text before sending it?",
         specificity="three times",
@@ -139,10 +139,10 @@ TOPICS = [
         hook="You win the argument hours later, doing dishes.",
         hook_icon="clock", hook_color="#2dd4bf",
         explain="Psychologists call it post-event processing. Your brain keeps replaying it to rehearse what it missed. "
-                "It's trying to file the moment away so it can finally rest.",
+                "It's trying to file the moment away so it can finally rest. Each replay is your mind hunting for a cleaner ending.",
         explain_icon="brain", explain_color="#a463f2",
         reframe="That replay isn't weakness, it's your brain finishing unfinished business. No one else is still in that kitchen with you. "
-                "The conversation ended for them the second they walked away.",
+                "The conversation ended for them the second they walked away. You can let the scene close without a perfect comeback.",
         reframe_obj1="armchair", reframe_obj2="mug", reframe_obj3="blanket",
         cta_question="When did you last win an argument hours after it ended?",
         specificity="doing dishes",
@@ -154,10 +154,10 @@ TOPICS = [
         hook="You say you're fine for the fourth time today.",
         hook_icon="warning", hook_color="#ffb454",
         explain="Psychologists call it surface acting. Your face performs calm while the rest of you stays in alarm. "
-                "It takes real effort to look like nothing is happening.",
+                "It takes real effort to look like nothing is happening. Holding that mask all day quietly drains your battery.",
         explain_icon="brain", explain_color="#a463f2",
         reframe="That's not fake, it's your nervous system protecting the room. Pretending costs energy you don't even notice spending. "
-                "You're allowed to put the performance down once in a while.",
+                "You're allowed to put the performance down once in a while. One honest answer feels lighter than an hour of pretending.",
         reframe_obj1="table", reframe_obj2="mug", reframe_obj3="blanket",
         cta_question="What do you really feel when you say you're fine?",
         specificity="fourth time today",

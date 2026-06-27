@@ -148,7 +148,7 @@
     {
       "id": "02_explain",
       "beat": "explain",
-      "narration": "Psychologists call it surface acting. Your face performs calm while the rest of you stays in alarm. It takes real effort to look like nothing is happening.",
+      "narration": "Psychologists call it surface acting. Your face performs calm while the rest of you stays in alarm. It takes real effort to look like nothing is happening. Holding that mask all day quietly drains your battery.",
       "min_dur": 5.0,
       "camera": [
         {
@@ -221,7 +221,7 @@
           "type": "figure",
           "id": "narrator",
           "color": "ink",
-          "face": "happy",
+          "face": "sad",
           "keys": [
             {
               "t": 0,
@@ -261,7 +261,7 @@
     {
       "id": "03_reframe",
       "beat": "reframe",
-      "narration": "That's not fake, it's your nervous system protecting the room. Pretending costs energy you don't even notice spending. You're allowed to put the performance down once in a while.",
+      "narration": "That's not fake, it's your nervous system protecting the room. Pretending costs energy you don't even notice spending. You're allowed to put the performance down once in a while. One honest answer feels lighter than an hour of pretending.",
       "min_dur": 5.2,
       "camera": [
         {
@@ -594,8 +594,8 @@
     ],
     "sop": {
       "hook": "You say you're fine for the fourth time today.",
-      "explain": "Psychologists call it surface acting. Your face performs calm while the rest of you stays in alarm. It takes real effort to look like nothing is happening.",
-      "reframe": "That's not fake, it's your nervous system protecting the room. Pretending costs energy you don't even notice spending. You're allowed to put the performance down once in a while.",
+      "explain": "Psychologists call it surface acting. Your face performs calm while the rest of you stays in alarm. It takes real effort to look like nothing is happening. Holding that mask all day quietly drains your battery.",
+      "reframe": "That's not fake, it's your nervous system protecting the room. Pretending costs energy you don't even notice spending. You're allowed to put the performance down once in a while. One honest answer feels lighter than an hour of pretending.",
       "cta_question": "What do you really feel when you say you're fine?",
       "specificity": "fourth time today"
     }

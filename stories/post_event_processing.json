@@ -148,7 +148,7 @@
     {
       "id": "02_explain",
       "beat": "explain",
-      "narration": "Psychologists call it post-event processing. Your brain keeps replaying it to rehearse what it missed. It's trying to file the moment away so it can finally rest.",
+      "narration": "Psychologists call it post-event processing. Your brain keeps replaying it to rehearse what it missed. It's trying to file the moment away so it can finally rest. Each replay is your mind hunting for a cleaner ending.",
       "min_dur": 5.0,
       "camera": [
         {
@@ -261,7 +261,7 @@
     {
       "id": "03_reframe",
       "beat": "reframe",
-      "narration": "That replay isn't weakness, it's your brain finishing unfinished business. No one else is still in that kitchen with you. The conversation ended for them the second they walked away.",
+      "narration": "That replay isn't weakness, it's your brain finishing unfinished business. No one else is still in that kitchen with you. The conversation ended for them the second they walked away. You can let the scene close without a perfect comeback.",
       "min_dur": 5.2,
       "camera": [
         {
@@ -423,7 +423,7 @@
           "type": "figure",
           "id": "narrator",
           "color": "ink",
-          "face": "happy",
+          "face": "sad",
           "keys": [
             {
               "t": 0,
@@ -594,8 +594,8 @@
     ],
     "sop": {
       "hook": "You win the argument hours later, doing dishes.",
-      "explain": "Psychologists call it post-event processing. Your brain keeps replaying it to rehearse what it missed. It's trying to file the moment away so it can finally rest.",
-      "reframe": "That replay isn't weakness, it's your brain finishing unfinished business. No one else is still in that kitchen with you. The conversation ended for them the second they walked away.",
+      "explain": "Psychologists call it post-event processing. Your brain keeps replaying it to rehearse what it missed. It's trying to file the moment away so it can finally rest. Each replay is your mind hunting for a cleaner ending.",
+      "reframe": "That replay isn't weakness, it's your brain finishing unfinished business. No one else is still in that kitchen with you. The conversation ended for them the second they walked away. You can let the scene close without a perfect comeback.",
       "cta_question": "When did you last win an argument hours after it ended?",
       "specificity": "doing dishes"
     }

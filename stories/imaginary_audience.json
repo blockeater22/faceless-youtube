@@ -148,7 +148,7 @@
     {
       "id": "02_explain",
       "beat": "explain",
-      "narration": "Psychologists call it the imaginary audience effect. Your brain stages a courtroom trial for one short message. It feels like the whole room is grading your wording.",
+      "narration": "Psychologists call it the imaginary audience effect. Your brain stages a courtroom trial for one short message. It feels like the whole room is grading your wording. Every comma feels like it carries your whole reputation.",
       "min_dur": 5.0,
       "camera": [
         {
@@ -261,7 +261,7 @@
     {
       "id": "03_reframe",
       "beat": "reframe",
-      "narration": "That's not insecurity, it's evidence you care how you land. Most people are too busy rehearsing their own lines to grade yours. The audience in your head is bigger than the one in real life.",
+      "narration": "That's not insecurity, it's evidence you care how you land. Most people are too busy rehearsing their own lines to grade yours. The audience in your head is bigger than the one in real life. Send the message and let the imaginary jury go home.",
       "min_dur": 5.2,
       "camera": [
         {
@@ -594,8 +594,8 @@
     ],
     "sop": {
       "hook": "You reread that text three times before sending it.",
-      "explain": "Psychologists call it the imaginary audience effect. Your brain stages a courtroom trial for one short message. It feels like the whole room is grading your wording.",
-      "reframe": "That's not insecurity, it's evidence you care how you land. Most people are too busy rehearsing their own lines to grade yours. The audience in your head is bigger than the one in real life.",
+      "explain": "Psychologists call it the imaginary audience effect. Your brain stages a courtroom trial for one short message. It feels like the whole room is grading your wording. Every comma feels like it carries your whole reputation.",
+      "reframe": "That's not insecurity, it's evidence you care how you land. Most people are too busy rehearsing their own lines to grade yours. The audience in your head is bigger than the one in real life. Send the message and let the imaginary jury go home.",
       "cta_question": "What's the longest you've ever rehearsed a text before sending it?",
       "specificity": "three times"
     }

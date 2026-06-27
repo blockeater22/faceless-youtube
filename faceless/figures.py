@@ -136,6 +136,98 @@ def draw_figure(sk: Sketcher, hip: Point, unit: float, pose: dict,
     return head_c, hr
 
 
+def draw_character(sk: Sketcher, hip: Point, unit: float, pose: dict,
+                   color=(20, 22, 26), face: str = "dots", blink: bool = False,
+                   shirt=(255, 200, 40), shorts=(24, 26, 32),
+                   shadow: bool = True) -> tuple[Point, float]:
+    """A *bold cartoon* character (thick clean outlines, T-shirt + sleeves,
+    shorts, mitten hands, shoes, ground shadow) - the polished look, vs the thin
+    ``draw_figure`` doodle. Reuses the same pose skeleton, so every existing pose
+    / face / effect works unchanged. Returns ``(head_center, head_radius)``."""
+    d = sk.draw
+    ink = tuple(color)
+    white = (255, 255, 255)
+    lean = pose.get("lean", 0)
+    head = pose.get("head", 0)
+    la, ra = pose.get("la", [18, 16]), pose.get("ra", [-18, -16])
+    ll, rl = pose.get("ll", [10, 8]), pose.get("rl", [-10, -8])
+
+    torso_ang = 180 - lean
+    shoulder = _polar(hip, TORSO * unit, torso_ang)
+    head_c = _polar(shoulder, (HEAD_R * 1.25 + HEAD_GAP) * unit, 180 - lean - head)
+    hr = HEAD_R * 1.4 * unit                       # bigger, rounder head
+    lw = max(3, int(0.052 * unit))                 # thick limb weight
+    ow = max(2, int(lw * 0.42))                    # outline weight on fills
+
+    knees, feet = [], []
+    for ang in (ll, rl):
+        knee = _polar(hip, THIGH * unit, ang[0])
+        knees.append(knee)
+        feet.append(_polar(knee, SHIN * unit, ang[1]))
+    elbows, hands = [], []
+    for ang in (la, ra):
+        elbow = _polar(shoulder, UPPER_ARM * unit, ang[0])
+        elbows.append(elbow)
+        hands.append(_polar(elbow, FOREARM * unit, ang[1]))
+
+    def limb(p0, p1, w, fill):
+        d.line([p0, p1], fill=fill, width=int(w), joint="curve")
+        r = w / 2.0
+        for p in (p0, p1):
+            d.ellipse([p[0] - r, p[1] - r, p[0] + r, p[1] + r], fill=fill)
+
+    def disc(c, r, fill, outline=None):
+        box = [c[0] - r, c[1] - r, c[0] + r, c[1] + r]
+        d.ellipse(box, fill=fill, outline=outline, width=ow if outline else 1)
+
+    def shoe(c, rx, ry, fill, outline):
+        d.ellipse([c[0] - rx, c[1] - ry, c[0] + rx, c[1] + ry], fill=fill, outline=outline, width=ow)
+
+    def midpoint(a, b, f=0.5):
+        return (a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f)
+
+    # 1) ground shadow
+    if shadow:
+        fy = max(f[1] for f in feet)
+        sw = unit * 0.46
+        d.ellipse([hip[0] - sw, fy - unit * 0.03, hip[0] + sw, fy + unit * 0.07],
+                  fill=(0, 0, 0, 38))
+    # 2) legs + 3) shoes
+    for knee, foot in zip(knees, feet):
+        limb(hip, knee, lw, ink)
+        limb(knee, foot, lw, ink)
+    for foot in feet:
+        shoe((foot[0], foot[1] + lw * 0.15), lw * 1.15, lw * 0.78, white, ink)  # oval shoe
+    # 4) shorts: black over pelvis + upper thighs
+    for knee in knees:
+        limb(hip, midpoint(hip, knee, 0.5), lw * 1.6, shorts)
+    disc(hip, lw * 1.15, shorts)
+    # 5) arms (forearms stay bare)
+    for elbow, hand in zip(elbows, hands):
+        limb(shoulder, elbow, lw, ink)
+        limb(elbow, hand, lw, ink)
+    # 6) shirt body (filled + outlined trapezoid)
+    ux, uy = shoulder[0] - hip[0], shoulder[1] - hip[1]
+    ln = math.hypot(ux, uy) or 1e-6
+    px, py = -uy / ln, ux / ln
+    sw, hw = 0.24 * unit, 0.19 * unit
+    neck = _polar(shoulder, 0.04 * unit, torso_ang)
+    poly = [(neck[0] + px * sw, neck[1] + py * sw), (neck[0] - px * sw, neck[1] - py * sw),
+            (hip[0] - px * hw, hip[1] - py * hw), (hip[0] + px * hw, hip[1] + py * hw)]
+    d.polygon(poly, fill=shirt)
+    d.line(poly + [poly[0]], fill=ink, width=ow, joint="curve")
+    # 7) sleeves: shirt-coloured caps over the upper arms (outlined so they read)
+    for elbow in elbows:
+        limb(shoulder, midpoint(shoulder, elbow, 0.58), lw * 1.6, shirt)
+    # 8) mitten hands (bigger, gloved)
+    for hand in hands:
+        disc(hand, lw * 1.02, white, ink)
+    # 9) head + face
+    disc(head_c, hr, white, ink)
+    _draw_face(sk, head_c, hr, face, ink, blink=blink)
+    return head_c, hr
+
+
 # Faces that carry an emotion get eyebrows; the calm/default ones stay clean.
 _BROWED = {"happy", "sad", "worried", "angry", "surprised", "think", "skeptical"}
 

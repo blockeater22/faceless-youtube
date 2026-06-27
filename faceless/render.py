@@ -14,7 +14,7 @@ from PIL import Image, ImageDraw, ImageFont
 from . import anim, icons, media, scenery, sound, tts
 from .draw import Sketcher
 from .effects import draw_effects
-from .figures import draw_figure, get_pose
+from .figures import draw_character, draw_figure, get_pose
 from .model import RESOLUTIONS, Scene, Script, load_script
 
 FONT_CANDIDATES = [
@@ -145,8 +145,9 @@ def _draw_actor(frame: Image.Image, actor: dict, t: float, size, mindim, style, 
     px, py = s["pos"][0] * w, s["pos"][1] * h
     unit = s.get("scale", 0.3) * mindim
     # whiteboard draw-on: figure draws itself on over the first draw_on seconds
-    # of the scene (local_t is scene-local; abs_t is global, for blink/breathe)
-    draw_on = style.draw_on
+    # of the scene (local_t is scene-local; abs_t is global, for blink/breathe).
+    # The bold cartoon style is a clean appear, not a sketch, so it skips draw-on.
+    draw_on = 0.0 if style.char_style == "bold" else style.draw_on
     reveal = anim.clamp(local_t / draw_on) if draw_on > 0 else 1.0
     drawing = reveal < 1.0
     # idle life: a held pose breathes slightly and blinks now and then (only
@@ -156,12 +157,22 @@ def _draw_actor(frame: Image.Image, actor: dict, t: float, size, mindim, style, 
         py += _idle_breathe(abs_t, aid, unit)
         blink = _idle_blink(abs_t, aid)
     fig_color = style.color(actor.get("color", "ink"))
-    shirt = style.color(actor["shirt"]) if actor.get("shirt") else None
-    sk = Sketcher(size, fig_color,
-                  style.ink_width * mindim, style.wobble * (mindim / 1080), seed)
-    head_c, hr = draw_figure(sk, (px, py), unit, pose, color=fig_color, face=face,
-                             blink=blink, reveal=reveal, shirt=shirt,
-                             hands=bool(actor.get("hands")))
+    if style.char_style == "bold":
+        # clean cartoon outfit: thick smooth lines (no boil), no draw-on marker.
+        sk = Sketcher(size, fig_color, 0.013 * mindim, 0.0, seed)
+        shirt = style.color(actor.get("shirt") or style.shirt_color)
+        if actor.get("id") == "other":          # the muted contrast character
+            shirt = style.color("muted")
+        head_c, hr = draw_character(sk, (px, py), unit, pose, color=fig_color,
+                                    face=face, blink=blink, shirt=shirt)
+        drawing = False                          # bold style doesn't stroke-reveal
+    else:
+        shirt = style.color(actor["shirt"]) if actor.get("shirt") else None
+        sk = Sketcher(size, fig_color,
+                      style.ink_width * mindim, style.wobble * (mindim / 1080), seed)
+        head_c, hr = draw_figure(sk, (px, py), unit, pose, color=fig_color, face=face,
+                                 blink=blink, reveal=reveal, shirt=shirt,
+                                 hands=bool(actor.get("hands")))
     pose_name = _pose_name_at(keys, t)
     # effect glyphs only after the figure is fully drawn
     if not drawing:

@@ -21,6 +21,8 @@
     "draw_on": 0.9,
     "hook_y": 0.18,
     "sfx": true,
+    "char_style": "bold",
+    "shirt_color": "#ffc828",
     "caption": {
       "mode": "kinetic",
       "size": 0.095,

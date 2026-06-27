@@ -35,6 +35,8 @@ class Style:
     hook_y: float = 0.33          # vertical centre of the opening hook card (0..1)
     sfx: bool = False             # procedural pop/whoosh/ding cues; off by default
     music: str = ""               # optional path to a cleared music-bed track
+    char_style: str = "line"      # "line" = thin doodle | "bold" = cartoon outfit
+    shirt_color: str = "#ffc828"  # bold-style T-shirt colour
     caption: dict = field(default_factory=dict)
     logo: str = ""                # path to a corner watermark png (e.g. branding/watermark.png)
     logo_pos: str = "tl"          # corner: tl | tr | bl | br

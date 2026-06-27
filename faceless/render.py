@@ -108,7 +108,26 @@ def _idle_breathe(abs_t: float, actor_id: str, unit: float) -> float:
     return math.sin(abs_t * 1.6 + off) * unit * 0.010
 
 
-def _draw_actor(frame: Image.Image, actor: dict, t: float, size, mindim, style, seed, abs_t: float = 0.0):
+def _draw_marker(sk: Sketcher, tip, unit: float, color) -> None:
+    """A simple marker/pen pointing at the active draw tip - the visual cue
+    that the line is being drawn by hand (whiteboard look)."""
+    tx, ty = tip
+    L = unit * 0.42                       # pen length
+    dx, dy = 0.5, -0.87                   # up-and-right
+    bx, by = tx + dx * L, ty + dy * L     # back of the pen
+    # barrel
+    sk.draw.line([(tx, ty), (bx, by)], fill=color, width=max(3, int(unit * 0.05)), joint="curve")
+    # nib (a little triangle at the tip)
+    n = unit * 0.07
+    sk.draw.polygon([(tx, ty), (tx + n * 0.9, ty - n * 1.4),
+                     (tx - n * 0.5, ty - n * 1.6)], fill=color)
+    # cap dot at the back
+    r = unit * 0.035
+    sk.draw.ellipse([bx - r, by - r, bx + r, by + r], fill=color)
+
+
+def _draw_actor(frame: Image.Image, actor: dict, t: float, size, mindim, style, seed,
+                abs_t: float = 0.0, local_t: float = 0.0):
     keys = actor.get("keys", [])
     if not keys:
         return
@@ -122,16 +141,29 @@ def _draw_actor(frame: Image.Image, actor: dict, t: float, size, mindim, style, 
     aid = actor.get("id", "")
     px, py = s["pos"][0] * w, s["pos"][1] * h
     unit = s.get("scale", 0.3) * mindim
-    # idle life: a held pose breathes slightly and blinks now and then
-    py += _idle_breathe(abs_t, aid, unit)
-    blink = _idle_blink(abs_t, aid)
+    # whiteboard draw-on: figure draws itself on over the first draw_on seconds
+    # of the scene (local_t is scene-local; abs_t is global, for blink/breathe)
+    draw_on = style.draw_on
+    reveal = anim.clamp(local_t / draw_on) if draw_on > 0 else 1.0
+    drawing = reveal < 1.0
+    # idle life: a held pose breathes slightly and blinks now and then (only
+    # once it's fully drawn, so it doesn't wobble mid-stroke)
+    blink = False
+    if not drawing:
+        py += _idle_breathe(abs_t, aid, unit)
+        blink = _idle_blink(abs_t, aid)
     fig_color = style.color(actor.get("color", "ink"))
     sk = Sketcher(size, fig_color,
                   style.ink_width * mindim, style.wobble * (mindim / 1080), seed)
-    head_c, hr = draw_figure(sk, (px, py), unit, pose, color=fig_color, face=face, blink=blink)
+    head_c, hr = draw_figure(sk, (px, py), unit, pose, color=fig_color, face=face,
+                             blink=blink, reveal=reveal)
     pose_name = _pose_name_at(keys, t)
-    draw_effects(sk, head_c, hr, (px, py), unit, face, pose_name,
-                 actor.get("fx"), style.color("accent"), fig_color, t)
+    # effect glyphs only after the figure is fully drawn
+    if not drawing:
+        draw_effects(sk, head_c, hr, (px, py), unit, face, pose_name,
+                     actor.get("fx"), style.color("accent"), fig_color, t)
+    elif sk.last_tip is not None:
+        _draw_marker(sk, sk.last_tip, unit, fig_color)
     sk.composite_onto(frame, alpha)
 
 
@@ -466,7 +498,7 @@ def render_frame(script: Script, scene: Scene, local_t: float, size, mindim, fra
             _draw_prop(frame, prop, prog, size, mindim, style, seed, scene.actors)
     abs_t_scene = frame_idx / max(1, style.fps)
     for actor in scene.actors:
-        _draw_actor(frame, actor, prog, size, mindim, style, seed, abs_t_scene)
+        _draw_actor(frame, actor, prog, size, mindim, style, seed, abs_t_scene, local_t)
     for prop in scene.props:
         if prop.get("front"):
             _draw_prop(frame, prop, prog, size, mindim, style, seed, scene.actors)

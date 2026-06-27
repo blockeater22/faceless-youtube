@@ -52,13 +52,25 @@ def _polar(origin: Point, length: float, angle_deg: float) -> Point:
     return (origin[0] + length * math.sin(a), origin[1] + length * math.cos(a))
 
 
+def _part_reveal(g: float, idx: int, n: int) -> float:
+    """Map a single 0..1 draw-on progress ``g`` to the reveal of part ``idx``
+    of ``n``, so parts draw on one after another in order."""
+    if g >= 1.0:
+        return 1.0
+    x = g * n - idx
+    return 0.0 if x <= 0 else (1.0 if x >= 1 else x)
+
+
 def draw_figure(sk: Sketcher, hip: Point, unit: float, pose: dict,
                 color=None, face: str = "dots", lw: float | None = None,
-                blink: bool = False) -> tuple[Point, float]:
+                blink: bool = False, reveal: float = 1.0) -> tuple[Point, float]:
     """Draw a stick figure. ``hip`` is the pixel anchor, ``unit`` the pixel U.
 
     ``blink`` momentarily closes the eyes (driven by wall-clock time in the
     renderer) so the character feels alive instead of frozen.
+
+    ``reveal`` (0..1) draws the figure on progressively - the whiteboard/scribe
+    look - in order: legs, torso, arms, head, then face. 1.0 = fully drawn.
 
     Returns ``(head_center, head_radius)`` so callers can place effect glyphs
     around the head without recomputing the skeleton."""
@@ -72,21 +84,35 @@ def draw_figure(sk: Sketcher, hip: Point, unit: float, pose: dict,
     head_c = _polar(shoulder, (HEAD_R + HEAD_GAP) * unit, 180 - lean - head)
     hr = HEAD_R * unit
 
-    # legs first (behind), then torso, arms, head on top
-    for ang in (ll, rl):
+    # Draw-on order: legs (behind), torso, arms, head, face -> 6 stroke groups.
+    n = 6
+    legs = [(ll, 0), (rl, 1)]
+    for ang, idx in legs:
+        r = _part_reveal(reveal, idx, n)
+        if r <= 0:
+            continue
         knee = _polar(hip, THIGH * unit, ang[0])
         foot = _polar(knee, SHIN * unit, ang[1])
-        sk.stroke([hip, knee, foot], color=color, width=lw)
+        sk.stroke([hip, knee, foot], color=color, width=lw, reveal=r)
 
-    sk.stroke([hip, shoulder], color=color, width=lw)
+    r_torso = _part_reveal(reveal, 2, n)
+    if r_torso > 0:
+        sk.stroke([hip, shoulder], color=color, width=lw, reveal=r_torso)
 
-    for ang in (la, ra):
+    for ang, idx in ((la, 3), (ra, 4)):
+        r = _part_reveal(reveal, idx, n)
+        if r <= 0:
+            continue
         elbow = _polar(shoulder, UPPER_ARM * unit, ang[0])
         hand = _polar(elbow, FOREARM * unit, ang[1])
-        sk.stroke([shoulder, elbow, hand], color=color, width=lw)
+        sk.stroke([shoulder, elbow, hand], color=color, width=lw, reveal=r)
 
-    sk.circle(head_c, hr, color=color, width=lw, amp=sk.wobble * 0.5)
-    _draw_face(sk, head_c, hr, face, color, blink=blink)
+    r_head = _part_reveal(reveal, 5, n)
+    if r_head > 0:
+        sk.circle(head_c, hr, color=color, width=lw, amp=sk.wobble * 0.5, reveal=r_head)
+    # face only once the head outline is essentially complete
+    if r_head >= 0.85:
+        _draw_face(sk, head_c, hr, face, color, blink=blink)
     return head_c, hr
 
 

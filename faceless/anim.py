@@ -5,7 +5,6 @@ and test. Times are expressed as a fraction of the scene duration in [0, 1].
 """
 from __future__ import annotations
 
-import math
 from typing import Sequence
 
 

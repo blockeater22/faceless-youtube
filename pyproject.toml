@@ -1,0 +1,13 @@
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+# Match the codebase's hand-drawn, compact style; line length is generous.
+line-length = 120
+exclude = [".venv", "output", "stories"]
+
+[tool.ruff.lint]
+# Keep the defaults (pyflakes + pycodestyle errors); allow the deliberate
+# one-line "append(...); reset" compaction used in the renderer.
+ignore = ["E702"]

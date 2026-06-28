@@ -11,6 +11,12 @@ output/_pose_sheet.png
 output/*.log
 *.tmp
 branding/_wm/
+
+# stickforge: regenerable players/frames (sample PNGs ARE committed as proof)
+output/stickforge/*.html
+output/stickforge/*.svg
+output/stickforge/*.mp4
+stickforge/**/__pycache__/
 output/*.mp3
 output/_voices/
 output/[0-9]*_*/

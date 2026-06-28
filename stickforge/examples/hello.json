@@ -1,0 +1,33 @@
+{
+  "name": "hello",
+  "format": "9:16",
+  "fps": 24,
+  "timeline": [
+    {
+      "id": "intro",
+      "duration": 2.6,
+      "background": {"type": "night"},
+      "caption": "Built entirely from a JSON spec.",
+      "camera": {"zoom_keys": [
+        {"t": 0, "value": 1.0}, {"t": 2.6, "value": 1.12, "ease": "ease_in_out"}
+      ]},
+      "actors": [
+        {"id": "hero", "character": "char.classic", "clip_id": "clip.wave_hello",
+         "pos": [0.5, 0.66], "unit_scale": 0.36}
+      ]
+    },
+    {
+      "id": "duo",
+      "duration": 2.4,
+      "background": {"type": "night"},
+      "caption": "Add actors, packs, poses — no code changes.",
+      "camera": {"shake": 0.003},
+      "actors": [
+        {"id": "a", "character": "char.amber", "clip_id": "clip.celebrate",
+         "pos": [0.36, 0.68], "unit_scale": 0.30},
+        {"id": "b", "character": "char.indigo", "clip_id": "clip.celebrate",
+         "pos": [0.64, 0.68], "unit_scale": 0.30, "facing": -1}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "id": "core",
+  "version": "0.1.0",
+  "name": "Stickforge Core",
+  "description": "Starter characters and animation clips shipped with the engine.",
+  "assets": [
+    {
+      "id": "char.classic",
+      "type": "character",
+      "name": "Classic",
+      "tags": ["character", "stickman", "default", "neutral"],
+      "data": {"ink": "#f2ede1", "accent": "#ffb454"}
+    },
+    {
+      "id": "char.amber",
+      "type": "character",
+      "name": "Amber",
+      "tags": ["character", "stickman", "warm", "hair"],
+      "data": {
+        "ink": "#ffd9a0", "accent": "#ff8a5c",
+        "attachments": [{"type": "hair_spikes", "count": 5, "color": "#ff8a5c"}]
+      }
+    },
+    {
+      "id": "char.indigo",
+      "type": "character",
+      "name": "Indigo",
+      "tags": ["character", "stickman", "cool", "formal"],
+      "data": {
+        "ink": "#cfe3ff", "accent": "#7aa2ff",
+        "attachments": [{"type": "bowtie", "color": "#7aa2ff"}]
+      }
+    },
+    {
+      "id": "pose.cheer",
+      "type": "pose",
+      "name": "Cheer",
+      "tags": ["pose", "happy", "arms-up"],
+      "data": {
+        "upper_arm_l": 325, "forearm_l": -10,
+        "upper_arm_r": 35, "forearm_r": 10, "head": -6
+      }
+    },
+    {
+      "id": "expr.starstruck",
+      "type": "expression",
+      "name": "Star-struck",
+      "tags": ["expression", "excited"],
+      "data": {"eye_wide": 0.9, "mouth_open": 0.5, "mouth_curve": 0.6,
+               "brow_l_h": 0.3, "brow_r_h": 0.3}
+    },
+    {
+      "id": "clip.wave_hello",
+      "type": "animation",
+      "name": "Wave Hello",
+      "tags": ["animation", "greeting", "loop"],
+      "data": {
+        "duration": 2.6, "loop": true,
+        "poses": [
+          {"t": 0.0, "pose": "stand"},
+          {"t": 0.4, "pose": "wave", "ease": "ease_out"},
+          {"t": 1.1, "pose": "idle", "ease": "ease_in_out"},
+          {"t": 1.8, "pose": "wave", "ease": "ease_out"},
+          {"t": 2.6, "pose": "stand", "ease": "ease_in_out"}
+        ],
+        "expressions": [
+          {"t": 0.0, "expr": "neutral"},
+          {"t": 0.4, "expr": "happy", "ease": "ease_out"}
+        ]
+      }
+    },
+    {
+      "id": "clip.thinking",
+      "type": "animation",
+      "name": "Thinking",
+      "tags": ["animation", "thought"],
+      "data": {
+        "duration": 3.0,
+        "poses": [
+          {"t": 0.0, "pose": "stand"},
+          {"t": 0.7, "pose": "think", "ease": "ease_in_out"}
+        ],
+        "expressions": [
+          {"t": 0.0, "expr": "neutral"},
+          {"t": 0.7, "expr": "thinking"},
+          {"t": 2.0, "expr": "confused", "ease": "ease_in_out"}
+        ]
+      }
+    },
+    {
+      "id": "clip.celebrate",
+      "type": "animation",
+      "name": "Celebrate",
+      "tags": ["animation", "happy", "jump"],
+      "data": {
+        "duration": 2.2, "loop": true,
+        "poses": [
+          {"t": 0.0, "pose": "stand"},
+          {"t": 0.5, "pose": "jump", "ease": "ease_out"},
+          {"t": 1.0, "pose": "celebrate", "ease": "bounce"},
+          {"t": 2.2, "pose": "stand", "ease": "ease_in_out"}
+        ],
+        "expressions": [
+          {"t": 0.0, "expr": "happy"},
+          {"t": 0.5, "expr": "excited", "ease": "pop"}
+        ],
+        "offset": [
+          {"t": 0.0, "value": [0, 0]},
+          {"t": 0.5, "value": [0, -0.35], "ease": "ease_out"},
+          {"t": 1.0, "value": [0, 0], "ease": "bounce"}
+        ]
+      }
+    }
+  ]
+}

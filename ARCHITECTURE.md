@@ -47,7 +47,7 @@ backend and is not the product look.
 | 1 | Asset Management System | **Built** | `assets/` — typed, taggable, searchable, JSON packs, versioning |
 | 2 | Character Assembly Engine | **Built (personality-first)** | `character/archetype.py` (shape language + parametric proportions + signature stance) + `parts/` + `ActorDesign`; distinct, non-interchangeable silhouettes (silhouette test included) |
 | 3 | Rigging Engine | **Built** | `character/skeleton.py` — hierarchical FK; `SKELETONS` registry |
-| 4 | Pose Engine | **Built** | `pose/` — `POSES` registry, partial poses, blending |
+| 4 | Pose Engine | **Built (generative)** | `pose/builder.py` constructs poses movement-first (line-of-action → weight/contrapposto → spine → legs → arms); `pose/score.py` silhouette/appeal scorer; `pose/lab.py` generate-score-reject loop |
 | 5 | Expression Engine | **Built** | `expression/` — continuous params, `EXPRESSIONS` registry |
 | 6 | Gesture Engine | **Built (basic)** | hand-gesture styles (point/thumbs-up/peace/fist/open/wave) + per-moment `hands` track on clips |
 | 7 | Motion Engine | **Built** | `animation/clip.py` keyframes + `procedural.py` life; walk cycle; **`acting/` performance compiler** (emotion→body/eyes/timing, think-before-act, anticipation) |

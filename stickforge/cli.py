@@ -100,6 +100,25 @@ def _emotions(args) -> int:
     return 0
 
 
+def _posetest(args) -> int:
+    from .pose import lab
+    ev = lab.evaluate(args.n, seed=args.seed)
+    print(f"generated {ev['n']} poses | mean {ev['all_mean']}/10 | "
+          f"top {int(args.n*0.3)} mean {ev['top_mean']}/10 | "
+          f"best {ev['best']['score']} worst {ev['worst']['score']}")
+    print("best:", {k: (round(v, 1) if isinstance(v, float) else v)
+                    for k, v in ev["best"]["intent"].items()})
+    print("breakdown:", ev["best"]["breakdown"])
+    return 0
+
+
+def _posegallery(args) -> int:
+    from .studio import build_pose_gallery
+    _export(build_pose_gallery(), args.out, "pose_gallery",
+            args.format, args.fps, args.backend)
+    return 0
+
+
 def _storyboard(args) -> int:
     from .studio import build_story
     script = None
@@ -199,6 +218,11 @@ def main(argv=None) -> int:
     a.set_defaults(fn=_assets)
 
     sub.add_parser("poses", help="list poses").set_defaults(fn=_poses)
+    sub.add_parser("posegallery", help="render top generated poses").set_defaults(fn=_posegallery)
+    pt = sub.add_parser("posetest", help="generate+score poses (the test loop)")
+    pt.add_argument("--n", type=int, default=100)
+    pt.add_argument("--seed", type=int, default=0)
+    pt.set_defaults(fn=_posetest)
     sub.add_parser("expressions", help="list expressions").set_defaults(fn=_expressions)
 
     b = sub.add_parser("build", help="render a project JSON (scene or timeline)")

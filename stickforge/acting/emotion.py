@@ -22,13 +22,10 @@ EMOTIONS: "Registry" = Registry("emotion")
 # --------------------------------------------------------------------------- #
 # Silhouette-readable body poses for acting (arms/lean/head/stance/step).
 # --------------------------------------------------------------------------- #
+# Specific acting gestures NOT produced by the generative builder. (The builder
+# owns the movement-derived stances: stand/idle/open_arms/reach_joy/lean_in/
+# hands_chest/hand_on_hip/power_stance — see pose/builder.py.)
 _ACTING_POSES = {
-    "open_arms":   {"upper_arm_l": 222, "forearm_l": 6, "upper_arm_r": 138,
-                    "forearm_r": -6, "head": -2},
-    "reach_joy":   {"upper_arm_l": 318, "forearm_l": -8, "upper_arm_r": 42,
-                    "forearm_r": 8, "head": -8},
-    "lean_in":     {"spine": 8, "head": 5, "upper_arm_l": 196, "upper_arm_r": 168,
-                    "thigh_r": 168, "shin_r": 12},
     "recoil":      {"spine": -9, "head": -7, "upper_arm_l": 232, "forearm_l": 24,
                     "upper_arm_r": 128, "forearm_r": -24, "thigh_r": 158,
                     "shin_r": 22},
@@ -36,8 +33,6 @@ _ACTING_POSES = {
                     "upper_arm_r": 161, "forearm_r": 3},
     "hands_to_face": {"upper_arm_l": 156, "forearm_l": 74, "upper_arm_r": 204,
                       "forearm_r": -74, "head": 4},
-    "hands_chest": {"upper_arm_l": 206, "forearm_l": 60, "upper_arm_r": 154,
-                    "forearm_r": -60, "head": -6},
     "step_back":   {"spine": -5, "thigh_r": 156, "shin_r": 24, "head": -3,
                     "upper_arm_l": 206, "upper_arm_r": 154},
     "aggressive":  {"upper_arm_l": 216, "forearm_l": -2, "upper_arm_r": 144,
@@ -47,17 +42,14 @@ _ACTING_POSES = {
                      "upper_arm_l": 198, "forearm_l": -4},      # pondering
     "face_palm":   {"upper_arm_r": 78, "forearm_r": -158,
                     "upper_arm_l": 198, "forearm_l": -4},       # hand to forehead
-    # signature stances (also used by archetypes) — registered here so the
-    # acting layer is self-contained regardless of import order.
     "arms_crossed": {"upper_arm_l": 218, "forearm_l": -118, "upper_arm_r": 142,
                      "forearm_r": 118, "head": 0},
     "hands_clasped": {"upper_arm_l": 203, "forearm_l": 34, "upper_arm_r": 157,
                       "forearm_r": -34},
-    "hand_on_hip": {"upper_arm_r": 126, "forearm_r": 74, "upper_arm_l": 196,
-                    "forearm_l": -6},
-    "power_stance": {"upper_arm_l": 214, "forearm_l": 8, "upper_arm_r": 146,
-                     "forearm_r": -8},
 }
+# ensure the generative stances are registered (builder owns stand/open_arms/...)
+from ..pose import builder as _builder        # noqa: E402  (registers on import)
+_builder.register_generated_poses()
 for _n, _p in _ACTING_POSES.items():
     register_pose(_n, _p, overwrite=True)
 

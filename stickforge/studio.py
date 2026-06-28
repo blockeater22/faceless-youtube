@@ -157,6 +157,33 @@ def build_story(script: str | None = None, actor_id: str = "actor.max") -> Scene
     return storyboard(script or _DEFAULT_SCRIPT, actor_id=actor_id)
 
 
+def build_pose_gallery(n: int = 8, seed: int = 1,
+                       library: AssetLibrary | None = None) -> Scene:
+    """Top-scoring generated poses laid out in a row (render with silhouette=True
+    for the silhouette test). Proof the pose pipeline yields readable poses."""
+    from .pose import lab
+    from .scene.scene import Actor
+    from .character.character import build_character
+    from .animation.clip import AnimationClip
+    lib = library or load_core_library()
+    best = lab.generate(max(40, n * 5), seed=seed)[:n]
+    actors, props = [], []
+    for i, r in enumerate(best):
+        fx = (i + 0.5) / n
+        clip = AnimationClip.from_spec({"duration": 1.0,
+                                        "poses": [{"t": 0, "pose": r["pose"]}],
+                                        "expressions": [{"t": 0, "expr": "determined"}]})
+        actors.append(Actor(character=build_character({"id": "actor.max"}),
+                            clip=clip, pos=(fx, 0.60), unit_scale=0.115,
+                            life=0.0, id=f"p{i}"))
+        props.append({"type": "label", "text": f"{r['score']:.1f}",
+                      "pos": [fx, 0.74], "font": 0.024, "color": "#1b1b1b"})
+    return Scene(id="pose_gallery", duration=1.0,
+                 background={"type": "plain", "color": "#fbfbf7"},
+                 actors=actors, props=props,
+                 caption="Generated from line-of-action + weight — top scores shown.")
+
+
 def build_emotion_board(library: AssetLibrary | None = None,
                         emotions: list[str] | None = None) -> Scene:
     """One actor in each emotion's *body* pose — readability proof (works in

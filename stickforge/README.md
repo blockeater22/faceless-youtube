@@ -74,6 +74,24 @@ IllustratedRenderer ─> clean SVG frames ─> HTML player / MP4
 
 ---
 
+## Generative posing (line-of-action first)
+
+Poses are constructed from movement, not authored arms-first — line of action →
+weight/contrapposto → spine → legs → arms. They're scored on the silhouette test
+(line of action, balance, negative space, asymmetry, extension):
+
+```python
+from stickforge.pose import build_pose, score_pose, lab
+p = build_pose(loa=14, weight=0.7, head=4, arm_l="reach", arm_r="hip")
+print(score_pose(p))          # (8.x, {line_of_action, balance, silhouette, ...})
+lab.evaluate(100)             # the generate→score→reject test loop
+```
+
+```bash
+python -m stickforge posetest --n 100      # the test loop, scored
+python -m stickforge posegallery           # top generated poses (try --? + silhouette)
+```
+
 ## The Acting Engine (performance, not playback)
 
 Don't keyframe motion — describe *intention* as beats; the engine compiles

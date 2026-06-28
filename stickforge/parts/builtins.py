@@ -123,6 +123,50 @@ def hair_ponytail(cv, f: PartFrame):
     hair_mop(cv, f)
 
 
+@HAIRS.register("double_tuft")
+def hair_double_tuft(cv, f: PartFrame):
+    col = f.color("hair", "#3a2a22")
+    for sx in (-1, 1):
+        base_l, base_r = f.at(sx * 0.5 - 0.16, -0.62), f.at(sx * 0.5 + 0.16, -0.62)
+        tip = f.at(sx * 0.5, -1.28)
+        cv.filled_path(f"M {_pt(base_l)} L {_pt(tip)} L {_pt(base_r)} Z",
+                       col, f.color("outline"), f.outline_w)
+
+
+@HAIRS.register("buzz")
+def hair_buzz(cv, f: PartFrame):
+    col = f.color("hair", "#3a2a22")
+    cv.ellipse(f.at(0, -0.72), f.size * 0.98, f.size * 0.4, col,
+               f.color("outline"), f.outline_w, rot=f.angle)
+
+
+@HAIRS.register("flattop")
+def hair_flattop(cv, f: PartFrame):
+    col = f.color("hair", "#3a2a22")
+    d = (f"M {_pt(f.at(-0.85, -0.55))} L {_pt(f.at(-0.85, -1.05))} "
+         f"L {_pt(f.at(0.85, -1.05))} L {_pt(f.at(0.85, -0.55))} Z")
+    cv.filled_path(d, col, f.color("outline"), f.outline_w)
+
+
+@HAIRS.register("curly")
+def hair_curly(cv, f: PartFrame):
+    col = f.color("hair", "#3a2a22")
+    for i in range(6):
+        x = -0.78 + 1.56 * (i / 5)
+        cv.circle(f.at(x, -0.82), f.size * 0.26, f.color("outline"),
+                  f.outline_w * 0.8, fill=col)
+
+
+@HAIRS.register("messy")
+def hair_messy(cv, f: PartFrame):
+    col = f.color("hair", "#3a2a22")
+    for i, (x, tilt) in enumerate(((-0.6, -0.25), (-0.2, 0.15), (0.2, -0.18),
+                                   (0.6, 0.22), (0.0, 0.0))):
+        base = f.at(x, -0.6)
+        tip = f.at(x + tilt, -1.2)
+        cv.stroke([base, tip], col, f.outline_w * 2.4)
+
+
 # --------------------------------------------------------------------------- #
 # EYES — big and expressive; modulated by eye_open / eye_wide / gaze.
 # --------------------------------------------------------------------------- #
@@ -309,6 +353,55 @@ def hand_glove(cv, f):
               fill=f.color("accent", "#ffffff"))
     cv.circle(f.at(0, 0.9), f.size * 0.55, f.color("outline"),
               f.outline_w, fill=f.color("accent", "#ffffff"))
+
+
+# --- expressive gestures (drawn wrist-at-origin, fingers toward local -y,
+#     so they orient along the forearm). Selectable per-moment via Posing.hands.
+def _finger(cv, f, bx, by, tx, ty, w):
+    cv.stroke([f.at(bx, by), f.at(tx, ty)], f.color("outline"), w)
+    cv.stroke([f.at(bx, by), f.at(tx, ty)], f.color("skin", "#ffffff"), w * 0.5)
+
+
+def _palm(cv, f, r=0.92):
+    cv.circle(f.center, f.size * r, f.color("outline"), f.outline_w,
+              fill=f.color("skin", "#ffffff"))
+
+
+@HANDS.register("open_hand")
+@HANDS.register("wave")
+def hand_open(cv, f):
+    w = f.size * 0.72
+    for i in range(4):
+        a = -0.55 + i * 0.37
+        _finger(cv, f, a * 0.5, -0.2, a, -1.45, w)
+    _finger(cv, f, -0.7, 0.2, -1.25, -0.35, w)        # thumb
+    _palm(cv, f)
+
+
+@HANDS.register("fist")
+def hand_fist(cv, f):
+    _palm(cv, f, 1.0)
+    for i in range(4):                                 # knuckle dimples
+        cv.dot(f.at(-0.5 + i * 0.33, -0.55), f.size * 0.12, f.color("outline"))
+
+
+@HANDS.register("point")
+def hand_point(cv, f):
+    _palm(cv, f, 0.95)
+    _finger(cv, f, 0.0, -0.2, 0.0, -1.7, f.size * 0.8)  # index extended
+
+
+@HANDS.register("thumbs_up")
+def hand_thumbs_up(cv, f):
+    _palm(cv, f, 0.98)
+    _finger(cv, f, -0.5, -0.1, -1.0, -1.2, f.size * 0.85)  # thumb up-out
+
+
+@HANDS.register("peace")
+def hand_peace(cv, f):
+    _palm(cv, f, 0.95)
+    _finger(cv, f, -0.18, -0.2, -0.5, -1.6, f.size * 0.7)
+    _finger(cv, f, 0.18, -0.2, 0.5, -1.6, f.size * 0.7)
 
 
 # --------------------------------------------------------------------------- #

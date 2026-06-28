@@ -47,9 +47,9 @@ backend and is not the product look.
 | 3 | Rigging Engine | **Built** | `character/skeleton.py` — hierarchical FK; `SKELETONS` registry |
 | 4 | Pose Engine | **Built** | `pose/` — `POSES` registry, partial poses, blending |
 | 5 | Expression Engine | **Built** | `expression/` — continuous params, `EXPRESSIONS` registry |
-| 6 | Gesture Engine | **Partial** | gestures = pose sequences in `AnimationClip`; add a gesture lib over `pose/` |
-| 7 | Motion Engine | **Built** | `animation/clip.py` keyframes + `procedural.py` life |
-| 8 | Physics Engine | **Partial** | easings cover anticipation/overshoot/bounce/arcs; add secondary-motion solver atop FK |
+| 6 | Gesture Engine | **Built (basic)** | hand-gesture styles (point/thumbs-up/peace/fist/open/wave) + per-moment `hands` track on clips |
+| 7 | Motion Engine | **Built** | `animation/clip.py` keyframes + `procedural.py` life; walk cycle clip |
+| 8 | Physics Engine | **Built (basic)** | easings (anticipation/overshoot/bounce) + secondary-motion lag (hair bounce / hand follow-through) in the illustrated renderer |
 | 9 | Camera Engine | **Built** | `scene/camera.py` — keyframable zoom/pan + shake; add orbit/parallax |
 | 10 | Scene Builder | **Built** | `scene/scene.py` — actors/props/background/camera from spec |
 | 11 | Timeline Editor | **Partial (data)** | `scene/scene.py:Timeline` sequences scenes; GUI editor is future |

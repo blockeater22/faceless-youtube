@@ -104,6 +104,35 @@ class TestIllustratedRender(unittest.TestCase):
         self.assertEqual(a, b)                      # deterministic, no per-frame jitter
 
 
+class TestGesturesAndMotion(unittest.TestCase):
+    def test_hand_gestures_registered(self):
+        for g in ("open_hand", "point", "thumbs_up", "peace", "fist", "wave"):
+            self.assertIn(g, parts.HANDS)
+
+    def test_hands_track_holds_latest(self):
+        clip = AnimationClip.from_spec({
+            "duration": 3.0,
+            "poses": [{"t": 0, "pose": "idle"}],
+            "hands": [{"t": 0, "l": "fist", "r": "fist"},
+                      {"t": 1.0, "r": "point"}]})
+        self.assertEqual(clip.sample(0.5).hands.get("r"), "fist")
+        self.assertEqual(clip.sample(2.0).hands.get("r"), "point")
+
+    def test_secondary_motion_renders(self):
+        lib = __import__("stickforge.studio", fromlist=["load_core_library"]).load_core_library()
+        scene = Scene.from_spec({
+            "id": "s", "duration": 1.0,
+            "actors": [{"id": "a", "character": "actor.max",
+                        "clip_id": "clip.explain", "pos": [0.5, 0.55],
+                        "unit_scale": 0.34}]}, lib)
+        svg = IllustratedRenderer(RenderConfig.for_format("preview")).render_frame(scene, 0.7, 17)
+        self.assertIn("</svg>", svg)        # gesture + lag path must not crash
+
+    def test_walk_clip_present(self):
+        lib = __import__("stickforge.studio", fromlist=["load_core_library"]).load_core_library()
+        self.assertIn("clip.walk", lib)
+
+
 class TestFX(unittest.TestCase):
     def test_effects_registered_and_draw(self):
         for name in ("speed_lines", "impact", "sweat", "stars", "lightbulb",

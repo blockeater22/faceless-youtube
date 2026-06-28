@@ -84,6 +84,21 @@ class IllustratedRenderer:
         limb_fill = build["limb"] * unit
         limb_out = limb_fill + 2 * ow
 
+        # --- secondary motion: solve a moment earlier for follow-through ---
+        dt = 0.05
+        gain, cap = 0.55, unit * 0.10
+        prev = actor.posing_at(max(0.0, t - dt))
+        root_p = Vec2(actor.pos[0] * cfg.width + prev.offset.x * unit,
+                      actor.pos[1] * cfg.height + prev.offset.y * unit)
+        solved_p = skel.solve(root_p, unit, prev.pose)
+
+        def lag(name):
+            if name not in solved or name not in solved_p:
+                return Vec2(0.0, 0.0)
+            d = (solved_p[name].end - solved[name].end) * gain
+            m = d.length()
+            return d * (cap / m) if m > cap else d
+
         def chain(*names):
             pts = []
             for nm in names:
@@ -125,14 +140,16 @@ class IllustratedRenderer:
 
         # --- arms (white) + hands, seated at the shoulders ---------------
         # left arm sits on -perp side, right arm on +perp side
-        for ua, fa, side in (("upper_arm_l", "forearm_l", -1),
-                             ("upper_arm_r", "forearm_r", 1)):
+        for ua, fa, side, hkey in (("upper_arm_l", "forearm_l", -1, "l"),
+                                   ("upper_arm_r", "forearm_r", 1, "r")):
             off = arm_off * side
             pts = [p + off for p in chain(ua, fa)]
             cv.limb(pts, out, skin, limb_out, limb_fill)
             if fa in solved:
-                self._part(HANDS, design.part("hands"), cv,
-                           solved[fa].end + off, limb_fill * 1.0, 0.0, pal, {}, ow)
+                gesture = posing.hands.get(hkey) or design.part("hands")
+                # hand follows through; oriented along the forearm
+                self._part(HANDS, gesture, cv, solved[fa].end + off + lag(fa),
+                           limb_fill * 1.0, solved[fa].world_angle, pal, {}, ow)
 
         # --- torso (shirt) with rounded shoulders + short sleeves --------
         self._torso(cv, solved, unit, build, pal, ow)
@@ -150,7 +167,9 @@ class IllustratedRenderer:
             cv.limb([head.start, neck_top], out, skin, limb_out * 0.8, limb_fill * 0.8)
             ang = head.world_angle
             self._part(HEADS, design.part("head"), cv, center, hr, ang, pal, {}, ow)
-            self._part(HAIRS, design.part("hair"), cv, center, hr, ang, pal, {}, ow)
+            # hair bounces / trails the head (secondary motion)
+            self._part(HAIRS, design.part("hair"), cv, center + lag("head") * 1.4,
+                       hr, ang, pal, {}, ow)
             face = posing.expr
             self._part(EYES, design.part("eyes"), cv, center, hr, ang, pal, face, ow)
             self._part(BROWS, design.part("brows"), cv, center, hr, ang, pal, face, ow)

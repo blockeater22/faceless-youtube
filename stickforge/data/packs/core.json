@@ -66,6 +66,54 @@
         "expressions": [
           {"t": 0.0, "expr": "neutral"},
           {"t": 0.4, "expr": "happy", "ease": "ease_out"}
+        ],
+        "hands": [
+          {"t": 0.0, "l": "four_finger", "r": "four_finger"},
+          {"t": 0.4, "l": "four_finger", "r": "wave"}
+        ]
+      }
+    },
+    {
+      "id": "clip.walk",
+      "type": "animation",
+      "name": "Walk Cycle",
+      "tags": ["animation", "locomotion", "loop"],
+      "data": {
+        "duration": 0.8, "loop": true,
+        "poses": [
+          {"t": 0.0, "pose": "walk_a", "ease": "ease_in_out"},
+          {"t": 0.4, "pose": "walk_b", "ease": "ease_in_out"},
+          {"t": 0.8, "pose": "walk_a", "ease": "ease_in_out"}
+        ],
+        "expressions": [{"t": 0.0, "expr": "happy"}],
+        "offset": [
+          {"t": 0.0, "value": [0, 0]}, {"t": 0.2, "value": [0, -0.04]},
+          {"t": 0.4, "value": [0, 0]}, {"t": 0.6, "value": [0, -0.04]},
+          {"t": 0.8, "value": [0, 0]}
+        ]
+      }
+    },
+    {
+      "id": "clip.explain",
+      "type": "animation",
+      "name": "Explain (pointing)",
+      "tags": ["animation", "gesture", "educational"],
+      "data": {
+        "duration": 3.0, "loop": true,
+        "poses": [
+          {"t": 0.0, "pose": "idle"},
+          {"t": 0.6, "pose": "point_up", "ease": "ease_out"},
+          {"t": 2.2, "pose": "shrug", "ease": "ease_in_out"},
+          {"t": 3.0, "pose": "idle"}
+        ],
+        "expressions": [
+          {"t": 0.0, "expr": "happy"}, {"t": 0.6, "expr": "determined"},
+          {"t": 2.2, "expr": "excited"}
+        ],
+        "hands": [
+          {"t": 0.0, "l": "four_finger", "r": "four_finger"},
+          {"t": 0.6, "l": "four_finger", "r": "point"},
+          {"t": 2.2, "l": "open_hand", "r": "open_hand"}
         ]
       }
     },

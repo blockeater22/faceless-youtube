@@ -24,6 +24,7 @@ class Posing:
     expr: dict = field(default_factory=lambda: dict(NEUTRAL))
     offset: Vec2 = field(default_factory=lambda: Vec2(0.0, 0.0))
     scale: float = 1.0
+    hands: dict = field(default_factory=dict)   # {"l": gesture, "r": gesture}
 
 
 def _bracket(keys: list[dict], t: float):
@@ -49,6 +50,7 @@ class AnimationClip:
     pose_keys: list[dict] = field(default_factory=list)
     expr_keys: list[dict] = field(default_factory=list)
     offset_keys: list[dict] = field(default_factory=list)
+    hand_keys: list[dict] = field(default_factory=list)
     name: str = "clip"
 
     @classmethod
@@ -56,7 +58,8 @@ class AnimationClip:
         """Build from a JSON-style spec.
 
         Pose keys take ``pose`` (name or inline dict); expression keys take
-        ``expr``; offset keys take ``value`` ([x, y] in figure units).
+        ``expr``; offset keys take ``value`` ([x, y] in figure units); hand keys
+        take ``l``/``r`` gesture names (held, not blended).
         """
         return cls(
             duration=float(spec.get("duration", 1.0)),
@@ -64,6 +67,7 @@ class AnimationClip:
             pose_keys=[dict(k) for k in spec.get("poses", [])],
             expr_keys=[dict(k) for k in spec.get("expressions", [])],
             offset_keys=[dict(k) for k in spec.get("offset", [])],
+            hand_keys=[dict(k) for k in spec.get("hands", [])],
             name=name,
         )
 
@@ -89,5 +93,12 @@ class AnimationClip:
             k0, k1, e = _bracket(self.offset_keys, t)
             v0, v1 = k0["value"], k1["value"]
             out.offset = Vec2(lerp(v0[0], v1[0], e), lerp(v0[1], v1[1], e))
+
+        if self.hand_keys:
+            held = self.hand_keys[0]
+            for k in sorted(self.hand_keys, key=lambda k: k["t"]):
+                if k["t"] <= t:
+                    held = k
+            out.hands = {k: v for k, v in held.items() if k in ("l", "r")}
 
         return out

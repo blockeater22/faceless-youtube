@@ -57,4 +57,5 @@ def apply_life(posing: Posing, t: float, phase: float, amount: float = 1.0) -> P
     from ..core.geometry import Vec2
     off = Vec2(off.x + s * 0.006 * amount, off.y + b * 0.004 * amount)
 
-    return Posing(pose=pose, expr=expr, offset=off, scale=posing.scale)
+    return Posing(pose=pose, expr=expr, offset=off, scale=posing.scale,
+                  hands=posing.hands)

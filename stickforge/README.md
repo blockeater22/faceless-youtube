@@ -17,6 +17,8 @@ core has **zero third-party dependencies**.
 
 ```bash
 python -m stickforge demo       # showcase: actors acting  -> output/.../demo.html
+python -m stickforge cast       # the personality-first archetype cast
+python -m stickforge silhouettes# silhouette readability test (no detail)
 python -m stickforge lab        # the character lab: recombination lineup
 python -m stickforge acting     # one actor performing a range of emotions
 python -m stickforge showcase   # expression contact sheet

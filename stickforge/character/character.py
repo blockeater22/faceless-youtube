@@ -95,11 +95,16 @@ def build_character(source, library=None) -> Character:
         raise TypeError(f"cannot build character from {type(source).__name__}")
 
     design = ActorDesign.from_dict(raw)
-    # the design drives the rig; the legacy spec's skeleton is honored only if it
-    # was explicitly set to a non-default value.
-    skel_name = design.skeleton
-    if spec.skeleton not in ("humanoid", design.skeleton) and "parts" not in raw \
-            and "palette" not in raw:
-        skel_name = spec.skeleton
-    skeleton = SKELETONS.get(skel_name)()
+
+    if design.archetype:
+        # personality drives the proportions: build a parametric skeleton
+        from .archetype import get_archetype, parametric_skeleton
+        skeleton = parametric_skeleton(get_archetype(design.archetype))
+    else:
+        # the design drives the rig; legacy spec skeleton honored only if set
+        skel_name = design.skeleton
+        if spec.skeleton not in ("humanoid", design.skeleton) \
+                and "parts" not in raw and "palette" not in raw:
+            skel_name = spec.skeleton
+        skeleton = SKELETONS.get(skel_name)()
     return Character(spec=spec, skeleton=skeleton, design=design)

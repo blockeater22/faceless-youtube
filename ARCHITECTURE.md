@@ -43,7 +43,7 @@ backend and is not the product look.
 | # | Requested module | Status | Where / how to extend |
 |---|---|---|---|
 | 1 | Asset Management System | **Built** | `assets/` — typed, taggable, searchable, JSON packs, versioning |
-| 2 | Character Assembly Engine | **Built (illustrated)** | `parts/` component library + `character/design.py` `ActorDesign`; ~10^6 combinations |
+| 2 | Character Assembly Engine | **Built (personality-first)** | `character/archetype.py` (shape language + parametric proportions + signature stance) + `parts/` + `ActorDesign`; distinct, non-interchangeable silhouettes (silhouette test included) |
 | 3 | Rigging Engine | **Built** | `character/skeleton.py` — hierarchical FK; `SKELETONS` registry |
 | 4 | Pose Engine | **Built** | `pose/` — `POSES` registry, partial poses, blending |
 | 5 | Expression Engine | **Built** | `expression/` — continuous params, `EXPRESSIONS` registry |

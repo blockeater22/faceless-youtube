@@ -12,7 +12,8 @@ def _duration(target) -> float:
 
 
 def render_frames(target, config: RenderConfig | None = None,
-                  fps: int = 24, backend: str = DEFAULT_RENDERER) -> list[str]:
+                  fps: int = 24, backend: str = DEFAULT_RENDERER,
+                  silhouette: bool = False) -> list[str]:
     """Render a Scene or Timeline to a list of SVG document strings.
 
     ``backend`` selects a renderer from the registry (default: the illustrated
@@ -26,13 +27,14 @@ def render_frames(target, config: RenderConfig | None = None,
     n = max(1, int(round(dur * fps)))
     frames: list[str] = []
     is_timeline = hasattr(target, "at") and hasattr(target, "scenes")
+    kw = {"silhouette": silhouette} if (silhouette and backend == "illustrated") else {}
     for i in range(n):
         t = i / fps
         if is_timeline:
             scene, local = target.at(t)
-            frames.append(renderer.render_frame(scene, local, i))
+            frames.append(renderer.render_frame(scene, local, i, **kw))
         else:
-            frames.append(renderer.render_frame(target, t, i))
+            frames.append(renderer.render_frame(target, t, i, **kw))
     return frames
 
 

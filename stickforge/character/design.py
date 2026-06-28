@@ -35,6 +35,10 @@ PALETTES: dict[str, dict[str, str]] = {
     "green": {**CLASSIC_PALETTE, "shirt": "#27a35a", "accent": "#ffffff"},
     "red": {**CLASSIC_PALETTE, "shirt": "#e8492b", "accent": "#1b1b1b"},
     "purple": {**CLASSIC_PALETTE, "shirt": "#8a5cf6", "accent": "#f4c20d"},
+    "grey": {**CLASSIC_PALETTE, "shirt": "#8d99a6", "hair": "#9aa3ad",
+             "accent": "#5b6470"},
+    "pink": {**CLASSIC_PALETTE, "shirt": "#ff6fae", "hair": "#3a2a33",
+             "accent": "#ffd34d"},
 }
 
 # Default part-style selection (the "house" actor).
@@ -50,18 +54,33 @@ class ActorDesign:
     id: str = "actor"
     name: str = ""
     skeleton: str = "cartoon"
+    archetype: str = ""               # personality (drives proportions/stance)
     line_width: float = 1.0
     head_scale: float = 1.0
     base_pose: str = "stand"
     base_expression: str = "happy"
     palette: dict = field(default_factory=lambda: dict(CLASSIC_PALETTE))
     parts: dict = field(default_factory=lambda: dict(_DEFAULTS))
+    build: dict | None = None         # body thickness; from archetype if set
+    hands: dict = field(default_factory=dict)
 
     def part(self, category: str) -> str:
         return self.parts.get(category, _DEFAULTS.get(category, ""))
 
     @classmethod
     def from_dict(cls, d: dict) -> "ActorDesign":
+        # seed from an archetype (personality) if requested, then overlay d
+        if d.get("archetype"):
+            from .archetype import get_archetype
+            seed = get_archetype(d["archetype"]).to_design_dict()
+            merged = dict(seed)
+            for k, v in d.items():
+                if k in ("parts", "hands") and isinstance(v, dict):
+                    merged[k] = {**seed.get(k, {}), **v}
+                else:
+                    merged[k] = v
+            d = merged
+
         palette = dict(CLASSIC_PALETTE)
         if isinstance(d.get("palette"), str):
             palette = dict(PALETTES.get(d["palette"], CLASSIC_PALETTE))
@@ -73,12 +92,15 @@ class ActorDesign:
             id=d.get("id", "actor"),
             name=d.get("name", ""),
             skeleton=d.get("skeleton", "cartoon"),
+            archetype=d.get("archetype", ""),
             line_width=float(d.get("line_width", 1.0)),
             head_scale=float(d.get("head_scale", 1.0)),
             base_pose=d.get("base_pose", "stand"),
             base_expression=d.get("base_expression", "happy"),
             palette=palette,
             parts=parts,
+            build=dict(d["build"]) if isinstance(d.get("build"), dict) else None,
+            hands=dict(d.get("hands", {})),
         )
 
 

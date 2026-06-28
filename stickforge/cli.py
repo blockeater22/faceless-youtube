@@ -59,6 +59,26 @@ def _lab(args) -> int:
     return 0
 
 
+def _cast(args) -> int:
+    from .studio import build_cast
+    _export(build_cast(), args.out, "cast", args.format, args.fps, args.backend)
+    return 0
+
+
+def _silhouettes(args) -> int:
+    from .studio import build_silhouette_test
+    from .export.frames import render_frames
+    from .export.html import write_html_player
+    cfg = RenderConfig.for_format(args.format)
+    frames = render_frames(build_silhouette_test(), cfg, 1,
+                           backend="illustrated", silhouette=True)
+    from pathlib import Path
+    Path(args.out).mkdir(parents=True, exist_ok=True)
+    html = write_html_player(frames, Path(args.out) / "silhouettes.html", 1, "silhouettes")
+    print(f"  silhouette test -> {html}")
+    return 0
+
+
 def _acting(args) -> int:
     from .studio import build_acting_demo
     _export(build_acting_demo(args.actor), args.out, "acting",
@@ -130,6 +150,8 @@ def main(argv=None) -> int:
     sub.add_parser("demo", help="render the showcase animation").set_defaults(fn=_demo)
     sub.add_parser("showcase", help="render the expression contact sheet").set_defaults(fn=_showcase)
     sub.add_parser("lab", help="render the character lab (recombination lineup)").set_defaults(fn=_lab)
+    sub.add_parser("cast", help="render the personality-first archetype cast").set_defaults(fn=_cast)
+    sub.add_parser("silhouettes", help="render the silhouette readability test").set_defaults(fn=_silhouettes)
 
     ac = sub.add_parser("acting", help="render an actor performing emotions")
     ac.add_argument("--actor", default="actor.max")

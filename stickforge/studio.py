@@ -98,6 +98,48 @@ def build_character_lab(library: AssetLibrary | None = None) -> Scene:
     return scene
 
 
+_CAST_ORDER = ["kid", "clerk", "sage", "diva", "hero", "brute"]
+
+
+def build_cast(library: AssetLibrary | None = None) -> Scene:
+    """The personality-first cast: each archetype in its signature stance and
+    resting expression — distinct silhouettes, proportions, and body language."""
+    from .character.archetype import ARCHETYPES
+    lib = library or load_core_library()
+    actors, props = [], []
+    n = len(_CAST_ORDER)
+    us, ground = 0.185, 0.80
+    for i, aid in enumerate(_CAST_ORDER):
+        arch = ARCHETYPES.get(aid)
+        fx = (i + 0.5) / n
+        py = ground - (arch.thigh + arch.shin) * us      # align feet to a baseline
+        actors.append({
+            "id": aid, "character": {"id": aid, "archetype": aid},
+            "clip": {"duration": 1.0,
+                     "poses": [{"t": 0, "pose": arch.base_pose}],
+                     "expressions": [{"t": 0, "expr": arch.base_expression}],
+                     "hands": [{"t": 0, **arch.hands}]},
+            "pos": [fx, py], "unit_scale": us, "life": 0.0})
+        props.append({"type": "label", "text": f"{arch.name} ({arch.shape})",
+                      "pos": [fx, 0.88], "font": 0.020, "color": "#1b1b1b"})
+    return Scene.from_spec({
+        "id": "cast", "duration": 1.0,
+        "background": {"type": "plain", "color": "#fbfbf7"},
+        "caption": "Personality-first cast — distinct silhouettes & body language.",
+        "actors": actors, "props": props}, lib)
+
+
+def build_silhouette_test(library: AssetLibrary | None = None) -> Scene:
+    """The same cast — rendered as solid silhouettes (readability check)."""
+    scene = build_cast(library)
+    scene.id = "silhouettes"
+    scene.caption = "Silhouette test — each character reads without any detail."
+    scene.background = {"type": "plain", "color": "#fbfbf7"}
+    for p in scene.props:
+        p["color"] = "#1b1b1b"
+    return scene
+
+
 def build_acting_demo(actor_id: str = "actor.max",
                       library: AssetLibrary | None = None) -> Scene:
     """One actor, acting through a range of emotions — personality over geometry."""

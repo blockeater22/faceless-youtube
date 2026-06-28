@@ -29,10 +29,12 @@ class IllustratedRenderer:
     def __init__(self, config: RenderConfig | None = None) -> None:
         self.cfg = config or RenderConfig()
 
-    def render_frame(self, scene, t: float, frame_index: int = 0) -> str:
+    def render_frame(self, scene, t: float, frame_index: int = 0,
+                     silhouette: bool = False) -> str:
         cfg = self.cfg
         cv = SvgCanvas(cfg.width, cfg.height)
         self._fi = frame_index
+        self._silhouette = silhouette
         cam = scene.camera.sample(t)
         bg_color = scene.background.get("color", cfg.background)
         cx, cy = cfg.width / 2, cfg.height / 2
@@ -62,8 +64,11 @@ class IllustratedRenderer:
         cfg = self.cfg
         design = self._design(actor)
         pal = {**CLASSIC_PALETTE, **design.palette}
-        build = BODIES.get(design.part("body")) if design.part("body") in BODIES \
-            else {"limb": 0.065, "torso": 0.12, "shoulder": 0.16, "belly": 0.0}
+        if getattr(self, "_silhouette", False):
+            pal = {k: CLASSIC_PALETTE["outline"] for k in pal}
+        build = getattr(design, "build", None) or (
+            BODIES.get(design.part("body")) if design.part("body") in BODIES
+            else {"limb": 0.065, "torso": 0.12, "shoulder": 0.16, "belly": 0.0})
 
         posing = actor.posing_at(t)
         unit = actor.unit_scale * cfg.min_dim * posing.scale
@@ -170,6 +175,10 @@ class IllustratedRenderer:
             # hair bounces / trails the head (secondary motion)
             self._part(HAIRS, design.part("hair"), cv, center + lag("head") * 1.4,
                        hr, ang, pal, {}, ow)
+            if getattr(self, "_silhouette", False):
+                if flip:
+                    cv.group_close()
+                return                       # solid silhouette: no face detail
             face = posing.expr
             self._part(EYES, design.part("eyes"), cv, center, hr, ang, pal, face, ow)
             self._part(BROWS, design.part("brows"), cv, center, hr, ang, pal, face, ow)

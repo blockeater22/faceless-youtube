@@ -30,6 +30,20 @@ Friendly, approachable, expressive, simple, modern, readable, timeless.
 Signature palette: white head/limbs, **yellow tee**, **black shorts**, black
 shoes, bold near-black outline, small red/blue/green/purple accents.
 
+## Personality & silhouette (characters must not be interchangeable)
+
+Design every character from *who they are*, via `character/archetype.py`:
+
+- **Shape language:** round = friendly, square = strong/heavy, triangle =
+  dynamic/heroic. The dominant shape is the first read.
+- **Distinct proportions:** head size, torso, limb length/thickness, and stance
+  build a *parametric skeleton* — no two archetypes share a silhouette.
+- **Signature posture:** a resting stance (arms crossed / hand on hip / hands
+  clasped / power stance) telegraphs attitude before motion.
+- **Acting tendency:** a resting expression + signature gesture.
+- **Silhouette test:** render solid black (`stickforge silhouettes`). If two
+  characters are confusable as shapes, redesign.
+
 ## Acting & motion (the actor must perform)
 
 - Body language reads before dialogue: lean in (curious), lean back (shock),

@@ -30,11 +30,16 @@ class Beat:
     text: str = ""               # optional subtitle / staging note
 
 
-def compile_performance(beats: list[Beat], *, loop: bool = False) -> AnimationClip:
+def compile_performance(beats: list[Beat], *, loop: bool = False,
+                        return_marks: bool = False):
+    """Compile beats into a clip. With ``return_marks=True`` also returns a list
+    of ``{"start","end","kind","emotion","text"}`` so callers (e.g. the Story
+    Engine) can align subtitles to the tempo-scaled beat timing."""
     poses: list[dict] = []
     exprs: list[dict] = []
     hands: list[dict] = []
     offs: list[dict] = []
+    idle: list[dict] = []
 
     def key(t, prof, pose_ease):
         poses.append({"t": round(t, 3), "pose": prof.body_pose(), "ease": pose_ease})
@@ -42,12 +47,15 @@ def compile_performance(beats: list[Beat], *, loop: bool = False) -> AnimationCl
         exprs.append({"t": round(t, 3), "expr": f, "ease": "ease_out"})
         hands.append({"t": round(t, 3), "l": prof.hands[0], "r": prof.hands[1]})
         offs.append({"t": round(t, 3), "value": list(prof.offset), "ease": pose_ease})
+        idle.append({"t": round(t, 3), "amp": prof.idle_amp, "blink": prof.blink_rate})
         return f
 
     t = 0.0
+    marks: list[dict] = []
     prev_face = key(t, get_emotion("neutral"), "ease_in_out")   # ease from rest
 
     for b in beats:
+        start = t
         prof = get_emotion(b.emotion)
         if b.kind == "think":
             think = get_emotion("thinking")
@@ -58,6 +66,7 @@ def compile_performance(beats: list[Beat], *, loop: bool = False) -> AnimationCl
             poses.append({"t": round(t, 3), "pose": think.body_pose(), "ease": "ease_out"})
             exprs.append({"t": round(t, 3), "expr": f, "ease": "ease_out"})
             hands.append({"t": round(t, 3), "l": "four_finger", "r": "four_finger"})
+            idle.append({"t": round(t, 3), "amp": think.idle_amp, "blink": think.blink_rate})
             hold = round(t + b.dur * 0.82, 3)
             poses.append({"t": hold, "pose": think.body_pose(), "ease": "linear"})
             exprs.append({"t": hold, "expr": f, "ease": "linear"})
@@ -75,10 +84,14 @@ def compile_performance(beats: list[Beat], *, loop: bool = False) -> AnimationCl
             d = b.dur / max(0.25, prof.tempo)
             prev_face = key(t, prof, ease)
             t += d
+        marks.append({"start": round(start, 3), "end": round(t, 3),
+                      "kind": b.kind, "emotion": b.emotion, "text": b.text})
 
-    return AnimationClip.from_spec(
+    clip = AnimationClip.from_spec(
         {"duration": round(t, 3), "loop": loop, "poses": poses,
-         "expressions": exprs, "hands": hands, "offset": offs}, "performance")
+         "expressions": exprs, "hands": hands, "offset": offs, "idle": idle},
+        "performance")
+    return (clip, marks) if return_marks else clip
 
 
 def perform(beats: list[Beat], **kw) -> AnimationClip:
@@ -97,4 +110,5 @@ def emotion_clip(emotion: str, dur: float = 2.6, loop: bool = True) -> Animation
         "hands": [{"t": 0, "l": prof.hands[0], "r": prof.hands[1]}],
         "offset": [{"t": 0, "value": list(prof.offset)},
                    {"t": dur, "value": list(prof.offset)}],
+        "idle": [{"t": 0, "amp": prof.idle_amp, "blink": prof.blink_rate}],
     }, f"emotion_{emotion}")

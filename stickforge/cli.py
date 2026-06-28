@@ -100,6 +100,16 @@ def _emotions(args) -> int:
     return 0
 
 
+def _storyboard(args) -> int:
+    from .studio import build_story
+    script = None
+    if args.script:
+        script = Path(args.script).read_text(encoding="utf-8")
+    _export(build_story(script, args.actor), args.out, "storyboard",
+            args.format, args.fps, args.backend)
+    return 0
+
+
 def _assets(args) -> int:
     from .studio import load_core_library
     lib = load_core_library()
@@ -176,6 +186,11 @@ def main(argv=None) -> int:
     st.set_defaults(fn=_story)
 
     sub.add_parser("emotions", help="render the emotion board (body-acting readability)").set_defaults(fn=_emotions)
+
+    sb = sub.add_parser("storyboard", help="compile a script into a performed scene")
+    sb.add_argument("script", nargs="?", default=None, help="path to a script .txt (optional)")
+    sb.add_argument("--actor", default="actor.max")
+    sb.set_defaults(fn=_storyboard)
 
     a = sub.add_parser("assets", help="browse the asset library")
     a.add_argument("--search", default="")

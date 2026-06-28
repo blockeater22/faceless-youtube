@@ -49,8 +49,9 @@ class IllustratedRenderer:
         for prop in scene.props:
             self._prop(cv, prop)
         cv.group_close()
-        if scene.caption:
-            self._caption(cv, scene.caption)
+        text = scene.subtitle_at(t) if hasattr(scene, "subtitle_at") else scene.caption
+        if text:
+            self._caption(cv, text)
         return cv.to_svg(bg_color)
 
     render = render_frame

@@ -37,25 +37,43 @@ def blink_amount(t: float, phase: float, every: float = 3.6, dur: float = 0.16) 
 
 
 def apply_life(posing: Posing, t: float, phase: float, amount: float = 1.0) -> Posing:
-    """Return a copy of ``posing`` with breathing/sway/blink layered in."""
+    """Layer involuntary life over a posing — emotion-aware.
+
+    ``posing.idle_amp`` scales the motion (calm vs. agitated) and
+    ``posing.blink_rate`` scales how often the eyes blink, so a nervous beat
+    fidgets and blinks fast while a confident beat is still and slow.
+    """
     if amount <= 0:
         return posing
+    amp = amount * max(0.0, posing.idle_amp)
     b, s = breath(t, phase), sway(t, phase)
+    # weight-shift: a slow side-to-side balance correction
+    ws = math.sin(t * (math.tau / 9.0) + phase * 2.1)
     pose = dict(posing.pose)
-    pose["spine"] = pose.get("spine", 0.0) + s * 1.6 * amount
-    pose["head"] = pose.get("head", 0.0) + b * 1.2 * amount
-    # subtle shoulder lift on the inhale
-    pose["upper_arm_l"] = pose.get("upper_arm_l", 196.0) + b * 1.4 * amount
-    pose["upper_arm_r"] = pose.get("upper_arm_r", 164.0) - b * 1.4 * amount
+    pose["spine"] = pose.get("spine", 0.0) + (s * 1.5 + ws * 0.8) * amp
+    pose["head"] = pose.get("head", 0.0) + b * 1.2 * amp
+    pose["upper_arm_l"] = pose.get("upper_arm_l", 196.0) + b * 1.4 * amp
+    pose["upper_arm_r"] = pose.get("upper_arm_r", 164.0) - b * 1.4 * amp
+    # fidget: small high-frequency limb jitter when agitated (idle_amp > 1)
+    fidget = max(0.0, posing.idle_amp - 1.0)
+    if fidget > 0:
+        j = math.sin(t * 9.3 + phase * 3.0) * 2.2 * fidget * amount
+        pose["forearm_l"] = pose.get("forearm_l", -6.0) + j
+        pose["forearm_r"] = pose.get("forearm_r", 6.0) - j
 
     expr = dict(posing.expr)
-    shut = blink_amount(t, phase) * amount
+    every = 3.6 / max(0.2, posing.blink_rate)
+    shut = blink_amount(t, phase, every=every) * amount
     if shut > 0:
         expr["eye_open"] = expr.get("eye_open", 1.0) * (1.0 - shut)
+    # eye micro-scan: living eyes drift a touch (never overrides intent fully)
+    expr["pupil_x"] = expr.get("pupil_x", 0.0) + math.sin(t * 0.9 + phase) * 0.06 * amount
+    expr["pupil_y"] = expr.get("pupil_y", 0.0) + math.sin(t * 0.7 + phase * 1.7) * 0.04 * amount
 
-    off = posing.offset
     from ..core.geometry import Vec2
-    off = Vec2(off.x + s * 0.006 * amount, off.y + b * 0.004 * amount)
+    off = posing.offset
+    off = Vec2(off.x + s * 0.006 * amp, off.y + b * 0.004 * amp)
 
     return Posing(pose=pose, expr=expr, offset=off, scale=posing.scale,
-                  hands=posing.hands)
+                  hands=posing.hands, idle_amp=posing.idle_amp,
+                  blink_rate=posing.blink_rate)

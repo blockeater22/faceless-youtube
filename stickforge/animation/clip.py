@@ -25,6 +25,8 @@ class Posing:
     offset: Vec2 = field(default_factory=lambda: Vec2(0.0, 0.0))
     scale: float = 1.0
     hands: dict = field(default_factory=dict)   # {"l": gesture, "r": gesture}
+    idle_amp: float = 1.0                       # live idle/fidget amplitude
+    blink_rate: float = 1.0                     # involuntary blink frequency mult
 
 
 def _bracket(keys: list[dict], t: float):
@@ -51,6 +53,7 @@ class AnimationClip:
     expr_keys: list[dict] = field(default_factory=list)
     offset_keys: list[dict] = field(default_factory=list)
     hand_keys: list[dict] = field(default_factory=list)
+    idle_keys: list[dict] = field(default_factory=list)
     name: str = "clip"
 
     @classmethod
@@ -68,6 +71,7 @@ class AnimationClip:
             expr_keys=[dict(k) for k in spec.get("expressions", [])],
             offset_keys=[dict(k) for k in spec.get("offset", [])],
             hand_keys=[dict(k) for k in spec.get("hands", [])],
+            idle_keys=[dict(k) for k in spec.get("idle", [])],
             name=name,
         )
 
@@ -100,5 +104,10 @@ class AnimationClip:
                 if k["t"] <= t:
                     held = k
             out.hands = {k: v for k, v in held.items() if k in ("l", "r")}
+
+        if self.idle_keys:
+            k0, k1, e = _bracket(self.idle_keys, t)
+            out.idle_amp = lerp(k0.get("amp", 1.0), k1.get("amp", 1.0), e)
+            out.blink_rate = lerp(k0.get("blink", 1.0), k1.get("blink", 1.0), e)
 
         return out

@@ -140,6 +140,23 @@ def build_silhouette_test(library: AssetLibrary | None = None) -> Scene:
     return scene
 
 
+_DEFAULT_SCRIPT = """\
+(a quiet night under the stars)
+happy: What a beautiful evening.
+curious: Wait... what is that up there?
+No way!
+excited: It's a shooting star!
+thinking: Hmm... what should I wish for?
+hopeful: I wish this moment could last forever.
+"""
+
+
+def build_story(script: str | None = None, actor_id: str = "actor.max") -> Scene:
+    """Compile a written script into a performed, subtitled scene."""
+    from .story import storyboard
+    return storyboard(script or _DEFAULT_SCRIPT, actor_id=actor_id)
+
+
 def build_emotion_board(library: AssetLibrary | None = None,
                         emotions: list[str] | None = None) -> Scene:
     """One actor in each emotion's *body* pose — readability proof (works in

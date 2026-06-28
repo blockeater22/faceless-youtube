@@ -43,6 +43,10 @@ _ACTING_POSES = {
     "aggressive":  {"upper_arm_l": 216, "forearm_l": -2, "upper_arm_r": 144,
                     "forearm_r": 2, "spine": 7, "head": 6, "thigh_l": 200,
                     "thigh_r": 160},
+    "hand_on_chin": {"upper_arm_r": 110, "forearm_r": -135,
+                     "upper_arm_l": 198, "forearm_l": -4},      # pondering
+    "face_palm":   {"upper_arm_r": 78, "forearm_r": -158,
+                    "upper_arm_l": 198, "forearm_l": -4},       # hand to forehead
     # signature stances (also used by archetypes) — registered here so the
     # acting layer is self-contained regardless of import order.
     "arms_crossed": {"upper_arm_l": 218, "forearm_l": -118, "upper_arm_r": 142,
@@ -111,7 +115,7 @@ def _register():
                        eye=(0.45, 0.2), blink_rate=1.2, idle_amp=1.1, tempo=1.0),
         EmotionProfile("curious", "surprised", "lean_in", head=6, eye=(0.3, -0.25),
                        blink_rate=0.9, idle_amp=1.0, tempo=1.05),
-        EmotionProfile("confused", "confused", "think", head=9, eye=(0.25, -0.35),
+        EmotionProfile("confused", "confused", "hand_on_chin", head=8, eye=(0.25, -0.35),
                        hands=("four_finger", "four_finger"), blink_rate=1.0,
                        idle_amp=1.0, tempo=0.95),
         EmotionProfile("suspicious", "smirk", "arms_crossed", lean=-4, head=5,
@@ -122,7 +126,7 @@ def _register():
         EmotionProfile("angry", "angry", "aggressive",
                        hands=("fist", "fist"), blink_rate=0.7, idle_amp=1.1,
                        tempo=1.1),
-        EmotionProfile("frustrated", "exhausted", "facepalm", head=-6,
+        EmotionProfile("frustrated", "exhausted", "face_palm", head=8,
                        blink_rate=1.0, idle_amp=1.0, tempo=1.0),
         EmotionProfile("sad", "sad", "slump", head=13, offset=(0, 0.03),
                        eye=(0, 0.4), blink_rate=0.6, idle_amp=0.7, tempo=0.8),
@@ -136,7 +140,7 @@ def _register():
                        idle_amp=0.8, tempo=0.85),
         EmotionProfile("anxious", "nervous", "hands_clasped", head=8, lean=5,
                        eye=(0.3, 0.2), blink_rate=1.8, idle_amp=1.4, tempo=1.1),
-        EmotionProfile("thinking", "thinking", "think", head=7, eye=(0.3, -0.5),
+        EmotionProfile("thinking", "thinking", "hand_on_chin", head=7, eye=(0.3, -0.5),
                        blink_rate=0.8, idle_amp=0.9, tempo=0.9),
     ]
     for p in profiles:

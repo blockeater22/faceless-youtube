@@ -42,6 +42,17 @@ class Scene:
     props: list[dict] = field(default_factory=list)
     camera: Camera = field(default_factory=Camera)
     caption: str = ""
+    subtitles: list[dict] = field(default_factory=list)   # [{"t":s,"text":...}]
+
+    def subtitle_at(self, t: float) -> str:
+        """The active timed subtitle at time ``t`` (falls back to caption)."""
+        if not self.subtitles:
+            return self.caption
+        text = self.caption
+        for s in sorted(self.subtitles, key=lambda s: s["t"]):
+            if s["t"] <= t:
+                text = s.get("text", "")
+        return text
 
     @classmethod
     def from_spec(cls, spec: dict, library=None) -> "Scene":
@@ -85,6 +96,7 @@ class Scene:
             props=list(spec.get("props", [])),
             camera=Camera.from_spec(spec.get("camera", {})),
             caption=spec.get("caption", ""),
+            subtitles=list(spec.get("subtitles", [])),
         )
 
 

@@ -23,6 +23,7 @@ python -m stickforge lab        # the character lab: recombination lineup
 python -m stickforge acting     # an actor performing a beat sequence
 python -m stickforge story      # a wordless silent story (read it muted)
 python -m stickforge emotions   # emotion board (body acting reads w/o face)
+python -m stickforge storyboard stickforge/examples/story.txt  # script -> film
 python -m stickforge showcase   # expression contact sheet
 python -m stickforge assets --search actor
 python -m stickforge build stickforge/examples/hello.json
@@ -92,6 +93,24 @@ clip = perform([
 Each emotion (`stickforge/acting/emotion.py`) maps to a silhouette-readable body
 pose, head/spine attitude, hand state, gaze bias, blink rate, and tempo — so
 `python -m stickforge emotions` reads even with faces removed.
+
+## The Story Engine (script → performed film)
+
+Write a script; the director infers emotion per line, inserts "think before you
+react" beats, performs it, and syncs subtitles:
+
+```text
+(a quiet night under the stars)
+happy: What a beautiful evening.
+curious: Wait... what is that up there?
+No way!                     # inferred: shocked (gets a think-pause first)
+excited: It's a shooting star!
+```
+
+```python
+from stickforge.story import storyboard
+scene = storyboard(open("story.txt").read())   # -> a performed, subtitled Scene
+```
 
 ## Extending (no core edits)
 

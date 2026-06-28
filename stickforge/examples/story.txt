@@ -1,0 +1,9 @@
+# A short script — emotion is inferred per line (or set with "emotion:").
+(a quiet night under the stars)
+happy: What a beautiful evening.
+curious: Wait... what is that up there?
+No way!
+excited: It's a shooting star!
+thinking: Hmm... what should I wish for?
+hopeful: I wish this moment could last forever.
+relieved: Phew. Some things you don't need to overthink.

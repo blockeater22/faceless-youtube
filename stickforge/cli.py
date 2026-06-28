@@ -127,6 +127,40 @@ def _dialogue(args) -> int:
     return 0
 
 
+def _registry(args) -> int:
+    from .registry import default_registry
+    reg = default_registry()
+    if args.bench:
+        import time
+        from .registry.synthetic import generate
+        metas = generate(args.bench, seed=1)
+        t0 = time.time()
+        for m in metas:
+            reg.add(m, strict=False)
+        t_add = time.time() - t0
+        t0 = time.time()
+        res = reg.find_assets("modern wooden furniture for office", limit=10)
+        t_q = (time.time() - t0) * 1000
+        print(f"indexed {args.bench} assets in {t_add:.2f}s (total {len(reg)}); "
+              f"query {t_q:.1f}ms -> {len(res)} hits")
+        return 0
+    if args.stats:
+        cats = {}
+        for m in reg.all():
+            cats[m.category] = cats.get(m.category, 0) + 1
+        print(f"{len(reg)} assets across {len(cats)} categories:")
+        for c, n in sorted(cats.items()):
+            print(f"  {c:16s} {n}")
+        return 0
+    if args.query:
+        print(f"top matches for {args.query!r}:")
+        for m in reg.find_assets(args.query, limit=args.limit):
+            print(f"  {m.id:38s} q={m.quality_score} styles={','.join(m.styles)}")
+        return 0
+    print("usage: stickforge registry \"<query>\" | --stats | --bench N")
+    return 0
+
+
 def _storyboard(args) -> int:
     from .studio import build_story
     script = None
@@ -222,6 +256,13 @@ def main(argv=None) -> int:
     sb.add_argument("script", nargs="?", default=None, help="path to a script .txt (optional)")
     sb.add_argument("--actor", default="actor.max")
     sb.set_defaults(fn=_storyboard)
+
+    rg = sub.add_parser("registry", help="query the Asset Intelligence Engine")
+    rg.add_argument("query", nargs="?", default="")
+    rg.add_argument("--stats", action="store_true")
+    rg.add_argument("--bench", type=int, default=0, help="stress-test with N synthetic assets")
+    rg.add_argument("--limit", type=int, default=8)
+    rg.set_defaults(fn=_registry)
 
     a = sub.add_parser("assets", help="browse the asset library")
     a.add_argument("--search", default="")

@@ -24,7 +24,8 @@ registry-based seams — so every remaining module plugs in without a rewrite.
 |---|---|---|
 | Core | `stickforge/core` | geometry, easing, keyframes, registry |
 | **Stage (spatial)** | `stickforge/stage` | **world space, scene graph, affine transforms, anchors, depth layers + parallax, `Camera2D` (the only world→screen projection)** — the substrate every renderer/engine builds on |
-| Assets | `stickforge/assets` | Asset, Library (search/tags), Packs |
+| Assets | `stickforge/assets` | runtime content library (characters/clips), packs |
+| **Asset Intelligence** | `stickforge/registry` | **the semantic asset knowledge base** — canonical metadata schema, taxonomy, inverted-index semantic query, relationships, anchors, variants, constraints; the single source of truth every future engine queries (no file paths) |
 | **Parts** | `stickforge/parts` | **Character Design System** — per-category style registries (art providers) |
 | Rig + Character | `stickforge/character` | cartoon/line skeletons (FK), `ActorDesign` assembly |
 | Pose | `stickforge/pose` | named, blendable joint poses |
@@ -46,7 +47,7 @@ backend and is not the product look.
 
 | # | Requested module | Status | Where / how to extend |
 |---|---|---|---|
-| 1 | Asset Management System | **Built** | `assets/` — typed, taggable, searchable, JSON packs, versioning |
+| 1 | Asset Management System | **Built (intelligence)** | `registry/` — Asset Intelligence Engine: canonical schema (validated, forward-compatible), taxonomy, inverted-index semantic query, relationships/anchors/variants/constraints, versioned packs; scales to 50k+ assets (~1s index, sub-second query). `assets/` remains the runtime content library |
 | 2 | Character Assembly Engine | **Built (personality-first)** | `character/archetype.py` (shape language + parametric proportions + signature stance) + `parts/` + `ActorDesign`; distinct, non-interchangeable silhouettes (silhouette test included) |
 | 3 | Rigging Engine | **Built** | `character/skeleton.py` — hierarchical FK; `SKELETONS` registry |
 | 4 | Pose Engine | **Built (generative)** | `pose/builder.py` constructs poses movement-first (line-of-action → weight/contrapposto → spine → legs → arms); `pose/score.py` silhouette/appeal scorer; `pose/lab.py` generate-score-reject loop |
@@ -77,6 +78,34 @@ builds on.
 `ASSET_TYPES`, `RENDERERS`, `EASINGS`, `SKELETONS`, `POSES`, `EXPRESSIONS`,
 `ATTACHMENTS` are all registries. A plugin imports the registry and registers —
 no core change, no fork.
+
+## Asset Intelligence Engine (the knowledge base every engine queries)
+
+`stickforge/registry/` is the single source of truth for assets. Engines never
+touch files or names — they ask semantic questions:
+
+```python
+from stickforge.registry import default_registry, Placement
+reg = default_registry()
+reg.find_assets("a cozy sofa for a living room")     # ranked metadata
+reg.supports("world:furniture.office_desk")          # {laptop, coffee_mug, ...}
+reg.find_variants("chair.office")                    # variant set
+reg.choose_variant("chair.office", "modern")         # best variant for intent
+reg.anchor("world:furniture.office_desk", "top")     # named anchor (local)
+reg.validate_scene([Placement("...painting", "floor")])  # constraint check
+```
+
+- **schema.py** canonical metadata (validated, *additive* — unknown fields
+  preserved for forward compat), **taxonomy.py** extensible categories + open
+  vocabularies, **index.py** inverted indices (fast at scale), **query.py**
+  natural-phrase → ranked matches, **relationships.py** typed graph
+  (supports/belongs_to/variant_of/depends_on), **constraints.py** composition
+  validation (no ceiling lamps on the floor; no style mixing), **registry.py**
+  the public service. Versioned packs (`registry/data/*.json`) — core + future
+  marketplace content add assets with zero engine changes.
+
+When the World Engine is built it constructs scenes *entirely* by querying this
+registry and resolving anchors into the spatial foundation below.
 
 ## Spatial foundation (the substrate for World/Cinematic/Director/Universe)
 

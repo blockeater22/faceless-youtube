@@ -1,0 +1,130 @@
+{
+  "id": "world.core",
+  "version": "1.0.0",
+  "name": "Stickforge World Core",
+  "description": "A small founding set of world assets that exercises the full metadata schema.",
+  "assets": [
+    {
+      "id": "world:furniture.office_desk", "category": "furniture",
+      "name": "Office Desk",
+      "styles": ["modern", "corporate"], "themes": ["corporate"],
+      "environments": ["office"], "room_types": ["workspace", "conference_room"],
+      "materials": ["wood", "metal"], "tags": ["desk", "office", "work"],
+      "placement": {"surface": "floor"}, "layer": "midground",
+      "bbox": [2.4, 1.2],
+      "anchors": {"top": [0, -0.5], "left": [-0.5, -0.5], "right": [0.5, -0.5], "front": [0, 0.5]},
+      "interaction_points": {"work": [0, 0.55]},
+      "supported_actions": ["place_object", "lean", "write"],
+      "supports": ["laptop", "coffee_mug", "monitor", "notebook"],
+      "belongs_to": ["office", "workspace"],
+      "quality_score": 8.5
+    },
+    {
+      "id": "world:furniture.office_chair_modern", "category": "furniture",
+      "name": "Modern Office Chair",
+      "styles": ["modern", "corporate"], "environments": ["office"],
+      "room_types": ["workspace"], "materials": ["fabric", "metal"],
+      "tags": ["chair", "office", "ergonomic"],
+      "placement": {"surface": "floor"}, "bbox": [1.0, 1.6],
+      "anchors": {"seat": [0, 0.0], "back": [0, -0.4], "legs": [0, 0.5]},
+      "interaction_points": {"sit": [0, -0.05]},
+      "supported_actions": ["sit", "stand", "rotate", "move"],
+      "belongs_to": ["office"], "variant_key": "chair.office",
+      "quality_score": 8.8
+    },
+    {
+      "id": "world:furniture.office_chair_classic", "category": "furniture",
+      "name": "Classic Office Chair",
+      "styles": ["classic"], "environments": ["office"], "tags": ["chair", "office"],
+      "placement": {"surface": "floor"}, "bbox": [1.0, 1.6],
+      "anchors": {"seat": [0, 0.0], "back": [0, -0.4]},
+      "supported_actions": ["sit", "stand"], "belongs_to": ["office"],
+      "variant_key": "chair.office", "quality_score": 6.5
+    },
+    {
+      "id": "world:furniture.sofa_cozy", "category": "furniture",
+      "name": "Cozy Sofa",
+      "styles": ["modern", "cute"], "themes": ["cozy"], "environments": ["home"],
+      "room_types": ["living_room"], "materials": ["fabric"],
+      "tags": ["sofa", "couch", "comfy", "lounge"],
+      "placement": {"surface": "floor"}, "bbox": [3.0, 1.4],
+      "anchors": {"seat_left": [-0.3, 0], "seat_right": [0.3, 0]},
+      "interaction_points": {"sit": [0, -0.05]},
+      "supported_actions": ["sit", "lean"], "belongs_to": ["home", "living_room"],
+      "quality_score": 8.6
+    },
+    {
+      "id": "world:furniture.dining_table", "category": "furniture",
+      "name": "Wooden Dining Table",
+      "styles": ["classic", "modern"], "environments": ["home"],
+      "room_types": ["kitchen", "living_room"], "materials": ["wood"],
+      "tags": ["table", "dining", "wooden"],
+      "placement": {"surface": "floor"}, "bbox": [2.6, 1.2],
+      "anchors": {"top": [0, -0.5]}, "supported_actions": ["place_object", "lean"],
+      "supports": ["coffee_mug", "plate", "lamp"], "belongs_to": ["home", "kitchen"],
+      "quality_score": 8.0
+    },
+    {
+      "id": "world:electronics.laptop", "category": "electronics",
+      "name": "Modern Laptop",
+      "styles": ["modern", "minimal"], "environments": ["office", "home"],
+      "materials": ["metal"], "tags": ["laptop", "computer", "work"],
+      "placement": {"surface": "table"}, "bbox": [0.6, 0.4],
+      "anchors": {"screen": [0, -0.4]}, "supported_actions": ["place_object"],
+      "belongs_to": ["office"], "quality_score": 8.2
+    },
+    {
+      "id": "world:decoration.coffee_mug", "category": "decoration",
+      "name": "Coffee Mug",
+      "styles": ["modern", "cute"], "environments": ["office", "home"],
+      "materials": ["glass"], "tags": ["mug", "coffee", "cup"],
+      "placement": {"surface": "table"}, "bbox": [0.3, 0.35],
+      "supported_actions": ["pick_up", "put_down", "hold"],
+      "quality_score": 7.5
+    },
+    {
+      "id": "world:decoration.potted_plant", "category": "decoration",
+      "name": "Potted Plant",
+      "styles": ["modern", "cute"], "themes": ["cozy"],
+      "environments": ["office", "home"], "tags": ["plant", "green", "decor"],
+      "placement": {"surface": "any"}, "bbox": [0.8, 1.2],
+      "supported_actions": [], "quality_score": 7.8
+    },
+    {
+      "id": "world:decoration.painting", "category": "decoration",
+      "name": "Wall Painting",
+      "styles": ["classic", "modern"], "environments": ["office", "home"],
+      "tags": ["painting", "art", "frame", "wall"],
+      "placement": {"surface": "wall"}, "bbox": [1.2, 0.9],
+      "supported_actions": [], "quality_score": 7.2
+    },
+    {
+      "id": "world:furniture.ceiling_lamp", "category": "furniture",
+      "subcategory": "lighting", "name": "Ceiling Lamp",
+      "styles": ["modern", "minimal"], "environments": ["office", "home"],
+      "tags": ["lamp", "light", "ceiling"], "lighting_compat": ["warm", "cool"],
+      "placement": {"surface": "ceiling"}, "bbox": [0.8, 0.8],
+      "supported_actions": [], "quality_score": 7.6
+    },
+    {
+      "id": "world:architecture.office_window", "category": "architecture",
+      "name": "Office Window",
+      "styles": ["modern", "corporate"], "environments": ["office"],
+      "tags": ["window", "glass", "view"], "materials": ["glass"],
+      "weather_compat": ["rain", "clear", "snow"], "time_compat": ["day", "night"],
+      "placement": {"surface": "wall"}, "bbox": [1.6, 2.0],
+      "anchors": {"center": [0, 0], "top": [0, -0.5], "bottom": [0, 0.5]},
+      "belongs_to": ["office"], "quality_score": 8.1
+    },
+    {
+      "id": "world:architecture.office_door", "category": "architecture",
+      "name": "Office Door",
+      "styles": ["modern", "corporate"], "environments": ["office"],
+      "tags": ["door", "entrance"], "materials": ["wood"],
+      "placement": {"surface": "wall"}, "bbox": [1.2, 2.4],
+      "interaction_points": {"handle": [0.35, 0.1]},
+      "supported_actions": ["open", "close", "knock", "lock"],
+      "belongs_to": ["office", "reception"], "quality_score": 7.9
+    }
+  ]
+}

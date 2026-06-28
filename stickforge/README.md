@@ -74,6 +74,29 @@ IllustratedRenderer ─> clean SVG frames ─> HTML player / MP4
 
 ---
 
+## Asset Intelligence Engine (semantic asset registry)
+
+The single source of truth for assets — engines query by meaning, never by path:
+
+```python
+from stickforge.registry import default_registry
+reg = default_registry()
+reg.find_assets("a rainy office window")     # -> ranked AssetMeta
+reg.choose_variant("chair.office", "modern") # -> best variant for the intent
+reg.supports("world:furniture.office_desk")  # -> {laptop, coffee_mug, ...}
+```
+
+```bash
+python -m stickforge registry "cozy sofa for a living room"
+python -m stickforge registry --stats
+python -m stickforge registry --bench 50000   # scale test (~1s index)
+```
+
+Rich validated metadata (anchors, placement surfaces, interactions, variants,
+relationships, styles, performance), inverted-index queries that scale to
+100k+ assets, and a constraint system that rejects impossible scenes. Versioned
+JSON packs let core + marketplace content plug in without engine changes.
+
 ## Generative posing (line-of-action first)
 
 Poses are constructed from movement, not authored arms-first — line of action →

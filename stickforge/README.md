@@ -20,7 +20,9 @@ python -m stickforge demo       # showcase: actors acting  -> output/.../demo.ht
 python -m stickforge cast       # the personality-first archetype cast
 python -m stickforge silhouettes# silhouette readability test (no detail)
 python -m stickforge lab        # the character lab: recombination lineup
-python -m stickforge acting     # one actor performing a range of emotions
+python -m stickforge acting     # an actor performing a beat sequence
+python -m stickforge story      # a wordless silent story (read it muted)
+python -m stickforge emotions   # emotion board (body acting reads w/o face)
 python -m stickforge showcase   # expression contact sheet
 python -m stickforge assets --search actor
 python -m stickforge build stickforge/examples/hello.json
@@ -70,6 +72,26 @@ IllustratedRenderer ─> clean SVG frames ─> HTML player / MP4
 ```
 
 ---
+
+## The Acting Engine (performance, not playback)
+
+Don't keyframe motion — describe *intention* as beats; the engine compiles
+acting (anticipation, think-before-act pauses, emotion-driven body/eyes/timing):
+
+```python
+from stickforge.acting import perform, Beat
+
+clip = perform([
+    Beat("curious", 1.4, "act"),                       # notices something
+    Beat("confused", 1.6, "think", look=(0.4, -0.4)),  # pauses, eyes drift up
+    Beat("shocked", 1.0, "react"),                      # recoils (anticipation)
+    Beat("excited", 1.8, "act"),                        # delight
+])
+```
+
+Each emotion (`stickforge/acting/emotion.py`) maps to a silhouette-readable body
+pose, head/spine attitude, hand state, gaze bias, blink rate, and tempo — so
+`python -m stickforge emotions` reads even with faces removed.
 
 ## Extending (no core edits)
 

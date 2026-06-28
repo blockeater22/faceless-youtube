@@ -86,6 +86,20 @@ def _acting(args) -> int:
     return 0
 
 
+def _story(args) -> int:
+    from .studio import build_silent_story
+    _export(build_silent_story(args.actor), args.out, "silent_story",
+            args.format, args.fps, args.backend)
+    return 0
+
+
+def _emotions(args) -> int:
+    from .studio import build_emotion_board
+    _export(build_emotion_board(), args.out, "emotion_board",
+            args.format, args.fps, args.backend)
+    return 0
+
+
 def _assets(args) -> int:
     from .studio import load_core_library
     lib = load_core_library()
@@ -153,9 +167,15 @@ def main(argv=None) -> int:
     sub.add_parser("cast", help="render the personality-first archetype cast").set_defaults(fn=_cast)
     sub.add_parser("silhouettes", help="render the silhouette readability test").set_defaults(fn=_silhouettes)
 
-    ac = sub.add_parser("acting", help="render an actor performing emotions")
+    ac = sub.add_parser("acting", help="render an actor performing a beat sequence")
     ac.add_argument("--actor", default="actor.max")
     ac.set_defaults(fn=_acting)
+
+    st = sub.add_parser("story", help="render the wordless silent-story performance")
+    st.add_argument("--actor", default="actor.max")
+    st.set_defaults(fn=_story)
+
+    sub.add_parser("emotions", help="render the emotion board (body-acting readability)").set_defaults(fn=_emotions)
 
     a = sub.add_parser("assets", help="browse the asset library")
     a.add_argument("--search", default="")

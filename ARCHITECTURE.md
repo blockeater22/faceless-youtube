@@ -29,6 +29,7 @@ registry-based seams — so every remaining module plugs in without a rewrite.
 | Pose | `stickforge/pose` | named, blendable joint poses |
 | Expression | `stickforge/expression` | facial-parameter emotions + blending |
 | Animation | `stickforge/animation` | keyframed clips + procedural life |
+| **Acting** | `stickforge/acting` | **emotional state machine + beat-based performance** (think→react→act, anticipation, eye acting) |
 | Scene | `stickforge/scene` | scene graph, camera, timeline |
 | Render | `stickforge/render` | `illustrated` (house style) + `svg` (legacy) backends, motion FX |
 | Export | `stickforge/export` | frames → HTML player / MP4 |
@@ -48,7 +49,7 @@ backend and is not the product look.
 | 4 | Pose Engine | **Built** | `pose/` — `POSES` registry, partial poses, blending |
 | 5 | Expression Engine | **Built** | `expression/` — continuous params, `EXPRESSIONS` registry |
 | 6 | Gesture Engine | **Built (basic)** | hand-gesture styles (point/thumbs-up/peace/fist/open/wave) + per-moment `hands` track on clips |
-| 7 | Motion Engine | **Built** | `animation/clip.py` keyframes + `procedural.py` life; walk cycle clip |
+| 7 | Motion Engine | **Built** | `animation/clip.py` keyframes + `procedural.py` life; walk cycle; **`acting/` performance compiler** (emotion→body/eyes/timing, think-before-act, anticipation) |
 | 8 | Physics Engine | **Built (basic)** | easings (anticipation/overshoot/bounce) + secondary-motion lag (hair bounce / hand follow-through) in the illustrated renderer |
 | 9 | Camera Engine | **Built** | `scene/camera.py` — keyframable zoom/pan + shake; add orbit/parallax |
 | 10 | Scene Builder | **Built** | `scene/scene.py` — actors/props/background/camera from spec |

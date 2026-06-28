@@ -140,32 +140,87 @@ def build_silhouette_test(library: AssetLibrary | None = None) -> Scene:
     return scene
 
 
+def build_emotion_board(library: AssetLibrary | None = None,
+                        emotions: list[str] | None = None) -> Scene:
+    """One actor in each emotion's *body* pose — readability proof (works in
+    silhouette too: render with silhouette=True)."""
+    from .acting.emotion import EMOTIONS
+    from .acting.performance import emotion_clip
+    from .scene.scene import Actor
+    from .character.character import build_character
+    lib = library or load_core_library()
+    emotions = emotions or ["happy", "excited", "confident", "curious",
+                            "confused", "suspicious", "shocked", "angry",
+                            "sad", "nervous", "determined", "relieved"]
+    cols = 6
+    actors, props = [], []
+    for i, emo in enumerate(emotions):
+        if emo not in EMOTIONS:
+            continue
+        col, row = i % cols, i // cols
+        fx = (col + 0.5) / cols
+        fy = 0.34 + row * 0.40
+        clip = emotion_clip(emo, dur=1.0, loop=False)
+        actors.append(Actor(character=build_character({"id": "actor.max"}),
+                            clip=clip, pos=(fx, fy), unit_scale=0.10, life=0.0,
+                            id=f"e{i}"))
+        props.append({"type": "label", "text": emo, "pos": [fx, fy + 0.12],
+                      "font": 0.020, "color": "#1b1b1b"})
+    return Scene(id="emotions", duration=1.0,
+                 background={"type": "plain", "color": "#fbfbf7"},
+                 actors=actors, props=props,
+                 caption="Acting reads in the body — emotion is posture, not just face.")
+
+
+def build_silent_story(actor_id: str = "actor.max",
+                       library: AssetLibrary | None = None) -> Scene:
+    """A wordless beat performance: notice -> think -> react -> delight.
+    Should be understandable with the sound (and captions) off."""
+    from .acting.performance import perform, Beat
+    from .scene.scene import Actor
+    from .character.character import build_character
+    lib = library or load_core_library()
+    beats = [
+        Beat("neutral", 1.0, "act"),
+        Beat("curious", 1.6, "act", text="...something catches their eye"),
+        Beat("confused", 1.6, "think", look=(0.5, -0.4), text="wait — what is that?"),
+        Beat("shocked", 1.1, "react", text="!"),
+        Beat("excited", 2.2, "act", text="amazing!"),
+    ]
+    clip = perform(beats, loop=False)
+    actor = Actor(character=build_character({"id": actor_id}), clip=clip,
+                  pos=(0.42, 0.64), unit_scale=0.34, life=1.0, id="star")
+    # the thing being reacted to (staging): a glowing star, screen-right
+    props = [{"type": "fx", "name": "stars", "pos": [0.80, 0.42],
+              "size": 0.05, "color": "#ffd34d"}]
+    return Scene(id="silent_story", duration=clip.duration,
+                 background={"type": "night"}, actors=[actor], props=props,
+                 caption="(sound off) — can you read the story?")
+
+
 def build_acting_demo(actor_id: str = "actor.max",
                       library: AssetLibrary | None = None) -> Scene:
-    """One actor, acting through a range of emotions — personality over geometry."""
+    """One actor performing a beat sequence through the Acting Engine —
+    thinking before reacting, with anticipation and intentional eye acting."""
+    from .acting.performance import perform, Beat
+    from .scene.scene import Actor
+    from .character.character import build_character
     lib = library or load_core_library()
-    clip = {
-        "duration": 7.0,
-        "poses": [
-            {"t": 0.0, "pose": "idle"}, {"t": 1.2, "pose": "wave", "ease": "ease_out"},
-            {"t": 2.4, "pose": "think", "ease": "ease_in_out"},
-            {"t": 3.8, "pose": "shrug"}, {"t": 5.0, "pose": "celebrate", "ease": "bounce"},
-            {"t": 6.4, "pose": "idle"},
-        ],
-        "expressions": [
-            {"t": 0.0, "expr": "happy"}, {"t": 1.2, "expr": "excited"},
-            {"t": 2.4, "expr": "thinking"}, {"t": 3.6, "expr": "confused"},
-            {"t": 4.6, "expr": "surprised", "ease": "pop"},
-            {"t": 5.2, "expr": "laughing"}, {"t": 6.4, "expr": "happy"},
-        ],
-    }
-    return Scene.from_spec({
-        "id": "acting", "duration": 7.0, "background": {"type": "night"},
-        "caption": "Acting first — the rig serves the performance.",
-        "camera": {"zoom_keys": [{"t": 0, "value": 1.05}, {"t": 7, "value": 1.15}]},
-        "actors": [{"id": "star", "character": actor_id, "clip": clip,
-                    "pos": [0.5, 0.62], "unit_scale": 0.36}],
-    }, lib)
+    beats = [
+        Beat("happy", 1.3, "act"),
+        Beat("curious", 1.4, "act", text="hm?"),
+        Beat("confused", 1.6, "think", look=(0.4, -0.4)),
+        Beat("shocked", 1.0, "react"),
+        Beat("excited", 1.8, "act"),
+        Beat("confident", 1.6, "act"),
+    ]
+    from .scene.camera import Camera
+    clip = perform(beats, loop=True)
+    actor = Actor(character=build_character({"id": actor_id}), clip=clip,
+                  pos=(0.5, 0.62), unit_scale=0.36, life=1.0, id="star")
+    return Scene(id="acting", duration=clip.duration, background={"type": "night"},
+                 caption="Acting first — think, react, then move.",
+                 camera=Camera(zoom=1.08), actors=[actor])
 
 
 def build_expression_showcase(emotions: list[str] | None = None) -> Scene:

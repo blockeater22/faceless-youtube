@@ -211,3 +211,93 @@ Be honest — whose highlight reel makes you forget your own wins? No judgment i
 ```
 social comparison, comparison trap, highlight reel, why i compare myself, social media anxiety, comparison is the thief of joy, self worth, psychology shorts, mental health, self compassion, instagram vs reality, relatable, stickman animation, psychology facts, self esteem
 ```
+
+---
+
+# Week 3 — data-driven batch (leaning into the post-event-processing winner)
+
+> Week 1–2 signal: of 6 shorts, **"Why You Replay Arguments Hours After They
+> End" (~500 views)** beat the rest (<150). It's the most vivid, universal,
+> "that's literally me" *involuntary mental-loop* topic. These three lean
+> hard into that exact vein. Same playbook (pin the question, reply in the
+> first hour, post 8 AM / 8 PM).
+
+Files:
+- `output/cringe_attacks_9x16.mp4` + `output/cringe_attacks_thumb.png`
+- `output/over_apologizing_9x16.mp4` + `output/over_apologizing_thumb.png`
+- `output/rehearsing_conversations_9x16.mp4` + `output/rehearsing_conversations_thumb.png`
+
+## #7 — Cringe Attacks · Mon
+
+**Title:**
+```
+Why You Cringe At Things You Did Years Ago
+```
+**Description:**
+```
+A memory from ten years ago ambushes you out of nowhere and you physically wince. Psychologists call them "cringe attacks" — your brain replays an old embarrassment like it just happened, and the shame feels as fresh as the day you earned it. No one else even remembers the moment.
+
+That cringe isn't proof you're broken — it's proof you grew. You wince because you'd never do that again. Be kind to the version of you who was still learning.
+
+💬 What memory still makes you cringe out of nowhere? Drop it below.
+
+#shorts #psychology #overthinking #cringe #selfcompassion
+```
+**Pinned first comment:**
+```
+What memory still makes you cringe out of nowhere? 😬 Mine hits me at 2am every time.
+```
+**Tags:**
+```
+cringe attacks, intrusive memories, why do i cringe at old memories, embarrassing memories, overthinking, shame spiral, psychology shorts, mental health, self compassion, overthinker, relatable, stickman animation, psychology facts, anxiety, brain facts
+```
+
+## #8 — Over-Apologizing · Wed
+
+**Title:**
+```
+Why You Say Sorry When It's Not Your Fault
+```
+**Description:**
+```
+You said sorry three times before lunch — for things that were never your fault. Psychologists call it the "fawn response": your nervous system apologizes to keep the peace, because saying sorry first feels safer than being blamed.
+
+That reflex isn't weakness — it's a survival skill you learned somewhere that taking the blame kept you safe. You're allowed to take up space without an apology. Save your sorry for when you truly mean it.
+
+💬 What do you apologize for that was never your fault? Drop it below.
+
+#shorts #psychology #peoplepleasing #boundaries #mentalhealth
+```
+**Pinned first comment:**
+```
+What do you say sorry for that was NEVER your fault? I'll start: bumping into furniture. 🙃
+```
+**Tags:**
+```
+fawn response, over apologizing, why do i apologize so much, people pleasing, saying sorry too much, boundaries, trauma response, psychology shorts, mental health, self compassion, self worth, relatable, stickman animation, psychology facts, anxiety
+```
+
+## #9 — Rehearsing Conversations · Fri
+
+**Title:**
+```
+Why You Rehearse Conversations That Never Happen
+```
+**Description:**
+```
+You argued with someone in the shower this morning — a fight that never actually happened. Psychologists call it "anticipatory rehearsal": your brain scripts the conversation and runs every reply so nothing can catch you off guard, finishing the fight before it ever begins.
+
+That rehearsal isn't crazy — it's your brain trying to protect you from a threat that usually never arrives. Most of those conversations stay safely in your head. You can let the imaginary argument go unwatched.
+
+💬 What conversation have you rehearsed that never happened? Drop it below.
+
+#shorts #psychology #overthinking #anxiety #intrusivethoughts
+```
+**Pinned first comment:**
+```
+What's a conversation you fully rehearsed that never actually happened? 🚿 Shower arguments count.
+```
+**Tags:**
+```
+anticipatory anxiety, rehearsing conversations, shower arguments, why do i rehearse conversations, overthinking, intrusive thoughts, imaginary arguments, psychology shorts, mental health, self compassion, overthinker, relatable, stickman animation, psychology facts, anxiety relief
+```

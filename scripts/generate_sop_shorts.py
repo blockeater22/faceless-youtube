@@ -312,6 +312,44 @@ TOPICS = [
         title_behavior="You Compare Yourself", title_outcome="to Everyone's Highlight Reel",
         keywords=["social comparison", "comparison trap", "highlight reel", "self worth", "social media anxiety"],
     ),
+    # ---- Week 3 (leaning into what worked: vivid, universal, involuntary
+    # mental-loop topics in the vein of the post-event-processing winner) ----
+    dict(
+        slug="cringe_attacks",
+        hook="A memory from ten years ago made you wince.",
+        explain="Psychologists call them cringe attacks. Your brain replays an old embarrassment like it just happened. "
+                "The shame feels as fresh as the day you earned it. No one else even remembers the moment.",
+        reframe="That cringe isn't proof you're broken, it's proof you grew. You wince because you'd never do that again. "
+                "The old you didn't know what you know now. Be kind to the version who was still learning.",
+        cta_question="What memory still makes you cringe out of nowhere?",
+        specificity="ten years ago",
+        title_behavior="You Cringe At Things You Did", title_outcome="Years Ago",
+        keywords=["cringe attacks", "intrusive memories", "embarrassment", "overthinking", "self compassion"],
+    ),
+    dict(
+        slug="over_apologizing",
+        hook="You said sorry three times before lunch today.",
+        explain="Psychologists call it the fawn response. Your nervous system says sorry to keep the peace. "
+                "You apologize for things that were never your fault. Saying sorry first feels safer than being blamed.",
+        reframe="That reflex isn't weakness, it's a survival skill you learned. Somewhere you were taught that taking blame kept you safe. "
+                "You're allowed to take up space without an apology. Save your sorry for when you truly mean it.",
+        cta_question="What do you apologize for that was never your fault?",
+        specificity="three times",
+        title_behavior="You Say Sorry", title_outcome="When It's Not Your Fault",
+        keywords=["fawn response", "over apologizing", "people pleasing", "boundaries", "self compassion"],
+    ),
+    dict(
+        slug="rehearsing_conversations",
+        hook="You argued with someone in the shower this morning.",
+        explain="Psychologists call it anticipatory rehearsal. Your brain scripts a conversation that may never happen. "
+                "It runs every reply so nothing can catch you off guard. You finish the fight before it ever begins.",
+        reframe="That rehearsal isn't crazy, it's your brain trying to protect you. It's preparing for a threat that usually never arrives. "
+                "Most of those conversations stay safely in your head. You can let the imaginary argument go unwatched.",
+        cta_question="What conversation have you rehearsed that never happened?",
+        specificity="in the shower",
+        title_behavior="You Rehearse Conversations", title_outcome="That Never Happen",
+        keywords=["anticipatory anxiety", "rehearsing conversations", "overthinking", "intrusive thoughts", "self compassion"],
+    ),
 ]
 
 assert len({t["slug"] for t in TOPICS}) == len(TOPICS)

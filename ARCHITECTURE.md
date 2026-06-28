@@ -23,6 +23,7 @@ registry-based seams — so every remaining module plugs in without a rewrite.
 | Layer | Package | Responsibility |
 |---|---|---|
 | Core | `stickforge/core` | geometry, easing, keyframes, registry |
+| **Stage (spatial)** | `stickforge/stage` | **world space, scene graph, affine transforms, anchors, depth layers + parallax, `Camera2D` (the only world→screen projection)** — the substrate every renderer/engine builds on |
 | Assets | `stickforge/assets` | Asset, Library (search/tags), Packs |
 | **Parts** | `stickforge/parts` | **Character Design System** — per-category style registries (art providers) |
 | Rig + Character | `stickforge/character` | cartoon/line skeletons (FK), `ActorDesign` assembly |
@@ -33,7 +34,7 @@ registry-based seams — so every remaining module plugs in without a rewrite.
 | **Story** | `stickforge/story` | **script → beats → performed, subtitled scene**; multi-character dialogue staging + eye contact |
 | **Voice** | `stickforge/voice` | **procedural lip-sync (visemes)** + a pluggable TTS interface (timing model) |
 | Scene | `stickforge/scene` | scene graph, camera, timeline |
-| Render | `stickforge/render` | `illustrated` (house style) + `svg` (legacy) backends, motion FX |
+| Render | `stickforge/render` | `illustrated` (house style) builds a **scene graph in world space** and projects via `Camera2D`; `svg` (legacy) backend; motion FX |
 | Export | `stickforge/export` | frames → HTML player / MP4 |
 
 **Visual identity:** the default `illustrated` renderer produces clean flat
@@ -76,6 +77,25 @@ builds on.
 `ASSET_TYPES`, `RENDERERS`, `EASINGS`, `SKELETONS`, `POSES`, `EXPRESSIONS`,
 `ATTACHMENTS` are all registries. A plugin imports the registry and registers —
 no core change, no fork.
+
+## Spatial foundation (the substrate for World/Cinematic/Director/Universe)
+
+`stickforge/stage/` makes rendering resolution- and screen-independent:
+
+- **World space** (`world.py`) — resolution-independent units (`REFERENCE`
+  across the short edge at zoom 1), a ground plane, and a `Viewport`.
+- **Scene graph** (`node.py`, `scenegraph.py`) — a tree of `SceneNode`s with
+  composable `Transform2D`s, named **anchors** (e.g. an actor's `hand`/`head`/
+  `feet`, exposed per frame), and depth **layers** with **parallax**.
+- **Camera2D** (`camera.py`) — the *only* world→screen projection
+  (`project`/`unproject`), with `look_at`/`framed_on` helpers the Cinematic
+  Engine will drive. The renderer no longer computes screen coordinates itself.
+
+The legacy screen-fraction Scene API is bridged via `World.frac_to_world`, so
+existing scenes render identically while new engines author in world space.
+Next engines plug in here: the **World Engine** adds environment/prop nodes on
+the background/ground layers; the **Cinematic Engine** drives the camera and
+reads anchors for framing.
 
 ## Recommended next increments
 

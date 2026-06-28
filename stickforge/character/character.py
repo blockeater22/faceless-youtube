@@ -10,13 +10,14 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 
-from .skeleton import Skeleton, default_humanoid
+from .skeleton import Skeleton, default_humanoid, cartoon_humanoid
 
 # Skeletons available by name. Plugins can register more.
 from ..core.registry import Registry
 
 SKELETONS: "Registry" = Registry("skeleton")
 SKELETONS.register("humanoid", default_humanoid)
+SKELETONS.register("cartoon", cartoon_humanoid)
 
 
 @dataclass
@@ -52,6 +53,7 @@ class CharacterSpec:
 class Character:
     spec: CharacterSpec
     skeleton: Skeleton
+    design: "object | None" = None     # ActorDesign for the illustrated renderer
 
     @property
     def id(self) -> str:
@@ -73,19 +75,31 @@ class Character:
 def build_character(source, library=None) -> Character:
     """Build a Character from a CharacterSpec, a dict, or a library Asset.
 
-    ``library`` is accepted for future asset cross-references (e.g. resolving a
-    skeleton asset); the built-in skeletons come from the SKELETONS registry.
+    Also attaches an :class:`ActorDesign` (part-style selection + palette) used
+    by the illustrated renderer. The built-in skeletons come from the SKELETONS
+    registry; the skeleton defaults to the design's choice (``cartoon``).
     """
+    from .design import ActorDesign
+
+    raw: dict
     if isinstance(source, CharacterSpec):
         spec = source
+        raw = {"id": spec.id, "name": spec.name, "skeleton": spec.skeleton}
     elif hasattr(source, "type") and getattr(source, "type", None) == "character":
-        spec = CharacterSpec.from_dict({"id": source.id, "name": source.name,
-                                        **source.data})
+        raw = {"id": source.id, "name": source.name, **source.data}
+        spec = CharacterSpec.from_dict(raw)
     elif isinstance(source, dict):
-        spec = CharacterSpec.from_dict(source)
+        raw = dict(source)
+        spec = CharacterSpec.from_dict(raw)
     else:
         raise TypeError(f"cannot build character from {type(source).__name__}")
 
-    factory = SKELETONS.get(spec.skeleton)
-    skeleton = factory()
-    return Character(spec=spec, skeleton=skeleton)
+    design = ActorDesign.from_dict(raw)
+    # the design drives the rig; the legacy spec's skeleton is honored only if it
+    # was explicitly set to a non-default value.
+    skel_name = design.skeleton
+    if spec.skeleton not in ("humanoid", design.skeleton) and "parts" not in raw \
+            and "palette" not in raw:
+        skel_name = spec.skeleton
+    skeleton = SKELETONS.get(skel_name)()
+    return Character(spec=spec, skeleton=skeleton, design=design)

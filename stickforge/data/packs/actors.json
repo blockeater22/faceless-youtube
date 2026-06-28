@@ -1,0 +1,54 @@
+{
+  "id": "actors",
+  "version": "0.1.0",
+  "name": "Stickforge Actors",
+  "description": "Illustrated cartoon actors assembled from the component library — each a different selection of part styles + palette.",
+  "assets": [
+    {
+      "id": "actor.max", "type": "character", "name": "Max",
+      "tags": ["actor", "illustrated", "default"],
+      "data": {
+        "skeleton": "cartoon", "palette": "classic", "base_expression": "happy",
+        "parts": {"hair": "tuft", "eyes": "cartoon", "brows": "thick",
+                  "mouth": "default", "body": "regular", "feet": "shoe"}
+      }
+    },
+    {
+      "id": "actor.nova", "type": "character", "name": "Nova",
+      "tags": ["actor", "illustrated", "cool"],
+      "data": {
+        "skeleton": "cartoon", "palette": "blue", "base_expression": "excited",
+        "parts": {"hair": "ponytail", "eyes": "cartoon", "brows": "thin",
+                  "mouth": "wide", "body": "regular", "feet": "shoe"}
+      }
+    },
+    {
+      "id": "actor.pip", "type": "character", "name": "Pip",
+      "tags": ["actor", "illustrated", "round"],
+      "data": {
+        "skeleton": "cartoon", "palette": "green", "base_expression": "laughing",
+        "parts": {"hair": "spikes", "eyes": "round", "brows": "thick",
+                  "mouth": "wide", "body": "round", "feet": "shoe"}
+      }
+    },
+    {
+      "id": "actor.sage", "type": "character", "name": "Sage",
+      "tags": ["actor", "illustrated", "smart"],
+      "data": {
+        "skeleton": "cartoon", "palette": "purple", "base_expression": "thinking",
+        "parts": {"hair": "swoosh", "eyes": "cartoon", "brows": "flat",
+                  "mouth": "small", "body": "slim", "feet": "shoe",
+                  "accessory": "glasses"}
+      }
+    },
+    {
+      "id": "actor.rex", "type": "character", "name": "Rex",
+      "tags": ["actor", "illustrated", "broad"],
+      "data": {
+        "skeleton": "cartoon", "palette": "red", "base_expression": "determined",
+        "parts": {"hair": "mop", "eyes": "cartoon", "brows": "thick",
+                  "mouth": "default", "body": "broad", "feet": "boot"}
+      }
+    }
+  ]
+}

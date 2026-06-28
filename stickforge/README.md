@@ -1,113 +1,109 @@
 # stickforge
 
-A **modular, data-driven stickman animation engine**. Characters, poses,
-expressions, and animations are *data* (loadable from JSON asset packs), never
-hardcoded into the renderer. The core has **zero third-party dependencies**;
-rasterization/video are optional backends that degrade gracefully.
+A **modular, data-driven engine for illustrated cartoon actors**. Characters are
+not drawn by hand and not hardcoded — they are **assembled from a component
+library** (head, hair, eyes, brows, mouth, hands, feet, body build, clothing,
+accessories), posed on a rig, and rendered in a clean flat **house style**. The
+core has **zero third-party dependencies**.
 
-This is the fresh engine core for the platform — built bottom-up as independent,
-registry-extensible layers so the larger feature set (physics, lip-sync,
-marketplace, editor, AI) can be layered on without rewrites. See
-[`ARCHITECTURE.md`](../ARCHITECTURE.md) for the full module map and roadmap.
+> The look is an *illustrated cartoon actor*, not a mathematical stickman:
+> big white head + bold outline, expressive face, hair, yellow tee with rounded
+> shoulders, black shorts, thick limbs, simple hands, shoes, ground shadow.
+> See [`STYLE_GUIDE.md`](../STYLE_GUIDE.md).
 
 ---
 
 ## Quickstart
 
 ```bash
-# zero dependencies needed for these:
-python -m stickforge demo                  # -> output/stickforge/demo.html
-python -m stickforge showcase              # expression contact sheet
-python -m stickforge assets --search wave  # browse the asset library
-python -m stickforge poses                 # list poses
+python -m stickforge demo       # showcase: actors acting  -> output/.../demo.html
+python -m stickforge lab        # the character lab: recombination lineup
+python -m stickforge acting     # one actor performing a range of emotions
+python -m stickforge showcase   # expression contact sheet
+python -m stickforge assets --search actor
 python -m stickforge build stickforge/examples/hello.json
 
 # global options go BEFORE the subcommand:
 python -m stickforge --format 16:9 --fps 30 demo
+python -m stickforge --backend svg demo     # legacy line-stickman renderer
 ```
 
-Every command writes a **self-contained `.html` player** (opens in any browser,
-no server, no codecs). If `cairosvg` **and** `ffmpeg` are installed, an `.mp4`
-is written too:
-
-```bash
-pip install cairosvg          # SVG rasterizer
-apt-get install -y ffmpeg     # video muxer
-```
+Every command writes a **self-contained `.html` player** (any browser, no
+server, no codecs). With `cairosvg` + `ffmpeg` installed it also writes `.mp4`.
 
 ---
 
-## Concepts
+## The Character Design System
+
+A character is a *selection*, not a drawing. Each part category is a registry of
+styles; a design picks one per category plus a palette and body build:
+
+```python
+from stickforge.character.design import ActorDesign
+from stickforge.parts import catalog, combination_count
+
+d = ActorDesign.from_dict({
+    "palette": "blue",
+    "parts": {"hair": "ponytail", "eyes": "cartoon", "body": "round",
+              "accessory": "glasses", "feet": "boot"},
+})
+print(combination_count())   # distinct characters the current library can make
+print(catalog())             # styles available per category
+```
+
+Because the choices multiply, a modest seed library already yields **~10^6**
+characters — and it grows toward the 50-heads / 120-eyes targets simply by
+registering more styles. No engine change.
 
 ```
-AssetLibrary ── packs (JSON) ──> characters / clips / poses / expressions
+ActorDesign (part-style selection + palette + build)
      │
-Character (spec + Skeleton)      Skeleton = bones solved by forward kinematics
+Character (design + cartoon Rig)
      │
-AnimationClip (keyframed poses + expressions)  ──sample(t)──>  Posing
-     │                                           + procedural life (breath/blink)
-Scene (actors + camera + background + props)
+AnimationClip (keyframed poses + expressions) ─sample─> Posing + procedural life
      │
-Timeline (scenes back-to-back)
+Scene (actors + camera + background + props/FX) ─> Timeline
      │
-SvgRenderer ──> SVG frames ──> HTML player / MP4
-```
-
-- **Angle convention:** degrees, clockwise from straight up (`0`=up, `90`=right).
-- **Rig:** hierarchical — leaning the spine carries the arms and head (real
-  forward kinematics, not independent absolute angles).
-- **Expressions:** a single continuous parameter space (brows, eyes, gaze,
-  mouth). "happy"/"angry"/… are just named presets; anything between is a blend.
-
----
-
-## Authoring a project
-
-A project is JSON: a `timeline` of scenes, each placing `actors` (a character +
-an animation clip) under a `camera`. Characters and clips are referenced by
-library id, or inlined. See [`examples/hello.json`](examples/hello.json).
-
-```jsonc
-{
-  "format": "9:16", "fps": 24,
-  "timeline": [{
-    "id": "intro", "duration": 2.6,
-    "background": {"type": "night"},
-    "caption": "Built from a JSON spec.",
-    "actors": [{ "character": "char.classic", "clip_id": "clip.wave_hello",
-                 "pos": [0.5, 0.66], "unit_scale": 0.36 }]
-  }]
-}
+IllustratedRenderer ─> clean SVG frames ─> HTML player / MP4
 ```
 
 ---
 
 ## Extending (no core edits)
 
-Everything pluggable is a `Registry`:
+Every catalogue is a `Registry` — add a style/effect by registering it:
 
 ```python
-from stickforge.pose import register_pose
-from stickforge.expression import register_expression
-from stickforge.render.svg import ATTACHMENTS         # hair/hats/accessories
-from stickforge.core.easing import EASINGS
-from stickforge.character.character import SKELETONS
+from stickforge.parts import HAIRS, EYES, ACCESSORIES
+from stickforge.render.fx import FX
 
-register_pose("tpose", {"upper_arm_l": 270, "upper_arm_r": 90})
-register_expression("zen", {"eye_open": 0.2, "mouth_curve": 0.3})
+@HAIRS.register("mohawk")
+def mohawk(cv, f):
+    ...                      # draw using f.at(lx, ly), f.color(...), f.outline_w
 
-@ATTACHMENTS.register("halo")
-def halo(cv, center, head_r, angle, color, spec):
-    cv.circle(center + (0, -head_r*1.6), head_r*0.8, color, 4)
+@FX.register("zzz")
+def zzz(cv, center, size, color):
+    cv.text(center.x, center.y, "Z", size, color)
 ```
 
-Asset packs distribute these as data — drop a `*.json` pack in a directory and
-`AssetLibrary.load_dir()` picks it up.
+Asset **packs** (JSON) distribute characters/clips/parts — drop a `*.json` in a
+pack directory and `AssetLibrary.load_dir()` installs it (the marketplace
+foundation). See `data/packs/actors.json`.
+
+---
+
+## Renderers
+
+- **`illustrated`** (default) — the house style: flat colors, bold clean lines
+  (no sketch/boil), rounded shoulders, thick limbs, hands, shoes, shadow.
+- **`svg`** (legacy) — the original thin-line stickman, kept for comparison.
+
+Select with `--backend` or `render_frames(..., backend=...)`.
 
 ---
 
 ## Tests
 
 ```bash
-python -m unittest discover -s tests     # 36 tests, zero deps
+python -m unittest discover -s tests     # 47 tests, zero deps
 ```

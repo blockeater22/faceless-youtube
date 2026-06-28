@@ -36,42 +36,94 @@ def load_core_library() -> AssetLibrary:
 # Demo builders
 # --------------------------------------------------------------------------- #
 def build_demo_timeline(library: AssetLibrary | None = None) -> Timeline:
-    """A short narrated-style showcase exercising poses, faces, camera, packs."""
+    """A short showcase of illustrated actors acting, with camera + packs."""
     lib = library or load_core_library()
     night = {"type": "night"}
 
     s1 = Scene.from_spec({
         "id": "hello", "duration": 2.6, "background": night,
-        "caption": "Meet a stickforge actor — assembled from data.",
+        "caption": "Meet Max — an illustrated actor, assembled from parts.",
         "camera": {"zoom": 1.0},
-        "actors": [{"id": "a", "character": "char.classic",
-                    "clip_id": "clip.wave_hello", "pos": [0.5, 0.66],
-                    "unit_scale": 0.36}],
+        "actors": [{"id": "a", "character": "actor.max",
+                    "clip_id": "clip.wave_hello", "pos": [0.5, 0.62],
+                    "unit_scale": 0.34}],
     }, lib)
 
     s2 = Scene.from_spec({
         "id": "think", "duration": 3.0, "background": night,
-        "caption": "Every pose and expression is a blendable asset.",
+        "caption": "Every part — hair, eyes, body — is a swappable asset.",
         "camera": {"zoom_keys": [{"t": 0, "value": 1.0},
                                  {"t": 3.0, "value": 1.18, "ease": "ease_in_out"}]},
-        "actors": [{"id": "b", "character": "char.amber",
-                    "clip_id": "clip.thinking", "pos": [0.5, 0.66],
-                    "unit_scale": 0.36}],
+        "actors": [{"id": "b", "character": "actor.sage",
+                    "clip_id": "clip.thinking", "pos": [0.5, 0.62],
+                    "unit_scale": 0.34}],
     }, lib)
 
     s3 = Scene.from_spec({
         "id": "party", "duration": 2.4, "background": night,
-        "caption": "Nothing is hardcoded — characters, clips, packs.",
+        "caption": "Recombine components into unlimited characters.",
         "camera": {"shake": 0.004},
         "actors": [
-            {"id": "c", "character": "char.indigo", "clip_id": "clip.celebrate",
-             "pos": [0.36, 0.68], "unit_scale": 0.32},
-            {"id": "d", "character": "char.classic", "clip_id": "clip.celebrate",
-             "pos": [0.64, 0.68], "unit_scale": 0.32, "facing": -1},
+            {"id": "c", "character": "actor.nova", "clip_id": "clip.celebrate",
+             "pos": [0.35, 0.64], "unit_scale": 0.30},
+            {"id": "d", "character": "actor.pip", "clip_id": "clip.celebrate",
+             "pos": [0.66, 0.64], "unit_scale": 0.30, "facing": -1},
         ],
     }, lib)
 
     return Timeline(scenes=[s1, s2, s3])
+
+
+def build_character_lab(library: AssetLibrary | None = None) -> Scene:
+    """A lineup of distinct actors — proof that the component library
+    recombines into unlimited, on-brand characters."""
+    from .parts import combination_count
+    lib = library or load_core_library()
+    ids = [a.id for a in lib.of_type("character") if a.id.startswith("actor.")]
+    actors, props = [], []
+    n = len(ids)
+    for i, cid in enumerate(ids):
+        fx = (i + 0.5) / n
+        actors.append({"id": cid, "character": cid, "pos": [fx, 0.56],
+                       "unit_scale": 0.155, "life": 0.0})
+        props.append({"type": "label", "text": lib.get(cid).name,
+                      "pos": [fx, 0.74], "font": 0.026, "color": "#1b1b1b"})
+    combos = combination_count()
+    scene = Scene.from_spec({
+        "id": "lab", "duration": 1.0,
+        "background": {"type": "plain", "color": "#fbfbf7"},
+        "caption": f"One component library -> {combos:,} possible actors.",
+        "actors": actors, "props": props,
+    }, lib)
+    return scene
+
+
+def build_acting_demo(actor_id: str = "actor.max",
+                      library: AssetLibrary | None = None) -> Scene:
+    """One actor, acting through a range of emotions — personality over geometry."""
+    lib = library or load_core_library()
+    clip = {
+        "duration": 7.0,
+        "poses": [
+            {"t": 0.0, "pose": "idle"}, {"t": 1.2, "pose": "wave", "ease": "ease_out"},
+            {"t": 2.4, "pose": "think", "ease": "ease_in_out"},
+            {"t": 3.8, "pose": "shrug"}, {"t": 5.0, "pose": "celebrate", "ease": "bounce"},
+            {"t": 6.4, "pose": "idle"},
+        ],
+        "expressions": [
+            {"t": 0.0, "expr": "happy"}, {"t": 1.2, "expr": "excited"},
+            {"t": 2.4, "expr": "thinking"}, {"t": 3.6, "expr": "confused"},
+            {"t": 4.6, "expr": "surprised", "ease": "pop"},
+            {"t": 5.2, "expr": "laughing"}, {"t": 6.4, "expr": "happy"},
+        ],
+    }
+    return Scene.from_spec({
+        "id": "acting", "duration": 7.0, "background": {"type": "night"},
+        "caption": "Acting first — the rig serves the performance.",
+        "camera": {"zoom_keys": [{"t": 0, "value": 1.05}, {"t": 7, "value": 1.15}]},
+        "actors": [{"id": "star", "character": actor_id, "clip": clip,
+                    "pos": [0.5, 0.62], "unit_scale": 0.36}],
+    }, lib)
 
 
 def build_expression_showcase(emotions: list[str] | None = None) -> Scene:

@@ -124,3 +124,23 @@ def default_humanoid() -> Skeleton:
     s.add(Bone("thigh_r", parent="spine", length=0.21, rest=173.0, attach="base"))
     s.add(Bone("shin_r",  parent="thigh_r", length=0.21, rest=4.0, attach="tip"))
     return s
+
+
+def cartoon_humanoid() -> Skeleton:
+    """A cartoon-proportioned armature: a big expressive head, shorter torso,
+    and stubby noodle limbs. Same bone names as :func:`default_humanoid`, so all
+    existing poses and animation clips apply unchanged — only the proportions
+    (and the illustrated renderer) differ.
+    """
+    s = Skeleton(name="cartoon", head_radius=0.190)
+    s.add(Bone("spine", parent=None, length=0.32, rest=0.0, kind="limb", width=1.0))
+    s.add(Bone("head", parent="spine", length=0.200, rest=0.0, attach="tip", kind="head"))
+    s.add(Bone("upper_arm_l", parent="spine", length=0.205, rest=193.0, attach="tip"))
+    s.add(Bone("forearm_l",   parent="upper_arm_l", length=0.195, rest=-6.0, attach="tip"))
+    s.add(Bone("upper_arm_r", parent="spine", length=0.205, rest=167.0, attach="tip"))
+    s.add(Bone("forearm_r",   parent="upper_arm_r", length=0.195, rest=6.0, attach="tip"))
+    s.add(Bone("thigh_l", parent="spine", length=0.255, rest=198.0, attach="base"))
+    s.add(Bone("shin_l",  parent="thigh_l", length=0.250, rest=-14.0, attach="tip"))
+    s.add(Bone("thigh_r", parent="spine", length=0.255, rest=162.0, attach="base"))
+    s.add(Bone("shin_r",  parent="thigh_r", length=0.250, rest=14.0, attach="tip"))
+    return s

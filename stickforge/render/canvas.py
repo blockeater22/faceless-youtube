@@ -86,6 +86,31 @@ class SvgCanvas:
         self.elements.append(
             f'<circle cx="{_fmt(cx)}" cy="{_fmt(cy)}" r="{_fmt(r)}" fill="{color}"/>')
 
+    def ellipse(self, center, rx: float, ry: float, fill: str,
+                stroke: str = "none", width: float = 0.0, rot: float = 0.0,
+                opacity: float = 1.0) -> None:
+        cx = center.x if hasattr(center, "x") else center[0]
+        cy = center.y if hasattr(center, "y") else center[1]
+        t = (f' transform="rotate({rot:.2f} {_fmt(cx)} {_fmt(cy)})"'
+             if abs(rot) > 1e-3 else "")
+        self.elements.append(
+            f'<ellipse cx="{_fmt(cx)}" cy="{_fmt(cy)}" rx="{_fmt(rx)}" '
+            f'ry="{_fmt(ry)}" fill="{fill}" stroke="{stroke}" '
+            f'stroke-width="{_fmt(width)}" opacity="{opacity:.2f}"{t}/>')
+
+    def filled_path(self, d: str, fill: str, stroke: str = "none",
+                    width: float = 0.0, opacity: float = 1.0) -> None:
+        self.elements.append(
+            f'<path d="{d}" fill="{fill}" stroke="{stroke}" '
+            f'stroke-width="{_fmt(width)}" stroke-linejoin="round" '
+            f'stroke-linecap="round" opacity="{opacity:.2f}"/>')
+
+    def limb(self, points, outline: str, fill: str, w_out: float,
+             w_fill: float, wobble: float = 0.0, seed: int = 0) -> None:
+        """A two-tone rubber-hose limb: dark outline under a lighter fill."""
+        self.stroke(points, outline, w_out, wobble, seed)
+        self.stroke(points, fill, w_fill, wobble, seed)
+
     def path(self, d: str, color: str, width: float, fill: str = "none") -> None:
         self.elements.append(
             f'<path d="{d}" fill="{fill}" stroke="{color}" '

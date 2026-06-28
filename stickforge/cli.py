@@ -16,15 +16,16 @@ from pathlib import Path
 from .render.config import RenderConfig, RESOLUTIONS
 
 
-def _export(target, out_dir: str, name: str, fmt: str, fps: int) -> None:
+def _export(target, out_dir: str, name: str, fmt: str, fps: int,
+            backend: str = "illustrated") -> None:
     from .export.frames import render_frames
     from .export.html import write_html_player
     from .export.video import write_video, VideoUnavailable
 
     cfg = RenderConfig.for_format(fmt)
     print(f"rendering {name} @ {cfg.width}x{cfg.height}, {fps} fps "
-          f"({target.duration:.1f}s)...")
-    frames = render_frames(target, cfg, fps)
+          f"({target.duration:.1f}s, {backend})...")
+    frames = render_frames(target, cfg, fps, backend=backend)
 
     out = Path(out_dir)
     out.mkdir(parents=True, exist_ok=True)
@@ -40,14 +41,28 @@ def _export(target, out_dir: str, name: str, fmt: str, fps: int) -> None:
 
 def _demo(args) -> int:
     from .studio import build_demo_timeline
-    _export(build_demo_timeline(), args.out, "demo", args.format, args.fps)
+    _export(build_demo_timeline(), args.out, "demo", args.format, args.fps, args.backend)
     return 0
 
 
 def _showcase(args) -> int:
     from .studio import build_expression_showcase
     _export(build_expression_showcase(), args.out, "showcase",
-            args.format, args.fps)
+            args.format, args.fps, args.backend)
+    return 0
+
+
+def _lab(args) -> int:
+    from .studio import build_character_lab
+    _export(build_character_lab(), args.out, "character_lab",
+            args.format, args.fps, args.backend)
+    return 0
+
+
+def _acting(args) -> int:
+    from .studio import build_acting_demo
+    _export(build_acting_demo(args.actor), args.out, "acting",
+            args.format, args.fps, args.backend)
     return 0
 
 
@@ -97,7 +112,7 @@ def _build(args) -> int:
     scene_specs = spec.get("timeline") or [spec.get("scene", {})]
     scenes = [Scene.from_spec(s, lib) for s in scene_specs]
     target = Timeline(scenes=scenes) if len(scenes) > 1 else scenes[0]
-    _export(target, args.out, name, fmt, fps)
+    _export(target, args.out, name, fmt, fps, spec.get("backend", args.backend))
     return 0
 
 
@@ -108,10 +123,17 @@ def main(argv=None) -> int:
     p.add_argument("--format", default="9:16", choices=list(RESOLUTIONS),
                    help="output resolution")
     p.add_argument("--fps", type=int, default=24)
+    p.add_argument("--backend", default="illustrated",
+                   help="renderer: illustrated (default) | svg (legacy line art)")
     sub = p.add_subparsers(dest="cmd", required=True)
 
     sub.add_parser("demo", help="render the showcase animation").set_defaults(fn=_demo)
     sub.add_parser("showcase", help="render the expression contact sheet").set_defaults(fn=_showcase)
+    sub.add_parser("lab", help="render the character lab (recombination lineup)").set_defaults(fn=_lab)
+
+    ac = sub.add_parser("acting", help="render an actor performing emotions")
+    ac.add_argument("--actor", default="actor.max")
+    ac.set_defaults(fn=_acting)
 
     a = sub.add_parser("assets", help="browse the asset library")
     a.add_argument("--search", default="")

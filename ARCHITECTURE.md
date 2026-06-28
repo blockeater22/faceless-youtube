@@ -24,20 +24,26 @@ registry-based seams — so every remaining module plugs in without a rewrite.
 |---|---|---|
 | Core | `stickforge/core` | geometry, easing, keyframes, registry |
 | Assets | `stickforge/assets` | Asset, Library (search/tags), Packs |
-| Rig + Character | `stickforge/character` | hierarchical skeleton (FK), assembly |
+| **Parts** | `stickforge/parts` | **Character Design System** — per-category style registries (art providers) |
+| Rig + Character | `stickforge/character` | cartoon/line skeletons (FK), `ActorDesign` assembly |
 | Pose | `stickforge/pose` | named, blendable joint poses |
 | Expression | `stickforge/expression` | facial-parameter emotions + blending |
 | Animation | `stickforge/animation` | keyframed clips + procedural life |
 | Scene | `stickforge/scene` | scene graph, camera, timeline |
-| Render | `stickforge/render` | SVG backend (pluggable) |
+| Render | `stickforge/render` | `illustrated` (house style) + `svg` (legacy) backends, motion FX |
 | Export | `stickforge/export` | frames → HTML player / MP4 |
+
+**Visual identity:** the default `illustrated` renderer produces clean flat
+cartoon actors per [`STYLE_GUIDE.md`](STYLE_GUIDE.md) — assembled from `parts`,
+never hardcoded. The procedural `svg` line-stickman is retained only as a legacy
+backend and is not the product look.
 
 ## The 20 modules
 
 | # | Requested module | Status | Where / how to extend |
 |---|---|---|---|
 | 1 | Asset Management System | **Built** | `assets/` — typed, taggable, searchable, JSON packs, versioning |
-| 2 | Character Assembly Engine | **Built** | `character/character.py` — spec + attachments from data |
+| 2 | Character Assembly Engine | **Built (illustrated)** | `parts/` component library + `character/design.py` `ActorDesign`; ~10^6 combinations |
 | 3 | Rigging Engine | **Built** | `character/skeleton.py` — hierarchical FK; `SKELETONS` registry |
 | 4 | Pose Engine | **Built** | `pose/` — `POSES` registry, partial poses, blending |
 | 5 | Expression Engine | **Built** | `expression/` — continuous params, `EXPRESSIONS` registry |
@@ -52,7 +58,7 @@ registry-based seams — so every remaining module plugs in without a rewrite.
 | 14 | Lip Sync Engine | **Extension point** | drive `expression.mouth_open/curve` from phonemes per frame |
 | 15 | Background Generator | **Partial** | `render/svg.py:_scenery` (night/ground); register more scenery kinds |
 | 16 | Props Engine | **Built (basic)** | `scene` props + `render/svg.py:_prop` (label/circle/rect/line) |
-| 17 | Particle & FX Engine | **Extension point** | new render pass over `SvgCanvas`; or a renderer plugin |
+| 17 | Particle & FX Engine | **Built (basic)** | `render/fx.py` — speed lines, impact, sweat, stars, lightbulb, hearts, anger via `FX` registry |
 | 18 | Transition Engine | **Partial** | per-clip easing + camera; add cross-scene transitions in `Timeline` |
 | 19 | Subtitle Engine | **Built (basic)** | scene `caption` rendered as an overlay; add timed cue tracks |
 | 20 | Export Pipeline | **Built** | `export/` — HTML player (always), MP4 (ffmpeg+rasterizer) |

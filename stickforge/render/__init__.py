@@ -7,8 +7,13 @@ GL, a different art style) register themselves in :data:`RENDERERS`.
 from ..core.registry import Registry
 from .config import RenderConfig
 from .svg import SvgRenderer, ATTACHMENTS
+from .illustrated import IllustratedRenderer
 
 RENDERERS: "Registry" = Registry("renderer")
-RENDERERS.register("svg", SvgRenderer)
+RENDERERS.register("illustrated", IllustratedRenderer)   # house style (default)
+RENDERERS.register("svg", SvgRenderer)                   # legacy line-stickman
 
-__all__ = ["RenderConfig", "SvgRenderer", "RENDERERS", "ATTACHMENTS"]
+DEFAULT_RENDERER = "illustrated"
+
+__all__ = ["RenderConfig", "SvgRenderer", "IllustratedRenderer",
+           "RENDERERS", "DEFAULT_RENDERER", "ATTACHMENTS"]

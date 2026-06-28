@@ -528,6 +528,10 @@ def _draw_hook(frame, text, abs_t, dur, size, mindim, style):
     block_h = bar_h * len(lines) + gap * (len(lines) - 1)
     cy = int(h * style.hook_y)
     y = cy - block_h // 2
+    # YouTube's Shorts UI overlays the top ~10% of the frame, so never let the
+    # title's first bar start above a safe margin - push a tall block down
+    # rather than letting the top line get cut in half.
+    y = max(y, int(h * 0.13))
     layer = Image.new("RGBA", size, (0, 0, 0, 0))
     d = ImageDraw.Draw(layer)
     a = int(255 * alpha)

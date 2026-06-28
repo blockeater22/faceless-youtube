@@ -35,7 +35,7 @@ STYLE = {
     "grain": 0.0,
     "vignette": 0.0,
     "draw_on": 0.9,   # whiteboard: each figure draws itself on over 0.9s
-    "hook_y": 0.18,   # hook card sits near the top, clear of the character below
+    "hook_y": 0.24,   # title sits below YouTube's top Shorts UI (was 0.18 -> got cut)
     "sfx": True,      # procedural pop/whoosh/ding cues (no assets needed)
     "char_style": "line",   # back to the thin hand-drawn doodle (yellow trapezoid shirt out)
     "caption": {"mode": "kinetic", "size": 0.095, "y": 0.85, "max_chars": 14},

@@ -130,6 +130,27 @@ from stickforge.story import storyboard
 scene = storyboard(open("story.txt").read())   # -> a performed, subtitled Scene
 ```
 
+**Multi-character dialogue** stages the cast facing each other, with turn-taking,
+eye contact, and lip-sync (the speaker's mouth flaps to the words):
+
+```text
+ALEX: Hey! Did you see that?
+SAM: See what?
+ALEX: That shooting star!
+```
+
+```python
+from stickforge.story import stage_dialogue
+scene = stage_dialogue(text, {"ALEX": "actor.nova", "SAM": "actor.rex"})
+```
+
+```bash
+python -m stickforge dialogue     # the staged two-hander above
+```
+
+Lip-sync (`stickforge/voice/`) turns text into timed mouth visemes with no audio;
+a pluggable TTS registry lets real voices (espeak/piper/…) plug in later.
+
 ## Extending (no core edits)
 
 Every catalogue is a `Registry` — add a style/effect by registering it:

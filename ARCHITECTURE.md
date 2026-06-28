@@ -30,7 +30,8 @@ registry-based seams — so every remaining module plugs in without a rewrite.
 | Expression | `stickforge/expression` | facial-parameter emotions + blending |
 | Animation | `stickforge/animation` | keyframed clips + procedural life |
 | **Acting** | `stickforge/acting` | **emotional state machine + beat-based performance** (think→react→act, anticipation, eye acting, emotion-driven idle) |
-| **Story** | `stickforge/story` | **script → emotion-inferred beats → performed, subtitled scene** |
+| **Story** | `stickforge/story` | **script → beats → performed, subtitled scene**; multi-character dialogue staging + eye contact |
+| **Voice** | `stickforge/voice` | **procedural lip-sync (visemes)** + a pluggable TTS interface (timing model) |
 | Scene | `stickforge/scene` | scene graph, camera, timeline |
 | Render | `stickforge/render` | `illustrated` (house style) + `svg` (legacy) backends, motion FX |
 | Export | `stickforge/export` | frames → HTML player / MP4 |
@@ -55,9 +56,9 @@ backend and is not the product look.
 | 9 | Camera Engine | **Built** | `scene/camera.py` — keyframable zoom/pan + shake; add orbit/parallax |
 | 10 | Scene Builder | **Built** | `scene/scene.py` — actors/props/background/camera from spec |
 | 11 | Timeline Editor | **Partial (data)** | `scene/scene.py:Timeline` sequences scenes; GUI editor is future |
-| 12 | Story Engine | **Built (basic)** | `story/` — script → emotion-inferred acting beats (with auto "think before react") → performed, subtitled `Scene` |
-| 13 | Voice Sync Engine | **Extension point** | add `audio/` that aligns clip times to narration timing |
-| 14 | Lip Sync Engine | **Extension point** | drive `expression.mouth_open/curve` from phonemes per frame |
+| 12 | Story Engine | **Built (basic)** | `story/` — script → acting beats (auto "think before react") → subtitled `Scene`; `story/dialogue.py` multi-character staging, turn-taking, eye contact |
+| 13 | Voice Sync Engine | **Built (basic)** | `voice/engine.py` — pluggable TTS registry + timing model (silent backend); beat/subtitle timing derives from it (real audio backends plug in) |
+| 14 | Lip Sync Engine | **Built (basic)** | `voice/lipsync.py` — syllable→viseme stream drives `mouth_open`/`mouth_curve`, synced to each spoken beat (no audio needed) |
 | 15 | Background Generator | **Partial** | `render/svg.py:_scenery` (night/ground); register more scenery kinds |
 | 16 | Props Engine | **Built (basic)** | `scene` props + `render/svg.py:_prop` (label/circle/rect/line) |
 | 17 | Particle & FX Engine | **Built (basic)** | `render/fx.py` — speed lines, impact, sweat, stars, lightbulb, hearts, anger via `FX` registry |

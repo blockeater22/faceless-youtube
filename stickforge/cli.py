@@ -119,6 +119,14 @@ def _posegallery(args) -> int:
     return 0
 
 
+def _dialogue(args) -> int:
+    from .studio import build_dialogue
+    script = Path(args.script).read_text(encoding="utf-8") if args.script else None
+    _export(build_dialogue(script), args.out, "dialogue",
+            args.format, args.fps, args.backend)
+    return 0
+
+
 def _storyboard(args) -> int:
     from .studio import build_story
     script = None
@@ -205,6 +213,10 @@ def main(argv=None) -> int:
     st.set_defaults(fn=_story)
 
     sub.add_parser("emotions", help="render the emotion board (body-acting readability)").set_defaults(fn=_emotions)
+
+    dl = sub.add_parser("dialogue", help="staged multi-character conversation")
+    dl.add_argument("script", nargs="?", default=None, help="dialogue .txt (optional)")
+    dl.set_defaults(fn=_dialogue)
 
     sb = sub.add_parser("storyboard", help="compile a script into a performed scene")
     sb.add_argument("script", nargs="?", default=None, help="path to a script .txt (optional)")

@@ -28,10 +28,12 @@ class Beat:
     kind: str = "act"            # act | react | think | look | hold
     look: tuple | None = None    # (pupil_x, pupil_y) for look/think beats
     text: str = ""               # optional subtitle / staging note
+    gaze: tuple | None = None    # (pupil_x, pupil_y) eye-contact override
+    talk: bool = True            # generate lip-sync visemes when this beat has text
 
 
 def compile_performance(beats: list[Beat], *, loop: bool = False,
-                        return_marks: bool = False):
+                        return_marks: bool = False, fixed_timing: bool = False):
     """Compile beats into a clip. With ``return_marks=True`` also returns a list
     of ``{"start","end","kind","emotion","text"}`` so callers (e.g. the Story
     Engine) can align subtitles to the tempo-scaled beat timing."""
@@ -81,8 +83,17 @@ def compile_performance(beats: list[Beat], *, loop: bool = False,
             t += b.dur
         else:                                          # act | react | hold
             ease = "anticipate" if b.kind == "react" else "ease_in_out"
-            d = b.dur / max(0.25, prof.tempo)
+            d = b.dur if fixed_timing else b.dur / max(0.25, prof.tempo)
             prev_face = key(t, prof, ease)
+            if b.gaze:                                  # eye contact / staging
+                prev_face["pupil_x"], prev_face["pupil_y"] = b.gaze
+            if b.text and b.talk:                       # lip-sync visemes
+                from ..voice.lipsync import visemes_for
+                for ft, mo, mc in visemes_for(b.text, d):
+                    vf = dict(prev_face)
+                    vf["mouth_open"] = mo
+                    vf["mouth_curve"] = 0.5 * vf.get("mouth_curve", 0.0) + mc
+                    exprs.append({"t": round(t + ft, 3), "expr": vf, "ease": "linear"})
             t += d
         marks.append({"start": round(start, 3), "end": round(t, 3),
                       "kind": b.kind, "emotion": b.emotion, "text": b.text})

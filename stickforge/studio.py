@@ -157,6 +157,23 @@ def build_story(script: str | None = None, actor_id: str = "actor.max") -> Scene
     return storyboard(script or _DEFAULT_SCRIPT, actor_id=actor_id)
 
 
+_DEFAULT_DIALOGUE = """\
+ALEX: Hey! Did you see that?
+SAM: See what?
+ALEX: That shooting star!
+SAM: No way... where?
+ALEX: Quick, make a wish!
+SAM: Okay okay... done!
+"""
+
+
+def build_dialogue(script: str | None = None, cast: dict | None = None) -> Scene:
+    """A staged two-character conversation with eye contact + lip-sync."""
+    from .story import stage_dialogue
+    cast = cast or {"ALEX": "actor.nova", "SAM": "actor.rex"}
+    return stage_dialogue(script or _DEFAULT_DIALOGUE, cast)
+
+
 def build_pose_gallery(n: int = 8, seed: int = 1,
                        library: AssetLibrary | None = None) -> Scene:
     """Top-scoring generated poses laid out in a row (render with silhouette=True

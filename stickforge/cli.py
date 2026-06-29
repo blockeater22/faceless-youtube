@@ -127,6 +127,31 @@ def _dialogue(args) -> int:
     return 0
 
 
+def _understand(args) -> int:
+    import json as _json
+    from pathlib import Path as _P
+    from .narrative import understand_story, plan, summarize_story
+    text = _P(args.script).read_text(encoding="utf-8") if _P(args.script).exists() \
+        else args.script
+    u = understand_story(text)
+    if args.json:
+        print(_json.dumps({"summary": summarize_story(u),
+                           "scenes": [s.to_dict() for s in plan(u)]}, indent=2)[:4000])
+        return 0
+    s = summarize_story(u)
+    print(f"genre={s['genre']} tone={s['tone']} setting={s['setting']} "
+          f"time={s['time']} weather={s['weather']} mood={s['mood']}")
+    print(f"theme={s['theme']!r} viewer={s['viewer_emotion']} "
+          f"characters={s['characters']} scenes={s['scenes']}")
+    for spec in plan(u):
+        print(f"\nscene {spec.id} [{spec.narrative['function']}] "
+              f"-> {spec.environment['location']} ({spec.validation['status']})")
+        print("  cameras:", [(c['type'], c['target']) for c in spec.camera_targets])
+        print("  props:  ", [p.get('tags') for p in spec.prop_requirements])
+        print("  notes:  ", spec.animation_notes[:3])
+    return 0
+
+
 def _registry(args) -> int:
     from .registry import default_registry
     reg = default_registry()
@@ -256,6 +281,11 @@ def main(argv=None) -> int:
     sb.add_argument("script", nargs="?", default=None, help="path to a script .txt (optional)")
     sb.add_argument("--actor", default="actor.max")
     sb.set_defaults(fn=_storyboard)
+
+    un = sub.add_parser("understand", help="analyze a story into a Scene Graph")
+    un.add_argument("script", help="a script string or path to a .txt")
+    un.add_argument("--json", action="store_true")
+    un.set_defaults(fn=_understand)
 
     rg = sub.add_parser("registry", help="query the Asset Intelligence Engine")
     rg.add_argument("query", nargs="?", default="")

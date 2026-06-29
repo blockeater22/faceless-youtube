@@ -74,6 +74,28 @@ IllustratedRenderer ─> clean SVG frames ─> HTML player / MP4
 
 ---
 
+## Cognitive layer (understand a story, then plan it)
+
+The story brain turns prose into a validated, structured Scene Graph — nothing
+downstream parses English:
+
+```python
+from stickforge.narrative import understand_story, plan, summarize_story
+u = understand_story("John nervously entered his first interview on a rainy morning.")
+summarize_story(u)   # {genre: business, setting: corporate office, time: morning,
+                     #  weather: rain, mood: nervous, emotion_curve: [...]}
+plan(u)              # -> [SceneSpec] (environment, cameras, semantic props, validated)
+```
+
+```bash
+python -m stickforge understand "On the spaceship, Nova saw an alien signal. Suddenly the lights went dark."
+```
+
+Understanding (analysis + persistent character models + Scene→Beat→Action
+segmentation) → typed **Intent Graph** → **Scene Planner** → validated Scene
+Graph. The inference provider is pluggable (heuristic today, LLM tomorrow) and
+every value carries a confidence score.
+
 ## Asset Intelligence Engine (semantic asset registry)
 
 The single source of truth for assets — engines query by meaning, never by path:

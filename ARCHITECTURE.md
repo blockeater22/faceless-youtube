@@ -26,6 +26,7 @@ registry-based seams — so every remaining module plugs in without a rewrite.
 | **Stage (spatial)** | `stickforge/stage` | **world space, scene graph, affine transforms, anchors, depth layers + parallax, `Camera2D` (the only world→screen projection)** — the substrate every renderer/engine builds on |
 | Assets | `stickforge/assets` | runtime content library (characters/clips), packs |
 | **Asset Intelligence** | `stickforge/registry` | **the semantic asset knowledge base** — canonical metadata schema, taxonomy, inverted-index semantic query, relationships, anchors, variants, constraints; the single source of truth every future engine queries (no file paths) |
+| **Cognitive (narrative)** | `stickforge/narrative` | **the story brain** — understanding (analysis + characters + segmentation) → Intent Graph → Scene Planner → validated Scene Graph; pluggable inference provider (heuristic now, LLM later). Downstream engines consume the Scene Graph, never English |
 | **Parts** | `stickforge/parts` | **Character Design System** — per-category style registries (art providers) |
 | Rig + Character | `stickforge/character` | cartoon/line skeletons (FK), `ActorDesign` assembly |
 | Pose | `stickforge/pose` | named, blendable joint poses |
@@ -58,7 +59,7 @@ backend and is not the product look.
 | 9 | Camera Engine | **Built** | `scene/camera.py` — keyframable zoom/pan + shake; add orbit/parallax |
 | 10 | Scene Builder | **Built** | `scene/scene.py` — actors/props/background/camera from spec |
 | 11 | Timeline Editor | **Partial (data)** | `scene/scene.py:Timeline` sequences scenes; GUI editor is future |
-| 12 | Story Engine | **Built (basic)** | `story/` — script → acting beats (auto "think before react") → subtitled `Scene`; `story/dialogue.py` multi-character staging, turn-taking, eye contact |
+| 12 | Story Engine | **Built (cognitive layer)** | `narrative/` — Narrative Understanding Engine (story analysis + character models + Scene→Beat→Action segmentation, all confidence-scored) → typed **Intent Graph** → **Scene Planning Engine** → versioned, **validated Scene Graph** of semantic requirements (no asset refs). Pluggable analyzer (heuristic now, LLM later); 300 synthetic stories analyze+plan+validate in <1s. (`story/` remains the low-level beat/dialogue performer.) |
 | 13 | Voice Sync Engine | **Built (basic)** | `voice/engine.py` — pluggable TTS registry + timing model (silent backend); beat/subtitle timing derives from it (real audio backends plug in) |
 | 14 | Lip Sync Engine | **Built (basic)** | `voice/lipsync.py` — syllable→viseme stream drives `mouth_open`/`mouth_curve`, synced to each spoken beat (no audio needed) |
 | 15 | Background Generator | **Partial** | `render/svg.py:_scenery` (night/ground); register more scenery kinds |
@@ -78,6 +79,35 @@ builds on.
 `ASSET_TYPES`, `RENDERERS`, `EASINGS`, `SKELETONS`, `POSES`, `EXPRESSIONS`,
 `ATTACHMENTS` are all registries. A plugin imports the registry and registers —
 no core change, no fork.
+
+## Cognitive layer (the story brain — understanding before rendering)
+
+`stickforge/narrative/` understands a story and emits a structured contract;
+nothing downstream parses English.
+
+```python
+from stickforge.narrative import understand_story, plan, summarize_story
+u = understand_story("John nervously entered his first interview on a rainy morning.")
+summarize_story(u)        # genre/tone/setting/time/weather/mood/emotion-curve
+plan(u)                   # -> [SceneSpec] validated Scene Graphs
+```
+
+Pipeline: **segment** (Scene→Beat→Action) → **analyze** (`StoryAnalysis`,
+confidence-scored) + **characters** (`CharacterModel`, persistent) → **Intent
+Graph** (typed goal/fear/conflict/emotion/audience/visual/comedy/retention
+nodes) → **Scene Planner** (`SceneSpec`: environment, layout, camera targets,
+semantic prop *queries*, lighting, mood, animation notes — never asset names) →
+**validate** (no invalid graph reaches the renderer).
+
+Key design choice (challenged & justified): the *contracts + pipeline* are
+deterministic and versioned; the *inference* is a pluggable `Analyzer`. The
+shipped `HeuristicAnalyzer` can be replaced by an `LLMAnalyzer` emitting the
+same structures — improving IQ without touching any consumer. Every inference
+carries a confidence score, which is exactly that seam.
+
+The planner's prop requirements are **registry-shaped queries**, so the future
+World Engine resolves them via the Asset Intelligence Engine and places results
+into the spatial scene graph — the three layers compose cleanly.
 
 ## Asset Intelligence Engine (the knowledge base every engine queries)
 

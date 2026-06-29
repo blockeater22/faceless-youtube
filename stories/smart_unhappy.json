@@ -1,0 +1,829 @@
+{
+  "title": "Why Smart People Struggle To Be Happy",
+  "handle": "@Inklings1",
+  "hook": "THE SMARTER YOU ARE, THE HARDER HAPPINESS GETS",
+  "hook_dur": 1.3,
+  "style": {
+    "background": "#ffffff",
+    "ink": "#15161a",
+    "accent": "#ff5d5d",
+    "muted": "#9aa0ab",
+    "palette": [
+      "#ff5d5d",
+      "#1f9bff",
+      "#ffb454",
+      "#23b26d",
+      "#a463f2"
+    ],
+    "fps": 30,
+    "grain": 0.0,
+    "vignette": 0.0,
+    "draw_on": 0.9,
+    "hook_y": 0.24,
+    "sfx": true,
+    "char_style": "line",
+    "caption": {
+      "mode": "kinetic",
+      "size": 0.095,
+      "y": 0.85,
+      "max_chars": 14
+    }
+  },
+  "voice": {
+    "backend": "kokoro",
+    "voice": "am_liam",
+    "polish": true,
+    "gap": 0.3
+  },
+  "scenes": [
+    {
+      "id": "01_hook",
+      "beat": "hook",
+      "narration": "The smarter you are, the harder happiness gets.",
+      "min_dur": 3.4,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "props": [],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "surprised",
+          "shirt": null,
+          "hands": false,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.66
+              ],
+              "pose": "shrug",
+              "scale": 0.42,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.5,
+                0.66
+              ],
+              "pose": "shrug",
+              "scale": 0.42,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "explain_1",
+      "beat": "explain",
+      "narration": "Researchers keep finding a link between high IQ and overthinking.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.06,
+          "pan": [
+            0.5,
+            0.47
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp0",
+          "name": "brain",
+          "color": "#a463f2",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "think",
+          "shirt": null,
+          "hands": false,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "think",
+              "scale": 0.46,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "think",
+              "scale": 0.46,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "explain_2",
+      "beat": "explain",
+      "narration": "A sharp mind spots every flaw, including its own.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "props": [],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "think",
+          "shirt": null,
+          "hands": false,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.42,
+                0.52
+              ],
+              "pose": "point_l",
+              "scale": 0.46,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.42,
+                0.52
+              ],
+              "pose": "point_l",
+              "scale": 0.46,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "explain_3",
+      "beat": "explain",
+      "narration": "It struggles to switch off and just enjoy things.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.06,
+          "pan": [
+            0.58,
+            0.47
+          ]
+        }
+      ],
+      "props": [],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "think",
+          "shirt": null,
+          "hands": false,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.58,
+                0.52
+              ],
+              "pose": "crossed",
+              "scale": 0.46,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.58,
+                0.52
+              ],
+              "pose": "crossed",
+              "scale": 0.46,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "explain_4",
+      "beat": "explain",
+      "narration": "Awareness is a gift that comes with a cost.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "props": [],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "think",
+          "shirt": null,
+          "hands": false,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "hold_box",
+              "scale": 0.46,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "hold_box",
+              "scale": 0.46,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reframe_1",
+      "beat": "reframe",
+      "narration": "But intelligence isn't the enemy of happiness, overthinking is.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.07,
+          "pan": [
+            0.5,
+            0.43
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp0",
+          "name": "chat",
+          "color": "#1f9bff",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "happy",
+          "shirt": null,
+          "hands": false,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "think",
+              "scale": 0.46,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "think",
+              "scale": 0.46,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reframe_2",
+      "beat": "reframe",
+      "narration": "The same mind that overanalyzes can learn to savor.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.115,
+          "pan": [
+            0.42,
+            0.43
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp1",
+          "name": "brain",
+          "color": "#a463f2",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "happy",
+          "shirt": null,
+          "hands": false,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.42,
+                0.52
+              ],
+              "pose": "wave",
+              "scale": 0.46,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.42,
+                0.52
+              ],
+              "pose": "wave",
+              "scale": 0.46,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reframe_3",
+      "beat": "reframe",
+      "narration": "Point that focus at what's good right now.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.1600000000000001,
+          "pan": [
+            0.58,
+            0.43
+          ]
+        }
+      ],
+      "props": [],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "happy",
+          "shirt": null,
+          "hands": false,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.58,
+                0.52
+              ],
+              "pose": "point_r",
+              "scale": 0.46,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.58,
+                0.52
+              ],
+              "pose": "point_r",
+              "scale": 0.46,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reframe_4",
+      "beat": "reframe",
+      "narration": "A sharp mind can be trained toward peace.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.18,
+          "pan": [
+            0.5,
+            0.43
+          ]
+        }
+      ],
+      "props": [],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "happy",
+          "shirt": null,
+          "hands": false,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "celebrate",
+              "scale": 0.46,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "celebrate",
+              "scale": 0.46,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "99_cta",
+      "beat": "cta",
+      "narration": "Do you think smart people are less happy, agree or disagree? Drop it below.",
+      "min_dur": 3.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp0",
+          "name": "chat",
+          "color": "#1f9bff",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "happy",
+          "shirt": null,
+          "hands": false,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "point_r",
+              "scale": 0.46,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "point_r",
+              "scale": 0.46,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "format": "kinetic-typography+scenery",
+    "topic": "smart_unhappy",
+    "tags": [
+      "intelligence and happiness",
+      "smart people problems",
+      "overthinking",
+      "high iq",
+      "psychology",
+      "psychology",
+      "shorts",
+      "Inklings"
+    ],
+    "hashtags": [
+      "#shorts",
+      "#psychology",
+      "#smartunhappy",
+      "#inklings"
+    ],
+    "sop": {
+      "hook": "The smarter you are, the harder happiness gets.",
+      "explain": "Researchers keep finding a link between high IQ and overthinking. A sharp mind spots every flaw, including its own. It struggles to switch off and just enjoy things. Awareness is a gift that comes with a cost.",
+      "reframe": "But intelligence isn't the enemy of happiness, overthinking is. The same mind that overanalyzes can learn to savor. Point that focus at what's good right now. A sharp mind can be trained toward peace.",
+      "cta_question": "Do you think smart people are less happy, agree or disagree?",
+      "specificity": "smarter you are"
+    }
+  }
+}

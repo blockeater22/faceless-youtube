@@ -350,6 +350,45 @@ TOPICS = [
         title_behavior="You Rehearse Conversations", title_outcome="That Never Happen",
         keywords=["anticipatory anxiety", "rehearsing conversations", "overthinking", "intrusive thoughts", "self compassion"],
     ),
+    # ---- Week 4: viral-mechanics test. Same overthinker lane, but
+    # COUNTER-INTUITIVE + FLATTERING hooks (shareable/debatable) and BINARY
+    # comment-bait CTAs. A/B test vs the self-compassion framing. ----
+    dict(
+        slug="overthinking_intelligence",
+        hook="Your overthinking might be a sign of high intelligence.",
+        explain="Researchers link chronic overthinking to higher verbal intelligence. Your brain runs more simulations before it acts. "
+                "It spots problems other people walk right past. That same engine keeps you up at night.",
+        reframe="So your overthinking isn't a flaw, it's an overpowered engine. The trick isn't shutting it off, it's pointing it somewhere. "
+                "Aim that mind at problems worth solving. The same brain that worries can build.",
+        cta_question="Be honest, are you an overthinker, yes or no?",
+        specificity="high intelligence",
+        title_behavior="Overthinkers Are Secretly", title_outcome="More Intelligent",
+        keywords=["overthinking", "high intelligence", "signs of intelligence", "smart people problems", "psychology"],
+    ),
+    dict(
+        slug="highly_sensitive",
+        hook="Being too sensitive might be a rare neurological gift.",
+        explain="Scientists call it high sensory processing sensitivity. Your nervous system takes in more detail than most. "
+                "You feel other people's moods like they're your own. The world hits you at a higher volume.",
+        reframe="So being sensitive isn't weakness, it's a sharper antenna. You notice the things that make people feel seen. "
+                "That depth is why people trust you with the real stuff. The same nerve that aches is the one that connects.",
+        cta_question="Are you the sensitive one in your group, yes or no?",
+        specificity="too sensitive",
+        title_behavior="Being Too Sensitive Is", title_outcome="Secretly A Strength",
+        keywords=["highly sensitive person", "too sensitive", "empath", "hsp", "emotional intelligence"],
+    ),
+    dict(
+        slug="smart_unhappy",
+        hook="The smarter you are, the harder happiness gets.",
+        explain="Researchers keep finding a link between high IQ and overthinking. A sharp mind spots every flaw, including its own. "
+                "It struggles to switch off and just enjoy things. Awareness is a gift that comes with a cost.",
+        reframe="But intelligence isn't the enemy of happiness, overthinking is. The same mind that overanalyzes can learn to savor. "
+                "Point that focus at what's good right now. A sharp mind can be trained toward peace.",
+        cta_question="Do you think smart people are less happy, agree or disagree?",
+        specificity="smarter you are",
+        title_behavior="Smart People Struggle", title_outcome="To Be Happy",
+        keywords=["intelligence and happiness", "smart people problems", "overthinking", "high iq", "psychology"],
+    ),
 ]
 
 assert len({t["slug"] for t in TOPICS}) == len(TOPICS)

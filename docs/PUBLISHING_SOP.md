@@ -301,3 +301,101 @@ What's a conversation you fully rehearsed that never actually happened? 🚿 Sho
 ```
 anticipatory anxiety, rehearsing conversations, shower arguments, why do i rehearse conversations, overthinking, intrusive thoughts, imaginary arguments, psychology shorts, mental health, self compassion, overthinker, relatable, stickman animation, psychology facts, anxiety relief
 ```
+
+---
+
+# Week 4 — VIRAL-MECHANICS TEST (counter-intuitive + flattering + debate CTA)
+
+> **Why this batch is different.** Weeks 1–3 used relatable-observation hooks +
+> "describe your experience" CTAs and underperformed on views/comments. These
+> three keep the proven **overthinker lane** but flip the mechanics to how
+> viral psychology shorts actually work:
+> - **Hook = a counter-intuitive claim** (curiosity gap), not an observation.
+> - **Angle = flattering identity** ("you're secretly smart/deep") → people
+>   *share* it ("this is so me") and *argue* about it.
+> - **CTA = binary / debate** ("yes or no?", "agree or disagree?") → one-word
+>   comments are 10× easier than describing a personal story.
+>
+> Treat this as an A/B test against the Week 1–3 framing. Post these, watch
+> **retention (first 3s) + comment count** vs the older ones, and we double down
+> on whichever wins. Same playbook (pin the question, reply fast, 8 AM / 8 PM).
+
+Files:
+- `output/overthinking_intelligence_9x16.mp4` + `output/overthinking_intelligence_thumb.png`
+- `output/highly_sensitive_9x16.mp4` + `output/highly_sensitive_thumb.png`
+- `output/smart_unhappy_9x16.mp4` + `output/smart_unhappy_thumb.png`
+
+## #10 — Overthinking = Intelligence · Mon
+
+**Title:**
+```
+Why Overthinkers Are Secretly More Intelligent
+```
+**Description:**
+```
+Your overthinking might be a sign of high intelligence. Researchers link chronic overthinking to higher verbal intelligence — your brain runs more simulations before it acts and spots problems other people walk right past. That same engine is what keeps you up at night.
+
+So it isn't a flaw, it's an overpowered engine. The trick isn't shutting it off — it's pointing it at problems worth solving.
+
+💬 Be honest — are you an overthinker? Yes or no 👇
+
+#shorts #psychology #overthinking #intelligence #smartpeople
+```
+**Pinned first comment:**
+```
+Be honest — are you an overthinker? Comment YES or NO 👀 (I'm a hard yes)
+```
+**Tags:**
+```
+overthinking, signs of high intelligence, are overthinkers smart, smart people problems, high iq, overthinker, psychology shorts, intelligence, mental health, why do i overthink, relatable, stickman animation, psychology facts, deep thinker, verbal intelligence
+```
+
+## #11 — Highly Sensitive = Strength · Wed
+
+**Title:**
+```
+Why Being Too Sensitive Is Secretly A Strength
+```
+**Description:**
+```
+Being "too sensitive" might be a rare neurological gift. Scientists call it high sensory processing sensitivity — your nervous system takes in more detail than most, so you feel other people's moods like your own and the world hits you at a higher volume.
+
+So it isn't weakness — it's a sharper antenna. That depth is exactly why people trust you with the real stuff.
+
+💬 Are you the sensitive one in your group? Yes or no 👇
+
+#shorts #psychology #highlysensitive #empath #emotionalintelligence
+```
+**Pinned first comment:**
+```
+Are you the sensitive one in your friend group? YES or NO 🙋 No wrong answer.
+```
+**Tags:**
+```
+highly sensitive person, hsp, too sensitive, empath, emotional intelligence, sensory processing sensitivity, are you an empath, psychology shorts, mental health, deep feeler, relatable, stickman animation, psychology facts, self worth, sensitive people
+```
+
+## #12 — Smart People Struggle To Be Happy · Fri
+
+**Title:**
+```
+Why Smart People Struggle To Be Happy
+```
+**Description:**
+```
+The smarter you are, the harder happiness gets. Researchers keep finding a link between high IQ and overthinking — a sharp mind spots every flaw (including its own) and struggles to switch off and just enjoy things. Awareness is a gift that comes with a cost.
+
+But intelligence isn't the enemy of happiness — overthinking is. The same mind that overanalyzes can be trained to savor.
+
+💬 Do you think smart people are less happy? Agree or disagree 👇
+
+#shorts #psychology #intelligence #overthinking #happiness
+```
+**Pinned first comment:**
+```
+Do smart people struggle more to be happy? AGREE or DISAGREE — fight it out below 👇
+```
+**Tags:**
+```
+intelligence and happiness, smart people problems, are smart people less happy, high iq, overthinking, why am i not happy, psychology shorts, mental health, deep thinker, philosophy, relatable, stickman animation, psychology facts, self awareness, intelligence
+```

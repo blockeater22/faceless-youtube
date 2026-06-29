@@ -1,0 +1,809 @@
+{
+  "title": "Why Being Too Sensitive Is Secretly A Strength",
+  "handle": "@Inklings1",
+  "hook": "BEING TOO SENSITIVE MIGHT BE A RARE NEUROLOGICAL GIFT",
+  "hook_dur": 1.3,
+  "style": {
+    "background": "#ffffff",
+    "ink": "#15161a",
+    "accent": "#ff5d5d",
+    "muted": "#9aa0ab",
+    "palette": [
+      "#ff5d5d",
+      "#1f9bff",
+      "#ffb454",
+      "#23b26d",
+      "#a463f2"
+    ],
+    "fps": 30,
+    "grain": 0.0,
+    "vignette": 0.0,
+    "draw_on": 0.9,
+    "hook_y": 0.24,
+    "sfx": true,
+    "char_style": "line",
+    "caption": {
+      "mode": "kinetic",
+      "size": 0.095,
+      "y": 0.85,
+      "max_chars": 14
+    }
+  },
+  "voice": {
+    "backend": "kokoro",
+    "voice": "am_liam",
+    "polish": true,
+    "gap": 0.3
+  },
+  "scenes": [
+    {
+      "id": "01_hook",
+      "beat": "hook",
+      "narration": "Being too sensitive might be a rare neurological gift.",
+      "min_dur": 3.4,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "props": [],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "surprised",
+          "shirt": null,
+          "hands": false,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.66
+              ],
+              "pose": "shrug",
+              "scale": 0.42,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.5,
+                0.66
+              ],
+              "pose": "shrug",
+              "scale": 0.42,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "explain_1",
+      "beat": "explain",
+      "narration": "Scientists call it high sensory processing sensitivity.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.06,
+          "pan": [
+            0.5,
+            0.47
+          ]
+        }
+      ],
+      "props": [],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "think",
+          "shirt": null,
+          "hands": false,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "sit",
+              "scale": 0.46,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "sit",
+              "scale": 0.46,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "explain_2",
+      "beat": "explain",
+      "narration": "Your nervous system takes in more detail than most.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "props": [],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "think",
+          "shirt": null,
+          "hands": false,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.42,
+                0.52
+              ],
+              "pose": "point_l",
+              "scale": 0.46,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.42,
+                0.52
+              ],
+              "pose": "point_l",
+              "scale": 0.46,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "explain_3",
+      "beat": "explain",
+      "narration": "You feel other people's moods like they're your own.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.05,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "props": [],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "worried",
+          "shirt": null,
+          "hands": false,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.3,
+                0.58
+              ],
+              "pose": "shrug",
+              "scale": 0.37,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.3,
+                0.58
+              ],
+              "pose": "shrug",
+              "scale": 0.37,
+              "alpha": 1
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "id": "other",
+          "color": "muted",
+          "face": "neutral",
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.71,
+                0.58
+              ],
+              "pose": "walk_a",
+              "scale": 0.37,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.71,
+                0.58
+              ],
+              "pose": "walk_a",
+              "scale": 0.37,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "explain_4",
+      "beat": "explain",
+      "narration": "The world hits you at a higher volume.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp3",
+          "name": "arrow_up",
+          "color": "#23b26d",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "think",
+          "shirt": null,
+          "hands": false,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "arms_up",
+              "scale": 0.46,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "arms_up",
+              "scale": 0.46,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reframe_1",
+      "beat": "reframe",
+      "narration": "So being sensitive isn't weakness, it's a sharper antenna.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.07,
+          "pan": [
+            0.5,
+            0.43
+          ]
+        }
+      ],
+      "props": [],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "happy",
+          "shirt": null,
+          "hands": false,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "sit",
+              "scale": 0.46,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "sit",
+              "scale": 0.46,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reframe_2",
+      "beat": "reframe",
+      "narration": "You notice the things that make people feel seen.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.115,
+          "pan": [
+            0.42,
+            0.43
+          ]
+        }
+      ],
+      "props": [],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "happy",
+          "shirt": null,
+          "hands": false,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.42,
+                0.52
+              ],
+              "pose": "hips",
+              "scale": 0.46,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.42,
+                0.52
+              ],
+              "pose": "hips",
+              "scale": 0.46,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reframe_3",
+      "beat": "reframe",
+      "narration": "That depth is why people trust you with the real stuff.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.1600000000000001,
+          "pan": [
+            0.58,
+            0.43
+          ]
+        }
+      ],
+      "props": [],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "happy",
+          "shirt": null,
+          "hands": false,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.58,
+                0.52
+              ],
+              "pose": "reach",
+              "scale": 0.46,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.58,
+                0.52
+              ],
+              "pose": "reach",
+              "scale": 0.46,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reframe_4",
+      "beat": "reframe",
+      "narration": "The same nerve that aches is the one that connects.",
+      "min_dur": 2.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.18,
+          "pan": [
+            0.5,
+            0.43
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp3",
+          "name": "heart",
+          "color": "#ff5d5d",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "happy",
+          "shirt": null,
+          "hands": false,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "celebrate",
+              "scale": 0.46,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "celebrate",
+              "scale": 0.46,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "99_cta",
+      "beat": "cta",
+      "narration": "Are you the sensitive one in your group, yes or no? Drop it below.",
+      "min_dur": 3.6,
+      "camera": [
+        {
+          "t": 0.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "t": 1.0,
+          "zoom": 1.0,
+          "pan": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "props": [
+        {
+          "type": "icon",
+          "id": "dp0",
+          "name": "chat",
+          "color": "#1f9bff",
+          "r": 0.094,
+          "front": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 0.5,
+              "alpha": 0.0
+            },
+            {
+              "t": 0.16,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.08,
+              "alpha": 1.0,
+              "ease": "pop"
+            },
+            {
+              "t": 0.6,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.0,
+              "alpha": 1.0
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.81,
+                0.27
+              ],
+              "scale": 1.03,
+              "alpha": 1.0
+            }
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "type": "figure",
+          "id": "narrator",
+          "color": "ink",
+          "face": "happy",
+          "shirt": null,
+          "hands": false,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "point_r",
+              "scale": 0.46,
+              "alpha": 1
+            },
+            {
+              "t": 1.0,
+              "pos": [
+                0.5,
+                0.52
+              ],
+              "pose": "point_r",
+              "scale": 0.46,
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "format": "kinetic-typography+scenery",
+    "topic": "highly_sensitive",
+    "tags": [
+      "highly sensitive person",
+      "too sensitive",
+      "empath",
+      "hsp",
+      "emotional intelligence",
+      "psychology",
+      "shorts",
+      "Inklings"
+    ],
+    "hashtags": [
+      "#shorts",
+      "#psychology",
+      "#highlysensitive",
+      "#inklings"
+    ],
+    "sop": {
+      "hook": "Being too sensitive might be a rare neurological gift.",
+      "explain": "Scientists call it high sensory processing sensitivity. Your nervous system takes in more detail than most. You feel other people's moods like they're your own. The world hits you at a higher volume.",
+      "reframe": "So being sensitive isn't weakness, it's a sharper antenna. You notice the things that make people feel seen. That depth is why people trust you with the real stuff. The same nerve that aches is the one that connects.",
+      "cta_question": "Are you the sensitive one in your group, yes or no?",
+      "specificity": "too sensitive"
+    }
+  }
+}

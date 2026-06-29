@@ -27,6 +27,7 @@ registry-based seams — so every remaining module plugs in without a rewrite.
 | Assets | `stickforge/assets` | runtime content library (characters/clips), packs |
 | **Asset Intelligence** | `stickforge/registry` | **the semantic asset knowledge base** — canonical metadata schema, taxonomy, inverted-index semantic query, relationships, anchors, variants, constraints; the single source of truth every future engine queries (no file paths) |
 | **Cognitive (narrative)** | `stickforge/narrative` | **the story brain** — understanding (analysis + characters + segmentation) → Intent Graph → Scene Planner → validated Scene Graph; pluggable inference provider (heuristic now, LLM later). Downstream engines consume the Scene Graph, never English |
+| **World** | `stickforge/world` | **Procedural World Simulation Engine** — Scene Graph → instantiated **World Graph**: constraint-placed props (registry-resolved), interaction zones, navigation graph, lighting, weather, environmental storytelling. Built on `stage` + `registry`; no image generation, no coordinate templates |
 | **Parts** | `stickforge/parts` | **Character Design System** — per-category style registries (art providers) |
 | Rig + Character | `stickforge/character` | cartoon/line skeletons (FK), `ActorDesign` assembly |
 | Pose | `stickforge/pose` | named, blendable joint poses |
@@ -62,8 +63,8 @@ backend and is not the product look.
 | 12 | Story Engine | **Built (cognitive layer)** | `narrative/` — Narrative Understanding Engine (story analysis + character models + Scene→Beat→Action segmentation, all confidence-scored) → typed **Intent Graph** → **Scene Planning Engine** → versioned, **validated Scene Graph** of semantic requirements (no asset refs). Pluggable analyzer (heuristic now, LLM later); 300 synthetic stories analyze+plan+validate in <1s. (`story/` remains the low-level beat/dialogue performer.) |
 | 13 | Voice Sync Engine | **Built (basic)** | `voice/engine.py` — pluggable TTS registry + timing model (silent backend); beat/subtitle timing derives from it (real audio backends plug in) |
 | 14 | Lip Sync Engine | **Built (basic)** | `voice/lipsync.py` — syllable→viseme stream drives `mouth_open`/`mouth_curve`, synced to each spoken beat (no audio needed) |
-| 15 | Background Generator | **Partial** | `render/svg.py:_scenery` (night/ground); register more scenery kinds |
-| 16 | Props Engine | **Built (basic)** | `scene` props + `render/svg.py:_prop` (label/circle/rect/line) |
+| 15 | Background Generator | **Built (procedural)** | `world/` Procedural World Simulation Engine — rooms/environments composed procedurally (no image gen, no templates), with lighting + weather + storytelling |
+| 16 | Props Engine | **Built (procedural)** | `world/placement.py` — constraint-based placement resolving registry assets onto surfaces/anchors with collision + relationships |
 | 17 | Particle & FX Engine | **Built (basic)** | `render/fx.py` — speed lines, impact, sweat, stars, lightbulb, hearts, anger via `FX` registry |
 | 18 | Transition Engine | **Partial** | per-clip easing + camera; add cross-scene transitions in `Timeline` |
 | 19 | Subtitle Engine | **Built** | timed subtitle cues (`Scene.subtitles` / `subtitle_at`), auto-synced by the Story Engine |
@@ -79,6 +80,35 @@ builds on.
 `ASSET_TYPES`, `RENDERERS`, `EASINGS`, `SKELETONS`, `POSES`, `EXPRESSIONS`,
 `ATTACHMENTS` are all registries. A plugin imports the registry and registers —
 no core change, no fork.
+
+## Procedural World Simulation Engine (story → living world)
+
+`stickforge/world/` is the bridge between understanding and direction. It turns
+a semantic Scene Graph into a fully-instantiated **World Graph**:
+
+```python
+from stickforge.narrative import understand_story, plan
+from stickforge.world import build_world
+spec = plan(understand_story("John nervously entered his interview on a rainy morning."))[0]
+world = build_world(spec, seed=3)          # -> WorldGraph (validated)
+world.to_scene_graph()                      # -> stage.SceneGraph for rendering
+```
+
+Pipeline: **storytelling** (wealth/cleanliness/style from the scene) → **room**
+(parametric shell + slots, seed-varied — never a template) → **placement**
+(each semantic requirement resolved against the registry and constraint-placed:
+surface rules, collision, "on" relationships like laptop→desk) → **decoration**
+→ **characters** → **interaction zones** (working/seating/entrance/path/
+camera-safe) → **navigation graph** (Dijkstra pathfinding) → **lighting**
+(motivated key/fill/ambient) → **weather** → **optimize** (instancing/LOD/cache)
+→ **validate** (floating/overlap/blocked/inaccessible/scale).
+
+Design choices (challenged): worlds are **composed from constraints over
+registry assets**, not coordinate templates, and degrade to semantic
+placeholders when no concrete asset exists — the contract is semantic, so it
+works today with 12 assets and tomorrow with 100k. The World Graph is built on
+the `stage` scene graph, so renderer/Cinematic consume it natively. Validated at
+scale (120 stories → worlds, nearly all valid, <1s).
 
 ## Cognitive layer (the story brain — understanding before rendering)
 

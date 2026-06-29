@@ -74,6 +74,25 @@ IllustratedRenderer ─> clean SVG frames ─> HTML player / MP4
 
 ---
 
+## Procedural World Simulation Engine (story → living world)
+
+Turns a Scene Graph into a fully-instantiated, validated World Graph — rooms,
+constraint-placed props (resolved from the registry), interaction zones,
+navigation, lighting, weather, and environmental storytelling. No image
+generation, no coordinate templates.
+
+```python
+from stickforge.narrative import understand_story, plan
+from stickforge.world import build_world
+spec = plan(understand_story("John entered his interview on a rainy morning."))[0]
+world = build_world(spec, seed=3)     # placed props, zones, nav, lights, valid
+world.nav.path("nav.zone.entrance", "nav.zone.working")   # characters navigate
+```
+
+```bash
+python -m stickforge world "A cozy family dinner in the kitchen on a snowy evening."
+```
+
 ## Cognitive layer (understand a story, then plan it)
 
 The story brain turns prose into a validated, structured Scene Graph — nothing

@@ -152,6 +152,26 @@ def _understand(args) -> int:
     return 0
 
 
+def _world(args) -> int:
+    from pathlib import Path as _P
+    from .narrative import understand_story, plan
+    from .world import build_world
+    text = _P(args.script).read_text(encoding="utf-8") if _P(args.script).exists() \
+        else args.script
+    for spec in plan(understand_story(text)):
+        w = build_world(spec, seed=args.seed)
+        b = w.bounds
+        print(f"\n{w.scene_id}: {w.story['reads_as']}  ({b['env']}/{b['room_type']}, "
+              f"width {b['width']:.0f})  [{w.validation['status']}]")
+        print("  objects:", [f"{o.semantic_role}" for o in w.objects
+                             if o.role not in ("shell",)])
+        print("  zones:  ", [z.kind for z in w.zones])
+        print("  lights: ", [l.kind for l in w.lights], "| weather:", w.weather["type"])
+        print("  stats:  ", {k: w.stats[k] for k in
+                             ("objects", "unique_assets", "placeholders", "nav_nodes")})
+    return 0
+
+
 def _registry(args) -> int:
     from .registry import default_registry
     reg = default_registry()
@@ -286,6 +306,11 @@ def main(argv=None) -> int:
     un.add_argument("script", help="a script string or path to a .txt")
     un.add_argument("--json", action="store_true")
     un.set_defaults(fn=_understand)
+
+    wd = sub.add_parser("world", help="build a procedural World Graph from a story")
+    wd.add_argument("script", help="a script string or path to a .txt")
+    wd.add_argument("--seed", type=int, default=0)
+    wd.set_defaults(fn=_world)
 
     rg = sub.add_parser("registry", help="query the Asset Intelligence Engine")
     rg.add_argument("query", nargs="?", default="")

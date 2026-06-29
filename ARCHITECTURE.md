@@ -28,6 +28,7 @@ registry-based seams — so every remaining module plugs in without a rewrite.
 | **Asset Intelligence** | `stickforge/registry` | **the semantic asset knowledge base** — canonical metadata schema, taxonomy, inverted-index semantic query, relationships, anchors, variants, constraints; the single source of truth every future engine queries (no file paths) |
 | **Cognitive (narrative)** | `stickforge/narrative` | **the story brain** — understanding (analysis + characters + segmentation) → Intent Graph → Scene Planner → validated Scene Graph; pluggable inference provider (heuristic now, LLM later). Downstream engines consume the Scene Graph, never English |
 | **World** | `stickforge/world` | **Procedural World Simulation Engine** — Scene Graph → instantiated **World Graph**: constraint-placed props (registry-resolved), interaction zones, navigation graph, lighting, weather, environmental storytelling. Built on `stage` + `registry`; no image generation, no coordinate templates |
+| **Stage Direction** | `stickforge/direction` | the **performance director** — World Graph → **Blocking Graph**: proxemics/status blocking, eye-contact choreography, motivated movement (over the nav graph), scene rhythm, interaction reservation, and cross-scene continuity. Reuses `acting` + `world`; the camera observes this, it doesn't create it |
 | **Parts** | `stickforge/parts` | **Character Design System** — per-category style registries (art providers) |
 | Rig + Character | `stickforge/character` | cartoon/line skeletons (FK), `ActorDesign` assembly |
 | Pose | `stickforge/pose` | named, blendable joint poses |
@@ -80,6 +81,34 @@ builds on.
 `ASSET_TYPES`, `RENDERERS`, `EASINGS`, `SKELETONS`, `POSES`, `EXPRESSIONS`,
 `ATTACHMENTS` are all registries. A plugin imports the registry and registers —
 no core change, no fork.
+
+## Stage Direction Engine (performances before cameras)
+
+`stickforge/direction/` directs actors on the built world — the layer between
+the World Engine and the (future) camera.
+
+```python
+from stickforge.direction import direct_scene, direct_story
+g = direct_scene(world, scene_spec)        # -> BlockingGraph (validated)
+g.marks            # who stands where + why (proxemics/status/posture)
+g.beats            # timed move/look/gesture/speak/react/pause/interact (+ motivation)
+graphs, state = direct_story(worlds, specs)  # continuity across scenes
+```
+
+- **proxemics.py** Hall distances + status/power + posture; **blocking.py**
+  sequential placement (status claims space, fearful edge to exits, clear of
+  furniture, readable separation); **performance.py** the planners
+  (movement/eye-contact/gesture/interaction/emotional) + **scene rhythm**
+  (enter→settle→look→pause→speak/gesture→react with emotion-driven timing);
+  **continuity.py** persistent `CharacterState`; **validate.py** rejects
+  in-furniture / overlap / broken-look / unreachable. Reuses `acting.emotion`
+  for body-language content (no duplicate acting system).
+
+Design choice (challenged): this engine owns *blocking, gaze, rhythm, and
+continuity* and emits a structured **Blocking Graph** — it does not re-implement
+per-actor acting (delegated to `acting`) and emits no cameras or curves. The
+Director AI will choose *how to film* this performance; the Cinematic Engine
+realizes the shots; neither changes how the actors behave.
 
 ## Procedural World Simulation Engine (story → living world)
 

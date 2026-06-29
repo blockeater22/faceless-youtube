@@ -74,6 +74,23 @@ IllustratedRenderer ─> clean SVG frames ─> HTML player / MP4
 
 ---
 
+## Stage Direction Engine (direct the actors, before any camera)
+
+Turns a World Graph into believable performances — who stands where (proxemics +
+status), where they look, how they move (motivated), and the rhythm of it all —
+as a validated Blocking Graph. The camera later observes this; it doesn't create it.
+
+```python
+from stickforge.direction import direct_scene, direct_story
+g = direct_scene(world, scene_spec)     # marks (blocking) + timed performance beats
+g.marks["Boss"].posture                  # 'open' (confident, high status, claims space)
+graphs, state = direct_story(worlds, specs)   # continuity across scenes
+```
+
+```bash
+python -m stickforge direct "Ann and Ben argue in the kitchen. ANN: You never listen!"
+```
+
 ## Procedural World Simulation Engine (story → living world)
 
 Turns a Scene Graph into a fully-instantiated, validated World Graph — rooms,

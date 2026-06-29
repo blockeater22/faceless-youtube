@@ -172,6 +172,26 @@ def _world(args) -> int:
     return 0
 
 
+def _direct(args) -> int:
+    from pathlib import Path as _P
+    from .narrative import understand_story, plan
+    from .world import build_world
+    from .direction import direct_scene
+    text = _P(args.script).read_text(encoding="utf-8") if _P(args.script).exists() \
+        else args.script
+    for spec in plan(understand_story(text)):
+        w = build_world(spec, seed=args.seed)
+        g = direct_scene(w, spec)
+        print(f"\n{g.scene_id}: {g.duration:.1f}s  [{g.validation['status']}]  "
+              f"{g.stats}")
+        for n, m in g.marks.items():
+            print(f"  {n:14s} zone={m.zone:12s} x={m.position.x:7.0f} "
+                  f"face={m.facing:+d} posture={m.posture:9s} status={m.status:.2f}")
+        for b in g.beats[:12]:
+            print(f"  t={b.t:5.2f} {b.actor:12s} {b.kind:8s} :: {b.note}")
+    return 0
+
+
 def _registry(args) -> int:
     from .registry import default_registry
     reg = default_registry()
@@ -311,6 +331,11 @@ def main(argv=None) -> int:
     wd.add_argument("script", help="a script string or path to a .txt")
     wd.add_argument("--seed", type=int, default=0)
     wd.set_defaults(fn=_world)
+
+    dr = sub.add_parser("direct", help="stage-direct performances (Blocking Graph)")
+    dr.add_argument("script", help="a script string or path to a .txt")
+    dr.add_argument("--seed", type=int, default=0)
+    dr.set_defaults(fn=_direct)
 
     rg = sub.add_parser("registry", help="query the Asset Intelligence Engine")
     rg.add_argument("query", nargs="?", default="")
